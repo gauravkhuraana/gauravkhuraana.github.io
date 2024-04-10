@@ -6,7 +6,7 @@ permalink: /about/
 
 ## Gaurav Khurana
 
-### Tester Extraordinaire | Blogger | YouTuber | Memelord
+### Tester Extraordinaire | Blogger | YouTuber | Memelord | Tester
 
 
 
