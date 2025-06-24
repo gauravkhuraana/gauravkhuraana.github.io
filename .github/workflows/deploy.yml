@@ -33,3 +33,6 @@ jobs:
           git add .
           git commit -m "Deploy Docusaurus site"
           git push origin main
+        env:
+          GIT_ASKPASS: echo
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}  
