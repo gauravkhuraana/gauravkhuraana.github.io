@@ -30,8 +30,9 @@ jobs:
           touch .nojekyll
           git config user.name "Gaurav"
           git config user.email "gaurav.jaz@gmail.com"
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/gauravkhuraana/gauravkhuraana.github.io.git
           git add .
-          git commit -m "Deploy Docusaurus site"
+          git commit -m "Deploy site from GitHub Actions"
           git push origin main
         env:
           GIT_ASKPASS: echo
