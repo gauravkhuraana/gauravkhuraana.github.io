@@ -7,14 +7,6 @@ slug: /my-custom-url
 
 ## Markdown heading
 
-Markdown text with [links](./hello.md)
-
-
-Let's see how to [Create a page](/create-a-page).
-
-
-Let's see how to [Create a page](./create-a-page.md).
-
 ![Docusaurus logo](/img/docusaurus.png)
 
 ```jsx title="src/components/HelloDocusaurus.js"
