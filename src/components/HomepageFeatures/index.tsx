@@ -11,32 +11,33 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'Who Am I?',
+    Svg: require('@site/static/img/logo.svg').default,
+    description: (
+      <>
+      My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
+      I have been working in the software industry for over 15+ years.
+      Currently Working in Micrsoft for 6+ years
+      </>
+    ),
+  },
+  {
+    title: 'Sharing is Caring',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+       I  believe in #SharingIsCaring. This  website is a collection of
+        resources, tools, and tips that I have found useful in my journey as a tester.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: 'Powered by React',
+    title: 'Udzial Means Share',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+       I have a youtube channel( @Udzial ) and blog with the name ( udzial.com )
+       Udzial Is a polish word that means "share".
       </>
     ),
   },

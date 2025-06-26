@@ -7,7 +7,7 @@ slug: /my-custom-url
 
 ## Markdown heading
 
-![Docusaurus logo](/img/docusaurus.png)
+![Docusaurus logo](/img/gauravkhurana.png)
 
 ```jsx title="src/components/HelloDocusaurus.js"
 function HelloDocusaurus() {

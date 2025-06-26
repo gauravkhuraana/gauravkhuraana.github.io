@@ -23,8 +23,8 @@ const sidebars: SidebarsConfig = {
     'hello',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
+      label: 'Start Here',
+      items: ['Testing/create-a-document'],
     },
   ],
    */

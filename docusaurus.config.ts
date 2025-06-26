@@ -46,7 +46,8 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/gauravkhuraana/gauravkhurana/edit/main/',
+            'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
+
 
         },
         blog: {
@@ -75,7 +76,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'SharingIsCaring',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -89,7 +90,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/gauravkhuraana/gauravkhurana.github.io',
+          href: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io',
           label: 'GitHub',
           position: 'right',
         },
@@ -102,7 +103,7 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
+              label: 'Start Here',
               to: '/docs/intro',
             },
           ],
@@ -133,12 +134,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/gauravkhuraana/gauravkhurana.github.io',
+              href: 'https://github.com/gauravkhuraana/gauravkhuarana.github.io',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana, Inc. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -23,3 +23,17 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+GauravKhurana:
+  name: Gaurav Khurana
+  title: Software Engineer
+  url: https://gauravkhurana.in
+  image_url: https://github.com/GauravKhurana.png
+  page:
+    # customize the url of the author page at /blog/authors/<permalink>
+    permalink: '/all-gaurav-khurana-articles'
+  socials:
+    x: gauravkhurana
+    linkedin: gauravkhurana
+    github: gauravkhuraana
+    newsletter: https://thisweekinreact.com
