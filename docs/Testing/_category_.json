@@ -1,8 +1,10 @@
 {
-  "label": "Testing",
+  "label": "🧪 Testing",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "All about software testing"
+    "title": "Software Testing Mastery",
+    "description": "Comprehensive guides covering all aspects of software testing - from fundamentals to advanced strategies, best practices, and real-world application techniques.",
+    "keywords": ["testing", "quality assurance", "test strategies", "software testing", "QA"]
   }
 }

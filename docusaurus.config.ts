@@ -5,8 +5,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'My Site',
-  tagline: 'Dinosaurs are cool',
+  title: 'Gaurav Khurana',
+  tagline: 'Sharing is Caring',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -26,7 +26,7 @@ const config: Config = {
   organizationName: 'gauravkhuraana', // Usually your GitHub org/user name.
   projectName: 'gauravkhuraana.github.io', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -90,8 +90,18 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io',
-          label: 'GitHub',
+          href: 'https://www.topmate.io/gauravkhurana',
+          label: 'Need Guidance?',
+          position: 'right',
+        },
+        {
+          href: 'https://www.youtube.com/@Udzial/playlists',
+          label: 'My YouTube Playlists',
+          position: 'right',
+        },
+                {
+          href: 'https://www.medium.com/@gauravkhuraana',
+          label: 'Medium',
           position: 'right',
         },
       ],
@@ -134,12 +144,12 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/gauravkhuraana/gauravkhuarana.github.io',
+              href: 'https://github.com/gauravkhuraana',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

@@ -1,0 +1,10 @@
+{
+  "label": "🛠️ Tools",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "title": "Testing & Automation Tools",
+    "description": "Comprehensive guides for testing and automation tools - from setup and configuration to advanced usage, comparisons, and best practices for maximum productivity.",
+    "keywords": ["testing tools", "automation tools", "selenium", "postman", "testing frameworks", "tool guides"]
+  }
+}

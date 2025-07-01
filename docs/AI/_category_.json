@@ -1,8 +1,10 @@
 {
-  "label": "AI",
+  "label": "🤖 AI",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "All about AI for software testing and automation`"
+    "title": "AI in Testing & Automation",
+    "description": "Explore how Artificial Intelligence is revolutionizing software testing and automation - from intelligent test generation to self-healing frameworks and predictive quality assurance.",
+    "keywords": ["AI testing", "artificial intelligence", "machine learning", "smart automation", "AI tools", "predictive testing"]
   }
 }

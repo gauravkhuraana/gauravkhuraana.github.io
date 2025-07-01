@@ -1,0 +1,74 @@
+---
+title: Git Commands
+description: Essential Git commands for daily development workflow
+sidebar_position: 1
+tags: [git, version-control, commands]
+---
+
+# Git Commands
+
+## Untrack Files Locally
+
+When you have files that you modify frequently locally but don't want to commit these changes, you can use Git's `assume-unchanged` feature.
+
+```bash title="Untrack files locally"
+# Untrack a file (Git will ignore local changes)
+git update-index --assume-unchanged <filenamewithfullpathfromdotgitfolder>
+
+# Track the file again
+git update-index --no-assume-unchanged <filenamewithfullpathfromdotgitfolder>
+
+# Example
+git update-index --assume-unchanged datafile.properties
+```
+
+### Learn More
+
+Watch this video to understand how the above commands work:
+
+[![Try these 2 commands to save time with each commit you make](https://i.ytimg.com/vi/eBp4GexlqLY/0.jpg)](https://www.youtube.com/watch?v=eBp4GexlqLY)
+
+## Revert a Wrong Branch Pull
+
+If you've pulled the wrong branch and want to revert it, follow these 4 steps:
+
+```bash title="Revert wrong branch pull"
+# Step 1: Check the commit history
+git log
+
+# Look for the commit hash of the state you want to revert to 
+# (usually, this is the one just before the pull)
+
+# Step 2: Reset your branch to the desired commit
+git reset --hard <commit_hash>
+
+# Step 3: Clean up any new files introduced by the pull
+git clean -f
+
+# Step 4: Verify the status
+git status
+```
+
+:::tip
+Always double-check the commit hash before running `git reset --hard` as this operation cannot be easily undone.
+:::
+
+## PowerShell Scripts
+
+### Delete All Local Branches
+
+Delete all local branches except the main branch using PowerShell:
+
+```powershell title="Delete all branches except main"
+git branch | Where-Object { $_.Trim() -ne "main" } | ForEach-Object { git branch -D $_.Trim() }
+```
+
+### Learn More
+
+Watch this video to understand how the branch deletion command works:
+
+[![Delete all local branches in 1 go](https://i.ytimg.com/vi/4Bl4hmvsXoI/0.jpg)](https://www.youtube.com/watch?v=4Bl4hmvsXoI)
+
+:::warning
+Be careful when deleting branches. Make sure you don't need any of the branches before running this command.
+:::

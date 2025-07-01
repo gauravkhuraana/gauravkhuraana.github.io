@@ -1,7 +1,10 @@
 {
-  "label": "Automation",
+  "label": "🚀 Automation",
   "position": 3,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "title": "Test Automation Mastery",
+    "description": "Master test automation from ground up - comprehensive guides covering programming languages, frameworks, design patterns, and advanced automation strategies for modern software development.",
+    "keywords": ["test automation", "selenium", "automation frameworks", "programming", "automation testing", "automation best practices"]
   }
 }
