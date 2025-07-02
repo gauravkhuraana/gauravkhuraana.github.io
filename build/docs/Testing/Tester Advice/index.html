@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Testing/Tester Advice/README" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Tester&#x27;s Advise to make Testing effective | Gaurav Khurana</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://gauravkhuraana.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://gauravkhuraana.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://gauravkhuraana.github.io/docs/Testing/Tester Advice/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Tester&#x27;s Advise to make Testing effective | Gaurav Khurana"><meta data-rh="true" name="description" content="click this if you prefer HTML way"><meta data-rh="true" property="og:description" content="click this if you prefer HTML way"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://gauravkhuraana.github.io/docs/Testing/Tester Advice/"><link data-rh="true" rel="alternate" href="https://gauravkhuraana.github.io/docs/Testing/Tester Advice/" hreflang="en"><link data-rh="true" rel="alternate" href="https://gauravkhuraana.github.io/docs/Testing/Tester Advice/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"🧪 Testing","item":"https://gauravkhuraana.github.io/docs/category/-testing"},{"@type":"ListItem","position":2,"name":"Tester's Advise to make Testing effective","item":"https://gauravkhuraana.github.io/docs/Testing/Tester Advice/"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Gaurav Khurana RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Gaurav Khurana Atom Feed"><link rel="stylesheet" href="/assets/css/styles.edaa812f.css">
+<script src="/assets/js/runtime~main.3e4327df.js" defer="defer"></script>
+<script src="/assets/js/main.b027be71.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">SharingIsCaring</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Tutorial</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://www.topmate.io/gauravkhurana" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Need Guidance?<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://www.youtube.com/@Udzial/playlists" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">My YouTube Playlists<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://www.medium.com/@gauravkhuraana" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">Medium<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro">Welcome</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" href="/docs/category/-testing">🧪 Testing</a><button aria-label="Collapse sidebar category &#x27;🧪 Testing&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Assumptions/">Assumptions in Tesing</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" tabindex="0" href="/docs/Testing/Automation/">README</a><button aria-label="Expand sidebar category &#x27;README&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Bugs/">Bugs in Testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Misconception in Testing/">README</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Test Data/">Test Data Management in Tesing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Testing/Tester Advice/">Tester&#x27;s Advise to make Testing effective</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Tester Skills/">Skills required in Software Testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Testing/Time Management/">Time Management</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/-automation">🚀 Automation</a><button aria-label="Expand sidebar category &#x27;🚀 Automation&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/hello">Hi!</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/-ai">🤖 AI</a><button aria-label="Expand sidebar category &#x27;🤖 AI&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" href="/docs/category/️-tools">🛠️ Tools</a><button aria-label="Expand sidebar category &#x27;🛠️ Tools&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Git/git-commands">Git</a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Topmate/testimonials">Topmate</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/docs/category/-testing"><span>🧪 Testing</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Tester&#x27;s Advise to make Testing effective</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Tester&#x27;s Advise to make Testing effective</h1></header>
+<p><a href="https://htmlpreview.github.io/?https://github.com/gauravkhuraana/Testing/blob/main/Tester%20Advice/Advice.html" target="_blank" rel="noopener noreferrer">click this if you prefer HTML way</a></p>
+<p><img decoding="async" loading="lazy" alt="Tester&amp;#39;s Advice" src="/assets/images/Tester Advice-4ebca4597b4929cb9e7818251c3a274c.jpg" title="Testers&amp;#39;s Advice" width="1727" height="3285" class="img_ev3q"></p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="table-of-contents">Table of Contents<a href="#table-of-contents" class="hash-link" aria-label="Direct link to Table of Contents" title="Direct link to Table of Contents">​</a></h2>
+<ul>
+<li><a href="#tester-s-advise-to-make-testing-effective">Tester&#x27;s Advise to make Testing effective</a>
+<ul>
+<li><a href="#get-basics-in-place-first">get basics in place first</a></li>
+<li><a href="#speak-up-and-show-your-presence">speak up and show your presence</a></li>
+<li><a href="#theory-and-hands-on-both-important">theory and hands on both important</a></li>
+<li><a href="#ask-for-help-and-offer-too">ask for help and offer too</a></li>
+<li><a href="#put-yourself-in-shoes-of-clients">put yourself in shoes of clients</a></li>
+<li><a href="#avoid-reinventing-the-wheel">Avoid reinventing the wheel</a></li>
+<li><a href="#be-self-reliant-as-much-as-possible">be self reliant as much as possible</a></li>
+<li><a href="#be-data-driven-as-a-tester">Be data driven as a tester</a></li>
+<li><a href="#understand-the-context">understand the context</a></li>
+<li><a href="#take-notes">Take notes</a></li>
+<li><a href="#treats-your-test-as-code">Treats your test as code</a></li>
+<li><a href="#to-make-testing-easy">to make testing easy</a></li>
+<li><a href="#test-your-product">test your product</a></li>
+<li><a href="#when-learning-any-tool-or-framework">When learning any tool or framework</a></li>
+<li><a href="#be-strong-in-fundamentals">Be Strong in fundamentals</a></li>
+<li><a href="#get-involved-early">get involved early</a></li>
+<li><a href="#practise-what-you-preach-or-change-your-speech">Practise what you preach or change your speech</a></li>
+<li><a href="#during-exploration">during exploration</a></li>
+<li><a href="#pay-attention-to-detail-no-matter-how-minute">Pay attention to detail no matter how minute</a></li>
+<li><a href="#how-to-learn">how to learn</a></li>
+<li><a href="#revise-what-you-already-know">Revise what you already know</a></li>
+<li><a href="#create-a-repo">create a repo</a></li>
+<li><a href="#follow-good-testers">follow good testers</a></li>
+<li><a href="#try-learning-basics-of-technologies">try learning basics of technologies</a></li>
+<li><a href="#revisit-your-regression-suite">revisit your Regression Suite</a></li>
+<li><a href="#find-your-growth-zone-in-current-testing-role">find your growth zone in current testing role</a></li>
+<li><a href="#shift-left">Shift left</a></li>
+<li><a href="#instead-of-learning-multiple-tools-or-technology">instead of learning multiple tools or technology</a></li>
+<li><a href="#never-set-limit-to-yourself">never set limit to yourself</a></li>
+<li><a href="#stay-focussed">stay focussed</a></li>
+<li><a href="#learning">learning</a></li>
+<li><a href="#focus-on-quality-of-the-process">Focus on quality of the process</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="advice">Advice<a href="#advice" class="hash-link" aria-label="Direct link to Advice" title="Direct link to Advice">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="research-till-you-find-perfect-solution">Research till you find perfect solution<a href="#research-till-you-find-perfect-solution" class="hash-link" aria-label="Direct link to Research till you find perfect solution" title="Direct link to Research till you find perfect solution">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="get-basics-in-place-first">get basics in place first<a href="#get-basics-in-place-first" class="hash-link" aria-label="Direct link to get basics in place first" title="Direct link to get basics in place first">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="speak-up-and-show-your-presence">speak up and show your presence<a href="#speak-up-and-show-your-presence" class="hash-link" aria-label="Direct link to speak up and show your presence" title="Direct link to speak up and show your presence">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="theory-and-hands-on-both-important">theory and hands on both important<a href="#theory-and-hands-on-both-important" class="hash-link" aria-label="Direct link to theory and hands on both important" title="Direct link to theory and hands on both important">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ask-for-help-and-offer-too">ask for help and offer too<a href="#ask-for-help-and-offer-too" class="hash-link" aria-label="Direct link to ask for help and offer too" title="Direct link to ask for help and offer too">​</a></h2>
+<p>if any of your commitment has gone</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="criticise-product">criticise product<a href="#criticise-product" class="hash-link" aria-label="Direct link to criticise product" title="Direct link to criticise product">​</a></h2>
+<p>not producer</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="put-yourself-in-shoes-of-clients">put yourself in shoes of clients<a href="#put-yourself-in-shoes-of-clients" class="hash-link" aria-label="Direct link to put yourself in shoes of clients" title="Direct link to put yourself in shoes of clients">​</a></h2>
+<p>business acument will improve
+Do same user behavior/actions with same user data</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="learn-unlearn-relearn">learn unlearn relearn<a href="#learn-unlearn-relearn" class="hash-link" aria-label="Direct link to learn unlearn relearn" title="Direct link to learn unlearn relearn">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="avoid-reinventing-the-wheel">Avoid reinventing the wheel<a href="#avoid-reinventing-the-wheel" class="hash-link" aria-label="Direct link to Avoid reinventing the wheel" title="Direct link to Avoid reinventing the wheel">​</a></h2>
+<p>unless existing solution does not exist</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="be-self-reliant-as-much-as-possible">be self reliant as much as possible<a href="#be-self-reliant-as-much-as-possible" class="hash-link" aria-label="Direct link to be self reliant as much as possible" title="Direct link to be self reliant as much as possible">​</a></h2>
+<p>but do ask help</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="be-data-driven-as-a-tester">Be data driven as a tester<a href="#be-data-driven-as-a-tester" class="hash-link" aria-label="Direct link to Be data driven as a tester" title="Direct link to Be data driven as a tester">​</a></h2>
+<p>make critical decisions based on
+data
+not on intutions
+Rely on data
+how you are progressing
+the human factor is must too(should definetely be there)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understand-the-context">understand the context<a href="#understand-the-context" class="hash-link" aria-label="Direct link to understand the context" title="Direct link to understand the context">​</a></h2>
+<p>behind each testing activity</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="take-a-step-back">take a step back<a href="#take-a-step-back" class="hash-link" aria-label="Direct link to take a step back" title="Direct link to take a step back">​</a></h2>
+<p>holistic view of what you are working
+1 priority should not affect other</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dont-just-ask-difficult-questions">Dont just ask difficult Questions<a href="#dont-just-ask-difficult-questions" class="hash-link" aria-label="Direct link to Dont just ask difficult Questions" title="Direct link to Dont just ask difficult Questions">​</a></h2>
+<p>entertain/embrace quest too
+it fascilitates thinking</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="take-notes">Take notes<a href="#take-notes" class="hash-link" aria-label="Direct link to Take notes" title="Direct link to Take notes">​</a></h2>
+<p>online workshops
+talks
+webinars
+during meetings
+conversations
+even while testing the software
+it helps you in asking questions as well
+try having hand written
+they are better
+even if recorded</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="treats-your-test-as-code">Treats your test as code<a href="#treats-your-test-as-code" class="hash-link" aria-label="Direct link to Treats your test as code" title="Direct link to Treats your test as code">​</a></h2>
+<p>test is measured over time
+should grow with product and update as needed
+once it stops adding new insights or value
+remove them</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="to-make-testing-easy">to make testing easy<a href="#to-make-testing-easy" class="hash-link" aria-label="Direct link to to make testing easy" title="Direct link to to make testing easy">​</a></h2>
+<p>Read books/magazine/blogs
+attend
+confernces/webinars/Events/meetups/AMA
+apply the concepts learned</p>
+<p>take some courses
+which help you learn
+upgrade your soft skills as well
+be a part of community
+do active participation
+connect with people on diff platforms
+Share your views irrespective if you agree or disagree
+good chance of getting feedback
+Believe
+understand
+accept
+no one is perfect
+no one knows everything
+your knowledge improves over the years with your efforts
+Don&#x27;t get disappointed
+by comparing to others
+compare yourself with your previous self
+invest in learning like you do for
+stocks
+Real Estate</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="comprehend-project">comprehend project<a href="#comprehend-project" class="hash-link" aria-label="Direct link to comprehend project" title="Direct link to comprehend project">​</a></h2>
+<p>risks
+Assumptions
+dependencies
+constraints</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="test-your-product">test your product<a href="#test-your-product" class="hash-link" aria-label="Direct link to test your product" title="Direct link to test your product">​</a></h2>
+<p>Not user stories</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="when-learning-any-tool-or-framework">When learning any tool or framework<a href="#when-learning-any-tool-or-framework" class="hash-link" aria-label="Direct link to When learning any tool or framework" title="Direct link to When learning any tool or framework">​</a></h2>
+<p>check product documentation
+before looking into blog/youtube
+They cover specific things</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="be-strong-in-fundamentals">Be Strong in fundamentals<a href="#be-strong-in-fundamentals" class="hash-link" aria-label="Direct link to Be Strong in fundamentals" title="Direct link to Be Strong in fundamentals">​</a></h2>
+<p>its like the foundation of a building
+to be a better tester
+for wherever you are working
+testing concepts
+Different Techniques
+Strategies
+Design Pattern
+API Testing
+Performance
+Programming
+for Better Automation</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="where-your-individual-efforts-falls-short">where your individual efforts falls short<a href="#where-your-individual-efforts-falls-short" class="hash-link" aria-label="Direct link to where your individual efforts falls short" title="Direct link to where your individual efforts falls short">​</a></h2>
+<p>Team is there to pick us up</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="get-involved-early">get involved early<a href="#get-involved-early" class="hash-link" aria-label="Direct link to get involved early" title="Direct link to get involved early">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="practise-what-you-preach-or-change-your-speech">Practise what you preach or change your speech<a href="#practise-what-you-preach-or-change-your-speech" class="hash-link" aria-label="Direct link to Practise what you preach or change your speech" title="Direct link to Practise what you preach or change your speech">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="knowledge-transfer">knowledge transfer<a href="#knowledge-transfer" class="hash-link" aria-label="Direct link to knowledge transfer" title="Direct link to knowledge transfer">​</a></h2>
+<p>take time to clarify doubts
+later it becomes difficult when you get more task with less time
+don&#x27;t say you understand everything early</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="during-exploration">during exploration<a href="#during-exploration" class="hash-link" aria-label="Direct link to during exploration" title="Direct link to during exploration">​</a></h2>
+<p>Record your session
+try creating a mindmap
+note down observations in black and white (share with decision makers ASAP)
+will help you later if you want to look back</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="pay-attention-to-detail-no-matter-how-minute">Pay attention to detail no matter how minute<a href="#pay-attention-to-detail-no-matter-how-minute" class="hash-link" aria-label="Direct link to Pay attention to detail no matter how minute" title="Direct link to Pay attention to detail no matter how minute">​</a></h2>
+<p>We dont start afresh daily
+we continue from where we left
+Remember
+where you were
+where you are</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="never-get-complacent">never get complacent<a href="#never-get-complacent" class="hash-link" aria-label="Direct link to never get complacent" title="Direct link to never get complacent">​</a></h2>
+<p>even if you are working for long time
+always be vigilant
+you will get something new everytime you explore it</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-learn">how to learn<a href="#how-to-learn" class="hash-link" aria-label="Direct link to how to learn" title="Direct link to how to learn">​</a></h2>
+<p>avoid
+multiple videos on same topic
+try crash courses or series/playlist from one place
+after above R&amp;D can be proceed based on problem statement</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="revise-what-you-already-know">Revise what you already know<a href="#revise-what-you-already-know" class="hash-link" aria-label="Direct link to Revise what you already know" title="Direct link to Revise what you already know">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="always-keep-buffer-while-giving-estimates">always keep buffer while giving estimates<a href="#always-keep-buffer-while-giving-estimates" class="hash-link" aria-label="Direct link to always keep buffer while giving estimates" title="Direct link to always keep buffer while giving estimates">​</a></h2>
+<p>unknown
+unexpected
+Challenges</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="if-time-permits">if time permits<a href="#if-time-permits" class="hash-link" aria-label="Direct link to if time permits" title="Direct link to if time permits">​</a></h2>
+<p>go for testing beyond the scope to find grey areas</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="always-have-transparency-in-your-work">always have transparency in your work<a href="#always-have-transparency-in-your-work" class="hash-link" aria-label="Direct link to always have transparency in your work" title="Direct link to always have transparency in your work">​</a></h2>
+<p>by proactively
+share your findings
+seeking feedback
+do no hesitate to set the right expectations to stakeholders
+What can be done
+Whats challenging</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="create-a-repo">create a repo<a href="#create-a-repo" class="hash-link" aria-label="Direct link to create a repo" title="Direct link to create a repo">​</a></h2>
+<p>for evidence of tests
+related work
+not for comparison but helps later</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="more-important-to-test-negative-scenarios">more important to test negative scenarios<a href="#more-important-to-test-negative-scenarios" class="hash-link" aria-label="Direct link to more important to test negative scenarios" title="Direct link to more important to test negative scenarios">​</a></h2>
+<p>positive are certain ones
+product validity goes with the way negative are handled
+Be a passionate critic</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="try-invalid-scenarios">try invalid scenarios<a href="#try-invalid-scenarios" class="hash-link" aria-label="Direct link to try invalid scenarios" title="Direct link to try invalid scenarios">​</a></h2>
+<p>test how system handles them
+talk to dev and ask field where validation is not added
+Add cases for those
+Ask PM
+to have some tooltip/instruction about valid values for the field
+to help users</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="follow-good-testers">follow good testers<a href="#follow-good-testers" class="hash-link" aria-label="Direct link to follow good testers" title="Direct link to follow good testers">​</a></h2>
+<p>to stay ahead in game</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="try-learning-basics-of-technologies">try learning basics of technologies<a href="#try-learning-basics-of-technologies" class="hash-link" aria-label="Direct link to try learning basics of technologies" title="Direct link to try learning basics of technologies">​</a></h2>
+<p>then slowly go deeper when time permits</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="start-and-continue-telling">start and continue telling<a href="#start-and-continue-telling" class="hash-link" aria-label="Direct link to start and continue telling" title="Direct link to start and continue telling">​</a></h2>
+<p>about the actualities to the world
+do not let people assume</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="revisit-your-regression-suite">revisit your Regression Suite<a href="#revisit-your-regression-suite" class="hash-link" aria-label="Direct link to revisit your Regression Suite" title="Direct link to revisit your Regression Suite">​</a></h2>
+<p>analyse which test case to
+include
+exclude
+application grows with time
+some working of the app changes
+some might not be in use anymore</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="find-your-growth-zone-in-current-testing-role">find your growth zone in current testing role<a href="#find-your-growth-zone-in-current-testing-role" class="hash-link" aria-label="Direct link to find your growth zone in current testing role" title="Direct link to find your growth zone in current testing role">​</a></h2>
+<p>where
+you use your strengths
+you feel challenged
+you constantly challenge yourself
+you are excited whar you are doing
+you feel some fear
+don&#x27;t stay in comfort zone</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="eliminate-waste-to-improve-efficiency">eliminate waste to improve efficiency<a href="#eliminate-waste-to-improve-efficiency" class="hash-link" aria-label="Direct link to eliminate waste to improve efficiency" title="Direct link to eliminate waste to improve efficiency">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="shift-left">Shift left<a href="#shift-left" class="hash-link" aria-label="Direct link to Shift left" title="Direct link to Shift left">​</a></h2>
+<p>find bugs earlier
+sometimes before code is written
+high quality of code
+less expensive way in achieving goals
+Involve as early as possible
+defect prevention is better than detection</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="instead-of-learning-multiple-tools-or-technology">instead of learning multiple tools or technology<a href="#instead-of-learning-multiple-tools-or-technology" class="hash-link" aria-label="Direct link to instead of learning multiple tools or technology" title="Direct link to instead of learning multiple tools or technology">​</a></h2>
+<p>focus on one
+have strong knowledge
+get in depth understanding
+avoid jumping into race
+make a secure place for yourself</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="never-set-limit-to-yourself">never set limit to yourself<a href="#never-set-limit-to-yourself" class="hash-link" aria-label="Direct link to never set limit to yourself" title="Direct link to never set limit to yourself">​</a></h2>
+<p>just functional testing but
+API Testing
+Security Testing
+Performance Testing
+Database Testing
+Accessibility Testing
+Localization Testing
+Different Device Testing
+_______ Testing</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="remove-dependency">Remove Dependency<a href="#remove-dependency" class="hash-link" aria-label="Direct link to Remove Dependency" title="Direct link to Remove Dependency">​</a></h2>
+<p>To accelerate Test</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="stay-focussed">stay focussed<a href="#stay-focussed" class="hash-link" aria-label="Direct link to stay focussed" title="Direct link to stay focussed">​</a></h2>
+<p>There are many distractions
+they may cause you missed deadline
+don&#x27;t allow social media / emails
+that can interrupt your worklow
+schedule and manage your time
+Responding to such stuff</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="use-tags">use tags<a href="#use-tags" class="hash-link" aria-label="Direct link to use tags" title="Direct link to use tags">​</a></h2>
+<p>it helps you in reporting counts and data retrieval</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="advertise-your-skills">advertise your skills<a href="#advertise-your-skills" class="hash-link" aria-label="Direct link to advertise your skills" title="Direct link to advertise your skills">​</a></h2>
+<p>let your profile answer the question
+Tell me about yourself</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="instead-of-just-test-pass-or-fail">instead of just test pass or fail<a href="#instead-of-just-test-pass-or-fail" class="hash-link" aria-label="Direct link to instead of just test pass or fail" title="Direct link to instead of just test pass or fail">​</a></h2>
+<p>check if user will be happy to use(performance)</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="learning">learning<a href="#learning" class="hash-link" aria-label="Direct link to learning" title="Direct link to learning">​</a></h2>
+<p>a life long process
+self directed
+self paced journey of discovery
+purpose
+not to arrive at particular level of Proficiency
+as long as you live
+most people continue learning journey never ends
+its very important in
+constantly evolving  world of technology</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="focus-on-quality-of-the-process">Focus on quality of the process<a href="#focus-on-quality-of-the-process" class="hash-link" aria-label="Direct link to Focus on quality of the process" title="Direct link to Focus on quality of the process">​</a></h2>
+<p>Your product quality will be taken care automatically
+make sure
+enhancement of Agility in your process as much as you can
+The above is as per TQM - Total Quality Management</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/gauravkhuraana/gauravkhuraana/edit/main/docs/Testing/Tester Advice/README.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Testing/Test Data/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Test Data Management in Tesing</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Testing/Tester Skills/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Skills required in Software Testing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#table-of-contents" class="table-of-contents__link toc-highlight">Table of Contents</a></li><li><a href="#advice" class="table-of-contents__link toc-highlight">Advice</a></li><li><a href="#research-till-you-find-perfect-solution" class="table-of-contents__link toc-highlight">Research till you find perfect solution</a></li><li><a href="#get-basics-in-place-first" class="table-of-contents__link toc-highlight">get basics in place first</a></li><li><a href="#speak-up-and-show-your-presence" class="table-of-contents__link toc-highlight">speak up and show your presence</a></li><li><a href="#theory-and-hands-on-both-important" class="table-of-contents__link toc-highlight">theory and hands on both important</a></li><li><a href="#ask-for-help-and-offer-too" class="table-of-contents__link toc-highlight">ask for help and offer too</a></li><li><a href="#criticise-product" class="table-of-contents__link toc-highlight">criticise product</a></li><li><a href="#put-yourself-in-shoes-of-clients" class="table-of-contents__link toc-highlight">put yourself in shoes of clients</a></li><li><a href="#learn-unlearn-relearn" class="table-of-contents__link toc-highlight">learn unlearn relearn</a></li><li><a href="#avoid-reinventing-the-wheel" class="table-of-contents__link toc-highlight">Avoid reinventing the wheel</a></li><li><a href="#be-self-reliant-as-much-as-possible" class="table-of-contents__link toc-highlight">be self reliant as much as possible</a></li><li><a href="#be-data-driven-as-a-tester" class="table-of-contents__link toc-highlight">Be data driven as a tester</a></li><li><a href="#understand-the-context" class="table-of-contents__link toc-highlight">understand the context</a></li><li><a href="#take-a-step-back" class="table-of-contents__link toc-highlight">take a step back</a></li><li><a href="#dont-just-ask-difficult-questions" class="table-of-contents__link toc-highlight">Dont just ask difficult Questions</a></li><li><a href="#take-notes" class="table-of-contents__link toc-highlight">Take notes</a></li><li><a href="#treats-your-test-as-code" class="table-of-contents__link toc-highlight">Treats your test as code</a></li><li><a href="#to-make-testing-easy" class="table-of-contents__link toc-highlight">to make testing easy</a></li><li><a href="#comprehend-project" class="table-of-contents__link toc-highlight">comprehend project</a></li><li><a href="#test-your-product" class="table-of-contents__link toc-highlight">test your product</a></li><li><a href="#when-learning-any-tool-or-framework" class="table-of-contents__link toc-highlight">When learning any tool or framework</a></li><li><a href="#be-strong-in-fundamentals" class="table-of-contents__link toc-highlight">Be Strong in fundamentals</a></li><li><a href="#where-your-individual-efforts-falls-short" class="table-of-contents__link toc-highlight">where your individual efforts falls short</a></li><li><a href="#get-involved-early" class="table-of-contents__link toc-highlight">get involved early</a></li><li><a href="#practise-what-you-preach-or-change-your-speech" class="table-of-contents__link toc-highlight">Practise what you preach or change your speech</a></li><li><a href="#knowledge-transfer" class="table-of-contents__link toc-highlight">knowledge transfer</a></li><li><a href="#during-exploration" class="table-of-contents__link toc-highlight">during exploration</a></li><li><a href="#pay-attention-to-detail-no-matter-how-minute" class="table-of-contents__link toc-highlight">Pay attention to detail no matter how minute</a></li><li><a href="#never-get-complacent" class="table-of-contents__link toc-highlight">never get complacent</a></li><li><a href="#how-to-learn" class="table-of-contents__link toc-highlight">how to learn</a></li><li><a href="#revise-what-you-already-know" class="table-of-contents__link toc-highlight">Revise what you already know</a></li><li><a href="#always-keep-buffer-while-giving-estimates" class="table-of-contents__link toc-highlight">always keep buffer while giving estimates</a></li><li><a href="#if-time-permits" class="table-of-contents__link toc-highlight">if time permits</a></li><li><a href="#always-have-transparency-in-your-work" class="table-of-contents__link toc-highlight">always have transparency in your work</a></li><li><a href="#create-a-repo" class="table-of-contents__link toc-highlight">create a repo</a></li><li><a href="#more-important-to-test-negative-scenarios" class="table-of-contents__link toc-highlight">more important to test negative scenarios</a></li><li><a href="#try-invalid-scenarios" class="table-of-contents__link toc-highlight">try invalid scenarios</a></li><li><a href="#follow-good-testers" class="table-of-contents__link toc-highlight">follow good testers</a></li><li><a href="#try-learning-basics-of-technologies" class="table-of-contents__link toc-highlight">try learning basics of technologies</a></li><li><a href="#start-and-continue-telling" class="table-of-contents__link toc-highlight">start and continue telling</a></li><li><a href="#revisit-your-regression-suite" class="table-of-contents__link toc-highlight">revisit your Regression Suite</a></li><li><a href="#find-your-growth-zone-in-current-testing-role" class="table-of-contents__link toc-highlight">find your growth zone in current testing role</a></li><li><a href="#eliminate-waste-to-improve-efficiency" class="table-of-contents__link toc-highlight">eliminate waste to improve efficiency</a></li><li><a href="#shift-left" class="table-of-contents__link toc-highlight">Shift left</a></li><li><a href="#instead-of-learning-multiple-tools-or-technology" class="table-of-contents__link toc-highlight">instead of learning multiple tools or technology</a></li><li><a href="#never-set-limit-to-yourself" class="table-of-contents__link toc-highlight">never set limit to yourself</a></li><li><a href="#remove-dependency" class="table-of-contents__link toc-highlight">Remove Dependency</a></li><li><a href="#stay-focussed" class="table-of-contents__link toc-highlight">stay focussed</a></li><li><a href="#use-tags" class="table-of-contents__link toc-highlight">use tags</a></li><li><a href="#advertise-your-skills" class="table-of-contents__link toc-highlight">advertise your skills</a></li><li><a href="#instead-of-just-test-pass-or-fail" class="table-of-contents__link toc-highlight">instead of just test pass or fail</a></li><li><a href="#learning" class="table-of-contents__link toc-highlight">learning</a></li><li><a href="#focus-on-quality-of-the-process" class="table-of-contents__link toc-highlight">Focus on quality of the process</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Start Here</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/gauravkhuraana" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Gaurav Khurana. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

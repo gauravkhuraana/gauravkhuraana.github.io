@@ -1,0 +1,463 @@
+---
+title: "Postman Assertions & Testing Guide"
+description: "Complete guide to Postman assertions, tests, and scripts for API testing"
+tags: [postman, api-testing, assertions, javascript, automation]
+---
+
+# Postman Assertions & Testing Guide
+
+:::info About this guide
+Created by [Gaurav Khurana](https://linktr.ee/gauravkhurana) based on learning Postman.  
+Complete Postman Tutorial notes and mindmap available at [udzial.com](https://udzial.com/postman-tutorial-notes/)
+:::
+
+This comprehensive guide covers all essential Postman assertions and testing techniques that can be used in both **Tests** and **Pre-request Scripts** sections.
+
+## 📋 Table of Contents
+
+1. [Basic Setup & JSON Response Handling](#basic-setup--json-response-handling)
+2. [Status Code Assertions](#status-code-assertions)
+3. [Response Body & Property Assertions](#response-body--property-assertions)
+4. [Headers & Cookies Assertions](#headers--cookies-assertions)
+5. [Response Time & Size Assertions](#response-time--size-assertions)
+6. [Data Type & Value Assertions](#data-type--value-assertions)
+7. [JSON Navigation & Searching](#json-navigation--searching)
+8. [Variables & Request Chaining](#variables--request-chaining)
+9. [Advanced Techniques](#advanced-techniques)
+10. [Dynamic Variables & Pre-request Scripts](#dynamic-variables--pre-request-scripts)
+
+---
+
+## Basic Setup & JSON Response Handling
+
+### Converting Response to JSON
+```javascript
+// Basic JSON response handling
+var jsonResponse = pm.response.json();
+
+// Accessing nested properties
+let name = jsonResponse.points.find(inp => {
+    return inp.suite.id === "9000"
+});
+console.log("The point id for the given testcase is " + name.id);
+console.log("The testPlan id for the given testcase is " + name.testPlan.id);
+```
+
+---
+
+## Status Code Assertions
+
+### Basic Status Code Tests
+```javascript
+// Status code assertions
+pm.response.to.have.status("OK");
+pm.response.to.have.status(200);
+
+// Multiple status codes
+pm.expect(pm.response.code).to.be.oneOf([201, 200]);
+
+// Case insensitive status check
+pm.expect(pm.response.status.toLowerCase()).to.equal("OK".toLowerCase());
+
+// Bad request validation
+pm.response.to.be.badRequest;
+```
+
+---
+
+## Response Body & Property Assertions
+
+### Property Existence & Values
+```javascript
+// Check if property exists
+pm.test("Response should contain the key 'token'", function() {
+    var jsondata = pm.response.json();
+    pm.expect(jsondata).to.have.property("token");
+});
+
+// Property value validation
+pm.test("Token must not be null", function() {
+    var jsondata = pm.response.json();
+    var flag = jsondata.token == null;
+    pm.expect(flag).to.equal(false);
+});
+
+// Property with specific value
+pm.expect(response).to.have.property('code', 200);
+pm.expect(response).to.have.property('status', 'OK');
+```
+
+### JSON Body Structure
+```javascript
+// Check if response has JSON body
+pm.response.to.have.jsonBody();
+
+// Check value not present
+pm.response.to.not.have.jsonBody('error');
+
+// Check if response is JSON
+pm.response.to.be.json;
+
+// Verify response is not empty
+pm.expect(firstRequest.response, 'check saved example').to.not.be.empty;
+```
+
+---
+
+## Headers & Cookies Assertions
+
+### Header Validations
+```javascript
+// Check header existence
+pm.response.to.have.header("content-type");
+
+// Header value validation
+pm.expect(pm.response.headers.get("Content-Type")).to.eql("text/html; charset=utf-8");
+pm.expect(pm.response.headers.get("Server")).to.eql("Cowboy");
+```
+
+### Cookie Assertions
+```javascript
+// Cookie existence
+pm.expect(pm.cookies.has("VstsSession")).to.be.true;
+
+// Cookie value validation
+pm.expect(pm.cookies.get("VstsSession")).to.be.equal("12345");
+```
+
+---
+
+## Response Time & Size Assertions
+
+### Performance Testing
+```javascript
+// Response time validations
+pm.expect(pm.response.responseTime).to.be.below(25000);
+pm.expect(pm.response.responseTime).to.be.above(199);
+
+// Using Lodash for range validation
+pm.expect(_.inRange(pm.response.responseTime, 20, 20000)).to.eql(true);
+
+// Response size validation
+pm.expect(pm.response.responseSize).to.not.equal(0);
+```
+
+---
+
+## Data Type & Value Assertions
+
+### Type Checking
+```javascript
+// Data type validations
+pm.expect(pm.response.json()).to.be.an("array");
+pm.expect(pm.response.json()).to.be.an("object");
+pm.expect(parseInt(bookingID)).to.be.a("number");
+
+// Array validations
+pm.expect(pm.response.json()).to.have.property('collections').and.be.an('array');
+pm.expect([2]).to.be.an("array").that.is.empty;
+```
+
+### Value Comparisons
+```javascript
+// Equality assertions
+pm.expect(res.lastname).to.not.equal("Jonesa");
+
+// Numerical comparisons
+pm.expect(res.totalprice).to.be.above(100);
+pm.expect(res.totalprice).to.be.below(500);
+// Range validations
+pm.expect(parseInt(variable.value), 'check collection variable value')
+    .to.be.at.least(0).and.at.most(30);
+
+// Text inclusion
+pm.expect(pm.response.text()).to.include("lastname");
+
+// Date comparison
+pm.expect(jsonReq["booking"]["bookingdates"]["checkin"])
+    .to.eql(jsonRes["created-booking"]["booking"]["bookingdates"]["checkin"]);
+```
+
+---
+
+## JSON Navigation & Searching
+
+### Working with Nested JSON
+```javascript
+// Navigate nested JSON structure
+let col = pm.response.json().col;
+
+// Search within nested JSON
+let folder = col.ite.find(fol => {
+    return fol.name === "Collections and environments"
+});
+
+// Collection-level navigation
+let col = pm.response.json().collection;
+let folder = col.item.find(fol => { 
+    return fol.name == "Add request details"
+});
+
+// Array searching
+let newRequest = col.item[0].item.find(req => { 
+    return req.name === "raw JSON body"
+});
+```
+
+### Array Operations & Loops
+```javascript
+// Length validation
+pm.expect(folder.ite.length, 'check number of requests').equals(2);
+pm.expect(folder.ite.length, 'check number of requests').is.greaterThan(0);
+pm.expect(response.json().environment.values.length, 'check environment variables').to.equal(4);
+
+// Foreach loop on response JSON
+let pics = pm.response.json();
+pics.forEach((pic) => { 
+    console.log(pic.title, pic.url);
+});
+
+// Advanced searching with validation
+let name = res.results.find(inp => {
+    return inp.name === "Tatooine"
+});
+
+if (name != undefined) {
+    pm.expect(name.length, 'check if we got at least one value with Tatooine')
+        .is.greaterThan(0);
+} else {
+    console.log("We did not find Tatooine in the output");
+    pm.expect(true, "Causing failure as we did not find what was required")
+        .to.equal(false);
+}
+```
+
+---
+
+## Variables & Request Chaining
+
+### Setting Variables
+```javascript
+// Collection variables
+pm.collectionVariables.set("jsonBody", JSON.stringify(getRandomUserResponse));
+
+// Global/Environment variables
+pm.variables.set("hex", pm.variables.replaceIn('{{$randomHexColor}}'));
+
+// Extract ID from response
+pm.collectionVariables.set("id", pm.response.json().id);
+```
+
+### Request Chaining Example
+```javascript
+// Making subsequent requests
+const collRequest = {
+    url: `https://api.getpostman.com/collections/${res.form.collection_uid}`,
+    method: 'GET',
+    header: {
+        'x-api-key': `${res.headers["x-api-key"]}`
+    }
+};
+
+pm.sendRequest(collRequest, (error, response) => {
+    if (error) {
+        console.log(error);
+        return;
+    }
+    
+    // Validate chained response
+    pm.test('get single collection', () => {
+        pm.expect(error).to.equal(null);
+        pm.expect(response).to.have.property('code', 200);
+        pm.expect(response).to.have.property('status', 'OK');
+        pm.expect(response.json().collection.auth.type, 'check collection authorization')
+            .to.equal("apikey");
+    });
+});
+```
+
+### Express.js Webhook Server for API Testing
+```javascript
+// Simple Express.js server to receive and save API responses
+// Useful for testing webhooks and capturing request data
+var express = require('express');
+var fs = require('fs');
+var bodyParser = require('body-parser');
+
+var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // Body parser use JSON data
+
+app.post('/launches', function(req, res) {
+    var outputFilename = './spaceReport.json'; // path of the file to output
+    
+    // Write JSON payload to file system
+    fs.writeFileSync(outputFilename, JSON.stringify(JSON.parse(req.body.payload), null, 4));
+    
+    res.send('Saved to ' + outputFilename);
+});
+
+var port = 3100;
+app.listen(port);
+console.log('Express started on port %d ...', port);
+```
+
+:::note Webhook Testing
+This Express server is perfect for:
+- **Testing webhooks** - Capture and inspect webhook payloads
+- **Data persistence** - Save API responses for analysis
+- **Integration testing** - Create endpoints for testing API integrations
+- **Request debugging** - Log and examine incoming requests
+
+To use this server:
+1. Save the code as `webhook-server.js`
+2. Run `npm install express body-parser`
+3. Start with `node webhook-server.js`
+4. Send POST requests to `http://localhost:3100/launches`
+:::
+
+---
+
+## Advanced Techniques
+
+### Console Logging & Debugging
+```javascript
+// Different console methods with different symbols
+console.log("Testing log");       // ℹ️ symbol
+console.info("Testing info");     // ℹ️ symbol  
+console.warn("Testing warn");     // ⚠️ symbol
+console.error("Testing error");   // ❌ symbol
+```
+
+### JavaScript Comparisons
+```javascript
+// == vs === in JavaScript
+// == compares only values 
+// === compares datatypes also
+// Examples:
+// 4 === 4     → true
+// 4 === '4'   → false  
+// 4 == '4'    → true
+```
+
+### Regular Expressions
+```javascript
+// Using regex for validation
+let firstMarkdownLinkRegex = /\[(.+)\]\((.+)\)/;
+pm.expect(firstRequest.request.description.match(firstMarkdownLinkRegex).length, 'check hyperlink')
+    .to.equal(3);
+```
+
+### Validation Loops
+```javascript
+// Header validation loop
+if (firstRequest.request.header) {
+    firstRequest.request.header.forEach((header) => {
+        pm.expect(header.description, 'check header description').to.exist;
+    });
+}
+
+// toString validation for multi-line content
+pm.expect(test.script.exec.toString(), 'check console log')
+    .to.include("console.log(");
+```
+
+---
+
+## Dynamic Variables & Pre-request Scripts
+
+### Using Dynamic Variables
+Postman provides built-in dynamic variables for generating test data:
+- `{{$randomHexColor}}` - Random hex color
+- `{{$randomFirstName}}` - Random first name  
+- `{{$randomEmail}}` - Random email
+- [Complete list of dynamic variables](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/)
+
+### Advanced Pre-request Example
+```javascript
+// Generate dynamic hex color and call external API
+pm.variables.set("hex", pm.variables.replaceIn('{{$randomHexColor}}'));
+
+console.log("The hex color is", pm.variables.get("hex"));
+
+let hex1 = pm.variables.get("hex");
+let hex2 = hex1.substring(1, 7);
+let hex3 = 'http://thecolorapi.com/id?hex=' + hex2;
+
+const getRequest = {
+    url: pm.variables.replaceIn(hex3),
+    method: 'GET',
+};
+
+pm.sendRequest(getRequest, (error, response) => {
+    if (error) {
+        console.log(error);
+        return;
+    }
+    
+    response = response.json();
+    let hex = response.hex.value;
+    let rgb = response.rgb.value;
+    let name = response.name.value;
+
+    console.log("hex value is", hex);
+    console.log("rgb value is", rgb);
+    console.log("name value is", name);
+
+    let payload = `{
+        "hex": "${hex}",
+        "rgb": "${rgb}",
+        "name": "${name}"
+    }`;
+
+    pm.collectionVariables.set("payload", payload);
+    console.log("Payload", payload);
+});
+```
+
+### HTML Parsing with Cheerio
+```javascript
+// Extract links from HTML response using Cheerio library
+$ = cheerio.load(pm.response.text());
+links = $('a');
+const allLinks = [];
+
+$(links).each(function (i, link) {
+    if($(link).attr('href')) {
+        if($(link).attr('href').includes('https')) {
+            allLinks.push($(link).attr('href'));
+        }
+    }
+});
+
+console.log("all links are", allLinks);
+pm.collectionVariables.set("links", JSON.stringify(allLinks));
+```
+
+---
+
+## Best Practices & Tips
+
+### 💡 Key Tips
+1. **Always use descriptive test names** for better reporting
+2. **Use `.json()` before accessing variables** - it's necessary for proper object access
+3. **Chain requests efficiently** using `pm.sendRequest()` for complex workflows
+4. **Leverage dynamic variables** for realistic test data generation
+5. **Use proper error handling** in request chains and async operations
+
+### 🔧 Common Patterns
+- **Custom assertion names**: `pm.expect(value, 'descriptive message').to.equal(expected)`
+- **Variable usage**: Use `${}` for script variables and `[""]` for Postman variables
+- **Backticks**: Use backticks (`) when variables are involved in strings
+
+---
+
+## 📚 Additional Resources
+
+- [Official Postman Testing Documentation](https://learning.postman.com/docs/writing-scripts/test-scripts/)
+- [Postman Dynamic Variables Reference](https://learning.postman.com/docs/writing-scripts/script-references/variables-list/)
+- [Complete Postman Tutorial](https://udzial.com/postman-tutorial-notes/)
+
+:::tip Connect with the author
+Get in touch with [Gaurav Khurana](https://linktr.ee/gauravkhurana) for more automation and testing insights!
+:::

@@ -1,0 +1,152 @@
+# HTTP Status Codes - Essential Guide for API Testing
+
+> A comprehensive reference for HTTP status codes that every developer and tester should know
+
+## Overview
+
+HTTP status codes are three-digit numbers returned by web servers to indicate the outcome of HTTP requests. Whether you're developing APIs, testing web applications, or just browsing the web, understanding these codes is crucial for effective debugging and development.
+
+:::tip Interview Tip
+HTTP status codes are frequently asked about in technical interviews. Understanding their meanings and categories will help you stand out!
+:::
+
+## Categories Overview
+
+HTTP status codes are organized into five main categories, each serving a specific purpose:
+
+### Memory Aid (Mnemonic)
+**"I Should Remember Client & Server"** → **1-2-3-4-5**
+- **1xx**: **I**nformational responses
+- **2xx**: **S**uccessful operations  
+- **3xx**: **R**edirection messages
+- **4xx**: **C**lient error responses
+- **5xx**: **S**erver error responses
+
+---
+
+## 1xx - Informational Responses
+*"Processing your request..."*
+
+These codes indicate that the request was received and the process is continuing.
+
+| Code | Name | Description | When You'll See It |
+|------|------|-------------|-------------------|
+| 100 | Continue | Server received initial part of request | Large file uploads |
+| 101 | Switching Protocols | Server switching to different protocol | WebSocket upgrades |
+| 102 | Processing | Server processing (WebDAV) | Long-running operations |
+
+---
+
+## 2xx - Success Codes
+*"Everything went perfectly!"*
+
+These codes confirm that the request was successfully received, understood, and accepted.
+
+| Code | Name | Description | Common Use Cases |
+|------|------|-------------|------------------|
+| 200 | OK | Standard success response | GET requests, general success |
+| 201 | Created | Resource successfully created | POST requests creating new data |
+| 202 | Accepted | Request accepted for processing | Async operations, queued tasks |
+| 204 | No Content | Success but no content to return | DELETE operations, PUT updates |
+| 206 | Partial Content | Partial resource delivered | Video streaming, large file downloads |
+
+---
+
+## 3xx - Redirection Codes
+*"Look somewhere else..."*
+
+These codes indicate that further action needs to be taken to complete the request.
+
+| Code | Name | Description | Testing Impact |
+|------|------|-------------|----------------|
+| 301 | Moved Permanently | Resource permanently moved | Update bookmarks/links |
+| 302 | Found (Temporary Redirect) | Resource temporarily at different URI | Temporary relocation |
+| 304 | Not Modified | Resource hasn't changed | Caching validation |
+| 307 | Temporary Redirect | Temporary redirect, keep method | Form resubmissions |
+| 308 | Permanent Redirect | Permanent redirect, keep method | API versioning |
+
+---
+
+## 4xx - Client Error Codes
+*"You made a mistake..."*
+
+These codes indicate that the client seems to have made an error.
+
+| Code | Name | Description | What It Means for Testing |
+|------|------|-------------|---------------------------|
+| 400 | Bad Request | Malformed request syntax | Check request format, parameters |
+| 401 | Unauthorized | Authentication required | Missing or invalid credentials |
+| 403 | Forbidden | Server understood but refuses | Permission/authorization issues |
+| 404 | Not Found | Resource doesn't exist | Wrong URL or deleted resource |
+| 405 | Method Not Allowed | HTTP method not supported | Wrong HTTP verb (GET vs POST) |
+| 409 | Conflict | Request conflicts with current state | Duplicate entries, version conflicts |
+| 422 | Unprocessable Entity | Validation errors | Invalid data format/values |
+| 429 | Too Many Requests | Rate limiting triggered | API throttling, need to slow down |
+
+---
+
+## 5xx - Server Error Codes
+*"We messed up..."*
+
+These codes indicate that the server failed to fulfill a valid request.
+
+| Code | Name | Description | Testing Implications |
+|------|------|-------------|---------------------|
+| 500 | Internal Server Error | Generic server error | Server-side bug, check logs |
+| 501 | Not Implemented | Server doesn't support functionality | Feature not available |
+| 502 | Bad Gateway | Invalid response from upstream | Proxy/gateway issues |
+| 503 | Service Unavailable | Server temporarily unavailable | Maintenance, overload |
+| 504 | Gateway Timeout | Upstream server timeout | Network/performance issues |
+
+---
+
+## Quick Reference for API Testing
+
+### Most Common in Testing:
+- **200**: Successful GET requests
+- **201**: Successful POST (creation)
+- **400**: Bad request format
+- **401**: Authentication failures
+- **404**: Resource not found
+- **500**: Server errors
+
+### Status Codes to Watch For:
+```bash
+# Success range
+200-299: ✅ Everything is working
+
+# Redirection range  
+300-399: ↪️ Resource moved/cached
+
+# Client errors
+400-499: ❌ Fix your request
+
+# Server errors
+500-599: 🔧 Server needs fixing
+```
+
+---
+
+## Testing Best Practices
+
+1. **Always validate status codes** in your API tests
+2. **Test error scenarios** - don't just test happy paths
+3. **Understand the difference** between 401 (authentication) and 403 (authorization)
+4. **Use appropriate assertions** based on expected status codes
+5. **Monitor 5xx errors** in production - they indicate server issues
+
+---
+
+## Additional Resources
+
+- [MDN HTTP Status Codes Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
+- [HTTP Status Dogs](https://httpstatusdogs.com/) - Fun way to remember codes!
+- [RFC 7231 - HTTP/1.1 Semantics](https://tools.ietf.org/html/rfc7231)
+
+---
+
+:::info Contribute
+Found this helpful? Have suggestions for improvement? Feel free to share your feedback!
+
+**#SharingIsCaring #APITesting #HTTPStatusCodes**
+:::
