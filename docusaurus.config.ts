@@ -155,6 +155,36 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'C3WDSWBA63',
+
+      // Public API key: it is safe to commit it
+      apiKey: 'acd85c2c633320da11bebb8a84ec0120',
+
+      indexName: 'gauravkhuraanaio',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.github.io/myProject/
+      replaceSearchResultPathname: {
+        from: '/docs/', // or as RegExp: /\/docs\//
+        to: '/',
+      },
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: false,
+
+      // Optional: whether the insights feature is enabled or not on Docsearch (false by default)
+      insights: true,
+    },
   } satisfies Preset.ThemeConfig,
 };
 
