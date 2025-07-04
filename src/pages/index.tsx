@@ -34,7 +34,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

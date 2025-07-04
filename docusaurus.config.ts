@@ -74,7 +74,13 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/gauravkhurana.png',
+    metadata: [
+      {name: 'description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
+      {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools'},
+      {property: 'og:description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
+      {property: 'twitter:description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
+    ],
     navbar: {
       title: 'SharingIsCaring',
       logo: {
