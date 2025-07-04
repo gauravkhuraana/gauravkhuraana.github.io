@@ -1,0 +1,114 @@
+---
+title: AutoHotkey Windows Shortcuts
+description: Boost your productivity with custom Windows shortcuts using AutoHotkey. Create keyboard shortcuts for any software or Windows OS level operations.
+keywords: [autohotkey, windows shortcuts, productivity, automation, keyboard shortcuts, windows automation, hotkeys]
+---
+
+import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
+
+# AutoHotkey Windows Shortcuts
+
+AutoHotkey is a powerful utility that lets you create custom keyboard shortcuts for any software or Windows operating system. This simple script helps you automate repetitive tasks and boost your productivity.
+
+## What is AutoHotkey?
+
+AutoHotkey is a free, open-source scripting language for Windows that allows you to:
+- Create custom keyboard shortcuts
+- Automate repetitive tasks
+- Send keystrokes and mouse clicks
+- Create hotkeys for any application
+
+## Video Tutorial
+
+<YouTubeEmbed 
+  videoId="vc4Kp28fhSA" 
+  title="Press less and achieve more - AutoHotkey Tutorial" 
+/>
+
+## Installation
+
+1. Download AutoHotkey from [official website](https://www.autohotkey.com/)
+2. Install the application
+3. Create a new `.ahk` file with your shortcuts
+4. Run the script
+
+## Ready-to-Use Shortcuts Script
+
+Here's a collection of useful shortcuts that you can use immediately:
+
+```autohotkey
+; Windows Screenshot shortcuts
+F10::Send #+s
+
+; Teams mute/unmute
+ins::Send ^+M
+
+; Windows Record
+F11::Send #+r
+
+; Quick text expansions for testing
+!r::Send {ctrl down}b{ctrl up}Actual Result:
+!e::Send {ctrl down}b{ctrl up}Expected Result:
+!a::Send {ctrl down}b{ctrl up}Actual Result:
+
+; Playwright locator snippet
+^u::Send public ILocator Loc => _Page.Locator();
+
+; Common test data
+!p::Send SecretPassword
+!u::Send test@abcd.com
+
+; Quick text for documentation
+!l::Send Automation for 
+!c::Send Test case creation for
+
+; Window management
+F9::Send #+{Left}
+!d::Send ^!+x
+
+; Quick links and names
+^l::Send https://linktr.ee/gauravkhurana
+!g::Send Gaurav Khurana
+
+; Git commands
+^t::Send git pull origin main
+```
+
+## How to Use
+
+1. Save the above code in a file with `.ahk` extension (e.g., `shortcuts.ahk`)
+2. Double-click to run the script
+3. Use the shortcuts as defined:
+   - `F10` - Take screenshot
+   - `Insert` - Mute/unmute in Teams
+   - `Alt + R` - Insert "Actual Result:" with bold formatting
+   - `Alt + E` - Insert "Expected Result:" with bold formatting
+   - `Ctrl + U` - Insert Playwright locator code
+   - And many more...
+
+## Benefits
+
+✅ **Increased Productivity** - Reduce repetitive typing  
+✅ **Consistent Formatting** - Same text format every time  
+✅ **Quick Access** - Instant shortcuts for common tasks  
+✅ **Customizable** - Easy to modify for your needs  
+✅ **Universal** - Works with any Windows application  
+
+## Customization Tips
+
+- Modify the shortcuts to match your workflow
+- Add your own frequently used text snippets
+- Use different key combinations for different applications
+- Test shortcuts to avoid conflicts with existing software
+
+## Social Links
+
+Connect with me for more automation tips:
+- [YouTube Channel](https://youtube.com/@gauravkhurana)
+- [Medium Articles](https://medium.com/@gauravkhurana)
+- [Book 1:1 Session](https://topmate.io/gauravkhurana)
+- [All Links](https://linktr.ee/gauravkhurana)
+
+---
+
+*Boost your productivity with these simple yet powerful shortcuts. Start small, then expand your script as you discover more automation opportunities.*

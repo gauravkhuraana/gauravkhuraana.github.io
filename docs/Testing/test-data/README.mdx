@@ -1,0 +1,82 @@
+---
+title: "Test Data Management Guide"
+description: "Complete guide to test data management in software testing. Learn best practices, techniques, and strategies for effective test data handling."
+keywords: ["test data management", "software testing", "test data strategies", "data masking", "test automation"]
+sidebar_position: 4
+---
+
+# Test Data Management in Software Testing
+
+A comprehensive guide to effective test data management strategies and best practices for software testers and QA engineers.
+
+#### Quick Reference for Test Data Management
+- **URL**: https://bit.ly/testdataintesting
+- **Video Tutorial**: [Watch on YouTube](https://youtube.com/c/GauravKhurana)
+
+[📄 HTML Version Available](https://htmlpreview.github.io/?https://raw.githubusercontent.com/gauravkhuraana/Testing/main/Test%20Data/Test%20Data.html)
+
+![Test Data Mindmap](./Test%20Data%20Mindmap.png "Test Data Mindmap")
+
+---
+
+## Table of Contents
+
+- [not dummy but masked from production](#not-dummy-but-masked-from-production)
+- [do Change it time to time](#do-change-it-time-to-time)
+- [dont use](#dont-use)
+- [Smelling bad what to do](#smelling-bad-what-to-do)
+
+
+# Test Data
+
+## not dummy but masked from production
+
+## do Change it time to time 
+
+* it does find problems
+
+## dont use
+
+* real / Production like
+* asdfg
+* lorem lpsum
+* 12345
+
+## Smelling bad what to do 
+
+* identify test data at
+
+			org
+			project level
+			teams level
+			
+* Single point of truth for all(BA/Dev etc)
+
+* time to have test data generator
+
+			Identification of data types
+			patterns
+			Accuracy criteria
+			logical dependencies
+
+* invest in infra needed for data
+
+			storing
+			Sharing 
+			retrieving
+
+* Take care of security
+
+			specially when data picked from prod
+			use "sql injection Datasets" from FuzzDB for SQL Injection Vulnerabilities
+
+* Test data loading in backend
+
+			API
+			DB script
+
+* apply these 2 scripts to keep 
+application state stable and known
+
+			Setup
+			Tear Down

@@ -24,20 +24,6 @@ slorber:
     github: slorber
     newsletter: https://thisweekinreact.com
 
-GauravKhurana:
-  name: Gaurav Khurana
-  title: Senior Test Automation Engineer & Mentor
-  url: https://topmate.io/gauravkhurana
-  image_url: /img/gauravkhurana.png
-  page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-gaurav-khurana-articles'
-  socials:
-    x: gauravkhurana
-    linkedin: gauravkhurana
-    github: gauravkhuraana
-    newsletter: https://thisweekinreact.com
-
 gauravkhurana:
   name: Gaurav Khurana
   title: Senior Test Automation Engineer & Mentor
