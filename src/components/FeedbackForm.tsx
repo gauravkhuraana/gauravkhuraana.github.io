@@ -19,7 +19,11 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
         <p>{subtitle}</p>
       </div>
       
-      <form action="https://formsubmit.co/gaurav.jaz@email.com" method="POST" className={styles.feedbackForm}>
+      <form action="https://formsubmit.co/936d8782d82b2344cb64dec256c6aa49" method="POST" className={styles.feedbackForm}>
+        {/* Hidden fields for form submission */}
+        <input type="hidden" name="_subject" value="New submission!" />
+        <input type="hidden" name="_next" value="https://blog.gauravkhurana.in/docs/intro" />
+        
         <div className={styles.formGroup}>
           <label htmlFor="name">Name *</label>
           <input
@@ -41,6 +45,18 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
             required
             placeholder="your.email@example.com"
             aria-label="Enter your email address"
+          />
+        </div>
+
+        <div className={styles.formGroup}>
+          <label htmlFor="message">Your Feedback *</label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            placeholder="Your feedback please"
+            aria-label="Enter your feedback or message"
+            rows={5}
           />
         </div>
 
