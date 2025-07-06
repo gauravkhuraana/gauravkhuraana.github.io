@@ -1,18 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Gaurav Khurana Blog</title>
+        <title>blog.gauravkhurana.in Blog</title>
         <link>https://gauravkhuraana.github.io/blog</link>
-        <description>Gaurav Khurana Blog</description>
-        <lastBuildDate>Fri, 04 Jul 2025 12:56:50 GMT</lastBuildDate>
+        <description>blog.gauravkhurana.in Blog</description>
+        <lastBuildDate>Sun, 06 Jul 2025 04:39:38 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
+            <title><![CDATA[How to Add Feedback Forms to Your Documentation]]></title>
+            <link>https://gauravkhuraana.github.io/blog/feedback-implementation-guide</link>
+            <guid>https://gauravkhuraana.github.io/blog/feedback-implementation-guide</guid>
+            <pubDate>Sun, 06 Jul 2025 04:39:38 GMT</pubDate>
+            <description><![CDATA[Learn how to implement user feedback collection in Docusaurus sites to improve content quality and engage with your community effectively.]]></description>
+            <content:encoded><![CDATA[<p>Collecting user feedback is essential for creating high-quality content that serves your community effectively. Whether you're documenting software testing procedures, automation frameworks, or DevOps practices, understanding what works and what doesn't helps you improve continuously.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="why-feedback-matters">Why Feedback Matters<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#why-feedback-matters" class="hash-link" aria-label="Direct link to Why Feedback Matters" title="Direct link to Why Feedback Matters">​</a></h2>
+<p>In the world of software testing and automation, documentation quality directly impacts:</p>
+<ul>
+<li><strong>Learning Effectiveness</strong>: Clear explanations help developers understand complex concepts</li>
+<li><strong>Implementation Success</strong>: Accurate guides reduce errors and save time</li>
+<li><strong>Community Growth</strong>: Engaging content builds stronger testing communities</li>
+<li><strong>Content Relevance</strong>: User input helps prioritize topics that matter most</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="implementation-example">Implementation Example<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#implementation-example" class="hash-link" aria-label="Direct link to Implementation Example" title="Direct link to Implementation Example">​</a></h2>
+<p>Here's how you can implement feedback collection in your own documentation:</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="quick-rating-widget">Quick Rating Widget<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#quick-rating-widget" class="hash-link" aria-label="Direct link to Quick Rating Widget" title="Direct link to Quick Rating Widget">​</a></h3>
+<div class="widget_KV5u inline_XJ_h"><div class="minimized_xQwa"><h4>Was this helpful?</h4><div class="quickRating__Yg2"><button class="starBtn_hIof" aria-label="Rate 1 out of 5 stars">⭐</button><button class="starBtn_hIof" aria-label="Rate 2 out of 5 stars">⭐</button><button class="starBtn_hIof" aria-label="Rate 3 out of 5 stars">⭐</button><button class="starBtn_hIof" aria-label="Rate 4 out of 5 stars">⭐</button><button class="starBtn_hIof" aria-label="Rate 5 out of 5 stars">⭐</button></div><p class="subtitle_Zkya">Click a star to share detailed feedback</p></div><div class="socialHint_mD5F"><small>💡 Connect:<a href="https://www.youtube.com/@Udzial/playlists" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a> |<a href="https://www.medium.com/@gauravkhuraana" target="_blank" rel="noopener" aria-label="Medium">Medium</a> |<a href="https://topmate.io/gauravkhurana" target="_blank" rel="noopener" aria-label="Topmate">Topmate</a></small></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="key-features">Key Features<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#key-features" class="hash-link" aria-label="Direct link to Key Features" title="Direct link to Key Features">​</a></h3>
+<ul>
+<li><strong>Simple Rating System</strong>: Quick star ratings for immediate feedback</li>
+<li><strong>Detailed Comments</strong>: Optional text input for specific suggestions</li>
+<li><strong>Contact Information</strong>: Optional email for follow-up discussions</li>
+<li><strong>Social Integration</strong>: Easy access to other communication channels</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices">Best Practices<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices">​</a></h3>
+<ol>
+<li><strong>Keep It Simple</strong>: Don't overwhelm users with too many fields</li>
+<li><strong>Make It Optional</strong>: Respect users' time and privacy</li>
+<li><strong>Be Responsive</strong>: Follow up on feedback when possible</li>
+<li><strong>Show Appreciation</strong>: Thank users for their input</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="technical-implementation">Technical Implementation<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#technical-implementation" class="hash-link" aria-label="Direct link to Technical Implementation" title="Direct link to Technical Implementation">​</a></h2>
+<p>For Docusaurus sites, you can implement feedback widgets using:</p>
+<div class="language-jsx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-jsx codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword module" style="color:#00009f">import</span><span class="token plain"> </span><span class="token imports maybe-class-name">FeedbackWidget</span><span class="token plain"> </span><span class="token keyword module" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'@site/src/components/FeedbackWidget'</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// In your MDX files</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token tag punctuation" style="color:#393A34">&lt;</span><span class="token tag class-name" style="color:#00009f">FeedbackWidget</span><span class="token tag" style="color:#00009f"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token tag" style="color:#00009f">  </span><span class="token tag attr-name" style="color:#00a4db">pageTitle</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag attr-value" style="color:#e3116c">Your Page Title</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag" style="color:#00009f"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token tag" style="color:#00009f">  </span><span class="token tag attr-name" style="color:#00a4db">position</span><span class="token tag attr-value punctuation attr-equals" style="color:#393A34">=</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag attr-value" style="color:#e3116c">inline</span><span class="token tag attr-value punctuation" style="color:#393A34">"</span><span class="token tag" style="color:#00009f"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token tag" style="color:#00009f"></span><span class="token tag punctuation" style="color:#393A34">/&gt;</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="community-building">Community Building<a href="https://gauravkhuraana.github.io/blog/feedback-implementation-guide#community-building" class="hash-link" aria-label="Direct link to Community Building" title="Direct link to Community Building">​</a></h2>
+<p>Feedback collection helps build stronger testing communities by:</p>
+<ul>
+<li><strong>Encouraging Participation</strong>: Users feel their opinions matter</li>
+<li><strong>Improving Quality</strong>: Continuous improvement based on real user needs</li>
+<li><strong>Building Relationships</strong>: Direct communication with your audience</li>
+<li><strong>Creating Value</strong>: Content that actually solves real problems</li>
+</ul>
+<hr>
+<p><em>What's your experience with documentation feedback? Share your thoughts below!</em></p>]]></content:encoded>
+            <category>Documentation</category>
+            <category>Feedback</category>
+            <category>Community</category>
+            <category>User Experience</category>
+            <category>Docusaurus</category>
+        </item>
+        <item>
             <title><![CDATA[Your Complete Roadmap to a Successful Automation Testing Career]]></title>
             <link>https://gauravkhuraana.github.io/blog/automation-testing-career-roadmap</link>
             <guid>https://gauravkhuraana.github.io/blog/automation-testing-career-roadmap</guid>
-            <pubDate>Fri, 04 Jul 2025 12:56:50 GMT</pubDate>
+            <pubDate>Sun, 06 Jul 2025 04:39:38 GMT</pubDate>
             <description><![CDATA[Are you looking to break into the exciting world of automation testing? Or perhaps you're already in testing but want to transition into automation? This comprehensive roadmap will guide you through every step of your journey, from absolute beginner to automation expert.]]></description>
             <content:encoded><![CDATA[<p>Are you looking to break into the exciting world of automation testing? Or perhaps you're already in testing but want to transition into automation? This comprehensive roadmap will guide you through every step of your journey, from absolute beginner to automation expert.</p>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>🎯 Why This Roadmap Works</div><div class="admonitionContent_BuS1"><p>This roadmap is based on real industry experience, feedback from hundreds of successful automation testers, and current market demands. Follow it step by step for the best results.</p></div></div>
@@ -265,12 +317,12 @@
 <hr>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>🎓 Ready to Start?</div><div class="admonitionContent_BuS1"><p>Your automation testing journey begins with a single step. Choose your programming language, set up your environment, and write your first test. The testing community is here to support you every step of the way!</p></div></div>
 <p><em>Need personalized guidance on your automation testing journey? <a href="https://topmate.io/gauravkhurana" target="_blank" rel="noopener noreferrer">Book a mentoring session</a> and let's create a customized roadmap for your success!</em></p>]]></content:encoded>
-            <category>career</category>
-            <category>automation</category>
-            <category>testing</category>
-            <category>roadmap</category>
-            <category>beginner</category>
-            <category>programming</category>
+            <category>Career Development</category>
+            <category>Test Automation</category>
+            <category>Software Testing</category>
+            <category>Learning Roadmap</category>
+            <category>Beginner Friendly</category>
+            <category>Programming</category>
         </item>
         <item>
             <title><![CDATA[Welcome to Sharing is Caring - Your Testing & Automation Journey Begins]]></title>
@@ -338,11 +390,11 @@
 <p>Let's make this journey amazing together!</p>
 <hr>
 <p><em>Ready to dive in? Check out our <a href="https://gauravkhuraana.github.io/docs/Automation">comprehensive automation guide</a> or explore our <a href="https://gauravkhuraana.github.io/docs/Tools">tool recommendations</a> to get started.</em></p>]]></content:encoded>
-            <category>welcome</category>
-            <category>testing</category>
-            <category>automation</category>
-            <category>career-growth</category>
-            <category>learning</category>
+            <category>Welcome</category>
+            <category>Software Testing</category>
+            <category>Test Automation</category>
+            <category>Career Growth</category>
+            <category>Learning</category>
         </item>
     </channel>
 </rss>
