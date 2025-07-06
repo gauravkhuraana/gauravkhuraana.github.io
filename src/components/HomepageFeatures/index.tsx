@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
       <>
       My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
       I have been working in the software industry for over 15+ years.
-      Currently Working in Micrsoft for 6+ years
+      Currently Working in Microsoft for 6+ years
       </>
     ),
   },

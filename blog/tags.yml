@@ -8,6 +8,41 @@ hello:
   permalink: /hello
   description: Hello tag description
 
+documentation:
+  label: Documentation
+  permalink: /documentation
+  description: Documentation and content creation topics
+
+feedback:
+  label: Feedback
+  permalink: /feedback
+  description: User feedback and community engagement
+
+community:
+  label: Community
+  permalink: /community
+  description: Building and engaging with testing communities
+
+user-experience:
+  label: User Experience
+  permalink: /user-experience
+  description: UX and usability topics
+
+welcome:
+  label: Welcome
+  permalink: /welcome
+  description: Welcome and introduction posts
+
+career-growth:
+  label: Career Growth
+  permalink: /career-growth
+  description: Professional development and career advancement
+
+learning:
+  label: Learning
+  permalink: /learning
+  description: Learning resources and educational content
+
 docusaurus:
   label: Docusaurus
   permalink: /docusaurus
@@ -17,3 +52,33 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+career:
+  label: Career Development
+  permalink: /career
+  description: Career guidance, roadmaps, and professional development tips for software testing and automation professionals
+
+automation:
+  label: Test Automation
+  permalink: /automation
+  description: Test automation frameworks, tools, best practices, and implementation strategies for modern software development
+
+testing:
+  label: Software Testing
+  permalink: /testing
+  description: Software testing methodologies, techniques, and best practices for quality assurance professionals
+
+roadmap:
+  label: Learning Roadmap
+  permalink: /roadmap
+  description: Step-by-step learning paths and roadmaps for mastering testing, automation, and DevOps skills
+
+beginner:
+  label: Beginner Friendly
+  permalink: /beginner
+  description: Beginner-friendly tutorials, guides, and resources for those starting their journey in testing and automation
+
+programming:
+  label: Programming
+  permalink: /programming
+  description: Programming concepts, coding best practices, and development skills for testers and automation engineers

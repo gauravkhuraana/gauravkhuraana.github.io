@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Gaurav Khurana',
+  title: 'blog.gauravkhurana.in',
   tagline: 'Sharing is Caring',
   favicon: 'img/favicon.ico',
 
@@ -36,6 +36,30 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  headTags: [
+    {
+      tagName: 'script',
+      attributes: {
+        src: 'https://cdn.brevo.com/js/sdk-loader.js',
+        async: 'true',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `
+        // Version: 2.0
+        window.Brevo = window.Brevo || [];
+        Brevo.push([
+          "init",
+          {
+            client_key: "ebbcniife4txugcohv48c8pb"
+          }
+        ]);
+      `,
+    },
+  ],
 
   presets: [
     [
@@ -92,7 +116,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Start Here',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
@@ -108,6 +132,11 @@ const config: Config = {
                 {
           href: 'https://www.medium.com/@gauravkhuraana',
           label: 'Medium',
+          position: 'right',
+        },
+        {
+          to: '/feedback',
+          label: 'Share Feedback',
           position: 'right',
         },
       ],
