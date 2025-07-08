@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgauravkhurana=self.webpackChunkgauravkhurana||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome to Sharing is Caring - Your Testing & Automation Journey Begins","permalink":"/blog/welcome-to-sharing-is-caring","unlisted":false,"date":"2025-07-08T00:00:00.000Z"}]}')}}]);
