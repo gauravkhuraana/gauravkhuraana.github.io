@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'blog.gauravkhurana.in',
+  title: 'gauravkhurana.in',
   tagline: 'Sharing is Caring',
   favicon: 'img/favicon.ico',
 
@@ -51,13 +51,20 @@ const config: Config = {
       innerHTML: `
         // Version: 2.0
         window.Brevo = window.Brevo || [];
-        Brevo.push([
+        window.Brevo.push([
           "init",
           {
             client_key: "ebbcniife4txugcohv48c8pb"
           }
         ]);
       `,
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'brevo-integration',
+        content: 'tracking',
+      },
     },
   ],
 
@@ -154,19 +161,27 @@ const config: Config = {
           ],
         },
         {
-          title: 'Community',
+          title: 'Social Links',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Github',
+              href: 'https://github.com/gauravkhuraana',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/in/gauravkhurana/',
             },
             {
               label: 'X',
-              href: 'https://x.com/docusaurus',
+              href: 'https://x.com/gauravkhuraana',
+            },
+            {
+              label: 'YouTube',
+              href: 'https://www.youtube.com/@Udzial/playlists',
+            },
+            {
+              label: 'Medium',
+              href: 'https://www.medium.com/@gauravkhuraana',
             },
           ],
         },

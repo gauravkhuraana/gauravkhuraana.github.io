@@ -33,7 +33,7 @@ Comment: ${feedback.comment}
 Contact: ${feedback.email}
 
 ---
-Quick feedback from blog.gauravkhurana.in
+Quick feedback from gauravkhurana.in
     `);
 
     window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
