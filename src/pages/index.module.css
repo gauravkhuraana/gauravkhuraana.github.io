@@ -8,16 +8,235 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #25c2a0 0%, #1e7e6b 50%, #1a6b5c 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.heroTagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 1rem 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.heroIntro {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 1rem 0 2rem 0;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
+  
+  .heroTagline {
+    font-size: 1.2rem;
+  }
+  
+  .heroIntro {
+    font-size: 1rem;
+  }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* USP Section Styles */
+.uspSection {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  text-align: center;
+}
+
+[data-theme='dark'] .uspSection {
+  background: linear-gradient(135deg, #1b1b1d 0%, #242526 100%);
+}
+
+.uspContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.uspTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.uspText {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--ifm-color-content);
+  font-weight: 500;
+}
+
+/* Featured Content Section */
+.featuredSection {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--ifm-color-content);
+}
+
+.featuredCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.featuredCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cardIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featuredCard h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-content);
+}
+
+.featuredCard p {
+  color: var(--ifm-color-content-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.cardLink {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cardLink:hover {
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+/* Popular Resources */
+.popularResources {
+  margin-top: 4rem;
+}
+
+.resourcesTitle {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: var(--ifm-color-content);
+}
+
+.resourceCard {
+  background: linear-gradient(135deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-color-primary-lighter) 100%);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+[data-theme='dark'] .resourceCard {
+  background: linear-gradient(135deg, var(--ifm-color-primary-darkest) 0%, var(--ifm-color-primary-darker) 100%);
+}
+
+.resourceCard:hover {
+  transform: translateY(-2px);
+}
+
+.resourceCard h4 {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-content);
+  font-size: 1.2rem;
+}
+
+.resourceCard p {
+  margin-bottom: 1rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.95rem;
+}
+
+.resourceLink {
+  font-weight: 600;
+  color: var(--ifm-color-primary-dark);
+  text-decoration: none;
+}
+
+.resourceLink:hover {
+  text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 996px) {
+  .uspSection {
+    padding: 2rem 0;
+  }
+  
+  .uspTitle {
+    font-size: 2rem;
+  }
+  
+  .uspText {
+    font-size: 1.1rem;
+  }
+  
+  .featuredSection {
+    padding: 3rem 0;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .featuredCard {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .popularResources {
+    margin-top: 3rem;
+  }
+  
+  .resourcesTitle {
+    font-size: 1.5rem;
+  }
 }

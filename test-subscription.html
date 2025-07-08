@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Auto Subscription</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        main { 
+            background: #f5f5f5; 
+            padding: 20px; 
+            border-radius: 8px; 
+        }
+        .container { 
+            max-width: 100%; 
+        }
+        .col { 
+            width: 100%; 
+        }
+        article { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 6px; 
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="col">
+                <article>
+                    <h1>Test Page for Auto Subscription</h1>
+                    <p>This is a test page to verify auto-subscription injection works.</p>
+                    <p>The subscription form should appear below this content.</p>
+                    
+                    <h2>Connect With Me</h2>
+                    <p>This is where social links would normally go.</p>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <script src="/js/auto-subscription.js"></script>
+    <script>
+        // Simulate being on a docs page
+        Object.defineProperty(window.location, 'pathname', {
+            writable: true,
+            value: '/docs/test'
+        });
+        
+        // Manually trigger the auto-subscription for testing
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded, checking for subscription form...');
+            
+            setTimeout(() => {
+                const injectedForm = document.querySelector('.auto-subscription-injected');
+                if (injectedForm) {
+                    console.log('✅ SUCCESS: Auto-subscription form found!');
+                    injectedForm.style.border = '2px solid green';
+                } else {
+                    console.log('❌ FAILED: Auto-subscription form not found!');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

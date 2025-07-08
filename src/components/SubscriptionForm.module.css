@@ -1,0 +1,121 @@
+.subscriptionContainer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}onContainer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 3rem 0;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.subscriptionContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.subscriptionContent {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.subscriptionTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subscriptionDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formWrapper {
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subscriptionContainer {
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+  
+  .subscriptionTitle {
+    font-size: 1.3rem;
+  }
+  
+  .subscriptionDescription {
+    font-size: 0.9rem;
+  }
+  
+  .formWrapper iframe {
+    height: 180px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .subscriptionContainer {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+  
+  .subscriptionTitle {
+    font-size: 1.2rem;
+  }
+  
+  .formWrapper iframe {
+    height: 160px !important;
+  }
+}
+
+/* Dark theme compatibility */
+[data-theme='dark'] .subscriptionContainer {
+  background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+}
+
+/* Animation for better UX */
+.subscriptionContainer {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

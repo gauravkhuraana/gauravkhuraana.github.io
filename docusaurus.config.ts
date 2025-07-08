@@ -38,6 +38,7 @@ const config: Config = {
   },
 
   headTags: [
+    // Brevo tracking scripts
     {
       tagName: 'script',
       attributes: {
@@ -65,6 +66,121 @@ const config: Config = {
         name: 'brevo-integration',
         content: 'tracking',
       },
+    },
+    // Enhanced SEO meta tags
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'author',
+        content: 'Gaurav Khurana',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'robots',
+        content: 'index, follow',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:site_name',
+        content: 'Gaurav Khurana - Testing & Automation Expert',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image',
+        content: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image:width',
+        content: '1200',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:image:height',
+        content: '630',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:creator',
+        content: '@gauravkhuraana',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:site',
+        content: '@gauravkhuraana',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:image',
+        content: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
+      },
+    },
+    // JSON-LD structured data for better SEO
+    {
+      tagName: 'script',
+      attributes: {
+        type: 'application/ld+json',
+      },
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Gaurav Khurana',
+        jobTitle: 'Microsoft Test Consultant & Automation Expert',
+        description: 'Expert in software testing, test automation, DevOps, and AI tools with 15+ years of experience',
+        url: 'https://gauravkhuraana.github.io',
+        image: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
+        sameAs: [
+          'https://www.linkedin.com/in/gauravkhurana/',
+          'https://github.com/gauravkhuraana',
+          'https://www.youtube.com/@Udzial',
+          'https://medium.com/@gauravkhuraana',
+          'https://x.com/gauravkhuraana'
+        ],
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Microsoft'
+        },
+        knowsAbout: [
+          'Software Testing',
+          'Test Automation',
+          'DevOps',
+          'Quality Assurance',
+          'AI Tools',
+          'Selenium',
+          'API Testing',
+          'Performance Testing'
+        ]
+      }),
     },
   ],
 
@@ -99,8 +215,27 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       } satisfies Preset.Options,
     ],
+  ],
+
+  plugins: [
+    // Google Analytics or any other analytics plugin can be added here
+    // '@docusaurus/plugin-google-analytics',
+    // '@docusaurus/plugin-google-gtag',
+  ],
+
+  scripts: [
+    {
+      src: '/js/auto-subscription.js',
+      async: true,
+    },
   ],
 
   themeConfig: {
@@ -108,9 +243,17 @@ const config: Config = {
     image: 'img/gauravkhurana.png',
     metadata: [
       {name: 'description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
-      {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools'},
-      {property: 'og:description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
-      {property: 'twitter:description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
+      {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
+      {name: 'theme-color', content: '#25c2a0'},
+      {property: 'og:title', content: 'Gaurav Khurana - Testing & Automation Expert'},
+      {property: 'og:description', content: 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.'},
+      {property: 'og:url', content: 'https://gauravkhuraana.github.io'},
+      {property: 'twitter:title', content: 'Gaurav Khurana - Testing & Automation Expert'},
+      {property: 'twitter:description', content: 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.'},
+      {name: 'apple-mobile-web-app-capable', content: 'yes'},
+      {name: 'apple-mobile-web-app-status-bar-style', content: 'default'},
+      {name: 'msapplication-TileColor', content: '#25c2a0'},
     ],
     navbar: {
       title: 'SharingIsCaring',
@@ -123,74 +266,72 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Start Here',
+          label: 'Testing Toolkit',
         },
         {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/feedback', label: 'Contact', position: 'left'},
         {
           href: 'https://www.topmate.io/gauravkhurana',
-          label: 'Need Guidance?',
+          label: 'Need 1:1?',
           position: 'right',
         },
         {
           href: 'https://www.youtube.com/@Udzial/playlists',
-          label: 'My YouTube Playlists',
+          label: 'YouTube',
           position: 'right',
         },
-                {
+        {
           href: 'https://www.medium.com/@gauravkhuraana',
           label: 'Medium',
           position: 'right',
         },
-        {
-          to: '/feedback',
-          label: 'Share Feedback',
-          position: 'right',
-        },
       ],
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
     },
     footer: {
       style: 'dark',
+      logo: {
+        alt: 'Gaurav Khurana',
+        src: 'img/gauravkhurana.png',
+        width: 60,
+        height: 60,
+      },
       links: [
         {
-          title: 'Docs',
+          title: 'Learn & Grow',
           items: [
             {
-              label: 'Start Here',
+              label: 'Testing Toolkit',
               to: '/docs/intro',
+            },
+            {
+              label: 'Automation Guides',
+              to: '/docs/Automation',
+            },
+            {
+              label: 'AI Tools',
+              to: '/docs/category/-ai',
             },
           ],
         },
         {
-          title: 'Social Links',
+          title: 'Connect With Me',
           items: [
-            {
-              label: 'Github',
-              href: 'https://github.com/gauravkhuraana',
-            },
             {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/in/gauravkhurana/',
             },
             {
-              label: 'X',
-              href: 'https://x.com/gauravkhuraana',
-            },
-            {
-              label: 'YouTube',
+              label: 'YouTube (@Udzial)',
               href: 'https://www.youtube.com/@Udzial/playlists',
             },
             {
-              label: 'Medium',
+              label: 'Medium Blog',
               href: 'https://www.medium.com/@gauravkhuraana',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
             },
             {
               label: 'GitHub',
@@ -198,8 +339,30 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'Resources',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'Contact',
+              to: '/feedback',
+            },
+            {
+              label: 'Career Guidance',
+              href: 'https://www.topmate.io/gauravkhurana',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana. Built with Docusaurus.`,
+      copyright: `
+        <div style="margin-bottom: 1rem; font-style: italic; color: #a0a4a8;">
+          "Helping testers become better every day."
+        </div>
+        <div>Copyright © ${new Date().getFullYear()} Gaurav Khurana • Built with ❤️ and Docusaurus</div>
+      `,
     },
     prism: {
       theme: prismThemes.github,

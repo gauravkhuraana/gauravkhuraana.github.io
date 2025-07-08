@@ -82,3 +82,13 @@ programming:
   label: Programming
   permalink: /programming
   description: Programming concepts, coding best practices, and development skills for testers and automation engineers
+
+Microsoft:
+  label: Microsoft
+  permalink: /microsoft
+  description: Microsoft technologies, tools, and platform-specific testing and automation solutions
+
+test-consultant:
+  label: Test Consultant
+  permalink: /test-consultant
+  description: Insights and experiences from professional test consulting, including strategies and methodologies for enterprise testing

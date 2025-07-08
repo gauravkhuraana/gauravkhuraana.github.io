@@ -17,7 +17,7 @@ const FeatureList: FeatureItem[] = [
       <>
       My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
       I have been working in the software industry for over 15+ years.
-      Currently Working in Microsoft for 6+ years
+      Currently working at Microsoft for over 6 years
       </>
     ),
   },
@@ -36,8 +36,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-       I have a youtube channel( @Udzial ) and blog with the name ( udzial.com )
-       Udzial Is a polish word that means "share".
+       I have a youtube channel @Udzial and blog at udzial.com.
+       Udzial is a Polish word that means "share".
       </>
     ),
   },
