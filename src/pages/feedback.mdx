@@ -37,17 +37,6 @@ Your insights and suggestions help create better content for the global software
 Check out my playlists covering automation testing, career guidance, and DevOps practices:
 
 <div style={{textAlign: 'center', margin: '2rem 0'}}>
-  <iframe 
-    width="560" 
-    height="315" 
-    src="https://www.youtube.com/embed/videoseries?list=your-playlist-id" 
-    title="Automation Testing Playlist" 
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowfullscreen
-    style={{maxWidth: '100%', height: 'auto'}}
-  ></iframe>
-  <br />
   <a 
     href="https://www.youtube.com/@Udzial/playlists" 
     target="_blank" 
@@ -60,7 +49,18 @@ Check out my playlists covering automation testing, career guidance, and DevOps 
       color: 'white',
       textDecoration: 'none',
       borderRadius: '6px',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontSize: '1rem',
+      transition: 'all 0.2s ease',
+      boxShadow: '0 4px 12px rgba(255, 0, 0, 0.25)'
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.boxShadow = '0 6px 20px rgba(255, 0, 0, 0.35)';
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 4px 12px rgba(255, 0, 0, 0.25)';
     }}
   >
     🔗 Watch on YouTube
@@ -78,11 +78,24 @@ Deep-dive articles on testing methodologies, automation strategies, and career i
     style={{
       display: 'inline-block',
       padding: '0.75rem 1.5rem',
-      background: '#000000',
+      background: '#1a8917',
       color: 'white',
       textDecoration: 'none',
       borderRadius: '6px',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontSize: '1rem',
+      transition: 'all 0.2s ease',
+      boxShadow: '0 4px 12px rgba(26, 137, 23, 0.25)'
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.boxShadow = '0 6px 20px rgba(26, 137, 23, 0.35)';
+      e.currentTarget.style.background = '#0f7c0f';
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 4px 12px rgba(26, 137, 23, 0.25)';
+      e.currentTarget.style.background = '#1a8917';
     }}
   >
     📖 Read on Medium
@@ -104,7 +117,20 @@ Book a personalized session for career guidance, automation strategy, or testing
       color: 'white',
       textDecoration: 'none',
       borderRadius: '6px',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontSize: '1rem',
+      transition: 'all 0.2s ease',
+      boxShadow: '0 4px 12px rgba(99, 102, 241, 0.25)'
+    }}
+    onMouseOver={(e) => {
+      e.currentTarget.style.transform = 'translateY(-2px)';
+      e.currentTarget.style.boxShadow = '0 6px 20px rgba(99, 102, 241, 0.35)';
+      e.currentTarget.style.background = '#4f46e5';
+    }}
+    onMouseOut={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = '0 4px 12px rgba(99, 102, 241, 0.25)';
+      e.currentTarget.style.background = '#6366f1';
     }}
   >
     📅 Book on Topmate

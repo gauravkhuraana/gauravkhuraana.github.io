@@ -163,3 +163,140 @@ body {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* Improved spacing for MDX content */
+.markdown {
+  line-height: 1.7;
+}
+
+.markdown h1 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.markdown h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.markdown h3 {
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+}
+
+.markdown h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.markdown p {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.markdown ul, .markdown ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.markdown li {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.markdown blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.markdown .admonition {
+  margin: 1.5rem 0;
+}
+
+.markdown img {
+  margin: 1.5rem 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.markdown hr {
+  margin: 2.5rem 0;
+  border: none;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* YouTube embed spacing */
+.markdown iframe {
+  margin: 1.5rem 0;
+}
+
+/* Prevent overlapping of consecutive sections */
+.markdown section + section {
+  margin-top: 2rem;
+}
+
+/* Better spacing for lists inside strong/bold elements */
+.markdown strong + ul,
+.markdown strong + ol,
+.markdown b + ul,
+.markdown b + ol {
+  margin-top: 0.5rem;
+}
+
+/* Ensure proper spacing for nested content */
+.markdown .admonition-content > *:first-child {
+  margin-top: 0;
+}
+
+.markdown .admonition-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Fix for any potential emoji spacing issues */
+.markdown .emoji {
+  margin: 0 0.25rem;
+}
+
+/* Better spacing for social links */
+.markdown a[href*="youtube.com"],
+.markdown a[href*="medium.com"],
+.markdown a[href*="topmate.io"] {
+  display: inline-block;
+  margin: 0.25rem 0;
+}
+
+/* Responsive spacing adjustments */
+@media screen and (max-width: 768px) {
+  .markdown h1 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .markdown h2 {
+    font-size: 1.75rem;
+    margin-top: 2rem;
+  }
+  
+  .markdown h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .markdown p {
+    margin-bottom: 1.25rem;
+  }
+  
+  .markdown ul, .markdown ol {
+    margin-bottom: 1.25rem;
+  }
+  
+  .markdown hr {
+    margin: 2rem 0;
+  }
+}

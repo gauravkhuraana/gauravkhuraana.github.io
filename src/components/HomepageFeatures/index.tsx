@@ -5,14 +5,25 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
+  Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
+  image?: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
+    title: 'Udzial Means Share',
+    image: require('@site/static/img/udziallogo.jpeg').default,
+    description: (
+      <>
+       I  believe in #SharingIsCaring. This  website is a collection of
+        resources, tools, and tips that I have found useful in my journey as a tester.
+      </>
+    ),
+  },
+    {
     title: 'Who Am I?',
-    Svg: require('@site/static/img/logo.svg').default,
+    image: require('@site/static/img/gauravkhurana.png').default,
     description: (
       <>
       My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
@@ -22,32 +33,30 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Sharing is Caring',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'What You’ll Find Here',
+    image: require('@site/static/img/testautomationAI.jpeg').default,
     description: (
       <>
-       I  believe in #SharingIsCaring. This  website is a collection of
-        resources, tools, and tips that I have found useful in my journey as a tester.
-      </>
-    ),
-  },
-  {
-    title: 'Udzial Means Share',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-       I have a youtube channel @Udzial and blog at udzial.com.
-       Udzial is a Polish word that means "share".
+       From beginner tutorials to advanced automation tips — this site is packed with hands-on resources to help you grow.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, Svg, image, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+        {Svg ? (
+          <Svg className={styles.featureSvg} role="img" />
+        ) : image ? (
+          <img 
+            src={image} 
+            alt={title}
+            className={styles.featureSvg}
+            style={{ maxWidth: '200px', height: 'auto' }}
+          />
+        ) : null}
       </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>

@@ -41,12 +41,11 @@ function USPSection() {
     <section className={styles.uspSection}>
       <div className="container">
         <div className={styles.uspContent}>
-          <Heading as="h2" className={styles.uspTitle}>
-            Why Learn From Me?
-          </Heading>
+            <Heading as="h2" className={styles.uspTitle}>
+             Everything Here Helps You to be Better.
+            </Heading>
           <p className={styles.uspText}>
-            Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant.<br/>
-            Real-world insights that actually work in enterprise environments.
+           Get simple, proven techniques that work in the real world.
           </p>
         </div>
       </div>
