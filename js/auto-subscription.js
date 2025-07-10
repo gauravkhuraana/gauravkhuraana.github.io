@@ -23,8 +23,7 @@
     
     const shouldAddSubscription = 
       currentPath.startsWith('/docs/') || 
-      currentPath.startsWith('/blog/') ||
-      currentPath === '/';
+      currentPath.startsWith('/blog/');
 
     // Skip certain pages
     const skipPages = [
