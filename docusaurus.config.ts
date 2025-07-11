@@ -192,10 +192,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
-
-
+          // editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -205,8 +202,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/gauravkhuraana/gauravkhurana/edit/main/',
+          // editUrl: 'https://github.com/gauravkhuraana/gauravkhurana/edit/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -266,10 +262,11 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Testing Toolkit',
+          label: 'Start Here',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/feedback', label: 'Contact', position: 'left'},
+        {to: '/blog', label: 'Blog', position: 'right'},
+        {to: '/newsletter', label: 'Newsletter', position: 'left'},
+        {to: '/feedback', label: 'Contact', position: 'right'},
         {
           href: 'https://www.topmate.io/gauravkhurana',
           label: 'Need 1:1?',
@@ -305,7 +302,7 @@ const config: Config = {
           title: 'Learn & Grow',
           items: [
             {
-              label: 'Testing Toolkit',
+              label: 'Getting Started',
               to: '/docs/intro',
             },
             {
@@ -323,7 +320,7 @@ const config: Config = {
           items: [
             {
               label: 'LinkedIn',
-              href: 'https://www.linkedin.com/in/gauravkhurana/',
+              href: 'https://www.linkedin.com/in/gauravkhuraana/',
             },
             {
               label: 'YouTube (@Udzial)',
@@ -347,7 +344,11 @@ const config: Config = {
               to: '/blog',
             },
             {
-              label: 'Contact',
+              label: 'Newsletter',
+              to: '/newsletter',
+            },
+            {
+              label: 'Feedback',
               to: '/feedback',
             },
             {

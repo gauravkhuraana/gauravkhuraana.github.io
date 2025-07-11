@@ -44,7 +44,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
             name="email"
             required
             placeholder="your.email@example.com"
-            aria-label="Enter your email address"
+            aria-label="Enter your email address please"
           />
         </div>
 
@@ -54,7 +54,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
             id="message"
             name="message"
             required
-            placeholder="Your feedback please"
+            placeholder="Suggestion for content inclusion/improvement, bugs or general feedback"
             aria-label="Enter your feedback or message"
             rows={5}
           />
@@ -71,7 +71,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
 
       {showSocialLinks && (
         <div className={styles.socialLinksBottom}>
-          <p>Prefer other ways to connect?</p>
+          <p>Prefer other ways to connect? Follow for more insights:</p>
           <div className={styles.linkButtons}>
             <a 
               href="https://www.youtube.com/@Udzial/playlists" 
@@ -81,6 +81,15 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
               aria-label="Visit YouTube Channel"
             >
               📺 YouTube
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/gauravkhuraana/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.socialButton}
+              aria-label="Follow on LinkedIn"
+            >
+              💼 LinkedIn
             </a>
             <a 
               href="https://www.medium.com/@gauravkhuraana" 

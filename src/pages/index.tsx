@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import SubscriptionForm from '@site/src/components/SubscriptionForm';
+import NewsletterSubscription from '@site/src/components/NewsletterSubscription';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -28,7 +29,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Start Your Learning Journey �
+            🚀 Start Learning Now →
           </Link>
         </div>
       </div>
@@ -136,6 +137,14 @@ export default function Home(): ReactNode {
         <FeaturedContent />
         <div className="container">
           <SubscriptionForm />
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link 
+              to="/newsletter" 
+              className="button button--primary button--lg"
+            >
+              🗞️ Visit Complete Newsletter Page
+            </Link>
+          </div>
         </div>
       </main>
     </Layout>

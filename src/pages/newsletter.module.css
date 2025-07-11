@@ -1,0 +1,474 @@
+/* Newsletter Page Styles */
+
+.pageContainer {
+  min-height: 100vh;
+  background: var(--ifm-background-color);
+}
+
+.heroSection {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-dark) 100%);
+  padding: 4rem 0;
+  color: white;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  color: white !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: white !important;
+  opacity: 0.95;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.contentSection {
+  padding: 4rem 0;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 4rem;
+}
+
+/* Subscription Section */
+.subscriptionSection {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.subscriptionCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: var(--ifm-global-shadow-md);
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.cardTitle {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.cardDescription {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.subscriptionForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.95rem;
+}
+
+.formGroup input,
+.selectField {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background: var(--ifm-background-color);
+  color: var(--ifm-color-emphasis-800);
+}
+
+.formGroup input:focus,
+.selectField:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px var(--ifm-color-primary-lightest);
+}
+
+.subscribeButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.subscribeButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--ifm-color-primary-lightest);
+}
+
+.successMessage {
+  text-align: center;
+  padding: 2rem;
+  background: var(--ifm-color-success-lightest);
+  border-radius: 8px;
+  border: 2px solid var(--ifm-color-success-light);
+}
+
+.successMessage h3 {
+  color: var(--ifm-color-success-dark);
+  margin-bottom: 1rem;
+}
+
+.successMessage p {
+  color: var(--ifm-color-success-darker);
+}
+
+.privacyNote {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.privacyNote p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Benefits Card */
+.benefitsCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--ifm-global-shadow-md);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  height: fit-content;
+}
+
+.benefitsTitle {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitsList li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-700);
+  font-size: 1rem;
+}
+
+.benefitsList li:last-child {
+  border-bottom: none;
+}
+
+/* Connect Section */
+.connectSection {
+  margin-top: 2rem;
+}
+
+.connectTitle {
+  text-align: center;
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+.connectDescription {
+  text-align: center;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 3rem;
+  font-size: 1.1rem;
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.socialCard {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--ifm-global-shadow-lg);
+  text-decoration: none;
+  color: inherit;
+}
+
+.socialIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.socialCard h3 {
+  color: var(--ifm-color-primary);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.socialCard p {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  flex-grow: 1;
+  font-size: 0.9rem;
+}
+
+.followButton {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.socialCard:hover .followButton {
+  background: var(--ifm-color-primary-dark);
+}
+
+/* YouTube Section */
+.youtubeSection {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.youtubeTitle {
+  color: var(--ifm-color-primary);
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+.youtubeDescription {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.videoContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.youtubeEmbed {
+  width: 100%;
+  height: 450px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.watchButton {
+  display: inline-block;
+  background: #ff0000;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.watchButton:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+}
+
+/* Testimonials Section */
+.testimonialsSection {
+  margin-top: 2rem;
+}
+
+.testimonialsTitle {
+  text-align: center;
+  color: var(--ifm-color-primary);
+  margin-bottom: 2rem;
+  font-size: 2.2rem;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial {
+  background: var(--ifm-card-background-color);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: var(--ifm-global-shadow-md);
+}
+
+.testimonial p {
+  font-style: italic;
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.testimonial cite {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Dark mode specific adjustments for better readability */
+[data-theme='dark'] .heroSection {
+  background: linear-gradient(135deg, #25c2a0 0%, #1da088 100%);
+}
+
+[data-theme='dark'] .heroTitle {
+  color: white !important;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: white !important;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .cardDescription {
+  color: var(--ifm-color-emphasis-600);
+}
+
+[data-theme='dark'] .connectDescription {
+  color: var(--ifm-color-emphasis-600);
+}
+
+[data-theme='dark'] .socialCard p {
+  color: var(--ifm-color-emphasis-600);
+}
+
+[data-theme='dark'] .benefitsList li {
+  color: var(--ifm-color-emphasis-600);
+}
+
+/* Responsive Design */
+@media (max-width: 996px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .subscriptionSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .socialGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .youtubeEmbed {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 3rem 0;
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  .contentSection {
+    padding: 2rem 0;
+  }
+  
+  .subscriptionCard,
+  .benefitsCard {
+    padding: 1.5rem;
+  }
+  
+  .socialGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .socialCard {
+    padding: 1.25rem;
+  }
+  
+  .youtubeEmbed {
+    height: 250px;
+  }
+  
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  
+  .subscriptionCard,
+  .benefitsCard {
+    padding: 1rem;
+  }
+  
+  .socialCard {
+    padding: 1.5rem;
+  }
+  
+  .youtubeEmbed {
+    height: 200px;
+  }
+}

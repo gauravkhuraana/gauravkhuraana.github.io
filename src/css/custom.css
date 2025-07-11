@@ -266,7 +266,8 @@ body {
 /* Better spacing for social links */
 .markdown a[href*="youtube.com"],
 .markdown a[href*="medium.com"],
-.markdown a[href*="topmate.io"] {
+.markdown a[href*="topmate.io"],
+.markdown a[href*="linkedin.com"] {
   display: inline-block;
   margin: 0.25rem 0;
 }
