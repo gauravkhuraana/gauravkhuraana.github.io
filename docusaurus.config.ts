@@ -268,7 +268,7 @@ const config: Config = {
         {to: '/newsletter', label: 'Newsletter', position: 'left'},
         {to: '/feedback', label: 'Contact', position: 'right'},
         {
-          href: 'https://www.topmate.io/gauravkhurana',
+          to: 'docs/Topmate/testimonials',
           label: 'Need 1:1?',
           position: 'right',
         },
@@ -277,11 +277,7 @@ const config: Config = {
           label: 'YouTube',
           position: 'right',
         },
-        {
-          href: 'https://www.medium.com/@gauravkhuraana',
-          label: 'Medium',
-          position: 'right',
-        },
+
       ],
     },
     colorMode: {
