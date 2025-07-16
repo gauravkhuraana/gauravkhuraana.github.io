@@ -1,0 +1,349 @@
+# Browser Console Snippets
+
+Browser console snippets are powerful JavaScript code pieces that help extract data, automate tasks, and analyze web pages directly from the browser's developer console. This collection focuses on practical snippets for testing, automation, and data extraction.
+
+## YouTube Playlist Video Extraction
+
+Extract all video titles and URLs from a YouTube playlist page. This snippet is useful for creating documentation, analyzing content, or building automated reports.
+
+```javascript
+// Get all videos from YouTube playlist with titles and URLs
+Array.from(document.querySelectorAll('ytd-playlist-video-renderer')).forEach(el => {
+  const title = el.querySelector('#video-title').textContent.trim();
+  const url = "https://www.youtube.com" + el.querySelector('a').getAttribute('href').split('&')[0];
+  console.log(`${title} - ${url}`);
+});
+```
+
+**Usage Instructions:**
+1. Navigate to any YouTube playlist page
+2. Open browser developer tools (F12)
+3. Go to Console tab
+4. Paste and execute the script
+5. Copy the output for your documentation
+
+## Page Performance Testing
+
+Analyze page load performance metrics for testing performance benchmarks and identifying slow-loading elements.
+
+```javascript
+// Get performance metrics for testing validation
+const perfData = performance.timing;
+const loadTime = perfData.loadEventEnd - perfData.navigationStart;
+const domContentLoaded = perfData.domContentLoadedEventEnd - perfData.navigationStart;
+
+console.log(`Page Load Time: ${loadTime}ms`);
+console.log(`DOM Content Loaded: ${domContentLoaded}ms`);
+console.log(`Performance Test Result: ${loadTime < 3000 ? 'PASS' : 'FAIL'} (< 3s threshold)`);
+console.log(`Total Resources Loaded: ${performance.getEntriesByType('resource').length}`);
+```
+
+## Automated Form Testing
+
+Automatically fill form fields with test data for testing form validation and functionality.
+
+```javascript
+// Fill all form inputs with test data for automated testing
+document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="password"]').forEach(input => {
+  if (input.type === 'email') {
+    input.value = 'testuser@testdomain.com';
+  } else if (input.type === 'tel') {
+    input.value = '+1234567890';
+  } else if (input.type === 'password') {
+    input.value = 'TestPassword123!';
+  } else {
+    input.value = 'Test Data Value';
+  }
+  // Trigger events for validation
+  input.dispatchEvent(new Event('input', { bubbles: true }));
+  input.dispatchEvent(new Event('change', { bubbles: true }));
+});
+
+// Fill textareas
+document.querySelectorAll('textarea').forEach(textarea => {
+  textarea.value = 'This is test content for textarea validation and functionality testing.';
+  textarea.dispatchEvent(new Event('input', { bubbles: true }));
+});
+
+console.log('Form fields filled with test data');
+```
+
+## Link Analysis and Broken Link Detection
+
+Analyze all links on a page and identify potential issues.
+
+```javascript
+// Analyze all links on the page
+const links = document.querySelectorAll('a[href]');
+const linkData = [];
+
+links.forEach(link => {
+  const href = link.href;
+  const text = link.textContent.trim();
+  const isExternal = !href.startsWith(window.location.origin);
+  const isEmpty = !text || text.length === 0;
+  
+  linkData.push({
+    url: href,
+    text: text || '[No text]',
+    external: isExternal,
+    emptyText: isEmpty
+  });
+});
+
+console.log(`Total links found: ${links.length}`);
+console.log('External links:', linkData.filter(l => l.external));
+console.log('Links with no text:', linkData.filter(l => l.emptyText));
+```
+
+## Accessibility Testing Helper
+
+Check for common accessibility issues during testing.
+
+```javascript
+// Test accessibility compliance
+const images = document.querySelectorAll('img');
+const buttons = document.querySelectorAll('button, input[type="button"], input[type="submit"]');
+const links = document.querySelectorAll('a');
+const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+
+// Check images without alt text
+const imagesWithoutAlt = Array.from(images).filter(img => !img.alt || img.alt.trim() === '');
+console.log(`Images without alt text: ${imagesWithoutAlt.length}`);
+imagesWithoutAlt.forEach(img => console.log('Missing alt:', img.src));
+
+// Check buttons without accessible names
+const buttonsWithoutText = Array.from(buttons).filter(btn => 
+  !btn.textContent.trim() && !btn.getAttribute('aria-label') && !btn.getAttribute('title')
+);
+console.log(`Buttons without accessible names: ${buttonsWithoutText.length}`);
+
+// Check links without text
+const emptyLinks = Array.from(links).filter(link => !link.textContent.trim());
+console.log(`Links without text: ${emptyLinks.length}`);
+
+// Check heading structure
+const headingLevels = Array.from(headings).map(h => parseInt(h.tagName.charAt(1)));
+console.log('Heading structure:', headingLevels);
+
+console.log('\n=== ACCESSIBILITY TEST SUMMARY ===');
+console.log(`Total accessibility issues found: ${imagesWithoutAlt.length + buttonsWithoutText.length + emptyLinks.length}`);
+```
+
+## Test Data Validation and Storage
+
+Inspect browser storage and validate test data persistence during testing.
+
+```javascript
+// Validate test data in browser storage
+console.log('=== TEST DATA VALIDATION ===');
+
+// Check localStorage for test data
+console.log('\n--- Local Storage Test Data ---');
+if (localStorage.length > 0) {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    console.log(`${key}: ${value.length > 50 ? value.substring(0, 50) + '...' : value}`);
+  }
+} else {
+  console.log('No data in localStorage');
+}
+
+// Check sessionStorage for test data
+console.log('\n--- Session Storage Test Data ---');
+if (sessionStorage.length > 0) {
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    const value = sessionStorage.getItem(key);
+    console.log(`${key}: ${value.length > 50 ? value.substring(0, 50) + '...' : value}`);
+  }
+} else {
+  console.log('No data in sessionStorage');
+}
+
+// Validate cookies for testing
+console.log('\n--- Cookies Test Data ---');
+if (document.cookie) {
+  const cookies = document.cookie.split(';');
+  console.log(`Total cookies: ${cookies.length}`);
+  cookies.forEach(cookie => {
+    const [name, value] = cookie.trim().split('=');
+    console.log(`${name}: ${value ? value.substring(0, 30) + (value.length > 30 ? '...' : '') : 'empty'}`);
+  });
+} else {
+  console.log('No cookies found');
+}
+```
+
+## Test Reporting and Logging
+
+Enhanced console logging utilities for test execution tracking and reporting.
+
+```javascript
+// Test execution logger with status tracking
+class TestLogger {
+  constructor() {
+    this.testResults = [];
+    this.startTime = Date.now();
+  }
+
+  logTest(testName, status, details = '') {
+    const timestamp = new Date().toLocaleTimeString();
+    const result = { testName, status, details, timestamp };
+    this.testResults.push(result);
+    
+    const statusColor = {
+      'PASS': 'color: #4CAF50; font-weight: bold;',
+      'FAIL': 'color: #F44336; font-weight: bold;',
+      'SKIP': 'color: #FF9800; font-weight: bold;',
+      'INFO': 'color: #2196F3; font-weight: bold;'
+    };
+    
+    console.log(`%c[${timestamp}] ${status}: ${testName}`, statusColor[status] || statusColor['INFO']);
+    if (details) console.log(`   Details: ${details}`);
+  }
+
+  generateReport() {
+    const endTime = Date.now();
+    const duration = (endTime - this.startTime) / 1000;
+    
+    console.log('\n%c=== TEST EXECUTION REPORT ===', 'color: #9C27B0; font-size: 16px; font-weight: bold;');
+    console.log(`Total Tests: ${this.testResults.length}`);
+    console.log(`Passed: ${this.testResults.filter(r => r.status === 'PASS').length}`);
+    console.log(`Failed: ${this.testResults.filter(r => r.status === 'FAIL').length}`);
+    console.log(`Skipped: ${this.testResults.filter(r => r.status === 'SKIP').length}`);
+    console.log(`Duration: ${duration}s`);
+    
+    return this.testResults;
+  }
+}
+
+// Usage example
+const testLogger = new TestLogger();
+// testLogger.logTest('Login form validation', 'PASS', 'All fields validated correctly');
+// testLogger.logTest('Submit button functionality', 'FAIL', 'Button not responding to click');
+// testLogger.generateReport();
+```
+
+## Element Interaction Testing
+
+Test element interactions and user interface responsiveness.
+
+```javascript
+// Test clickable elements and their responses
+function testClickableElements() {
+  const clickableElements = document.querySelectorAll('button, a, input[type="button"], input[type="submit"], [onclick]');
+  let workingElements = 0;
+  let brokenElements = 0;
+  
+  console.log(`Testing ${clickableElements.length} clickable elements...`);
+  
+  clickableElements.forEach((element, index) => {
+    const rect = element.getBoundingClientRect();
+    const isVisible = rect.width > 0 && rect.height > 0;
+    const isEnabled = !element.disabled;
+    const hasClickHandler = element.onclick || element.getAttribute('href') || element.type === 'submit';
+    
+    if (isVisible && isEnabled && hasClickHandler) {
+      workingElements++;
+      console.log(`✓ Element ${index + 1}: ${element.tagName} - FUNCTIONAL`);
+    } else {
+      brokenElements++;
+      console.log(`✗ Element ${index + 1}: ${element.tagName} - ISSUE DETECTED`);
+      if (!isVisible) console.log('  - Not visible');
+      if (!isEnabled) console.log('  - Disabled');
+      if (!hasClickHandler) console.log('  - No click handler');
+    }
+  });
+  
+  console.log(`\nSummary: ${workingElements} functional, ${brokenElements} with issues`);
+}
+
+// Run the test
+testClickableElements();
+```
+
+## Network Request Monitoring
+
+Monitor network requests during testing for API validation and performance testing.
+
+```javascript
+// Monitor network requests for testing validation
+const originalFetch = window.fetch;
+const networkLog = [];
+
+window.fetch = function(...args) {
+  const startTime = Date.now();
+  const url = args[0];
+  
+  console.log(`🌐 API Request: ${url}`);
+  
+  return originalFetch.apply(this, args)
+    .then(response => {
+      const endTime = Date.now();
+      const duration = endTime - startTime;
+      
+      const logEntry = {
+        url,
+        status: response.status,
+        duration,
+        timestamp: new Date().toISOString()
+      };
+      
+      networkLog.push(logEntry);
+      
+      if (response.ok) {
+        console.log(`✓ API Response: ${response.status} (${duration}ms)`);
+      } else {
+        console.log(`✗ API Error: ${response.status} (${duration}ms)`);
+      }
+      
+      return response;
+    })
+    .catch(error => {
+      console.log(`✗ API Failed: ${error.message}`);
+      throw error;
+    });
+};
+
+// Function to get network summary
+function getNetworkSummary() {
+  console.log('\n=== NETWORK REQUEST SUMMARY ===');
+  console.log(`Total requests: ${networkLog.length}`);
+  console.log(`Successful: ${networkLog.filter(r => r.status >= 200 && r.status < 300).length}`);
+  console.log(`Failed: ${networkLog.filter(r => r.status >= 400).length}`);
+  console.log(`Average response time: ${networkLog.reduce((sum, r) => sum + r.duration, 0) / networkLog.length || 0}ms`);
+  return networkLog;
+}
+```
+
+## Best Practices for Testing Snippets
+
+1. **Always test in a safe environment** before running on production sites
+2. **Respect website terms of service** when extracting data
+3. **Use console.clear()** before running scripts for cleaner test output
+4. **Add error handling** for more robust test snippets
+5. **Document test results** with clear assertions and expected outcomes
+6. **Test across different browsers** for compatibility validation
+7. **Create reusable test functions** for repetitive testing tasks
+
+## Testing Safety Guidelines
+
+- Never run console scripts from untrusted sources
+- Be cautious when modifying page content or submitting forms during testing
+- Always verify extracted data accuracy before using in test reports
+- Use proper test data that does not contain real user information
+- Respect rate limiting when testing API endpoints
+- Clear test data after test execution to avoid data pollution
+
+## Connect With Me
+
+- **LinkedIn**: [Gaurav Khurana](https://www.linkedin.com/in/gauravkhuraana/)
+- **YouTube**: [@Udzial](https://www.youtube.com/@Udzial/playlists)
+- **Medium**: [My Articles](https://www.medium.com/@gauravkhuraana)
+- **Career Guidance**: [Book 1:1 Session](https://www.topmate.io/gauravkhurana)
+
+---
+
+*These browser console snippets are designed specifically for testers and automation engineers to validate functionality, extract test data, and analyze web application behavior. Use them responsibly and always follow your organization's testing guidelines.*

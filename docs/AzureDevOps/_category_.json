@@ -1,0 +1,8 @@
+{
+  "label": "Azure DevOps",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn Azure DevOps from basics to advanced automation integration. Complete video series covering project setup, work items, testing, pipelines, and automation."
+  }
+}
