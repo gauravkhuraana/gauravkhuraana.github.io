@@ -1,6 +1,11 @@
 import React from 'react';
 
-const YouTubeEmbed = ({ videoId, title }) => {
+interface YouTubeEmbedProps {
+  videoId: string;
+  title: string;
+}
+
+const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
   
   return (
@@ -39,7 +44,7 @@ const YouTubeEmbed = ({ videoId, title }) => {
         border: '1px solid #e9ecef'
       }}>
         <p style={{ margin: '0 0 0.5rem 0', fontWeight: 'bold' }}>
-          💡 Enjoyed this video?
+          Enjoyed this video?
         </p>
         <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
           <a 
@@ -52,7 +57,7 @@ const YouTubeEmbed = ({ videoId, title }) => {
               fontWeight: 'bold'
             }}
           >
-            🎬 Watch on YouTube
+            Watch on YouTube
           </a>
           <span style={{ color: '#666' }}>•</span>
           <a 
@@ -65,11 +70,11 @@ const YouTubeEmbed = ({ videoId, title }) => {
               fontWeight: 'bold'
             }}
           >
-            🔔 Subscribe for More
+            Subscribe for More
           </a>
           <span style={{ color: '#666' }}>•</span>
           <span style={{ color: '#666' }}>
-            👍 Like & 💬 Comment if this helped you!
+            Like and Comment if this helped you!
           </span>
         </div>
       </div>

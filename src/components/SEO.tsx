@@ -31,23 +31,33 @@ const SEO: React.FC<SEOProps> = ({
   const siteTitle = 'gauravkhurana.in';
   const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
   
+  // Safely handle all values to avoid Symbol conversion issues
+  const safeTitle = String(fullTitle);
+  const safeDescription = String(description);
+  const safeKeywords = String(keywords);
+  const safeAuthor = String(author);
+  const safeUrl = String(url);
+  const safeImage = String(image);
+  const safeSection = section ? String(section) : '';
+  const safeTags = Array.isArray(tags) ? tags.map(tag => String(tag)) : [];
+  
   return (
     <Helmet>
       {/* Primary Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="title" content={fullTitle} />
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <meta name="author" content={author} />
+      <title>{safeTitle}</title>
+      <meta name="title" content={safeTitle} />
+      <meta name="description" content={safeDescription} />
+      <meta name="keywords" content={safeKeywords} />
+      <meta name="author" content={safeAuthor} />
       <meta name="robots" content="index, follow" />
-      <link rel="canonical" href={url} />
+      <link rel="canonical" href={safeUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:url" content={safeUrl} />
+      <meta property="og:title" content={safeTitle} />
+      <meta property="og:description" content={safeDescription} />
+      <meta property="og:image" content={safeImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:site_name" content={siteTitle} />
@@ -58,20 +68,20 @@ const SEO: React.FC<SEOProps> = ({
         <>
           {publishedTime && <meta property="article:published_time" content={publishedTime} />}
           {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-          {author && <meta property="article:author" content={author} />}
-          {section && <meta property="article:section" content={section} />}
-          {tags && tags.map(tag => (
-            <meta key={tag} property="article:tag" content={tag} />
+          {safeAuthor && <meta property="article:author" content={safeAuthor} />}
+          {safeSection && <meta property="article:section" content={safeSection} />}
+          {safeTags.map((tag, index) => (
+            <meta key={`tag-${index}`} property="article:tag" content={tag} />
           ))}
         </>
       )}
 
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
+      <meta property="twitter:url" content={safeUrl} />
+      <meta property="twitter:title" content={safeTitle} />
+      <meta property="twitter:description" content={safeDescription} />
+      <meta property="twitter:image" content={safeImage} />
       <meta property="twitter:creator" content="@gauravkhuraana" />
       <meta property="twitter:site" content="@gauravkhuraana" />
 
@@ -80,45 +90,6 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       <meta name="msapplication-TileColor" content="#25c2a0" />
-      
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': type === 'article' ? 'BlogPosting' : 'WebPage',
-          headline: fullTitle,
-          description: description,
-          image: image,
-          url: url,
-          author: {
-            '@type': 'Person',
-            name: author,
-            url: 'https://gauravkhuraana.github.io',
-            sameAs: [
-              'https://www.linkedin.com/in/gauravkhurana/',
-              'https://github.com/gauravkhuraana',
-              'https://www.youtube.com/@Udzial',
-              'https://medium.com/@gauravkhuraana',
-              'https://x.com/gauravkhuraana'
-            ]
-          },
-          publisher: {
-            '@type': 'Person',
-            name: 'Gaurav Khurana',
-            logo: {
-              '@type': 'ImageObject',
-              url: 'https://gauravkhuraana.github.io/img/gauravkhurana.png'
-            }
-          },
-          mainEntityOfPage: {
-            '@type': 'WebPage',
-            '@id': url
-          },
-          ...(publishedTime && { datePublished: publishedTime }),
-          ...(modifiedTime && { dateModified: modifiedTime }),
-          ...(tags && { keywords: tags.join(', ') })
-        })}
-      </script>
     </Helmet>
   );
 };
