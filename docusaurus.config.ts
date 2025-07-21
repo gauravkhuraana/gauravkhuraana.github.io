@@ -99,13 +99,6 @@ const config: Config = {
     {
       tagName: 'meta',
       attributes: {
-        property: 'og:image',
-        content: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
-      },
-    },
-    {
-      tagName: 'meta',
-      attributes: {
         property: 'og:image:width',
         content: '1200',
       },
@@ -136,13 +129,6 @@ const config: Config = {
       attributes: {
         name: 'twitter:site',
         content: '@gauravkhuraana',
-      },
-    },
-    {
-      tagName: 'meta',
-      attributes: {
-        name: 'twitter:image',
-        content: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
       },
     },
     // JSON-LD structured data for better SEO
