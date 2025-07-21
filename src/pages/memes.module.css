@@ -1,0 +1,240 @@
+/* Memes Page Styles */
+.memesMain {
+  padding: 2rem 0;
+  min-height: 80vh;
+}
+
+.memesHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.memesTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+  line-height: 1.2;
+}
+
+.memesSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-secondary-darkest);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.instagramLink {
+  margin-bottom: 2rem;
+}
+
+.instagramButton {
+  display: inline-block;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(188, 24, 136, 0.3);
+}
+
+.instagramButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(188, 24, 136, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.memesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 0 1rem;
+}
+
+.instagramPost {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.instagramPost .instagram-media {
+  margin: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instagramPost .instagram-media:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+}
+
+.loadMoreSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--ifm-color-secondary-lightest);
+  border-radius: 12px;
+  margin: 2rem 1rem;
+}
+
+.loadMoreText {
+  font-size: 1.125rem;
+  color: var(--ifm-color-secondary-darkest);
+  margin-bottom: 1.5rem;
+}
+
+.visitInstagramButton {
+  display: inline-block;
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 194, 160, 0.3);
+}
+
+.visitInstagramButton:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 194, 160, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.engagementSection {
+  text-align: center;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
+}
+
+.engagementTitle {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.engagementText {
+  font-size: 1.125rem;
+  color: var(--ifm-color-secondary-darkest);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.socialButton {
+  display: inline-block;
+  background: var(--ifm-color-secondary-lighter);
+  color: var(--ifm-color-secondary-darkest);
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.socialButton:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 194, 160, 0.3);
+  text-decoration: none;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .memesTitle {
+    font-size: 2rem;
+  }
+  
+  .memesSubtitle {
+    font-size: 1.125rem;
+  }
+  
+  .memesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .instagramPost .instagram-media {
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+  
+  .socialLinks {
+    gap: 0.75rem;
+  }
+  
+  .socialButton {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  .loadMoreSection,
+  .engagementSection {
+    padding: 2rem 1rem;
+    margin: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .memesTitle {
+    font-size: 1.75rem;
+  }
+  
+  .memesSubtitle {
+    font-size: 1rem;
+  }
+  
+  .instagramButton,
+  .visitInstagramButton {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .engagementTitle {
+    font-size: 1.5rem;
+  }
+  
+  .engagementText {
+    font-size: 1rem;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .loadMoreSection {
+  background: var(--ifm-color-secondary-darker);
+}
+
+[data-theme='dark'] .instagramPost .instagram-media {
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme='dark'] .instagramPost .instagram-media:hover {
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.15) !important;
+}

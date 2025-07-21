@@ -277,6 +277,11 @@ const config: Config = {
           label: 'YouTube',
           position: 'right',
         },
+        {
+          to: '/memes',
+          label: 'Memes',
+          position: 'right',
+        },
 
       ],
     },
