@@ -128,7 +128,7 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title="Testing & Automation Expert - Gaurav Khurana"
+      title="Testing & Automation Practitioner - Gaurav Khurana"
       description="Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools that actually work in enterprise environments.">
       <HomepageHeader />
       <main>

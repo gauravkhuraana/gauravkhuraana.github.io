@@ -155,8 +155,8 @@ const config: Config = {
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Gaurav Khurana',
-        jobTitle: 'Microsoft Test Consultant & Automation Expert',
-        description: 'Expert in software testing, test automation, DevOps, and AI tools with 15+ years of experience',
+        jobTitle: 'Microsoft Test Consultant & Automation Practitioner',
+        description: 'Passionate about sharing 15+ years of experience in software testing, automation, DevOps, and AI with the testing community.',
         url: 'https://gauravkhuraana.github.io',
         image: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
         sameAs: [
