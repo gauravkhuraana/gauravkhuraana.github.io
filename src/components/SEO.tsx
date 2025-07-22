@@ -16,7 +16,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'Gaurav Khurana - Testing & Automation Expert',
+  title = 'Gaurav Khurana - Testing & Automation Practitioner',
   description = 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.',
   keywords = 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana',
   image = 'https://gauravkhuraana.github.io/img/gauravkhurana.png',

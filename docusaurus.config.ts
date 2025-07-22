@@ -93,7 +93,7 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         property: 'og:site_name',
-        content: 'Gaurav Khurana - Testing & Automation Expert',
+        content: 'Gaurav Khurana - Testing & Automation Practitioner',
       },
     },
     {
@@ -228,11 +228,7 @@ const config: Config = {
       {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
       {name: 'theme-color', content: '#25c2a0'},
-      {property: 'og:title', content: 'Gaurav Khurana - Testing & Automation Expert'},
-      {property: 'og:description', content: 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.'},
       {property: 'og:url', content: 'https://gauravkhuraana.github.io'},
-      {property: 'twitter:title', content: 'Gaurav Khurana - Testing & Automation Expert'},
-      {property: 'twitter:description', content: 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.'},
       {name: 'apple-mobile-web-app-capable', content: 'yes'},
       {name: 'apple-mobile-web-app-status-bar-style', content: 'default'},
       {name: 'msapplication-TileColor', content: '#25c2a0'},
