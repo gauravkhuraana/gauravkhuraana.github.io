@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://gauravkhuraana.github.io/blog</id>
-    <title>gauravkhurana.in Blog</title>
+    <title>Gaurav Khurana - Software Testing &amp; Automation Insights</title>
     <updated>2025-07-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://gauravkhuraana.github.io/blog"/>
-    <subtitle>gauravkhurana.in Blog</subtitle>
+    <subtitle>Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from a Microsoft Test Consultant.</subtitle>
     <icon>https://gauravkhuraana.github.io/img/favicon.ico</icon>
+    <rights>Copyright © 2025 Gaurav Khurana. All rights reserved.</rights>
     <entry>
         <title type="html"><![CDATA[Welcome to Sharing is Caring - Your Testing & Automation Journey Begins]]></title>
         <id>https://gauravkhuraana.github.io/blog/welcome-to-sharing-is-caring</id>
