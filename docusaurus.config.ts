@@ -210,9 +210,21 @@ const config: Config = {
             xslt: true,
             createFeedItems: async (params) => {
               const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              
+              // Process blog posts to clean HTML content for better feed compatibility
+              const processedPosts = blogPosts.map(post => ({
+                ...post,
+                content: post.content
+                  // Remove SVG elements that cause validation issues
+                  ?.replace(/<svg[^>]*>[\s\S]*?<\/svg>/gi, '[Icon]')
+                  // Clean up any other problematic HTML elements
+                  ?.replace(/<path[^>]*>/gi, '')
+                  ?.replace(/<\/path>/gi, '')
+              }));
+
               return defaultCreateFeedItems({
                 // keep only the 10 most recent blog posts in the feed
-                blogPosts: blogPosts.filter((item, index) => index < 10),
+                blogPosts: processedPosts.filter((item, index) => index < 10),
                 ...rest,
               });
             },
@@ -242,6 +254,7 @@ const config: Config = {
     // Google Analytics or any other analytics plugin can be added here
     // '@docusaurus/plugin-google-analytics',
     // '@docusaurus/plugin-google-gtag',
+    './plugins/feed-enhancer',
   ],
 
   scripts: [
