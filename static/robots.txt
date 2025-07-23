@@ -4,6 +4,10 @@ Allow: /
 # Sitemap
 Sitemap: https://gauravkhuraana.github.io/sitemap.xml
 
+# RSS/Atom Feeds
+# RSS Feed: https://gauravkhuraana.github.io/blog/rss.xml
+# Atom Feed: https://gauravkhuraana.github.io/blog/atom.xml
+
 # Specific rules for search engines
 User-agent: Googlebot
 Allow: /

@@ -168,6 +168,25 @@ const config: Config = {
         ]
       }),
     },
+    // RSS/Atom feed discovery for third-party sites
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'application/rss+xml',
+        title: 'Gaurav Khurana - Software Testing & Automation RSS Feed',
+        href: '/blog/rss.xml',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        title: 'Gaurav Khurana - Software Testing & Automation Atom Feed',
+        href: '/blog/atom.xml',
+      },
+    },
   ],
 
   presets: [
@@ -184,7 +203,19 @@ const config: Config = {
           showReadingTime: true,
           feedOptions: {
             type: ['rss', 'atom'],
+            title: 'Gaurav Khurana - Software Testing & Automation Insights',
+            description: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from a Microsoft Test Consultant.',
+            copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana. All rights reserved.`,
+            language: 'en',
             xslt: true,
+            createFeedItems: async (params) => {
+              const {blogPosts, defaultCreateFeedItems, ...rest} = params;
+              return defaultCreateFeedItems({
+                // keep only the 10 most recent blog posts in the feed
+                blogPosts: blogPosts.filter((item, index) => index < 10),
+                ...rest,
+              });
+            },
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -294,7 +325,7 @@ const config: Config = {
             },
             {
               label: 'AI Tools',
-              to: '/docs/category/-ai',
+              to: '/docs/category/ai',
             },
           ],
         },
@@ -325,6 +356,10 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
+            },
+            {
+              label: 'RSS Feeds',
+              to: '/feeds',
             },
             {
               label: 'Newsletter',
