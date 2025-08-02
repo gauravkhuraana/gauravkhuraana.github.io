@@ -67,7 +67,7 @@ function FeaturedContent() {
               <div className={styles.cardIcon}>🧪</div>
               <h3>Testing Fundamentals</h3>
               <p>Master the core concepts every tester needs to know, from test design to execution strategies.</p>
-              <Link to="/docs/category/-testing" className={styles.cardLink}>
+              <Link to="/docs/category/testing" className={styles.cardLink}>
                 Explore Testing Guides →
               </Link>
             </div>
@@ -87,7 +87,7 @@ function FeaturedContent() {
               <div className={styles.cardIcon}>🚀</div>
               <h3>AI & Modern Tools</h3>
               <p>Stay ahead with AI-powered testing tools and cutting-edge DevOps practices.</p>
-              <Link to="/docs/category/-ai" className={styles.cardLink}>
+              <Link to="/docs/category/ai" className={styles.cardLink}>
                 Discover AI Tools →
               </Link>
             </div>
@@ -103,7 +103,7 @@ function FeaturedContent() {
               <div className={styles.resourceCard}>
                 <h4>🛠️ Essential Tools Guide</h4>
                 <p>Complete list of testing and automation tools with practical recommendations.</p>
-                <Link to="/docs/category/%EF%B8%8F-tools" className={styles.resourceLink}>
+                <Link to="/docs/category/tools" className={styles.resourceLink}>
                   View Tools →
                 </Link>
               </div>
