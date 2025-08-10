@@ -25,7 +25,7 @@ module.exports = function(source) {
   if (isDocsPage || isBlogPost) {
     // Add import if not already present
     if (!modifiedSource.includes('import SubscriptionForm') && !modifiedSource.includes('import SimpleSubscriptionBox')) {
-      const importLine = '\nimport SimpleSubscriptionBox from \'@site/src/components/SimpleSubscriptionBox\';\n';
+      const importLine = "\nimport SimpleSubscriptionBox from '@site/src/components/SimpleSubscriptionBox';\n";
       
       // Find the end of frontmatter and imports
       const frontmatterEnd = modifiedSource.indexOf('---', modifiedSource.indexOf('---') + 3) + 3;
@@ -50,7 +50,7 @@ module.exports = function(source) {
     
     // Add subscription component near the end
     const subscriptionComponent = `\n\n<SimpleSubscriptionBox 
-  title="📧 Get Weekly Updates" 
+  title="Get Weekly Updates" 
   description="Join thousands of professionals getting practical testing and automation insights." 
 />\n`;
     

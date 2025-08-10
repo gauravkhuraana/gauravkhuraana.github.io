@@ -5,7 +5,9 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 export default function Feeds(): React.JSX.Element {
   const {siteConfig} = useDocusaurusContext();
-  const baseUrl = siteConfig.url + siteConfig.baseUrl;
+  const configuredBase = siteConfig.url?.replace(/\/$/, '') + (siteConfig.baseUrl || '/');
+  const runtimeOrigin = typeof window !== 'undefined' ? window.location.origin + (siteConfig.baseUrl || '/') : configuredBase;
+  const baseUrl = runtimeOrigin;
 
   return (
     <Layout

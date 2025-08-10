@@ -1,0 +1,35 @@
+
+> gauravkhurana@0.0.0 build
+> docusaurus build
+
+[INFO] [en] Creating an optimized production build...
+[90m[[90mwebpackbar[90m][39m [36mΓä╣[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [36mΓä╣[39m Compiling Server
+[90m[[90mwebpackbar[90m][39m [32mΓ£ö[39m Client: Compiled successfully in 40.98s
+[90m[[90mwebpackbar[90m][39m [32mΓ£ö[39m Server: Compiled successfully in 41.38s
+≡ƒöº Running feed enhancer plugin...
+Γ¥î Atom feed not found at: E:\Automation\website\gauravkhurana\build\blog\atom.xml
+Γ¥î RSS feed not found at: E:\Automation\website\gauravkhurana\build\blog\rss.xml
+[WARNING] Docusaurus found broken anchors!
+
+Please check the pages of your site in the list below, and make sure you don't reference any anchor that does not exist.
+Note: it's possible to ignore broken anchors with the 'onBrokenAnchors' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken anchors found:
+- Broken anchor on source page path = /docs/AI/agentic-ai:
+   -> linking to #video-resources (resolved as: /docs/AI/agentic-ai#video-resources)
+   -> linking to #lets-understand-what-is-github-copilot-first (resolved as: /docs/AI/agentic-ai#lets-understand-what-is-github-copilot-first)
+   -> linking to #askedit-vs-agent-mode (resolved as: /docs/AI/agentic-ai#askedit-vs-agent-mode)
+   -> linking to #agentic-ai-to-create-ui-automation-framework (resolved as: /docs/AI/agentic-ai#agentic-ai-to-create-ui-automation-framework)
+- Broken anchor on source page path = /docs/Automation/automation-basics-series:
+   -> linking to #video-tutorials (resolved as: /docs/Automation/automation-basics-series#video-tutorials)
+   -> linking to #watch-this-before-starting-your-automation-journey (resolved as: /docs/Automation/automation-basics-series#watch-this-before-starting-your-automation-journey)
+   -> linking to #part-1-your-first-java-program-with-selenium (resolved as: /docs/Automation/automation-basics-series#part-1-your-first-java-program-with-selenium)
+   -> linking to #part-2-html-reports-and-parallel-execution (resolved as: /docs/Automation/automation-basics-series#part-2-html-reports-and-parallel-execution)
+   -> linking to #part-3-git-basics-and-azure-repos (resolved as: /docs/Automation/automation-basics-series#part-3-git-basics-and-azure-repos)
+   -> linking to #part-4-microsoft-cloud-and-azure-devops (resolved as: /docs/Automation/automation-basics-series#part-4-microsoft-cloud-and-azure-devops)
+   -> linking to #part-5-creating-your-first-pipeline (resolved as: /docs/Automation/automation-basics-series#part-5-creating-your-first-pipeline)
+   -> linking to #part-6-github-integration-and-email-reports (resolved as: /docs/Automation/automation-basics-series#part-6-github-integration-and-email-reports)
+
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.

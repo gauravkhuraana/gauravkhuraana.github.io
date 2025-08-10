@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://gauravkhuraana.github.io',
+  url: 'https://gauravkhurana.in',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -26,8 +26,8 @@ const config: Config = {
   organizationName: 'gauravkhuraana', // Usually your GitHub org/user name.
   projectName: 'gauravkhuraana.github.io', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -143,10 +143,10 @@ const config: Config = {
         name: 'Gaurav Khurana',
         jobTitle: 'Microsoft Test Consultant & Automation Practitioner',
         description: 'Passionate about sharing 15+ years of experience in software testing, automation, DevOps, and AI with the testing community.',
-        url: 'https://gauravkhuraana.github.io',
-        image: 'https://gauravkhuraana.github.io/img/gauravkhurana.png',
+        url: 'https://gauravkhurana.in',
+        image: 'https://gauravkhurana.in/img/gauravkhurana.png',
         sameAs: [
-          'https://www.linkedin.com/in/gauravkhurana/',
+          'https://www.linkedin.com/in/gauravkhuraana/',
           'https://github.com/gauravkhuraana',
           'https://www.youtube.com/@Udzial',
           'https://medium.com/@gauravkhuraana',
@@ -231,7 +231,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          // editUrl: 'https://github.com/gauravkhuraana/gauravkhurana/edit/main/',
+          // editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -257,13 +257,6 @@ const config: Config = {
     './plugins/feed-enhancer',
   ],
 
-  scripts: [
-    {
-      src: '/js/auto-subscription.js',
-      async: true,
-    },
-  ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/gauravkhurana.png',
@@ -272,7 +265,7 @@ const config: Config = {
       {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
       {name: 'theme-color', content: '#25c2a0'},
-      {property: 'og:url', content: 'https://gauravkhuraana.github.io'},
+      {property: 'og:url', content: 'https://gauravkhurana.in'},
       {name: 'apple-mobile-web-app-capable', content: 'yes'},
       {name: 'apple-mobile-web-app-status-bar-style', content: 'default'},
       {name: 'msapplication-TileColor', content: '#25c2a0'},
@@ -407,7 +400,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: 'acd85c2c633320da11bebb8a84ec0120',
 
-      indexName: 'gauravkhuraanaio',
+      indexName: 'gauravkhurana',
 
       // Optional: see doc section below
       contextualSearch: true,
