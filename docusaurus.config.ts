@@ -150,6 +150,8 @@ const config: Config = {
           'https://github.com/gauravkhuraana',
           'https://www.youtube.com/@Udzial',
           'https://medium.com/@gauravkhuraana',
+          'https://www.topmate.io/gauravkhurana',
+          'https://ko-fi.com/gauravkhurana',
           'https://x.com/gauravkhuraana'
         ],
         worksFor: {
@@ -257,6 +259,10 @@ const config: Config = {
     './plugins/feed-enhancer',
   ],
 
+  clientModules: [
+    require.resolve('./src/client/kofiAutoInjection.js'),
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: 'img/gauravkhurana.png',
@@ -300,6 +306,12 @@ const config: Config = {
           to: '/memes',
           label: 'Memes',
           position: 'right',
+        },
+        {
+          href: 'https://ko-fi.com/gauravkhurana',
+          label: '☕ Buy Me a Coffee',
+          position: 'right',
+          className: 'navbar-kofi-link',
         },
 
       ],
@@ -376,8 +388,21 @@ const config: Config = {
               to: '/feedback',
             },
             {
+              label: 'Support My Work',
+              to: '/support',
+            },
+            {
               label: 'Career Guidance',
               href: 'https://www.topmate.io/gauravkhurana',
+            },
+          ],
+        },
+        {
+          title: 'Support',
+          items: [
+            {
+              label: '☕ Buy Me a Coffee',
+              href: 'https://ko-fi.com/gauravkhurana',
             },
           ],
         },

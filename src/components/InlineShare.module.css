@@ -1,0 +1,39 @@
+.inlineShareWrapper {
+  display: inline-block;
+}
+
+.inlineShare :global(.shareContainer) {
+  position: relative !important;
+}
+
+.inlineShare :global(.shareButton) {
+  position: relative !important;
+}
+
+.inlineShare :global(.shareMenu) {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
+  bottom: auto !important;
+}
+
+/* Variant styles */
+.minimal :global(.shareButton) {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 18px;
+}
+
+.iconOnly :global(.shareButton) {
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+}
+
+.iconOnly :global(.shareText) {
+  display: none;
+}
