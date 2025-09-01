@@ -46,6 +46,70 @@ Add these test scenarios (excluding login scenarios):
   title="Test Automation Framework Development with AI Prompts" 
 />
 
+### Playwright TypeScript Framework Creation
+
+Use this prompt to generate a complete, production-ready test automation framework using Playwright with TypeScript.
+
+**Prompt:**
+
+```
+Create a modern, scalable, and modular test automation framework using Playwright with TypeScript that supports cross-browser testing (Chromium, Firefox, WebKit)
+
+✅ Core Framework Requirements:
+• Use Playwright's built-in test runner with TypeScript
+• Follow Page Object Model (POM) design pattern with fixtures for dependency injection
+• Use npm/yarn for package management
+• Implement comprehensive logging and reporting (Playwright HTML Reporter, Allure, and custom reporters)
+• Parallel test execution support with worker-based parallelization
+• Custom fixtures for browser setup, page initialization, and test data management
+• Base test fixtures that initialize browser context and pages based on configuration
+• Add CI/CD pipeline using GitHub Actions with artifact publishing for reports
+• README with comprehensive documentation and sample test usage
+• Test data externalization using JSON/YAML files and environment-based configuration
+• Docker support for containerized test execution
+• Integration with Selenium grid and cloud testing platforms (BrowserStack, lambdatest)
+• Do not miss important files like gitignore
+• Use google.com as the sample application under test
+
+✅ Fixture Requirements:
+• Browser fixture for cross-browser testing setup
+• Page fixture extending browser fixture for page-specific operations
+• Test data fixture for loading external test data
+• API fixture for API testing capabilities
+• Custom fixtures for common test utilities (screenshots, video recording, etc.)
+
+✅ Test Scenarios to implement:
+• A test to validate no broken links exist on the page (should pass)
+• A test to verify the number of images on screen exceeds a threshold (should pass)
+• Search functionality tests (3-4 scenarios):
+  - Valid search with results verification (should pass)
+  - Search with special characters handling (should pass)
+  - Search with extremely long query (should fail intentionally)
+  - Search result pagination test (should fail intentionally for demo)
+
+✅ Advanced Features:
+• Visual regression testing capabilities using Playwright's screenshot comparison
+• API testing integration for end-to-end workflows
+• Mobile/responsive testing support with device emulation
+• Accessibility testing integration
+• Performance testing hooks (Core Web Vitals)
+• Multi-environment configuration (dev, staging, prod)
+• Custom retry mechanisms and flaky test handling
+• Integration with test management tools
+• Dockerized execution environment
+• Cross-platform compatibility (Windows, macOS, Linux)
+
+✅ Reporting & CI/CD:
+• Generate and publish HTML reports, Allure reports, and JUnit XML
+• GitHub Actions workflow with matrix strategy for cross-browser testing
+• Artifact storage for test results, screenshots, and videos
+• Slack/Teams notifications for test results
+• Report hosting with GitHub Pages or similar
+• Test trend analysis and metrics collection
+
+This framework should demonstrate modern testing practices with Playwright's powerful features like auto-waiting, network interception, and built-in assertions while maintaining enterprise-grade scalability and maintainability.
+```
+
 ## Framework Enhancement Prompts
 
 ### API Testing Integration
