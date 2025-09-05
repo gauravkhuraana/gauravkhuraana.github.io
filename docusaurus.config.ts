@@ -289,6 +289,46 @@ const config: Config = {
           position: 'left',
           label: 'Start Here',
         },
+        {
+          type: 'dropdown',
+          label: 'AI',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'AI/github-copilot',
+              label: 'GitHub Copilot',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/prompt-library',
+              label: 'Prompt Library',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/qa-sessions',
+              label: 'AI Q&A Sessions',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/agentic-ai',
+              label: 'Agentic AI',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/ai-coding-failures',
+              label: 'AI Coding Failures',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              to: '/docs/category/ai',
+              label: 'View All AI Content',
+            },
+          ],
+        },
         {to: '/blog', label: 'Blog', position: 'right'},
         {to: '/newsletter', label: 'Newsletter', position: 'left'},
         {to: '/feedback', label: 'Contact', position: 'right'},
@@ -423,7 +463,7 @@ const config: Config = {
       appId: 'C3WDSWBA63',
 
       // Public API key: it is safe to commit it
-      apiKey: 'acd85c2c633320da11bebb8a84ec0120',
+      apiKey: '21d494c97a0ebf8a1d4f6057aa4b16da',
 
       indexName: 'gauravkhurana',
 
