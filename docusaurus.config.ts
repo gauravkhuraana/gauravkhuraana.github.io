@@ -465,7 +465,7 @@ const config: Config = {
       // Public API key: it is safe to commit it
       apiKey: '21d494c97a0ebf8a1d4f6057aa4b16da',
 
-      indexName: 'gauravkhurana',
+      indexName: 'gauravkhuraanaio',
 
       // Optional: see doc section below
       contextualSearch: true,
