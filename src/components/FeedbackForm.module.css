@@ -16,12 +16,12 @@
 .feedbackHeader h2 {
   color: var(--ifm-color-primary);
   margin-bottom: 0.5rem;
-  font-size: 1.8rem;
+  font-size: var(--feedback-font-size-lg);
 }
 
 .feedbackHeader p {
   color: var(--ifm-color-emphasis-700);
-  font-size: 1rem;
+  font-size: var(--feedback-font-size-sm);
   margin: 0;
 }
 
@@ -130,13 +130,13 @@
 .successMessage h3 {
   color: var(--ifm-color-success);
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: var(--feedback-font-size-md);
 }
 
 .successMessage p {
   color: var(--ifm-color-emphasis-700);
   margin-bottom: 2rem;
-  font-size: 1.1rem;
+  font-size: var(--feedback-font-size-md);
   line-height: 1.6;
 }
 
@@ -149,13 +149,14 @@
 .socialLinks h4 {
   color: var(--ifm-color-emphasis-800);
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: var(--feedback-font-size-md);
 }
 
 .socialLinksBottom p {
   color: var(--ifm-color-emphasis-700);
   margin-bottom: 1rem;
-  font-size: 0.95rem;
+  font-size: var(--feedback-font-size-sm);
+  font-weight: 500;
 }
 
 .linkButtons {
@@ -176,7 +177,7 @@
 .socialLinksBottom p {
   color: var(--ifm-color-emphasis-700);
   margin-bottom: 1rem;
-  font-size: 0.95rem;
+  font-size: var(--feedback-font-size-sm);
   font-weight: 500;
 }
 
@@ -222,6 +223,77 @@
 .resetButton:hover {
   background: var(--ifm-color-secondary-dark);
   transform: translateY(-1px);
+}
+
+/* Font size variables for easy scaling */
+:root {
+  --feedback-font-size-lg: 1.8rem;
+  --feedback-font-size-md: 1.1rem;
+  --feedback-font-size-sm: 0.95rem;
+}
+
+/* Error state styling */
+.formGroup input:invalid,
+.formGroup select:invalid,
+.formGroup textarea:invalid {
+  border-color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+}
+
+.errorMessage {
+  color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: var(--feedback-font-size-sm);
+}
+
+/* Loading state styling */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.submitButton.loading,
+.resetButton.loading {
+  background: var(--ifm-color-emphasis-400);
+  cursor: wait;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .feedbackContainer,
+  .formGroup input,
+  .formGroup select,
+  .formGroup textarea,
+  .submitButton,
+  .resetButton,
+  .socialButton {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border-color: Highlight;
+    box-shadow: none;
+  }
+  .submitButton:focus,
+  .resetButton:focus,
+  .socialButton:focus {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+  .errorMessage {
+    color: Highlight;
+    background: Window;
+    border: 2px solid Highlight;
+  }
+}
+
+/* Optionally, reduce box shadows for accessibility */
+.noShadow .feedbackContainer,
+.noShadow .submitButton,
+.noShadow .socialButton {
+  box-shadow: none !important;
 }
 
 /* Dark mode adjustments */

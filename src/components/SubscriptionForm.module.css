@@ -1,16 +1,6 @@
 .subscriptionContainer {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 16px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  color: white;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-}onContainer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 16px;
   padding: 2rem;
   margin: 3rem 0;
   color: white;
@@ -117,5 +107,50 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Error and loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.errorMessage {
+  color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .subscriptionContainer {
+    animation: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.subscriptionContainer:focus-within {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .subscriptionContainer {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border: 2px solid Highlight;
+    box-shadow: none;
+  }
+  
+  .errorMessage {
+    color: Highlight;
+    background: Window;
+    border: 2px solid Highlight;
   }
 }

@@ -48,13 +48,14 @@ function Feature({title, Svg, image, description}: FeatureItem) {
     <div className={clsx('col col--4')}>
       <div className="text--center">
         {Svg ? (
-          <Svg className={styles.featureSvg} role="img" />
+          <Svg className={styles.featureSvg} role="img" aria-label={title} />
         ) : image ? (
           <img 
             src={image} 
-            alt={title}
+            alt={`${title} illustration`}
             className={styles.featureSvg}
             style={{ maxWidth: '200px', height: 'auto' }}
+            loading="lazy"
           />
         ) : null}
       </div>

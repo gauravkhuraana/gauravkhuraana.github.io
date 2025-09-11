@@ -6,32 +6,15 @@ interface SimpleSubscriptionBoxProps {
 }
 
 const SimpleSubscriptionBox: React.FC<SimpleSubscriptionBoxProps> = ({
-  title = "📧 Weekly Testing Insights",
+  title = "Weekly Testing Insights",
   description = "Join thousands of professionals getting practical automation tips."
 }) => {
   return (
-    <div style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      borderRadius: '8px',
-      padding: '1.5rem',
-      margin: '2rem 0',
-      textAlign: 'center',
-      color: 'white',
-      boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
-    }}>
-      <h4 style={{ 
-        marginBottom: '0.5rem', 
-        color: 'white',
-        fontSize: '1.2rem',
-        fontWeight: '600'
-      }}>
+    <div className="subscription-box-container">
+      <h4 className="subscription-box-title">
         {title}
       </h4>
-      <p style={{ 
-        marginBottom: '1rem',
-        color: 'rgba(255, 255, 255, 0.9)',
-        fontSize: '0.95rem'
-      }}>
+      <p className="subscription-box-description">
         {description}
       </p>
       
@@ -42,14 +25,7 @@ const SimpleSubscriptionBox: React.FC<SimpleSubscriptionBoxProps> = ({
         frameBorder="0" 
         scrolling="no" 
         allowFullScreen 
-        style={{
-          border: 'none',
-          borderRadius: '6px',
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          minHeight: '320px',
-          maxHeight: '320px',
-          overflow: 'hidden'
-        }}
+        className="subscription-box-iframe"
         title="Subscribe to Updates"
       />
     </div>

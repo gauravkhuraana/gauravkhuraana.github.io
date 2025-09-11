@@ -60,3 +60,35 @@
     font-size: 1rem;
   }
 }
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .features {
+    animation: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.features .col:focus-within {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .features {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+  }
+  
+  .features h3,
+  .features p {
+    color: WindowText;
+  }
+  
+  .featureSvg {
+    forced-color-adjust: none;
+  }
+}

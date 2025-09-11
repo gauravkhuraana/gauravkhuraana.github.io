@@ -37,3 +37,32 @@
 .iconOnly :global(.shareText) {
   display: none;
 }
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .inlineShare :global(.shareButton) {
+    transition: none;
+  }
+  
+  .inlineShare :global(.shareButton:hover) {
+    transform: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.inlineShare :global(.shareButton:focus) {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .inlineShare :global(.shareButton),
+  .inlineShare :global(.shareMenu) {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border: 2px solid Highlight;
+    box-shadow: none;
+  }
+}

@@ -39,37 +39,37 @@ const ShareButton: React.FC<ShareButtonProps> = ({
   const shareLinks = [
     {
       name: 'WhatsApp',
-      icon: '📱',
+      icon: 'WA',
       url: `https://wa.me/?text=${encodeURIComponent(`${shareData.title}\n\n${shareData.text}\n\n${shareData.url}`)}`,
       color: '#25D366'
     },
     {
       name: 'LinkedIn',
-      icon: '💼',
+      icon: 'LI',
       url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareData.url)}`,
       color: '#0077B5'
     },
     {
       name: 'X (Twitter)',
-      icon: '🐦',
+      icon: 'X',
       url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareData.url)}&text=${encodeURIComponent(shareData.title)}&via=gauravkhuraana`,
       color: '#1DA1F2'
     },
     {
       name: 'Facebook',
-      icon: '📘',
+      icon: 'FB',
       url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}`,
       color: '#1877F2'
     },
     {
       name: 'Telegram',
-      icon: '✈️',
+      icon: 'TG',
       url: `https://t.me/share/url?url=${encodeURIComponent(shareData.url)}&text=${encodeURIComponent(shareData.title)}`,
       color: '#0088CC'
     },
     {
       name: 'Reddit',
-      icon: '🤖',
+      icon: 'RD',
       url: `https://reddit.com/submit?url=${encodeURIComponent(shareData.url)}&title=${encodeURIComponent(shareData.title)}`,
       color: '#FF4500'
     }
@@ -96,7 +96,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
       if (button) {
         button.textContent = 'Copied!';
         setTimeout(() => {
-          button.textContent = '📋 Copy Link';
+          button.textContent = 'Copy Link';
         }, 2000);
       }
     } catch (error) {
@@ -112,7 +112,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
         title="Share this page"
         aria-label="Share this page"
       >
-        <span className={styles.shareIcon}>🔗</span>
+        <span className={styles.shareIcon}>Share</span>
         <span className={styles.shareText}>Share</span>
       </button>
 
@@ -149,7 +149,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
               className={`${styles.shareOption} copy-feedback`}
               onClick={copyToClipboard}
             >
-              <span className={styles.platformIcon}>📋</span>
+              <span className={styles.platformIcon}>Copy</span>
               <span className={styles.platformName}>Copy Link</span>
             </button>
           </div>

@@ -169,3 +169,69 @@
     text-align: center;
   }
 }
+
+/* Error and loading states */
+.input:invalid {
+  border-color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+}
+
+.errorMessage {
+  color: var(--ifm-color-danger);
+  background: var(--ifm-color-danger-lightest);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.subscribeButton.loading {
+  background: var(--ifm-color-emphasis-400);
+  cursor: wait;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .subscribeButton,
+  .socialButton {
+    transition: none;
+  }
+  
+  .subscribeButton:hover,
+  .socialButton:hover {
+    transform: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.input:focus,
+.subscribeButton:focus,
+.socialButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .newsletterContainer,
+  .input,
+  .subscribeButton,
+  .socialButton {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border-color: Highlight;
+    box-shadow: none;
+  }
+  
+  .errorMessage {
+    color: Highlight;
+    background: Window;
+    border: 2px solid Highlight;
+  }
+}

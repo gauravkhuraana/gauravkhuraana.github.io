@@ -18,7 +18,7 @@ const KofiSupport: React.FC<KofiSupportProps> = ({
     return (
       <div className={`${styles.kofiWidget} ${className}`}>
         <div className={styles.widgetContent}>
-          <div className={styles.widgetIcon}>☕</div>
+          <div className={styles.widgetIcon}>Coffee</div>
           <div className={styles.widgetText}>
             <h4>Support My Work</h4>
             <p>If you find my content helpful, consider buying me a coffee!</p>
@@ -45,7 +45,7 @@ const KofiSupport: React.FC<KofiSupportProps> = ({
         className={`${styles.kofiMinimal} ${className}`}
         title="Support me on Ko-fi"
       >
-        ☕ Support
+        Support
       </a>
     );
   }
@@ -58,7 +58,7 @@ const KofiSupport: React.FC<KofiSupportProps> = ({
       rel="noopener noreferrer"
       className={`${styles.kofiButton} ${styles[size]} ${className}`}
     >
-      <span className={styles.kofiIcon}>☕</span>
+      <span className={styles.kofiIcon}>Coffee</span>
       <span className={styles.kofiText}>Buy Me a Coffee</span>
     </a>
   );

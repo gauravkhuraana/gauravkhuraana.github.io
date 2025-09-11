@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Algolia Search Test</title>
+    <script>
+        // Test if we can access the Algolia search when the page loads
+        window.addEventListener('load', function() {
+            console.log('🔍 Testing Algolia Search Functionality...');
+            
+            // Check if DocSearch is loaded
+            if (typeof window.DocSearch !== 'undefined') {
+                console.log('✅ DocSearch is available');
+            } else {
+                console.log('❌ DocSearch is not loaded');
+            }
+            
+            // Look for search input
+            const searchInput = document.querySelector('.DocSearch-Input') || 
+                              document.querySelector('[placeholder*="search" i]') ||
+                              document.querySelector('input[type="search"]');
+            
+            if (searchInput) {
+                console.log('✅ Search input found:', searchInput);
+            } else {
+                console.log('❌ Search input not found');
+            }
+            
+            // Test Algolia API directly
+            testAlgoliaAPI();
+        });
+
+        async function testAlgoliaAPI() {
+            const config = {
+                appId: 'C3WDSWBA63',
+                apiKey: '21d494c97a0ebf8a1d4f6057aa4b16da',
+                indexName: 'gauravkhuraanaio'
+            };
+            
+            const url = `https://${config.appId}-dsn.algolia.net/1/indexes/${config.indexName}/query`;
+            
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-Algolia-Application-Id': config.appId,
+                        'X-Algolia-API-Key': config.apiKey,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ query: 'testing', hitsPerPage: 5 })
+                });
+                
+                const data = await response.json();
+                
+                console.log('🔍 Algolia API Response:');
+                console.log('Status:', response.status);
+                console.log('Total Hits:', data.nbHits || 0);
+                console.log('Processing Time:', data.processingTimeMS + 'ms' || 'N/A');
+                
+                if (data.hits && data.hits.length > 0) {
+                    console.log('✅ Search is working! Sample results:');
+                    data.hits.slice(0, 3).forEach((hit, i) => {
+                        console.log(`${i + 1}. ${hit.hierarchy?.lvl1 || hit.title || 'Untitled'}`);
+                    });
+                } else if (data.nbHits === 0) {
+                    console.log('⚠️ No results found - index might be empty or needs crawling');
+                } else {
+                    console.log('❌ Unexpected response:', data);
+                }
+                
+            } catch (error) {
+                console.error('❌ Algolia API Test Failed:', error.message);
+            }
+        }
+        
+        // Also test when DocSearch loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a bit for DocSearch to initialize
+            setTimeout(() => {
+                const searchButton = document.querySelector('.DocSearch-Button') ||
+                                   document.querySelector('[aria-label*="search" i]');
+                
+                if (searchButton) {
+                    console.log('✅ DocSearch button found');
+                    console.log('Search button element:', searchButton);
+                } else {
+                    console.log('❌ DocSearch button not found');
+                }
+            }, 2000);
+        });
+    </script>
+</head>
+<body>
+    <h1>Algolia Search Test</h1>
+    <p>Check the browser console (F12) for test results.</p>
+    <p>This page tests:</p>
+    <ul>
+        <li>✅ DocSearch availability</li>
+        <li>✅ Search input presence</li>
+        <li>✅ Algolia API connectivity</li>
+        <li>✅ Index content verification</li>
+    </ul>
+</body>
+</html>

@@ -80,7 +80,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
               className={styles.socialButton}
               aria-label="Visit YouTube Channel"
             >
-              📺 YouTube
+              YouTube
             </a>
             <a 
               href="https://www.linkedin.com/in/gauravkhuraana/" 
@@ -89,7 +89,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
               className={styles.socialButton}
               aria-label="Follow on LinkedIn"
             >
-              💼 LinkedIn
+              LinkedIn
             </a>
             <a 
               href="https://www.medium.com/@gauravkhuraana" 
@@ -98,7 +98,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
               className={styles.socialButton}
               aria-label="Read articles on Medium"
             >
-              📝 Medium
+              Medium
             </a>
             <a 
               href="https://topmate.io/gauravkhurana" 
@@ -107,7 +107,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
               className={styles.socialButton}
               aria-label="Book one-on-one consultation"
             >
-              💬 Topmate
+              Topmate
             </a>
           </div>
         </div>

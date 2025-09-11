@@ -151,6 +151,48 @@
 }
 
 .widgetButton::before {
-  content: '☕';
-  font-size: 1.1em;
+  content: 'Coffee';
+  font-size: 0.9em;
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .kofiButton,
+  .kofiMinimal,
+  .widgetButton {
+    transition: none;
+  }
+  
+  .kofiButton:hover,
+  .widgetButton:hover {
+    transform: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.kofiButton:focus,
+.kofiMinimal:focus,
+.widgetButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .kofiButton,
+  .kofiMinimal,
+  .widgetButton,
+  .kofiWidget {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border-color: Highlight;
+    box-shadow: none;
+  }
+  
+  .kofiButton:focus,
+  .kofiMinimal:focus,
+  .widgetButton:focus {
+    outline: 2px solid Highlight;
+  }
 }

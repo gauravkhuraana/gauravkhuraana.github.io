@@ -9,7 +9,7 @@ interface NewsletterSubscriptionProps {
 }
 
 const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
-  title = "📧 Subscribe to My Newsletter",
+  title = "Subscribe to My Newsletter",
   description = "Get weekly insights on test automation, AI in testing, and career growth tips delivered to your inbox.",
   showSocialLinks = true,
   compact = false
@@ -72,7 +72,7 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
         </form>
       ) : (
         <div className={styles.successMessage}>
-          <h4>🎉 Thank You for Subscribing!</h4>
+          <h4>Thank You for Subscribing!</h4>
           <p>Check your email for confirmation.</p>
         </div>
       )}
@@ -87,7 +87,7 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
               rel="noopener noreferrer"
               className={styles.socialButton}
             >
-              📺 YouTube
+              YouTube
             </a>
             <a 
               href="https://www.linkedin.com/in/gauravkhuraana/" 
@@ -95,7 +95,7 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
               rel="noopener noreferrer"
               className={styles.socialButton}
             >
-              💼 LinkedIn
+              LinkedIn
             </a>
             <a 
               href="https://www.medium.com/@gauravkhuraana" 
@@ -103,7 +103,7 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
               rel="noopener noreferrer"
               className={styles.socialButton}
             >
-              📝 Medium
+              Medium
             </a>
             <a 
               href="https://topmate.io/gauravkhurana" 
@@ -111,14 +111,14 @@ const NewsletterSubscription: React.FC<NewsletterSubscriptionProps> = ({
               rel="noopener noreferrer"
               className={styles.socialButton}
             >
-              💬 Topmate
+              Topmate
             </a>
           </div>
         </div>
       )}
 
       <div className={styles.privacyNote}>
-        <p>🔒 No spam. Unsubscribe anytime. Your privacy is respected.</p>
+        <p>No spam. Unsubscribe anytime. Your privacy is respected.</p>
       </div>
     </div>
   );

@@ -2,20 +2,9 @@ import React from 'react';
 
 const QuickSubscribe: React.FC = () => {
   return (
-    <div style={{
-      background: '#4f46e5',
-      borderRadius: '6px',
-      padding: '1rem',
-      margin: '1.5rem 0',
-      textAlign: 'center',
-      color: 'white'
-    }}>
-      <p style={{ 
-        margin: '0 0 0.5rem 0',
-        fontWeight: '600',
-        fontSize: '1rem'
-      }}>
-        💌 Never miss testing & automation insights!
+    <div className="quick-subscribe-container">
+      <p className="quick-subscribe-text">
+        Never miss testing and automation insights!
       </p>
       <iframe 
         width="100%" 
@@ -24,14 +13,7 @@ const QuickSubscribe: React.FC = () => {
         frameBorder="0" 
         scrolling="no" 
         allowFullScreen 
-        style={{
-          border: 'none',
-          borderRadius: '4px',
-          minHeight: '320px',
-          maxHeight: '320px',
-          overflow: 'hidden',
-          display: 'block'
-        }}
+        className="quick-subscribe-iframe"
         title="Quick Subscribe"
       />
     </div>

@@ -8,29 +8,12 @@ const SimpleSubscription: React.FC<SimpleSubscriptionProps> = ({
   className = ""
 }) => {
   return (
-    <div className={`simple-subscription ${className}`} style={{
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      borderRadius: '12px',
-      padding: '1.5rem',
-      margin: '2rem 0',
-      textAlign: 'center',
-      color: 'white',
-      boxShadow: '0 4px 20px rgba(102, 126, 234, 0.3)'
-    }}>
-      <h3 style={{ 
-        marginBottom: '0.5rem',
-        fontSize: '1.25rem',
-        fontWeight: '600',
-        color: 'white'
-      }}>
-        📧 Stay Updated with Latest Insights
+    <div className={`simple-subscription ${className}`}>
+      <h3 className="simple-subscription-title">
+        Stay Updated with Latest Insights
       </h3>
       
-      <p style={{ 
-        marginBottom: '1rem',
-        color: 'rgba(255, 255, 255, 0.9)',
-        fontSize: '0.95rem'
-      }}>
+      <p className="simple-subscription-description">
         Get practical testing and automation tips delivered weekly.
       </p>
       
@@ -41,16 +24,7 @@ const SimpleSubscription: React.FC<SimpleSubscriptionProps> = ({
         frameBorder="0" 
         scrolling="no" 
         allowFullScreen 
-        style={{
-          maxWidth: '100%',
-          minHeight: '320px',
-          maxHeight: '320px',
-          border: 'none',
-          borderRadius: '8px',
-          backgroundColor: 'rgba(255, 255, 255, 0.1)',
-          overflow: 'hidden',
-          display: 'block'
-        }}
+        className="simple-subscription-iframe"
         title="Subscribe to Testing & Automation Updates"
       />
     </div>

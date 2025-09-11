@@ -184,3 +184,45 @@
     transform: translateY(0);
   }
 }
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .shareButton,
+  .shareOption {
+    transition: none;
+  }
+  
+  .shareButton:hover {
+    transform: none;
+  }
+  
+  .shareMenu {
+    animation: none;
+  }
+}
+
+/* Focus indicators for accessibility */
+.shareButton:focus,
+.shareOption:focus,
+.closeButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .shareButton,
+  .shareMenu,
+  .shareOption {
+    forced-color-adjust: none;
+    background: Window;
+    color: WindowText;
+    border-color: Highlight;
+    box-shadow: none;
+  }
+  
+  .shareButton:focus,
+  .shareOption:focus {
+    outline: 2px solid Highlight;
+  }
+}
