@@ -266,24 +266,7 @@ const config: Config = {
     // '@docusaurus/plugin-google-analytics',
     // '@docusaurus/plugin-google-gtag',
     './plugins/feed-enhancer',
-    [
-      require.resolve("@easyops-cn/docusaurus-search-local"),
-      {
-        hashed: true,
-        language: ["en"],
-        indexDocs: true,
-        indexBlog: true,
-        indexPages: true,
-        docsRouteBasePath: '/docs',
-        blogRouteBasePath: '/blog',
-        searchBarShortcut: true,
-        searchBarShortcutHint: true,
-        searchResultLimits: 8,
-        searchResultContextMaxLength: 50,
-        explicitSearchResultPath: true,
-        searchBarPosition: "right",
-      },
-    ],
+    'docusaurus-lunr-search',
   ],
 
   clientModules: [
