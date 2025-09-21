@@ -266,6 +266,24 @@ const config: Config = {
     // '@docusaurus/plugin-google-analytics',
     // '@docusaurus/plugin-google-gtag',
     './plugins/feed-enhancer',
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        language: ["en"],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        blogRouteBasePath: '/blog',
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+        searchResultLimits: 8,
+        searchResultContextMaxLength: 50,
+        explicitSearchResultPath: true,
+        searchBarPosition: "right",
+      },
+    ],
   ],
 
   clientModules: [
@@ -466,34 +484,6 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
-    algolia: {
-      // The application ID provided by Algolia
-      appId: 'VKK8T551TZ',
-
-      // Public API key: it is safe to commit it
-      apiKey: '982441dae312c70847d2ddfe639dcac9',
-
-      indexName: 'gauravkhurana_in_vkk8t551tz_pages',
-
-      // Optional: see doc section below
-      contextualSearch: true,
-
-      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-      externalUrlRegex: 'external\\.com|domain\\.com',
-
-      // Optional: Algolia search parameters
-      searchParameters: {
-        attributesToRetrieve: ['title', 'description', 'keywords', 'image'],
-        attributesToHighlight: ['title', 'description'],
-        attributesToSnippet: ['description:20'],
-      },
-
-      // Optional: path for search page that enabled by default (`false` to disable it)
-      searchPagePath: false,
-
-      // Optional: whether the insights feature is enabled or not on Docsearch (false by default)
-      insights: true,
     },
   } satisfies Preset.ThemeConfig,
 };
