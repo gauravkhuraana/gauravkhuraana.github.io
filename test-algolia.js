@@ -2,14 +2,17 @@
 const https = require('https');
 
 const algoliaConfig = {
-  appId: 'C3WDSWBA63',
-  apiKey: '21d494c97a0ebf8a1d4f6057aa4b16da',
-  indexName: 'gauravkhuraanaio'
+  appId: 'VKK8T551TZ',
+  apiKey: '982441dae312c70847d2ddfe639dcac9',
+  indexName: 'gauravkhurana_in_vkk8t551tz_pages'
 };
 
 const testQuery = {
   query: 'testing',
-  hitsPerPage: 5
+  hitsPerPage: 5,
+  attributesToRetrieve: ['title', 'description', 'keywords', 'image'],
+  attributesToHighlight: ['title', 'description'],
+  attributesToSnippet: ['description:20']
 };
 
 const options = {

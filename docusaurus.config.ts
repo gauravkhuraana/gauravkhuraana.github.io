@@ -468,12 +468,12 @@ const config: Config = {
     },
     algolia: {
       // The application ID provided by Algolia
-      appId: 'C3WDSWBA63',
+      appId: 'VKK8T551TZ',
 
       // Public API key: it is safe to commit it
-      apiKey: '21d494c97a0ebf8a1d4f6057aa4b16da',
+      apiKey: '982441dae312c70847d2ddfe639dcac9',
 
-      indexName: 'gauravkhuraanaio',
+      indexName: 'gauravkhurana_in_vkk8t551tz_pages',
 
       // Optional: see doc section below
       contextualSearch: true,
@@ -482,7 +482,11 @@ const config: Config = {
       externalUrlRegex: 'external\\.com|domain\\.com',
 
       // Optional: Algolia search parameters
-      searchParameters: {},
+      searchParameters: {
+        attributesToRetrieve: ['title', 'description', 'keywords', 'image'],
+        attributesToHighlight: ['title', 'description'],
+        attributesToSnippet: ['description:20'],
+      },
 
       // Optional: path for search page that enabled by default (`false` to disable it)
       searchPagePath: false,
