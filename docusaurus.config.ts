@@ -67,6 +67,14 @@ const config: Config = {
         content: 'tracking',
       },
     },
+    // Algolia site verification
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: 'C52224D57515729B',
+      },
+    },
     // Enhanced SEO meta tags
     {
       tagName: 'meta',

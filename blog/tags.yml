@@ -1,12 +1,47 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+ai:
+  label: AI & Machine Learning
+  permalink: /ai
+  description: Artificial Intelligence, Machine Learning applications in testing, and AI-powered automation tools
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
+api:
+  label: API Testing
+  permalink: /api
+  description: API testing strategies, tools, and best practices for REST, GraphQL, and other web services
+
+automation:
+  label: Test Automation
+  permalink: /automation
+  description: Test automation frameworks, tools, best practices, and implementation strategies for modern software development
+
+azuredevops:
+  label: Azure DevOps
+  permalink: /azuredevops
+  description: Azure DevOps pipelines, testing integration, and Microsoft DevOps ecosystem tools and practices
+
+beginner:
+  label: Beginner Friendly
+  permalink: /beginner
+  description: Beginner-friendly tutorials, guides, and resources for those starting their journey in testing and automation
+
+career:
+  label: Career Development
+  permalink: /career
+  description: Career guidance, roadmaps, and professional development tips for software testing and automation professionals
+
+coaching:
+  label: Coaching & Mentoring
+  permalink: /coaching
+  description: Professional coaching, mentoring services, and guidance for testing and automation professionals
+
+community:
+  label: Community
+  permalink: /community
+  description: Building and engaging with testing communities
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: DevOps practices, CI/CD pipelines, and integration strategies for testing teams
 
 documentation:
   label: Documentation
@@ -18,10 +53,55 @@ feedback:
   permalink: /feedback
   description: User feedback and community engagement
 
-community:
-  label: Community
-  permalink: /community
-  description: Building and engaging with testing communities
+git:
+  label: Git & Version Control
+  permalink: /git
+  description: Git workflows, version control best practices, and collaboration strategies for testing teams
+
+learning:
+  label: Learning
+  permalink: /learning
+  description: Learning resources and educational content
+
+microsoft:
+  label: Microsoft
+  permalink: /microsoft
+  description: Microsoft technologies, tools, and platform-specific testing and automation solutions
+
+programming:
+  label: Programming
+  permalink: /programming
+  description: Programming concepts, coding best practices, and development skills for testers and automation engineers
+
+roadmap:
+  label: Learning Roadmap
+  permalink: /roadmap
+  description: Step-by-step learning paths and roadmaps for mastering testing, automation, and DevOps skills
+
+selenium:
+  label: Selenium
+  permalink: /selenium
+  description: Selenium WebDriver tutorials, best practices, and automation framework development
+
+test-consultant:
+  label: Test Consultant
+  permalink: /test-consultant
+  description: Insights and experiences from professional test consulting, including strategies and methodologies for enterprise testing
+
+testing:
+  label: Software Testing
+  permalink: /testing
+  description: Software testing methodologies, techniques, and best practices for quality assurance professionals
+
+tools:
+  label: Testing Tools
+  permalink: /tools
+  description: Testing and automation tools, reviews, comparisons, and implementation guides
+
+topmate:
+  label: Topmate Consultations
+  permalink: /topmate
+  description: Professional consultations, mentoring sessions, and coaching services available through Topmate
 
 user-experience:
   label: User Experience
@@ -32,63 +112,3 @@ welcome:
   label: Welcome
   permalink: /welcome
   description: Welcome and introduction posts
-
-career-growth:
-  label: Career Growth
-  permalink: /career-growth
-  description: Professional development and career advancement
-
-learning:
-  label: Learning
-  permalink: /learning
-  description: Learning resources and educational content
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
-
-career:
-  label: Career Development
-  permalink: /career
-  description: Career guidance, roadmaps, and professional development tips for software testing and automation professionals
-
-automation:
-  label: Test Automation
-  permalink: /automation
-  description: Test automation frameworks, tools, best practices, and implementation strategies for modern software development
-
-testing:
-  label: Software Testing
-  permalink: /testing
-  description: Software testing methodologies, techniques, and best practices for quality assurance professionals
-
-roadmap:
-  label: Learning Roadmap
-  permalink: /roadmap
-  description: Step-by-step learning paths and roadmaps for mastering testing, automation, and DevOps skills
-
-beginner:
-  label: Beginner Friendly
-  permalink: /beginner
-  description: Beginner-friendly tutorials, guides, and resources for those starting their journey in testing and automation
-
-programming:
-  label: Programming
-  permalink: /programming
-  description: Programming concepts, coding best practices, and development skills for testers and automation engineers
-
-Microsoft:
-  label: Microsoft
-  permalink: /microsoft
-  description: Microsoft technologies, tools, and platform-specific testing and automation solutions
-
-test-consultant:
-  label: Test Consultant
-  permalink: /test-consultant
-  description: Insights and experiences from professional test consulting, including strategies and methodologies for enterprise testing
