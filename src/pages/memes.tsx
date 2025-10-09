@@ -267,8 +267,8 @@ const MemesPage: React.FC = () => {
         <meta property="og:title" content="Testing Memes | Gaurav Khurana" />
         <meta property="og:description" content="Enjoy hilarious testing and automation memes that every QA professional can relate to. Share the laughter with fellow testers and developers." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://gauravkhuraana.github.io/memes" />
-        <meta property="og:image" content="https://gauravkhuraana.github.io/img/gauravkhurana.png" />
+        <meta property="og:url" content="https://gauravkhurana.in/memes" />
+        <meta property="og:image" content="https://gauravkhurana.in/img/gauravkhurana.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Testing Memes | Gaurav Khurana" />
         <meta name="twitter:description" content="Enjoy hilarious testing and automation memes that every QA professional can relate to." />
