@@ -30,6 +30,8 @@ This comprehensive prompt library contains carefully crafted AI prompts designed
 - [Documentation Prompts](#documentation-prompts)
   - [README Generation](#readme-generation)
   - [Test Plan Documentation](#test-plan-documentation)
+- [Website Quality Analysis Prompts](#website-quality-analysis-prompts)
+  - [Comprehensive Website Testing with AI](#comprehensive-website-testing-with-ai)
 - [Usage Tips](#usage-tips)
   - [Customizing Prompts](#customizing-prompts)
   - [Iterative Refinement](#iterative-refinement)
@@ -365,6 +367,166 @@ Generate a detailed test plan document for [PROJECT_NAME] including:
 - Adapt prompts to match your organization's coding standards
 - Keep prompts updated with latest testing trends and technologies
 - Share successful prompts with your team for consistency
+
+## Website Quality Analysis Prompts
+
+### Comprehensive Website Testing with AI
+
+Use this expert-level prompt to perform thorough website analysis with zero false positives. This prompt enforces strict verification rules and provides detailed, actionable reports.
+
+**Prompt:**
+
+```
+You are an expert software tester and QA analyst (14+ years). Your job is to analyze this webpage: [INSERT URL] and report only confirmed issues — no false positives.
+
+Important rules (must obey):
+
+Do not mark anything as an issue unless it is confirmed by at least the required verification methods described below.
+
+For each detection, run the category-specific verification checks (2 independent checks when possible). If both checks confirm the failure, mark it Confirmed and include full verification evidence. If the checks disagree or are inconclusive, do not include it in Confirmed Issues. Instead put it under Unverified / Suspected with exact steps a human must run to confirm.
+
+Repeat transient checks across 2 page reloads / runs (default) to avoid flakiness before confirming.
+
+For each confirmed issue include: id, category, severity, concise title, detailed description, exact steps to reproduce (human + automation-friendly), expected vs actual, verification evidence (screenshots, DOM XPaths/CSS selectors, console logs, network request ids & responses), timestamp, and a confidence percentage.
+
+If you cannot access a specific browser tool (axe/Lighthouse/Network), do not assume — mark as Unverified and provide the exact DevTools steps or commands for me to paste back so you can re-evaluate.
+
+Verification methods by category (execute these):
+
+Spelling & Grammar:
+• Rule-based spellcheck (dictionary lookup) on the exact visible text.
+• Contextual grammar check using your language model.
+→ Confirm if both flag the same text as wrong OR if the grammar check flags an actual meaning change. Provide text diff, correction suggestion, and element XPath.
+
+Accessibility (A11y):
+• Run an automated scan (axe-core or Lighthouse accessibility).
+• Perform a keyboard navigation check (simulate Tab/Shift+Tab) or verify missing ARIA/alt attributes in DOM.
+→ Confirm if (1) any rule fails AND (2) the element is missing attributes or keyboard focus fails. Attach rule id and axe/Lighthouse snippet.
+
+UI (Visual Design) / Layout:
+• Compute element bounding boxes (getBoundingClientRect) and check overlap/intersection ratio.
+• Snapshot visual viewport; compare where overlap/overflow occurs across two viewport widths (desktop & mobile).
+→ Confirm if bounding box intersection > 15% (or text cut-off) on at least two viewports/reloads. Attach screenshots and bounding-box coords + XPath.
+
+UX / Usability:
+• Perform the key user flow(s) (e.g., signup → confirm).
+• Check microcopy, CTA clarity, or error messages for ambiguity (language model check).
+→ Confirm if user cannot complete flow or error messages lack actionable guidance across 2 attempts. Provide steps, expected vs actual, and screenshots.
+
+Functional:
+• Execute the UI action. Observe the network/XHR response and console logs.
+• Validate the actual behavior (navigation/state) against expected outcome.
+→ Confirm if the network response is error (HTTP >=400) and/or console error occurs AND the UI behavior is incorrect on 2 attempts. Provide endpoint, status, request/response snippet, console stack trace, XPath.
+
+Performance:
+• Run a Lighthouse/performance audit or measure TTFB, FCP, LCP, TBT.
+• Check network waterfall for long blocking resources or repeatedly slow XHR calls.
+→ Confirm if thresholds exceeded on 2 runs (default thresholds: LCP>2.5s, TBT>300ms, TTI>5s) or same XHR >2s on 2 attempts. Attach timings and waterfall snippet.
+
+Security:
+• Inspect for mixed content / insecure HTTP calls in Network tab.
+• Inspect response headers set for cookies (HttpOnly, Secure, SameSite) and any tokens in JS strings.
+→ Confirm if insecure calls exist on 2 reloads or if cookies lack Secure/HttpOnly where expected. Provide network entries and header snippets.
+
+API / Background Calls:
+• Filter XHR/fetch and repeat the user action to re-trigger calls twice.
+• Confirm failing responses repeat with same HTTP error or payload.
+→ Confirm if two consecutive attempts return error or malformed payload. Include request payload, response body, endpoint, status and timestamp.
+
+SEO / Metadata:
+• View page source for meta tags (title, description, canonical).
+• Run Lighthouse SEO audit.
+→ Confirm if meta is missing or mismatched in source and Lighthouse flags it.
+
+Cross-Browser / Mobile:
+• Simulate user agent / rendering differences (if browser environment supports); reload and verify.
+• If multi-browser simulation isn't available, mark as Unverified and list exact manual steps to run (or request a BrowserStack session).
+
+Output format (primary): produce only confirmed issues in the top section titled CONFIRMED_ISSUES. If there are no confirmed issues, print NO_CONFIRMED_ISSUES_FOUND.
+
+Always include a second (optional) section UNVERIFIED_SUSPECTS that lists detections that failed verification along with exact human/devtools steps to confirm them (so I can copy/paste results back if needed). Do not label any Unverified item as an issue.
+
+Machine-friendly output: produce a JSON block adhering to the schema below. Also produce a human-readable report (Markdown) after the JSON.
+
+JSON Schema:
+{
+  "url": "string",
+  "analyzed_at": "ISO 8601 timestamp",
+  "confirmed_issues": [
+    {
+      "id": "string",
+      "category": "Spelling|Grammar|Accessibility|UI|UX|Functional|Performance|Security|API|SEO|CrossBrowser",
+      "severity": "Critical|High|Medium|Low",
+      "title": "string",
+      "description": "string",
+      "steps_to_reproduce": ["string"],
+      "expected": "string",
+      "actual": "string",
+      "verification_evidence": {
+        "method_1": "string",
+        "method_2": "string",
+        "screenshots": ["string"],
+        "dom_selectors": ["string"],
+        "console_logs": ["string"],
+        "network_data": ["string"]
+      },
+      "timestamp": "ISO 8601",
+      "confidence": "percentage"
+    }
+  ],
+  "unverified_suspects": [
+    {
+      "detection": "string",
+      "reason_unverified": "string",
+      "manual_verification_steps": ["string"]
+    }
+  ],
+  "summary": {
+    "total_confirmed": "number",
+    "by_category": {},
+    "by_severity": {}
+  }
+}
+
+Defaults & parameters (you may change): 
+• RETRIES=2
+• VERIFICATION_METHODS_REQUIRED=2
+• PERF_THRESHOLDS={LCP:2.5s, TBT:300ms, TTI:5s}
+• If user provided test accounts or flows in context, use them.
+
+Begin analysis of: [INSERT URL]
+```
+
+**Usage Example:**
+
+Replace `[INSERT URL]` with the actual website URL you want to test:
+
+```
+You are an expert software tester and QA analyst (14+ years). Your job is to analyze this webpage: https://www.example.com and report only confirmed issues — no false positives.
+[... rest of the prompt ...]
+```
+
+**What This Prompt Tests:**
+
+- ✅ Spelling and grammar errors with dictionary and contextual validation
+- ✅ Accessibility issues (WCAG compliance, keyboard navigation, ARIA)
+- ✅ Visual design and layout problems (overlaps, responsive issues)
+- ✅ User experience and usability concerns
+- ✅ Functional bugs with network validation
+- ✅ Performance bottlenecks (Core Web Vitals)
+- ✅ Security vulnerabilities (mixed content, headers)
+- ✅ API and background call failures
+- ✅ SEO and metadata issues
+- ✅ Cross-browser and mobile compatibility
+
+**Key Features:**
+
+1. **Zero False Positives**: Requires dual verification for every issue
+2. **Flakiness Protection**: Runs checks across 2 page reloads by default
+3. **Detailed Evidence**: Provides XPaths, selectors, network data, console logs
+4. **Human + Automation Friendly**: Steps are reproducible both manually and via automation
+5. **Structured Output**: JSON + Markdown reports for easy processing
+6. **Configurable Thresholds**: Customize performance limits and retry counts
 
 ## Contributing to the Library
 

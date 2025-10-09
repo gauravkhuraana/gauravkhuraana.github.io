@@ -9,8 +9,8 @@ const https = require('https');
 const fs = require('fs');
 
 const FEEDS = {
-  rss: 'https://gauravkhuraana.github.io/blog/rss.xml',
-  atom: 'https://gauravkhuraana.github.io/blog/atom.xml'
+  rss: 'https://gauravkhurana.in/blog/rss.xml',
+  atom: 'https://gauravkhurana.in/blog/atom.xml'
 };
 
 async function testFeed(name, url) {
@@ -69,13 +69,13 @@ async function validateFeeds() {
   });
   
   console.log('\n📝 Integration URLs:');
-  console.log('   RSS:  https://gauravkhuraana.github.io/blog/rss.xml');
-  console.log('   Atom: https://gauravkhuraana.github.io/blog/atom.xml');
-  console.log('   Info: https://gauravkhuraana.github.io/feeds');
+  console.log('   RSS:  https://gauravkhurana.in/blog/rss.xml');
+  console.log('   Atom: https://gauravkhurana.in/blog/atom.xml');
+  console.log('   Info: https://gauravkhurana.in/feeds');
   
   console.log('\n🔗 Quick Test Commands:');
-  console.log('   curl -I https://gauravkhuraana.github.io/blog/rss.xml');
-  console.log('   curl -I https://gauravkhuraana.github.io/blog/atom.xml');
+  console.log('   curl -I https://gauravkhurana.in/blog/rss.xml');
+  console.log('   curl -I https://gauravkhurana.in/blog/atom.xml');
 }
 
 // Run if called directly

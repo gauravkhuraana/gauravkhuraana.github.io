@@ -28,7 +28,13 @@ const config: Config = {
   projectName: 'gauravkhuraana.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'throw',
+
+  // Markdown configuration (v4 compatible)
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'throw',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -218,7 +224,8 @@ const config: Config = {
             description: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from a Microsoft Test Consultant.',
             copyright: `Copyright © ${new Date().getFullYear()} Gaurav Khurana. All rights reserved.`,
             language: 'en',
-            xslt: true,
+            xslt: false, // Disable XSLT styling for plain XML output (better for third-party feed readers)
+            limit: 10, // Limit to 10 most recent posts
             createFeedItems: async (params) => {
               const {blogPosts, defaultCreateFeedItems, ...rest} = params;
               
@@ -287,7 +294,7 @@ const config: Config = {
       {name: 'msapplication-TileColor', content: '#25c2a0'},
     ],
     navbar: {
-      title: 'SharingIsCaring',
+      title: 'gauravkhurana.in',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
