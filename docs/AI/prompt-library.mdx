@@ -379,20 +379,6 @@ Use this expert-level prompt to perform thorough website analysis with zero fals
 ```
 You are an expert software tester and QA analyst (14+ years). Your job is to analyze this webpage: [INSERT URL] and report only confirmed issues — no false positives.
 
-Important rules (must obey):
-
-Do not mark anything as an issue unless it is confirmed by at least the required verification methods described below.
-
-For each detection, run the category-specific verification checks (2 independent checks when possible). If both checks confirm the failure, mark it Confirmed and include full verification evidence. If the checks disagree or are inconclusive, do not include it in Confirmed Issues. Instead put it under Unverified / Suspected with exact steps a human must run to confirm.
-
-Repeat transient checks across 2 page reloads / runs (default) to avoid flakiness before confirming.
-
-For each confirmed issue include: id, category, severity, concise title, detailed description, exact steps to reproduce (human + automation-friendly), expected vs actual, verification evidence (screenshots, DOM XPaths/CSS selectors, console logs, network request ids & responses), timestamp, and a confidence percentage.
-
-If you cannot access a specific browser tool (axe/Lighthouse/Network), do not assume — mark as Unverified and provide the exact DevTools steps or commands for me to paste back so you can re-evaluate.
-
-Verification methods by category (execute these):
-
 Spelling & Grammar:
 • Rule-based spellcheck (dictionary lookup) on the exact visible text.
 • Contextual grammar check using your language model.
@@ -442,59 +428,6 @@ Cross-Browser / Mobile:
 • Simulate user agent / rendering differences (if browser environment supports); reload and verify.
 • If multi-browser simulation isn't available, mark as Unverified and list exact manual steps to run (or request a BrowserStack session).
 
-Output format (primary): produce only confirmed issues in the top section titled CONFIRMED_ISSUES. If there are no confirmed issues, print NO_CONFIRMED_ISSUES_FOUND.
-
-Always include a second (optional) section UNVERIFIED_SUSPECTS that lists detections that failed verification along with exact human/devtools steps to confirm them (so I can copy/paste results back if needed). Do not label any Unverified item as an issue.
-
-Machine-friendly output: produce a JSON block adhering to the schema below. Also produce a human-readable report (Markdown) after the JSON.
-
-JSON Schema:
-{
-  "url": "string",
-  "analyzed_at": "ISO 8601 timestamp",
-  "confirmed_issues": [
-    {
-      "id": "string",
-      "category": "Spelling|Grammar|Accessibility|UI|UX|Functional|Performance|Security|API|SEO|CrossBrowser",
-      "severity": "Critical|High|Medium|Low",
-      "title": "string",
-      "description": "string",
-      "steps_to_reproduce": ["string"],
-      "expected": "string",
-      "actual": "string",
-      "verification_evidence": {
-        "method_1": "string",
-        "method_2": "string",
-        "screenshots": ["string"],
-        "dom_selectors": ["string"],
-        "console_logs": ["string"],
-        "network_data": ["string"]
-      },
-      "timestamp": "ISO 8601",
-      "confidence": "percentage"
-    }
-  ],
-  "unverified_suspects": [
-    {
-      "detection": "string",
-      "reason_unverified": "string",
-      "manual_verification_steps": ["string"]
-    }
-  ],
-  "summary": {
-    "total_confirmed": "number",
-    "by_category": {},
-    "by_severity": {}
-  }
-}
-
-Defaults & parameters (you may change): 
-• RETRIES=2
-• VERIFICATION_METHODS_REQUIRED=2
-• PERF_THRESHOLDS={LCP:2.5s, TBT:300ms, TTI:5s}
-• If user provided test accounts or flows in context, use them.
-
-Begin analysis of: [INSERT URL]
 ```
 
 **Usage Example:**
@@ -517,16 +450,7 @@ You are an expert software tester and QA analyst (14+ years). Your job is to ana
 - ✅ Security vulnerabilities (mixed content, headers)
 - ✅ API and background call failures
 - ✅ SEO and metadata issues
-- ✅ Cross-browser and mobile compatibility
 
-**Key Features:**
-
-1. **Zero False Positives**: Requires dual verification for every issue
-2. **Flakiness Protection**: Runs checks across 2 page reloads by default
-3. **Detailed Evidence**: Provides XPaths, selectors, network data, console logs
-4. **Human + Automation Friendly**: Steps are reproducible both manually and via automation
-5. **Structured Output**: JSON + Markdown reports for easy processing
-6. **Configurable Thresholds**: Customize performance limits and retry counts
 
 ## Contributing to the Library
 
