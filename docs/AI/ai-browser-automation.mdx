@@ -10,185 +10,84 @@ import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
 
 # 🤖 AI Browser Automation
 
-Discover how **AI is transforming browser automation** and web testing. Learn advanced techniques for creating intelligent, self-healing test automation that adapts to UI changes and provides smarter element detection and interaction strategies.
+Discover how **AI is transforming browser automation** and web testing. Watch these demonstrations showing how AI can automate complex browser tasks through simple prompts, from WhatsApp management to e-commerce transactions and social media automation.
 
-## Sample AI Prompts for Browser Automation
+## What is AI Browser Automation?
 
-Here are some practical AI prompts you can use for browser automation tasks:
+AI Browser Automation combines artificial intelligence with traditional browser automation to enable:
 
-### WhatsApp Group Cleanup Prompt
+- **Natural Language Control**: Control browsers using simple text prompts instead of writing code
+- **Intelligent Element Detection**: AI automatically identifies and interacts with page elements
+- **Self-Healing Tests**: Automatically adapt to UI changes without manual updates
+- **Smart Decision Making**: AI makes contextual decisions during test execution
+- **Complex Task Automation**: Automate multi-step workflows with minimal configuration
 
-This prompt can be used with AI-powered browser automation tools to automatically clean up WhatsApp groups based on specific naming patterns.
+## Video Demonstrations
 
-```
-Delete all media and chat from the groups which have the following words in their name:
-- Family 
-- GEIT
-```
-OR 
-```
-Delete all media and chat from the archived groups
-```
+### WhatsApp Group Cleanup Automation
 
-<YouTubeEmbed videoId="YAT3lx2JPQU" title="AI Browser Automation Demo" />
+See how AI can automatically clean up WhatsApp groups, delete media, and manage chats based on simple natural language instructions.
 
+<YouTubeEmbed videoId="YAT3lx2JPQU" title="AI Browser Automation Demo - WhatsApp Automation" />
 
-### Smart Locator Generation Prompts
+### Generate Locators and Test Data with AI
 
-These enhanced prompts will help you generate robust, maintainable locators for different automation frameworks:
+Learn how AI can intelligently generate robust locators and realistic test data for your automation frameworks.
 
-#### Playwright Locator Generation
-```
-Analyze this webpage and generate Playwright locators using best practices:
-- Use getByRole() for interactive elements (buttons, links, inputs)
-- Use getByLabel() for form fields with labels
-- Use getByTestId() for elements with test-id attributes
-- Use getByText() for unique text content
-- Provide fallback locators using getByLocator() for complex elements
-- Include both positive and negative assertions where applicable
-- Format as TypeScript Page Object Model methods
+<YouTubeEmbed videoId="44RoHLdDGgE" title="Generate locators and Test Data with AI" />
 
-Focus on user-centric locators that are resilient to UI changes.
-```
+### Buy Products from E-commerce Sites
 
-#### Selenium WebDriver Locator Scripts
-```
-Generate Selenium WebDriver locators for this page and create a complete Page Object class:
-- Use By.id() for elements with unique IDs
-- Use By.name() for form elements with name attributes
-- Use By.linkText() and By.partialLinkText() for links
-- Use By.xpath() only when necessary, prefer CSS selectors
-- Include WebDriverWait conditions for dynamic elements
-- Add proper error handling and logging
-- Format as Java/Python/C# Page Object Pattern
-- Include common actions like click(), sendKeys(), getText()
+Watch AI automate the complete purchase flow on e-commerce platforms using simple prompts - from product search to checkout.
 
-Generate both individual locators and complete interaction methods.
-```
+<YouTubeEmbed videoId="WBYKTxBlM08" title="Buy Products from ecommerce sites via Prompts | AI Browser Automation" />
 
-#### Cross-Browser Compatible Locators
-```
-Create cross-browser compatible locators for this webpage:
-- Generate CSS selectors that work across Chrome, Firefox, Safari, and Edge
-- Avoid browser-specific pseudo-selectors
-- Use stable attributes (data-testid, role, aria-label)
-- Provide multiple locator strategies for critical elements
-- Include mobile-responsive locator alternatives
-- Test locator uniqueness and stability
-- Format as JSON object with element descriptions
+### Accept All LinkedIn Connection Requests
 
-Prioritize accessibility attributes and semantic HTML elements.
-```
+Automate social media management by accepting connection requests with a single prompt.
 
-#### Section-Specific Locator Generation
-```
-Generate locators specifically for the [SECTION_NAME] section of this page:
-- Identify the container element for the section
-- Map all interactive elements within this section
-- Use relative locators from the section container
-- Include data validation locators for dynamic content
-- Generate both individual element and collection locators
-- Provide methods for section-level operations (expand, collapse, filter)
-- Format as [FRAMEWORK] Page Object methods with clear naming conventions
+<YouTubeEmbed videoId="-jbRYjLVb-s" title="Accept All Connection Requests with One Prompt | AI Browser Automation" />
 
-Example: For "Candidates" section, include locators for candidate cards, filters, pagination, and search functionality.
-```
+### Pay Bills on Amazon Using AI Prompts
 
-#### AI-Enhanced Locator Strategies
-```
-Analyze this webpage and suggest intelligent locator strategies:
-- Identify elements likely to change frequently (dynamic IDs, generated classes)
-- Recommend stable alternatives using semantic attributes
-- Suggest data-testid placement for untestable elements
-- Generate locators with built-in retry mechanisms
-- Include accessibility-compliant alternatives
-- Provide locator health scoring based on stability factors
-- Suggest page structure improvements for better testability
+Discover how to automate utility bill payments on Amazon through AI-powered browser automation.
 
-Create self-healing locator patterns that can adapt to minor UI changes.
-```
+<YouTubeEmbed videoId="FL6nH0YI374" title="How to Pay Bills on Amazon Using AI Prompts | Browser Automation for Everyone" />
 
-#### Framework-Specific Advanced Prompts
+## Ready to Try AI Browser Automation?
 
-**For Playwright with Modern Web Apps:**
-```
-Generate Playwright locators for this SPA/React/Angular application:
-- Use page.locator() with chaining for complex scenarios
-- Include page.waitForSelector() for dynamic content
-- Generate locators for shadow DOM elements if present
-- Use page.frameLocator() for iframe content
-- Include network request interception patterns
-- Provide locators for handling loading states and animations
-- Format with proper async/await patterns and error handling
+Check out our comprehensive [Prompt Library](/docs/AI/prompt-library#browser-automation-prompts) for ready-to-use prompts for:
 
-Include performance-optimized selectors and parallel execution strategies.
-```
+- Smart locator generation
+- Test data creation
+- E-commerce automation
+- Social media management
+- WhatsApp automation
+- And much more!
 
-**For Selenium with Dynamic Content:**
-```
-Create robust Selenium locators for this dynamic webpage:
-- Generate explicit waits for all interactive elements
-- Include retry mechanisms for flaky elements
-- Use ActionChains for complex user interactions
-- Generate locators that handle AJAX loading
-- Include screenshot capture points for debugging
-- Provide data-driven test parameter mapping
-- Format with proper exception handling and logging
+## Tools and Frameworks
 
-Focus on elements that load asynchronously or change state frequently.
-```
+Popular tools that support AI browser automation:
 
-**For Cypress Modern Testing:**
-```
-Generate Cypress commands and locators for this page:
-- Use cy.get() with data-cy attributes preferably
-- Include custom commands for repeated actions
-- Generate intercepts for API calls
-- Use proper cy.wait() strategies for dynamic content
-- Include viewport and responsive testing locators
-- Provide fixture data integration patterns
-- Format as reusable command library
+- **Playwright** - Modern automation framework with AI integration
+- **Selenium** - Traditional framework enhanced with AI capabilities
+- **Puppeteer** - Chrome DevTools Protocol with AI features
+- **GitHub Copilot** - AI pair programmer for test automation
+- **ChatGPT/Claude** - Natural language to automation code
 
-Emphasize Cypress best practices and real-world user interaction flows.
-```
+## Connect & Learn More
 
-### Test Data Generation
+Want to master AI browser automation? Follow and connect for more insights:
 
-```
-Generate realistic test data for this form/application:
-- Create valid data sets covering happy path scenarios
-- Generate boundary value test cases (min/max values)
-- Include negative test data (invalid formats, SQL injection attempts)
-- Provide internationalization test data (Unicode, RTL languages)
-- Generate accessibility testing data (screen reader compatibility)
-- Create performance test data (large datasets, stress testing)
-- Format as JSON/CSV/database seed files
+- 📺 **YouTube**: [Watch more tutorials](https://youtube.com/@gauravkhurana)
+- 💼 **LinkedIn**: [Connect professionally](https://www.linkedin.com/in/gauravkhuraana/)
+- 📝 **Medium**: [Read detailed articles](https://medium.com/@gauravkhuraana)  
+- 💬 **Topmate**: [Get 1:1 mentoring](https://topmate.io/gauravkhurana)
+- 🐙 **GitHub**: [Explore automation projects](https://github.com/gauravkhurana)
 
-Include both positive and negative test scenarios with expected outcomes.
-```
+---
 
-<YouTubeEmbed videoId="44RoHLdDGgE" title="Generate locators and Test Data" />
-
-
-
-
-### E-commerce Automation Scenarios
-
-#### Smart Amazon Purchase Automation
-```
-Automate Amazon purchase with intelligent decision making:
-- Search for "e-gift card" and filter by denomination options
-- Select Rs 3500 gift card with highest ratings and verified seller
-- Add to cart and immediately proceed to "Buy Now" to bypass cart conflicts
-- Navigate to checkout and verify delivery/billing addresses
-- Select SBI card as payment method with secure handling
-- Fill payment details but PAUSE at OTP verification step
-- Implement screenshot capture and notification system for OTP prompt
-- Include error handling for out-of-stock, price changes, or payment failures
-- Log all steps with timestamps for audit trail
-
-Safety measures: Include price verification, seller validation, and purchase confirmation before payment.
-```
+*Transform your testing workflow with AI-powered browser automation - making complex tasks simple through intelligent automation.*
 
 
 

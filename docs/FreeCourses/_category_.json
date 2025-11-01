@@ -1,0 +1,10 @@
+{
+  "label": "Free Courses",
+  "position": 9,
+  "link": {
+    "type": "generated-index",
+    "title": "Free Courses",
+    "description": "Access comprehensive free video courses on automation testing, DevOps, and AI-powered development. Learn at your own pace with complete playlists covering Azure DevOps, GitHub Copilot, and more.",
+    "keywords": ["free courses", "video tutorials", "automation training", "devops courses", "github copilot", "azure devops", "learning resources"]
+  }
+}

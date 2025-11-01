@@ -1,0 +1,10 @@
+{
+  "label": "Industry Insights",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "title": "Industry Insights",
+    "description": "Perspectives on software development, testing practices, and technology trends shaping the industry - practical insights from real-world experience.",
+    "keywords": ["industry insights", "software development", "testing trends", "tech industry", "best practices", "professional development"]
+  }
+}
