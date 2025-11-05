@@ -37,6 +37,8 @@ This comprehensive prompt library contains carefully crafted AI prompts designed
   - [Test Plan Documentation](#test-plan-documentation)
 - [Website Quality Analysis Prompts](#website-quality-analysis-prompts)
   - [Comprehensive Website Testing with AI](#comprehensive-website-testing-with-ai)
+- [Practice Automation Website Builder](#practice-automation-website-builder)
+  - [Comprehensive Automation Training Platform](#comprehensive-automation-training-platform)
 - [Usage Tips](#usage-tips)
   - [Customizing Prompts](#customizing-prompts)
   - [Iterative Refinement](#iterative-refinement)
@@ -619,6 +621,290 @@ You are an expert software tester and QA analyst (14+ years). Your job is to ana
 - ✅ API and background call failures
 - ✅ SEO and metadata issues
 
+
+## Practice Automation Website Builder
+
+### Comprehensive Automation Training Platform
+
+Use this prompt to create a complete practice automation website that covers all real-world testing scenarios. Perfect for training on Selenium, Playwright, Cypress, or any automation framework.
+
+**Prompt:**
+
+```
+Create a comprehensive practice automation website designed for testers and developers to train on test automation frameworks (Selenium, Playwright, Cypress, etc.). The site should include all possible elements, flows, and scenarios commonly faced in real-world projects.
+
+✅ Basic Elements Section
+
+Textboxes:
+• Single-line text input
+• Multi-line textarea
+• Input with character limits
+• Input with format validation (email, phone, numbers only)
+
+Password Fields:
+• Standard password field
+• Password with show/hide toggle
+• Password with strength indicator
+• Confirm password field with validation
+
+Dropdowns:
+• Single select dropdown
+• Multi-select dropdown
+• Searchable/filterable select
+• Cascading/dependent dropdowns
+• Dropdown with dynamic options
+
+Radio Buttons & Checkboxes:
+• Standard radio button groups
+• Checkbox lists (select all/none)
+• Disabled and pre-selected options
+• Dynamically enabled/disabled options
+
+Buttons:
+• Enabled/disabled buttons
+• Dynamic enable/disable based on form validation
+• Loading/spinner state buttons
+• Submit/reset/cancel variations
+• Icon buttons and button groups
+
+Links:
+• Internal navigation links
+• External links (open in new tab)
+• Dynamic links (generated on interaction)
+• Broken link examples for testing
+
+✅ Intermediate UI Scenarios
+
+Drag & Drop:
+• Drag elements between containers
+• Sortable lists with drag-and-drop
+• File drag-and-drop upload
+• Drag to reorder table rows
+
+Sliders:
+• Single value range slider
+• Dual-value range slider
+• Vertical and horizontal sliders
+• Step-based sliders with value display
+
+File Operations:
+• Single file upload
+• Multiple file upload
+• File type restrictions
+• File download with various formats (PDF, CSV, Excel)
+• Download with dynamic filenames
+
+Date Pickers:
+• Standard calendar picker
+• Date range picker
+• Custom date format selectors
+• Min/max date restrictions
+• Disabled date ranges
+
+Mouse Interactions:
+• Mouse hover effects and tooltips
+• Right-click context menus
+• Double-click actions
+• Click and hold interactions
+
+Copy/Paste:
+• Copy-to-clipboard buttons
+• Paste detection and validation
+• Protected/disabled copy fields
+
+Auto-Suggestions:
+• Search with live suggestions
+• Debounced auto-complete
+• Keyboard navigation in suggestions
+• Selection and clearing behavior
+
+✅ Advanced Features
+
+Iframes:
+• Single iframe
+• Nested iframes (iframe within iframe)
+• Multiple iframes on same page
+• Cross-origin iframe scenarios
+
+Shadow DOM:
+• Elements within shadow DOM
+• Nested shadow DOM elements
+• Form elements in shadow DOM
+
+Multiple Windows/Tabs:
+• Open new window/tab button
+• Handle multiple browser tabs
+• Switch between windows
+• Close specific windows
+
+Pop-ups & Modals:
+• JavaScript alerts
+• Confirm dialogs
+• Prompt dialogs
+• Custom modal dialogs
+• Overlay modals with backdrop
+• Non-closable modals (require action)
+
+Infinite Scroll / Lazy Loading:
+• Infinite scroll list
+• Load more button
+• Virtual scrolling with large datasets
+• Lazy-loaded images
+
+Dynamic Elements:
+• Elements with dynamic IDs
+• Dynamically generated content
+• Elements appearing after delay
+• Elements changing position/state
+
+Notifications:
+• Toast notifications (success, error, warning, info)
+• Auto-dismiss notifications
+• Dismissible notifications
+• Notification queues
+
+Data Visualizations:
+• Bar charts
+• Line graphs
+• Pie charts
+• Interactive charts with tooltips
+• Canvas-based drawing board
+
+✅ System/Browser Features
+
+Geo-location:
+• Mock geo-location permission
+• Location-based content display
+• Map integration examples
+
+Browser Notifications:
+• Push notification permission request
+• Trigger browser notifications
+• Handle notification clicks
+
+Storage Management:
+• Set and read cookies
+• Local storage operations
+• Session storage operations
+• Clear storage buttons
+
+Internationalization:
+• Multi-language support
+• Runtime language switcher
+• RTL (Right-to-Left) language support
+• Date/number format changes
+
+✅ End-to-End Business Flows
+
+User Authentication:
+• Login with valid/invalid credentials
+• Registration form with comprehensive validations
+• Password reset flow
+• CAPTCHA integration (optional/mock)
+• Session management
+• Logout functionality
+
+E-commerce Flow:
+• Product listing page with filters
+• Product detail page
+• Add to cart functionality
+• Cart management (update quantity, remove items)
+• Checkout process (address, shipping, payment)
+• Order confirmation page
+• Payment simulation (success/failure scenarios)
+
+Search & Filtering:
+• Search with results
+• Filter by multiple criteria
+• Sort options (price, name, date)
+• Pagination (numeric, prev/next, load more)
+• No results handling
+
+Profile Management:
+• View profile
+• Edit profile with validations
+• Upload profile picture
+• Change password
+• Account settings
+
+Contact Form:
+• Multi-field contact form
+• Form validation (required fields, format)
+• Submission with success/error states
+• Email mock/confirmation message
+
+✅ Complex/Dynamic Scenarios
+
+Asynchronous Loading:
+• Elements loading with delays (1s, 3s, 5s)
+• Retry mechanisms for failed loads
+• Timeout scenarios
+• Skeleton loading states
+
+Hidden & Overlapping Elements:
+• Hidden elements (display: none)
+• Invisible elements (opacity: 0)
+• Elements behind overlays
+• Partially visible/scrollable elements
+
+Tables:
+• Static data tables
+• Dynamic/editable tables
+• Sortable columns
+• Filterable tables
+• Row selection (single/multiple)
+• Expandable rows
+• Pagination in tables
+
+API-Driven Content:
+• Content loaded from mock APIs
+• Loading states during API calls
+• Error handling for failed API calls
+• Retry logic for API failures
+
+Real-Time Updates:
+• WebSocket live updates
+• Polling-based updates
+• Live counters/timers
+• Real-time form validation
+
+Network Conditions:
+• Slow network simulation
+• Offline mode handling
+• Network error scenarios
+
+✅ Documentation & Setup
+
+Include comprehensive README with:
+• Purpose and use cases for each section
+• Recommended automation approaches
+• Common pitfalls and solutions
+• Framework-specific examples (Selenium, Playwright, Cypress)
+• Mobile responsive design
+• Accessibility considerations
+• Source code with clear comments
+
+Technical Requirements:
+• Modern HTML5, CSS3, JavaScript
+• Responsive design (mobile, tablet, desktop)
+• No authentication barriers (open access)
+• Clean, semantic HTML
+• Unique element identifiers (IDs, data-testid attributes)
+• Console-friendly for debugging
+• Hosted version or easy local setup
+
+🎯 Goal: Create a one-stop playground where automation engineers can practice all major and minor test automation scenarios encountered in real-world projects, from basic element interactions to complex business flows and edge cases.
+```
+
+**Key Benefits:**
+
+- ✅ Comprehensive coverage of all automation scenarios
+- ✅ Real-world business flow simulations
+- ✅ Framework-agnostic (works with any automation tool)
+- ✅ Progressive difficulty levels (basic to advanced)
+- ✅ Includes edge cases and complex scenarios
+- ✅ Perfect for training and interview preparation
+- ✅ Covers modern web technologies (Shadow DOM, WebSockets, etc.)
 
 ## Contributing to the Library
 

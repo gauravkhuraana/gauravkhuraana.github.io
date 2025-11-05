@@ -346,6 +346,21 @@ const config: Config = {
             },
           ],
         },
+        {
+          type: 'dropdown',
+          label: 'Practice',
+          position: 'left',
+          items: [
+            {
+              label: 'Automation Practice Site',
+              href: 'https://gauravkhurana.in/test-automation-play',
+            },
+            {
+              label: 'Bug Hunt Challenge',
+              href: 'https://gauravkhurana.in/bug-hunt-challenge/',
+            },
+          ],
+        },
         {to: '/blog', label: 'Blog', position: 'right'},
         {to: '/newsletter', label: 'Newsletter', position: 'left'},
         {to: '/feedback', label: 'Contact', position: 'right'},
