@@ -352,12 +352,16 @@ const config: Config = {
           position: 'left',
           items: [
             {
-              label: 'Automation Practice Site',
+              label: 'UI Automation Practice Site',
               href: 'https://gauravkhurana.in/test-automation-play',
             },
             {
               label: 'Bug Hunt Challenge',
               href: 'https://gauravkhurana.in/bug-hunt-challenge/',
+            },
+            {
+              label: 'API Testing/Automation',
+              href: 'https://gauravkhurana.in/practise-api',
             },
           ],
         },
