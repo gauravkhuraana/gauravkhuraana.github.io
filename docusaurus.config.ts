@@ -370,7 +370,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://www.youtube.com/@Udzial/playlists',
+          href: 'https://www.youtube.com/@Udzial?sub_confirmation=1',
           label: 'YouTube',
           position: 'right',
         },
@@ -428,7 +428,7 @@ const config: Config = {
             },
             {
               label: 'YouTube (@Udzial)',
-              href: 'https://www.youtube.com/@Udzial/playlists',
+              href: 'https://www.youtube.com/@Udzial?sub_confirmation=1',
             },
             {
               label: 'Medium Blog',

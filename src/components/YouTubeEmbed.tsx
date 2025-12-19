@@ -38,7 +38,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
           </a>
           <span className="youtube-embed-separator">•</span>
           <a 
-            href="https://www.youtube.com/@Udzial/playlists"
+            href="https://www.youtube.com/@Udzial?sub_confirmation=1"
             target="_blank" 
             rel="noopener noreferrer"
             className="youtube-embed-link"

@@ -338,7 +338,7 @@ const MemesPage: React.FC = () => {
                 LinkedIn
               </a>
               <a 
-                href="https://www.youtube.com/@Udzial/playlists" 
+                href="https://www.youtube.com/@Udzial?sub_confirmation=1" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className={styles.socialButton}

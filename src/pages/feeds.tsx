@@ -120,7 +120,7 @@ export default function Feeds(): React.JSX.Element {
                 </div>
                 <div className="col col--3">
                   <Link 
-                    to="https://www.youtube.com/@Udzial/playlists" 
+                    to="https://www.youtube.com/@Udzial?sub_confirmation=1" 
                     className="button button--secondary button--block"
                     target="_blank">
                     YouTube

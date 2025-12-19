@@ -199,12 +199,39 @@
 }
 
 .socialButton:hover {
-  background: var(--ifm-color-primary-dark);
-  border-color: var(--ifm-color-primary-darker);
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   text-decoration: none;
   color: white;
+}
+
+/* Brand-colored social buttons */
+.socialButton.youtube {
+  background: #ff0000;
+}
+.socialButton.youtube:hover {
+  background: #cc0000;
+}
+
+.socialButton.linkedin {
+  background: #0077B5;
+}
+.socialButton.linkedin:hover {
+  background: #005885;
+}
+
+.socialButton.medium {
+  background: #000000;
+}
+.socialButton.medium:hover {
+  background: #333333;
+}
+
+.socialButton.topmate {
+  background: #6366f1;
+}
+.socialButton.topmate:hover {
+  background: #4f46e5;
 }
 
 .resetButton {
