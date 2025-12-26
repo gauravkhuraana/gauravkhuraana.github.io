@@ -7,6 +7,8 @@ type FeatureItem = {
   title: string;
   Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
   image?: string;
+  altText?: string;
+  isDecorative?: boolean;
   description: ReactNode;
 };
 
@@ -14,6 +16,7 @@ const FeatureList: FeatureItem[] = [
   {
     title: 'Udzial Means Share',
     image: require('@site/static/img/udziallogo.jpeg').default,
+    isDecorative: true,
     description: (
       <>
        I  believe in #SharingIsCaring. This  website is a collection of
@@ -24,6 +27,7 @@ const FeatureList: FeatureItem[] = [
     {
     title: 'Who Am I?',
     image: require('@site/static/img/gauravkhurana.png').default,
+    altText: 'Gaurav Khurana, software tester, automation and AI enthusiast wearing a Microsoft cap',
     description: (
       <>
       My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
@@ -34,8 +38,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'What You’ll Find Here',
-    image: require('@site/static/img/testautomationAI.jpeg').default,
-    description: (
+    image: require('@site/static/img/testautomationAI.jpeg').default,    isDecorative: true,    description: (
       <>
        From beginner tutorials to advanced automation tips — this site is packed with hands-on resources to help you grow.
       </>
@@ -43,7 +46,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, image, altText, description}: FeatureItem) {
+function Feature({title, Svg, image, altText, isDecorative, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -52,10 +55,11 @@ function Feature({title, Svg, image, altText, description}: FeatureItem) {
         ) : image ? (
           <img 
             src={image} 
-            alt={altText || title}
+            alt={isDecorative ? '' : (altText || title)}
             className={styles.featureSvg}
             style={{ maxWidth: '200px', height: 'auto' }}
             loading="lazy"
+            {...(isDecorative ? { role: 'presentation', 'aria-hidden': true } : {})}
           />
         ) : null}
       </div>

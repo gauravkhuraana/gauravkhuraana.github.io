@@ -544,3 +544,72 @@ textarea:focus-visible {
   outline: 2px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
+
+/* Accessibility: Hero title color contrast fix (WCAG 1.4.3) */
+.hero__title {
+  color: #ffffff !important;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Accessibility: Ko-fi link color contrast fix (WCAG 1.4.3) */
+.navbar-kofi-link {
+  color: #1a1a1a !important; /* Dark text for 4.5:1 contrast on light navbar */
+  font-weight: 600 !important;
+}
+
+[data-theme='dark'] .navbar-kofi-link {
+  color: #ffffff !important; /* White text for dark mode */
+}
+
+/* Accessibility: Toggle button focus visibility (WCAG 2.4.7) */
+.toggleButton_gllP:focus,
+.toggleButton_gllP:focus-visible,
+.clean-btn.toggleButton_gllP:focus,
+.clean-btn.toggleButton_gllP:focus-visible {
+  outline: 3px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(37, 194, 160, 0.3) !important;
+}
+
+/* Accessibility: Secondary button focus visibility (WCAG 2.4.7) */
+.button--secondary:focus,
+.button--secondary:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Accessibility: Card links focus visibility (WCAG 2.4.7) */
+[class*='cardLink']:focus,
+[class*='cardLink']:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Accessibility: Resource links focus visibility (WCAG 2.4.7) */
+[class*='resourceLink']:focus,
+[class*='resourceLink']:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Accessibility: Search input contrast fix (WCAG 1.4.11) */
+.navbar__search-input,
+.search-bar {
+  border: 2px solid #666666 !important; /* 3:1 contrast ratio */
+  background-color: #ffffff !important;
+}
+
+[data-theme='dark'] .navbar__search-input,
+[data-theme='dark'] .search-bar {
+  border: 2px solid #888888 !important;
+  background-color: #2e2e2e !important;
+}
+
+.navbar__search-input:focus,
+.search-bar:focus {
+  border-color: var(--ifm-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.3) !important;
+}
