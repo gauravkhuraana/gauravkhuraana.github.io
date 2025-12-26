@@ -38,8 +38,11 @@
   font-weight: 600;
   color: #ffffff;
   margin: 1rem 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  /* WCAG AA compliant - white on green with enhanced text shadow */
+  text-shadow: 
+    0 0 8px rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 3px 6px rgba(0, 0, 0, 0.7);
+  /* WCAG AA compliant - white on green with multiple shadows for 3:1 contrast */
 }
 
 .heroIntro {
@@ -235,8 +238,12 @@
 
 .resourceCard p {
   margin-bottom: 1rem;
-  color: var(--ifm-color-content-secondary);
+  color: #1a1a1a; /* Dark text for 4.5:1 contrast on gradient background */
   font-size: 0.95rem;
+}
+
+[data-theme='dark'] .resourceCard p {
+  color: #ffffff; /* White text for dark mode gradient */
 }
 
 .resourceLink {
@@ -252,9 +259,10 @@
 
 .resourceLink:focus,
 .resourceLink:focus-visible {
-  outline: 2px solid var(--ifm-color-primary);
-  outline-offset: 2px;
+  outline: 3px solid #000000; /* Black for 3:1 contrast */
+  outline-offset: 3px;
   border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .resourceLink {
@@ -263,6 +271,12 @@
 
 [data-theme='dark'] .resourceLink:hover {
   color: #6ee8cd;
+}
+
+[data-theme='dark'] .resourceLink:focus,
+[data-theme='dark'] .resourceLink:focus-visible {
+  outline: 3px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Mobile Responsiveness */

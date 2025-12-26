@@ -401,7 +401,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       logo: {
-        alt: 'Gaurav Khurana',
+        alt: '', // Decorative image - empty alt for WCAG compliance
         src: 'img/gauravkhurana.png',
         width: 60,
         height: 60,

@@ -6,15 +6,14 @@ import React, { useEffect } from 'react';
  * - Fixes Algolia search input aria-label mismatch (WCAG 2.5.3)
  */
 export default function Root({children}: {children: React.ReactNode}): JSX.Element {
-  // Fix Algolia search input aria-label to match visible placeholder (WCAG 2.5.3)
+  // Fix Algolia search input aria-label to match visible placeholder exactly (WCAG 2.5.3)
   useEffect(() => {
     const fixSearchAccessibility = () => {
-      const searchInput = document.querySelector('.navbar__search-input, .search-bar, #search_input_react');
+      const searchInput = document.querySelector('.navbar__search-input, .search-bar, #search_input_react') as HTMLInputElement;
       if (searchInput) {
+        // aria-label MUST match the visible placeholder text exactly
         const placeholder = searchInput.getAttribute('placeholder') || 'Search';
-        // Extract just the text part (remove keyboard shortcut)
-        const labelText = placeholder.replace(/⌘\+K|Ctrl\+K/g, '').trim() || 'Search';
-        searchInput.setAttribute('aria-label', labelText);
+        searchInput.setAttribute('aria-label', placeholder);
       }
     };
 
