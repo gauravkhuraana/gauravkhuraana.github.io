@@ -278,6 +278,7 @@ const config: Config = {
 
   clientModules: [
     require.resolve('./src/client/kofiAutoInjection.js'),
+    require.resolve('./src/client/searchLandmark.ts'),
   ],
 
   themeConfig: {
@@ -296,7 +297,7 @@ const config: Config = {
     navbar: {
       title: 'gauravkhurana.in',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Gaurav Khurana - Software Testing and Automation Expert',
         src: 'img/logo.svg',
       },
       items: [

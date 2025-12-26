@@ -65,7 +65,7 @@
 }
 
 .cardDescription {
-  color: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-emphasis-800);
   margin-bottom: 2rem;
   line-height: 1.6;
   font-size: 1.1rem;
@@ -154,7 +154,7 @@
 .privacyNote p {
   margin: 0;
   font-size: 0.9rem;
-  color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-emphasis-700);
 }
 
 /* Benefits Card */
@@ -182,7 +182,7 @@
 .benefitsList li {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  color: var(--ifm-color-emphasis-700);
+  color: var(--ifm-color-emphasis-800);
   font-size: 1rem;
 }
 

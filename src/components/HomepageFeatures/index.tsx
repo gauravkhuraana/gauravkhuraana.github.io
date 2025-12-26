@@ -43,7 +43,7 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, image, description}: FeatureItem) {
+function Feature({title, Svg, image, altText, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
@@ -52,7 +52,7 @@ function Feature({title, Svg, image, description}: FeatureItem) {
         ) : image ? (
           <img 
             src={image} 
-            alt={`${title} illustration`}
+            alt={altText || title}
             className={styles.featureSvg}
             style={{ maxWidth: '200px', height: 'auto' }}
             loading="lazy"
