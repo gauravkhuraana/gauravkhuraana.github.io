@@ -1,4 +1,5 @@
 .subscriptionContainer {
+  background-color: #667eea; /* Solid fallback for accessibility scanners */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 16px;
   padding: 2rem;

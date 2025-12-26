@@ -297,7 +297,7 @@ const config: Config = {
     navbar: {
       title: 'gauravkhurana.in',
       logo: {
-        alt: 'Gaurav Khurana - Software Testing and Automation Expert',
+        alt: '',
         src: 'img/logo.svg',
       },
       items: [
@@ -472,11 +472,6 @@ const config: Config = {
               label: 'Career Guidance',
               href: 'https://www.topmate.io/gauravkhurana',
             },
-          ],
-        },
-        {
-          title: 'Support',
-          items: [
             {
               label: '☕ Buy Me a Coffee',
               href: 'https://ko-fi.com/gauravkhurana',

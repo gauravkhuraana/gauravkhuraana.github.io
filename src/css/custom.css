@@ -642,3 +642,96 @@ textarea:focus-visible {
   border-color: var(--ifm-color-primary) !important;
   box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.3) !important;
 }
+
+/* Accessibility: Enhanced focus indicators for all interactive elements (SC 2.4.7) */
+/* Two-color focus indicator for visibility on both light and dark backgrounds */
+
+/* Navbar links */
+.navbar__link:focus,
+.navbar__link:focus-visible,
+.navbar__brand:focus,
+.navbar__brand:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .navbar__link:focus,
+[data-theme='dark'] .navbar__link:focus-visible,
+[data-theme='dark'] .navbar__brand:focus,
+[data-theme='dark'] .navbar__brand:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sidebar menu links */
+.menu__link:focus,
+.menu__link:focus-visible,
+.menu__caret:focus,
+.menu__caret:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(37, 194, 160, 0.2) !important;
+}
+
+/* Dropdown menu items */
+.dropdown__link:focus,
+.dropdown__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 1px !important;
+  background-color: var(--ifm-dropdown-hover-background-color) !important;
+}
+
+/* Footer links */
+.footer__link-item:focus,
+.footer__link-item:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Pagination navigation */
+.pagination-nav__link:focus,
+.pagination-nav__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-color: var(--ifm-color-primary) !important;
+}
+
+/* Table of contents links */
+.table-of-contents__link:focus,
+.table-of-contents__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 1px !important;
+}
+
+/* Breadcrumb links */
+.breadcrumbs__link:focus,
+.breadcrumbs__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tabs */
+.tabs__item:focus,
+.tabs__item:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Clean buttons (used throughout Docusaurus) */
+.clean-btn:focus,
+.clean-btn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Ensure focus is never completely hidden */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

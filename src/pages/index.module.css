@@ -248,13 +248,13 @@
 
 .resourceLink {
   font-weight: 600;
-  color: #1a5c4a; /* WCAG AA compliant - darker green for 4.5:1 contrast */
+  color: #000000; /* WCAG AA: black text for 4.5:1+ contrast on gradient backgrounds */
   text-decoration: none;
 }
 
 .resourceLink:hover {
   text-decoration: underline;
-  color: #14473a;
+  color: #000000;
 }
 
 .resourceLink:focus,
@@ -266,7 +266,7 @@
 }
 
 [data-theme='dark'] .resourceLink {
-  color: #4fddbf; /* High contrast in dark mode */
+  color: var(--ifm-color-primary-lightest); /* High contrast in dark mode */
 }
 
 [data-theme='dark'] .resourceLink:hover {
