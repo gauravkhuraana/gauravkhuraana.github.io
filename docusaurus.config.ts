@@ -45,33 +45,36 @@ const config: Config = {
   },
 
   headTags: [
-    // Brevo tracking scripts
+    // Preconnect hints for external domains (performance optimization)
     {
-      tagName: 'script',
+      tagName: 'link',
       attributes: {
-        src: 'https://cdn.brevo.com/js/sdk-loader.js',
-        async: 'true',
+        rel: 'preconnect',
+        href: 'https://cdn.brevo.com',
+        crossorigin: 'anonymous',
       },
     },
     {
-      tagName: 'script',
-      attributes: {},
-      innerHTML: `
-        // Version: 2.0
-        window.Brevo = window.Brevo || [];
-        window.Brevo.push([
-          "init",
-          {
-            client_key: "ebbcniife4txugcohv48c8pb"
-          }
-        ]);
-      `,
+      tagName: 'link',
+      attributes: {
+        rel: 'preconnect',
+        href: 'https://2daf0ef4.sibforms.com',
+        crossorigin: 'anonymous',
+      },
     },
     {
-      tagName: 'meta',
+      tagName: 'link',
       attributes: {
-        name: 'brevo-integration',
-        content: 'tracking',
+        rel: 'preconnect',
+        href: 'https://www.youtube.com',
+        crossorigin: 'anonymous',
+      },
+    },
+    {
+      tagName: 'link',
+      attributes: {
+        rel: 'dns-prefetch',
+        href: 'https://www.instagram.com',
       },
     },
     // Algolia site verification

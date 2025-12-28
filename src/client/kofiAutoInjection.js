@@ -427,28 +427,47 @@ function createKofiButton() {
   return kofiButton;
 }
 
+// Track if buttons have been added for current route
+let currentPath = '';
+
+function handleRouteChange() {
+  // Only re-add buttons if the path actually changed
+  const newPath = window.location.pathname;
+  if (newPath !== currentPath) {
+    currentPath = newPath;
+    // Remove existing buttons before adding new ones
+    const existingButtons = document.querySelector('.auto-support-buttons');
+    if (existingButtons) {
+      existingButtons.remove();
+    }
+    // Small delay to ensure DOM is ready after navigation
+    requestAnimationFrame(() => {
+      addSupportButtons();
+    });
+  }
+}
+
 // Add when DOM is ready
 if (ExecutionEnvironment.canUseDOM) {
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', addSupportButtons);
+    document.addEventListener('DOMContentLoaded', () => {
+      currentPath = window.location.pathname;
+      addSupportButtons();
+    });
   } else {
+    currentPath = window.location.pathname;
     addSupportButtons();
   }
   
-  // Also add on route changes (for SPA navigation)
-  window.addEventListener('popstate', () => {
-    setTimeout(addSupportButtons, 100);
-  });
-  
-  // Watch for navigation changes
-  const observer = new MutationObserver(() => {
-    setTimeout(addSupportButtons, 100);
-  });
-  
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
+  // Handle browser back/forward navigation
+  window.addEventListener('popstate', handleRouteChange);
+}
+
+// Docusaurus client module export for route updates
+export function onRouteDidUpdate({ location }) {
+  if (ExecutionEnvironment.canUseDOM) {
+    handleRouteChange();
+  }
 }
 
 export default function supportButtonsAutoInjection() {

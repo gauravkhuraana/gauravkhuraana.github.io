@@ -3,6 +3,17 @@ import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
 import styles from './memes.module.css';
 
+// Declare Instagram global for TypeScript
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds: {
+        process: () => void;
+      };
+    };
+  }
+}
+
 const InstagramEmbed: React.FC<{ url: string; caption: string }> = ({ url, caption }) => {
   return (
     <div className={styles.instagramPost}>
@@ -243,18 +254,51 @@ const MemesPage: React.FC = () => {
   ];
 
   React.useEffect(() => {
-    // Load Instagram embed script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = '//www.instagram.com/embed.js';
-    document.body.appendChild(script);
+    // Use IntersectionObserver to lazy-load Instagram embed script
+    const loadInstagramScript = () => {
+      // Check if script already exists
+      if (document.querySelector('script[src*="instagram.com/embed.js"]')) {
+        // If script exists, just process embeds
+        if (window.instgrm) {
+          window.instgrm.Embeds.process();
+        }
+        return;
+      }
+      
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = '//www.instagram.com/embed.js';
+      document.body.appendChild(script);
+    };
+
+    // Create observer to detect when Instagram posts are visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadInstagramScript();
+            observer.disconnect(); // Only load once
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Load 200px before entering viewport
+        threshold: 0,
+      }
+    );
+
+    // Observe the first Instagram post container
+    const firstPost = document.querySelector('.instagram-media');
+    if (firstPost) {
+      observer.observe(firstPost);
+    } else {
+      // Fallback: load after a short delay if no posts found yet
+      const timer = setTimeout(loadInstagramScript, 1000);
+      return () => clearTimeout(timer);
+    }
 
     return () => {
-      // Cleanup
-      const existingScript = document.querySelector('script[src="//www.instagram.com/embed.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
+      observer.disconnect();
     };
   }, []);
 
