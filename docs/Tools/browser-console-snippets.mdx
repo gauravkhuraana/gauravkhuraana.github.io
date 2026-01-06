@@ -22,6 +22,70 @@ Array.from(document.querySelectorAll('ytd-playlist-video-renderer')).forEach(el 
 4. Paste and execute the script
 5. Copy the output for your documentation
 
+## YouTube Channel All Videos Extraction
+
+Extract all video titles and IDs from a YouTube channel's "Videos" page. This snippet auto-scrolls to load all videos, then extracts unique video information with clean titles.
+
+```javascript
+// Get all videos from YouTube channel page with auto-scroll
+(async () => {
+  // Auto-scroll to load all videos
+  let lastHeight = 0;
+  while (true) {
+    window.scrollTo(0, document.documentElement.scrollHeight);
+    await new Promise(r => setTimeout(r, 1200));
+    const newHeight = document.documentElement.scrollHeight;
+    if (newHeight === lastHeight) break;
+    lastHeight = newHeight;
+  }
+
+  const anchors = Array.from(document.querySelectorAll('a[href*="/watch?v="]'));
+  const cleaned = {};
+
+  anchors.forEach(a => {
+    const href = a.getAttribute('href');
+    const videoId = href.split('v=')[1]?.split('&')[0];
+    if (!videoId) return;
+
+    const title = a.innerText.replace(/\s+/g, ' ').trim();
+
+    // Skip junk titles (timestamps, "now playing" labels, etc.)
+    if (
+      !title ||
+      title.toLowerCase().includes('now playing') ||
+      /^[0-9:]+$/.test(title)
+    ) {
+      return;
+    }
+
+    // Keep the best (longest) title per videoId
+    if (!cleaned[videoId] || title.length > cleaned[videoId].title.length) {
+      cleaned[videoId] = { title, videoId };
+    }
+  });
+
+  const results = Object.values(cleaned);
+
+  console.log('Unique videos:', results.length);
+  console.table(results);
+  return results;
+})();
+```
+
+**Usage Instructions:**
+1. Navigate to any YouTube channel's Videos tab (e.g., `youtube.com/@ChannelName/videos`)
+2. Open browser developer tools (F12)
+3. Go to Console tab
+4. Paste and execute the script
+5. Wait for auto-scroll to complete (loads all videos)
+6. View results in console table format with video titles and IDs
+
+**Key Features:**
+- Auto-scrolls to load all videos on the page
+- Filters out junk titles (timestamps, "now playing" labels)
+- Deduplicates videos and keeps the best title for each
+- Returns clean array with `title` and `videoId` for each video
+
 ## Page Performance Testing
 
 Analyze page load performance metrics for testing performance benchmarks and identifying slow-loading elements.
