@@ -36,6 +36,7 @@ This comprehensive prompt library contains carefully crafted AI prompts designed
 - [Documentation Prompts](#documentation-prompts)
   - [README Generation](#readme-generation)
   - [Test Plan Documentation](#test-plan-documentation)
+  - [Framework/System Wiki Documentation](#frameworksystem-wiki-documentation)
 - [Website Quality Analysis Prompts](#website-quality-analysis-prompts)
   - [Comprehensive Website Testing with AI](#comprehensive-website-testing-with-ai)
 - [Practice Automation Website Builder](#practice-automation-website-builder)
@@ -514,6 +515,83 @@ Generate a detailed test plan document for [PROJECT_NAME] including:
 • Risk assessment
 • Timeline and deliverables
 • Success criteria
+```
+
+### Framework/System Wiki Documentation
+
+Use this prompt to generate comprehensive wiki documentation for any framework or system. Perfect for creating onboarding docs, internal wikis, or technical documentation.
+
+**Prompt:**
+
+```
+# Prompt: Generate Framework/System Wiki Documentation
+
+## Context
+I need to create wiki documentation for [FRAMEWORK_NAME] that gives team members a comprehensive understanding of the system.
+
+## Requirements
+
+### Scope & Depth
+- **Focus on breadth over depth** - Cover what the system does, not every implementation detail
+- **Target audience**: Developers and QA engineers who need to understand and use the framework
+- **Goal**: Enable someone to understand the system's capabilities in 10-15 minutes of reading
+
+### Structure Requirements
+1. **Table of Contents** - Clickable navigation to all sections
+2. **Executive Summary** - 2-3 sentence overview at the top
+3. **Visual Elements** - Include at least one architecture diagram (ASCII/Mermaid)
+4. **Tables** - Use tables for features, configurations, and comparisons
+5. **Code Snippets** - Brief examples (5-10 lines max) showing patterns, not full implementations
+
+### Sections to Include
+- Framework overview (tech stack, purpose, core principles)
+- Architecture & design patterns used
+- Project/folder structure with descriptions
+- Key features matrix (feature | description | status)
+- Configuration system (environment variables, settings)
+- Core patterns/abstractions (e.g., Page Objects, Services, Models)
+- Test/code organization strategy
+- Execution commands (quick reference table)
+- Environment support (dev/staging/prod)
+- CI/CD integration notes
+- Quick reference cheat sheet
+
+### Formatting Guidelines
+- Use consistent heading hierarchy (H1 for title, H2 for main sections, H3 for subsections)
+- Include horizontal rules (---) between major sections
+- Add emoji icons for visual scanning (✅, 📁, ⚙️, 🔧, etc.)
+- Keep paragraphs short (2-4 sentences max)
+- Link to detailed documentation for deep dives
+
+### What to Avoid
+- Implementation tutorials (link to separate guides instead)
+- Excessive code examples
+- Troubleshooting details (link to separate doc)
+- Version history or changelogs
+
+## Source Material
+[Attach or reference: README files, existing docs, config files, folder structure]
+
+## Output
+Generate a single Markdown file suitable for a wiki (Azure DevOps Wiki, Confluence, GitHub Wiki, etc.)
+```
+
+**Key Benefits:**
+
+- ✅ Quick onboarding for new team members
+- ✅ Standardized documentation structure across projects
+- ✅ Focus on understanding over implementation details
+- ✅ Wiki-friendly format (Azure DevOps, Confluence, GitHub)
+- ✅ Visual elements for easier comprehension
+- ✅ Designed for 10-15 minute read time
+
+**Usage Example:**
+
+Replace `[FRAMEWORK_NAME]` with your actual framework name:
+
+```
+I need to create wiki documentation for our Playwright TypeScript E2E Framework that gives team members a comprehensive understanding of the system.
+[... rest of the prompt ...]
 ```
 
 ## Usage Tips
