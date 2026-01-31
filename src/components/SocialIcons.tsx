@@ -40,7 +40,7 @@ export default function SocialIcons({ showLabels = true }: SocialIconsProps): JS
     },
     {
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/gaurav-khurana-899934b/',
+      url: 'https://www.linkedin.com/in/gauravkhuraana',
       icon: <LinkedInIcon />,
       color: '#0077B5',
       hoverColor: '#005885',
@@ -53,7 +53,7 @@ export default function SocialIcons({ showLabels = true }: SocialIconsProps): JS
       hoverColor: '#333333',
     },
     {
-      name: 'Topmate',
+      name: 'Need Guidance',
       url: 'https://topmate.io/gauravkhurana',
       icon: <TopmateIcon />,
       color: '#6366f1',

@@ -103,7 +103,7 @@ export default function Feeds(): React.JSX.Element {
               <p>
                 If you're having trouble with the feeds or need assistance integrating them into your site, 
                 feel free to <Link to="/feedback">contact me</Link> or connect with me on{' '}
-                <Link to="https://www.linkedin.com/in/gauravkhurana/" target="_blank">LinkedIn</Link>.
+                <Link to="https://www.linkedin.com/in/gauravkhuraana/" target="_blank">LinkedIn</Link>.
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export default function Feeds(): React.JSX.Element {
                 </div>
                 <div className="col col--3">
                   <Link 
-                    to="https://www.linkedin.com/in/gauravkhurana/" 
+                    to="https://www.linkedin.com/in/gauravkhuraana/" 
                     className="button button--secondary button--block"
                     target="_blank">
                     LinkedIn
