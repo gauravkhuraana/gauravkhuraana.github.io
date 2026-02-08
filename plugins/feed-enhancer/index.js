@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function feedEnhancerPlugin(context, options) {
-  const siteUrl = (context && context.siteConfig && context.siteConfig.url) || 'https://gauravkhurana.in';
+  const siteUrl = (context && context.siteConfig && context.siteConfig.url) || 'https://gauravkhurana.com';
   return {
     name: 'feed-enhancer-plugin',
     async postBuild({siteDir, routesPaths, outDir}) {

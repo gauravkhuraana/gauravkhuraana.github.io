@@ -9,8 +9,8 @@ const https = require('https');
 const fs = require('fs');
 
 const FEEDS = {
-  rss: 'https://gauravkhurana.in/blog/rss.xml',
-  atom: 'https://gauravkhurana.in/blog/atom.xml'
+  rss: 'https://gauravkhurana.com/blog/rss.xml',
+  atom: 'https://gauravkhurana.com/blog/atom.xml'
 };
 
 async function testFeed(name, url) {
@@ -53,7 +53,7 @@ async function testFeed(name, url) {
 }
 
 async function validateFeeds() {
-  console.log('🔍 Validating Blog Feeds for gauravkhurana.in\n');
+  console.log('🔍 Validating Blog Feeds for gauravkhurana.com\n');
   
   const results = [];
   
@@ -69,13 +69,13 @@ async function validateFeeds() {
   });
   
   console.log('\n📝 Integration URLs:');
-  console.log('   RSS:  https://gauravkhurana.in/blog/rss.xml');
-  console.log('   Atom: https://gauravkhurana.in/blog/atom.xml');
-  console.log('   Info: https://gauravkhurana.in/feeds');
+  console.log('   RSS:  https://gauravkhurana.com/blog/rss.xml');
+  console.log('   Atom: https://gauravkhurana.com/blog/atom.xml');
+  console.log('   Info: https://gauravkhurana.com/feeds');
   
   console.log('\n🔗 Quick Test Commands:');
-  console.log('   curl -I https://gauravkhurana.in/blog/rss.xml');
-  console.log('   curl -I https://gauravkhurana.in/blog/atom.xml');
+  console.log('   curl -I https://gauravkhurana.com/blog/rss.xml');
+  console.log('   curl -I https://gauravkhurana.com/blog/atom.xml');
 }
 
 // Run if called directly

@@ -47,7 +47,7 @@ const FeedbackForm: React.FC<FeedbackFormProps> = ({
       <form action="https://formsubmit.co/936d8782d82b2344cb64dec256c6aa49" method="POST" className={styles.feedbackForm}>
         {/* Hidden fields for form submission */}
         <input type="hidden" name="_subject" value="New submission!" />
-        <input type="hidden" name="_next" value="https://gauravkhurana.in/newsletter" />
+        <input type="hidden" name="_next" value="https://gauravkhurana.com/newsletter" />
         
         <div className={styles.formGroup}>
           <label htmlFor="name">Name *</label>

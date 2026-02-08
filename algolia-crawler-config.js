@@ -1,4 +1,4 @@
-// Algolia Crawler Configuration for gauravkhurana.in
+// Algolia Crawler Configuration for gauravkhurana.com
 // This should be configured in your Algolia Dashboard, NOT in your Docusaurus config
 // URL: https://www.algolia.com/apps/VKK8T551TZ/crawler
 
@@ -7,24 +7,24 @@ new Crawler({
   apiKey: 'YOUR_ADMIN_API_KEY', // This should be your Admin API Key, not the public search key
   rateLimit: 8,
   maxDepth: 10,
-  startUrls: ['https://gauravkhurana.in/'],
-  sitemaps: ['https://gauravkhurana.in/sitemap.xml'],
+  startUrls: ['https://gauravkhurana.com/'],
+  sitemaps: ['https://gauravkhurana.com/sitemap.xml'],
   ignoreCanonicalTo: true, // IMPORTANT: Let Algolia handle canonical URLs automatically
   ignoreQueryParams: ['utm_source', 'utm_medium', 'utm_campaign', 'fbclid'], // Ignore tracking params
-  discoveryPatterns: ['https://gauravkhurana.in/**'],
+  discoveryPatterns: ['https://gauravkhurana.com/**'],
   exclusionPatterns: [
     // Exclude admin/internal pages
-    'https://gauravkhurana.in/admin/**',
-    'https://gauravkhurana.in/.well-known/**',
+    'https://gauravkhurana.com/admin/**',
+    'https://gauravkhurana.com/.well-known/**',
     // Exclude feed files and search page
-    'https://gauravkhurana.in/**/rss.xml',
-    'https://gauravkhurana.in/**/atom.xml',
-    'https://gauravkhurana.in/search',
+    'https://gauravkhurana.com/**/rss.xml',
+    'https://gauravkhurana.com/**/atom.xml',
+    'https://gauravkhurana.com/search',
   ],
   actions: [
     {
       indexName: 'gauravkhurana_in_vkk8t551tz_pages',
-      pathsToMatch: ['https://gauravkhurana.in/**'],
+      pathsToMatch: ['https://gauravkhurana.com/**'],
       recordExtractor: ({ $, helpers, url }) => {
         // Skip if this is a redirect page (no main content)
         if ($('article').length === 0 && $('.main-wrapper').length === 0 && $('main').length === 0) {

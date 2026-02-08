@@ -19,8 +19,8 @@ const SEO: React.FC<SEOProps> = ({
   title = 'Gaurav Khurana - Testing & Automation Practitioner',
   description = 'Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools.',
   keywords = 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana',
-  image = 'https://gauravkhurana.in/img/gauravkhurana.png',
-  url = 'https://gauravkhurana.in',
+  image = 'https://gauravkhurana.com/img/gauravkhurana.png',
+  url = 'https://gauravkhurana.com',
   type = 'website',
   author = 'Gaurav Khurana',
   publishedTime,
@@ -28,7 +28,7 @@ const SEO: React.FC<SEOProps> = ({
   section,
   tags,
 }) => {
-  const siteTitle = 'gauravkhurana.in';
+  const siteTitle = 'gauravkhurana.com';
   const fullTitle = title.includes(siteTitle) ? title : `${title} | ${siteTitle}`;
   
   // Safely handle all values to avoid Symbol conversion issues

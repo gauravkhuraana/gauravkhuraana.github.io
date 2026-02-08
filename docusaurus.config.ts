@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'gauravkhurana.in',
+  title: 'gauravkhurana.com',
   tagline: 'Sharing is Caring',
   favicon: 'img/favicon.ico',
 
@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://gauravkhurana.in',
+  url: 'https://gauravkhurana.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -161,8 +161,8 @@ const config: Config = {
         name: 'Gaurav Khurana',
         jobTitle: 'Microsoft Test Consultant & Automation Practitioner',
         description: 'Passionate about sharing 15+ years of experience in software testing, automation, DevOps, and AI with the testing community.',
-        url: 'https://gauravkhurana.in',
-        image: 'https://gauravkhurana.in/img/gauravkhurana.png',
+        url: 'https://gauravkhurana.com',
+        image: 'https://gauravkhurana.com/img/gauravkhurana.png',
         sameAs: [
           'https://www.linkedin.com/in/gauravkhuraana/',
           'https://github.com/gauravkhuraana',
@@ -291,13 +291,13 @@ const config: Config = {
       {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
       {name: 'theme-color', content: '#25c2a0'},
-      {property: 'og:url', content: 'https://gauravkhurana.in'},
+      {property: 'og:url', content: 'https://gauravkhurana.com'},
       {name: 'apple-mobile-web-app-capable', content: 'yes'},
       {name: 'apple-mobile-web-app-status-bar-style', content: 'default'},
       {name: 'msapplication-TileColor', content: '#25c2a0'},
     ],
     navbar: {
-      title: 'gauravkhurana.in',
+      title: 'gauravkhurana.com',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -356,15 +356,15 @@ const config: Config = {
           items: [
             {
               label: 'UI Automation Practice Site',
-              href: 'https://gauravkhurana.in/test-automation-play',
+              href: 'https://gauravkhurana.com/test-automation-play',
             },
             {
               label: 'Bug Hunt Challenge',
-              href: 'https://gauravkhurana.in/bug-hunt-challenge/',
+              href: 'https://gauravkhurana.com/bug-hunt-challenge/',
             },
             {
               label: 'API Testing/Automation',
-              href: 'https://gauravkhurana.in/practise-api',
+              href: 'https://gauravkhurana.com/practise-api',
             },
           ],
         },

@@ -135,7 +135,7 @@ export default function Newsletter(): JSX.Element {
                       onSubmit={handleSubmit}
                     >
                       <input type="hidden" name="_subject" value="New Newsletter Subscription!" />
-                      <input type="hidden" name="_next" value="https://gauravkhurana.in/newsletter" />
+                      <input type="hidden" name="_next" value="https://gauravkhurana.com/newsletter" />
                       <input type="hidden" name="_template" value="table" />
                       
                       <div className={styles.formGroup}>

@@ -2,11 +2,11 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://gauravkhurana.in/sitemap.xml
+Sitemap: https://gauravkhurana.com/sitemap.xml
 
 # RSS/Atom Feeds
-# RSS Feed: https://gauravkhurana.in/blog/rss.xml
-# Atom Feed: https://gauravkhurana.in/blog/atom.xml
+# RSS Feed: https://gauravkhurana.com/blog/rss.xml
+# Atom Feed: https://gauravkhurana.com/blog/atom.xml
 
 # Specific rules for search engines
 User-agent: Googlebot
