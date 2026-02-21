@@ -7,13 +7,15 @@ type FeatureItem = {
   title: string;
   Svg?: React.ComponentType<React.ComponentProps<'svg'>>;
   image?: string;
+  imageFallback?: string;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Udzial Means Share',
-    image: require('@site/static/img/udziallogo.jpeg').default,
+    image: '/img/udziallogo-optimized.webp',
+    imageFallback: '/img/udziallogo-optimized.jpg',
     description: (
       <>
        I  believe in #SharingIsCaring. This  website is a collection of
@@ -23,7 +25,8 @@ const FeatureList: FeatureItem[] = [
   },
     {
     title: 'Who Am I?',
-    image: require('@site/static/img/gauravkhurana.png').default,
+    image: '/img/gauravkhurana-optimized.webp',
+    imageFallback: '/img/gauravkhurana-optimized.jpg',
     description: (
       <>
       My name is Gaurav Khurana, I am a software tester and automation and AI enthusiast.
@@ -34,7 +37,8 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'What You’ll Find Here',
-    image: require('@site/static/img/testautomationAI.jpeg').default,
+    image: '/img/testautomationAI-optimized.webp',
+    imageFallback: '/img/testautomationAI-optimized.jpg',
     description: (
       <>
        From beginner tutorials to advanced automation tips — this site is packed with hands-on resources to help you grow.
@@ -43,20 +47,27 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, image, description}: FeatureItem) {
+function Feature({title, Svg, image, imageFallback, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">
         {Svg ? (
           <Svg className={styles.featureSvg} role="img" aria-label={title} />
         ) : image ? (
-          <img 
-            src={image} 
-            alt={`${title} illustration`}
-            className={styles.featureSvg}
-            style={{ maxWidth: '200px', height: 'auto' }}
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={image} type="image/webp" />
+            {imageFallback && <source srcSet={imageFallback} type="image/jpeg" />}
+            <img
+              src={imageFallback || image}
+              alt={`${title} illustration`}
+              className={styles.featureSvg}
+              width={200}
+              height={200}
+              style={{ maxWidth: '200px', height: 'auto' }}
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
         ) : null}
       </div>
       <div className="text--center padding-horiz--md">

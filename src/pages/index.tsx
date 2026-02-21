@@ -4,9 +4,10 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import SubscriptionForm from '@site/src/components/SubscriptionForm';
-import NewsletterSubscription from '@site/src/components/NewsletterSubscription';
 import Heading from '@theme/Heading';
+
+import React, {lazy, Suspense} from 'react';
+const SubscriptionForm = lazy(() => import('@site/src/components/SubscriptionForm'));
 
 import styles from './index.module.css';
 
@@ -136,7 +137,9 @@ export default function Home(): ReactNode {
         <HomepageFeatures />
         <FeaturedContent />
         <div className="container">
-          <SubscriptionForm />
+          <Suspense fallback={<div style={{textAlign:'center',padding:'2rem'}}>Loading...</div>}>
+            <SubscriptionForm />
+          </Suspense>
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>
             <Link 
               to="/newsletter" 

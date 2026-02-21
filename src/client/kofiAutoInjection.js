@@ -10,12 +10,14 @@ function addSupportButtons() {
     return;
   }
 
-  // Only add to content pages (docs and blog posts)
-  const isDocsPage = window.location.pathname.startsWith('/docs/') && !window.location.pathname.endsWith('/docs/');
-  const isBlogPage = window.location.pathname.startsWith('/blog/') && !window.location.pathname.endsWith('/blog/');
+  // Only add to content pages (docs and blog posts), skip the homepage
+  const path = window.location.pathname;
+  const isHomePage = path === '/' || path === '';
+  const isDocsPage = path.startsWith('/docs/') && !path.endsWith('/docs/');
+  const isBlogPage = path.startsWith('/blog/') && !path.endsWith('/blog/');
   const isMarkdownPage = document.querySelector('.markdown');
   
-  if (!isDocsPage && !isBlogPage && !isMarkdownPage) {
+  if (isHomePage || (!isDocsPage && !isBlogPage && !isMarkdownPage)) {
     return;
   }
 

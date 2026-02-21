@@ -62,21 +62,6 @@ const config: Config = {
         crossorigin: 'anonymous',
       },
     },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'preconnect',
-        href: 'https://www.youtube.com',
-        crossorigin: 'anonymous',
-      },
-    },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'dns-prefetch',
-        href: 'https://www.instagram.com',
-      },
-    },
     // Algolia site verification
     {
       tagName: 'meta',
@@ -276,6 +261,7 @@ const config: Config = {
     // '@docusaurus/plugin-google-analytics',
     // '@docusaurus/plugin-google-gtag',
     './plugins/feed-enhancer',
+    './plugins/auto-webp',
     'docusaurus-lunr-search',
   ],
 
