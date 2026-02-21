@@ -45,21 +45,20 @@ const config: Config = {
   },
 
   headTags: [
-    // Preconnect hints for external domains (performance optimization)
+    // Content Security Policy meta tag for XSS protection
     {
-      tagName: 'link',
+      tagName: 'meta',
       attributes: {
-        rel: 'preconnect',
-        href: 'https://cdn.brevo.com',
-        crossorigin: 'anonymous',
+        'http-equiv': 'Content-Security-Policy',
+        content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://ko-fi.com https://storage.ko-fi.com https://www.instagram.com https://platform.twitter.com; style-src 'self' 'unsafe-inline' https://cdn.brevo.com https://2daf0ef4.sibforms.com; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://*.algolia.net https://*.algolianet.com; frame-src https://2daf0ef4.sibforms.com https://ko-fi.com https://www.youtube.com https://www.instagram.com https://platform.twitter.com; frame-ancestors 'self';",
       },
     },
+    // X-Frame-Options equivalent via meta (clickjacking protection)
     {
-      tagName: 'link',
+      tagName: 'meta',
       attributes: {
-        rel: 'preconnect',
-        href: 'https://2daf0ef4.sibforms.com',
-        crossorigin: 'anonymous',
+        'http-equiv': 'X-Content-Type-Options',
+        content: 'nosniff',
       },
     },
     // Algolia site verification
@@ -287,6 +286,8 @@ const config: Config = {
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
+        width: 32,
+        height: 32,
       },
       items: [
         {
@@ -390,7 +391,7 @@ const config: Config = {
       style: 'dark',
       logo: {
         alt: 'Gaurav Khurana',
-        src: 'img/gauravkhurana.png',
+        src: 'img/gauravkhurana-footer.webp',
         width: 60,
         height: 60,
       },
