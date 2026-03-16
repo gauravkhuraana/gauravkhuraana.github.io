@@ -1,2 +1,0 @@
-[     264ms] [ERROR] The Content Security Policy directive 'frame-ancestors' is ignored when delivered via a <meta> element. @ https://gauravkhurana.com/docs/intro/:14
-[     735ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://gauravkhurana.com/docs/intro/:0
