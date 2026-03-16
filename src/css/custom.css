@@ -130,6 +130,16 @@ body {
   z-index: var(--ifm-z-index-fixed);
 }
 
+/* Fix navbar title/search overlap on mobile */
+@media screen and (max-width: 996px) {
+  .navbar__title {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
 /* Ensure no content creates overflow that allows scrolling past footer */
 .theme-doc-root,
 .theme-blog-wrapper,

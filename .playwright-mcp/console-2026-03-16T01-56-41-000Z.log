@@ -1,0 +1,1 @@
+[      42ms] [ERROR] The Content Security Policy directive 'frame-ancestors' is ignored when delivered via a <meta> element. @ https://gauravkhurana.com/:14

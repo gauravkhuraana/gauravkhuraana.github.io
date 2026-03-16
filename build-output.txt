@@ -1,0 +1,32 @@
+[INFO] [en] Creating an optimized production build...
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[90m[[90mwebpackbar[90m][39m [36mΓä╣[39m Compiling Client
+[90m[[90mwebpackbar[90m][39m [36mΓä╣[39m Compiling Server
+[90m[[90mwebpackbar[90m][39m [32mΓ£ö[39m Server: Compiled successfully in 27.54s
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[90m[[90mwebpackbar[90m][39m [32mΓ£ö[39m Client: Compiled successfully in 52.19s
+≡ƒöº Running feed enhancer plugin...
+Γ¥î Atom feed not found at: E:\Automation\website\gauravkhurana\build\blog\atom.xml
+Γ¥î RSS feed not found at: E:\Automation\website\gauravkhurana\build\blog\rss.xml
+docusaurus-lunr-search:: Building search docs and lunr index file
+docusaurus-lunr-search:: Start scanning documents in 8 threads
+docusaurus-lunr-search:: Indexing time: 3.822s
+docusaurus-lunr-search:: indexed 61 documents out of 162
+docusaurus-lunr-search:: writing search-doc.json
+docusaurus-lunr-search:: writing search-doc-1773629327253.json
+docusaurus-lunr-search:: writing lunr-index.json
+docusaurus-lunr-search:: writing lunr-index-1773629327253.json
+docusaurus-lunr-search:: End of process
+[WARNING] Docusaurus found broken anchors!
+
+Please check the pages of your site in the list below, and make sure you don't reference any anchor that does not exist.
+Note: it's possible to ignore broken anchors with the 'onBrokenAnchors' Docusaurus configuration, and let the build pass.
+
+Exhaustive list of all broken anchors found:
+- Broken anchor on source page path = /docs/AI/agentic-ai/:
+   -> linking to #agentic-ai-in-action (resolved as: /docs/AI/agentic-ai/#agentic-ai-in-action)
+- Broken anchor on source page path = /docs/AI/azure-ai-900/:
+   -> linking to #hands-on-demos (resolved as: /docs/AI/azure-ai-900/#hands-on-demos)
+
+[SUCCESS] Generated static files in "build".
+[INFO] Use `npm run serve` command to test your build locally.

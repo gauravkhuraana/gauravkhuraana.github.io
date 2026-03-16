@@ -298,6 +298,76 @@ const config: Config = {
         },
         {
           type: 'dropdown',
+          label: 'Testing',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'Testing/testing-principles',
+              label: 'Testing Principles',
+            },
+            {
+              type: 'doc',
+              docId: 'Testing/advanced-testing-tips',
+              label: 'Advanced Testing Tips',
+            },
+            {
+              type: 'doc',
+              docId: 'Testing/testing-tips-collection',
+              label: 'Testing Tips Collection',
+            },
+            {
+              type: 'doc',
+              docId: 'Testing/testing-communities',
+              label: 'Testing Communities',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              to: '/docs/category/testing',
+              label: 'View All Testing Content',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: 'Automation',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'Automation/automation-basics-series',
+              label: 'Automation Basics Series',
+            },
+            {
+              type: 'doc',
+              docId: 'Automation/automation-fundamentals',
+              label: 'Automation Fundamentals',
+            },
+            {
+              type: 'doc',
+              docId: 'Automation/playwright',
+              label: 'Playwright',
+            },
+            {
+              type: 'doc',
+              docId: 'Automation/selenium',
+              label: 'Selenium',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              to: '/docs/category/automation',
+              label: 'View All Automation Content',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
           label: 'AI',
           position: 'left',
           items: [
@@ -355,9 +425,6 @@ const config: Config = {
             },
           ],
         },
-        {to: '/blog', label: 'Blog', position: 'right'},
-        {to: '/newsletter', label: 'Newsletter', position: 'left'},
-        {to: '/feedback', label: 'Contact', position: 'right'},
         {
           to: 'docs/Topmate/testimonials',
           label: 'Need 1:1?',
@@ -368,11 +435,7 @@ const config: Config = {
           label: 'YouTube',
           position: 'right',
         },
-        {
-          to: '/memes',
-          label: 'Memes',
-          position: 'right',
-        },
+        {to: '/feedback', label: 'Contact', position: 'right'},
         {
           href: 'https://ko-fi.com/gauravkhurana',
           label: '☕ Buy Me a Coffee',
@@ -469,6 +532,14 @@ const config: Config = {
             {
               label: '☕ Buy Me a Coffee',
               href: 'https://ko-fi.com/gauravkhurana',
+            },
+            {
+              label: '▶️ Subscribe on YouTube',
+              href: 'https://www.youtube.com/@Udzial?sub_confirmation=1',
+            },
+            {
+              label: '📝 Follow on Medium',
+              href: 'https://www.medium.com/@gauravkhuraana',
             },
           ],
         },

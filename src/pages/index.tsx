@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import React, {lazy, Suspense} from 'react';
@@ -11,114 +10,93 @@ const SubscriptionForm = lazy(() => import('@site/src/components/SubscriptionFor
 
 import styles from './index.module.css';
 
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
+const categories = [
+  { icon: '🧪', title: 'Testing', desc: 'Strategies, best practices & methodologies', link: '/docs/category/testing/' },
+  { icon: '🤖', title: 'Automation', desc: 'Frameworks, tools & real-world implementation', link: '/docs/category/automation/' },
+  { icon: '🧠', title: 'AI', desc: 'AI-powered testing tools & techniques', link: '/docs/category/ai/' },
+  { icon: '🔗', title: 'API Testing', desc: 'REST, Postman assertions & HTTP codes', link: '/docs/category/api-testing/' },
+  { icon: '☁️', title: 'Azure DevOps', desc: 'CI/CD pipelines & cloud DevOps', link: '/docs/category/azure-devops/' },
+  { icon: '🛠️', title: 'Tools', desc: 'Tool guides, comparisons & recommendations', link: '/docs/category/tools/' },
+  { icon: '🎯', title: 'Self Mastery', desc: 'Career growth & professional development', link: '/docs/category/self-mastery/' },
+  { icon: '📰', title: 'Industry Insights', desc: 'Trends, news & expert analysis', link: '/docs/category/industry-insights/' },
+  { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/category/free-courses/' },
+  { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/category/need-11-guidance/' },
+  { icon: '🐙', title: 'Git', desc: 'Version control tips & workflows', link: '/docs/Git/git-commands/' },
+];
+
+function CompactHero() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <p className={styles.heroTagline}>
-          Automation, Testing & AI – From an Engineer Who Cares
-        </p>
-        <p className={styles.heroIntro}>
-          Built by Gaurav – Microsoft Test Consultant 
-        </p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            🚀 Start Learning Now →
-          </Link>
+        <div className={styles.heroRow}>
+          <picture>
+            <source srcSet="/img/gauravkhurana-optimized.webp" type="image/webp" />
+            <img
+              src="/img/gauravkhurana-optimized.jpg"
+              alt="Gaurav Khurana"
+              className={styles.heroPhoto}
+              width={80}
+              height={80}
+              loading="eager"
+            />
+          </picture>
+          <div className={styles.heroText}>
+            <Heading as="h1" className={styles.heroTitle}>
+              Sharing is Caring
+            </Heading>
+            <p className={styles.heroTagline}>
+              Testing, Automation & AI — by a Microsoft Consultant
+            </p>
+          </div>
         </div>
       </div>
     </header>
   );
 }
 
-function USPSection() {
+function CategoryGrid() {
   return (
-    <section className={styles.uspSection}>
+    <section className={styles.categorySection}>
       <div className="container">
-        <div className={styles.uspContent}>
-            <Heading as="h2" className={styles.uspTitle}>
-             Everything Here Helps You to be Better.
-            </Heading>
-          <p className={styles.uspText}>
-           Get simple, proven techniques that work in the real world.
-          </p>
+        <Heading as="h2" className={styles.sectionTitle}>
+          Explore Topics
+        </Heading>
+        <div className={styles.categoryGrid}>
+          {categories.map((cat) => (
+            <Link key={cat.title} to={cat.link} className={styles.categoryCard}>
+              <span className={styles.categoryIcon}>{cat.icon}</span>
+              <div>
+                <strong className={styles.categoryTitle}>{cat.title}</strong>
+                <p className={styles.categoryDesc}>{cat.desc}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function FeaturedContent() {
+function QuickLinks() {
   return (
-    <section className={styles.featuredSection}>
+    <section className={styles.quickLinksSection}>
       <div className="container">
         <Heading as="h2" className={styles.sectionTitle}>
-          What You'll Learn Here
+          Popular Resources
         </Heading>
-        <div className="row">
-          <div className="col col--4">
-            <div className={styles.featuredCard}>
-              <div className={styles.cardIcon}>🧪</div>
-              <h3>Testing Fundamentals</h3>
-              <p>Master the core concepts every tester needs to know, from test design to execution strategies.</p>
-              <Link to="/docs/category/testing" className={styles.cardLink}>
-                Explore Testing Guides →
-              </Link>
-            </div>
-          </div>
-          <div className="col col--4">
-            <div className={styles.featuredCard}>
-              <div className={styles.cardIcon}>🤖</div>
-              <h3>Automation Mastery</h3>
-              <p>Learn automation frameworks, best practices, and real-world implementation strategies.</p>
-              <Link to="/docs/Automation" className={styles.cardLink}>
-                Start Automating →
-              </Link>
-            </div>
-          </div>
-          <div className="col col--4">
-            <div className={styles.featuredCard}>
-              <div className={styles.cardIcon}>🚀</div>
-              <h3>AI & Modern Tools</h3>
-              <p>Stay ahead with AI-powered testing tools and cutting-edge DevOps practices.</p>
-              <Link to="/docs/category/ai" className={styles.cardLink}>
-                Discover AI Tools →
-              </Link>
-            </div>
-          </div>
-        </div>
-        
-        <div className={styles.popularResources}>
-          <Heading as="h3" className={styles.resourcesTitle}>
-            Popular Resources & Cheat Sheets
-          </Heading>
-          <div className="row">
-            <div className="col col--6">
-              <div className={styles.resourceCard}>
-                <h4>🛠️ Essential Tools Guide</h4>
-                <p>Complete list of testing and automation tools with practical recommendations.</p>
-                <Link to="/docs/category/tools" className={styles.resourceLink}>
-                  View Tools →
-                </Link>
-              </div>
-            </div>
-            <div className="col col--6">
-              <div className={styles.resourceCard}>
-                <h4>📝 HTTP Status Codes Cheat Sheet</h4>
-                <p>Quick reference for API testing with real-world examples and usage scenarios.</p>
-                <Link to="/docs/API/HTTP-Status-Codes" className={styles.resourceLink}>
-                  Get Cheat Sheet →
-                </Link>
-              </div>
-            </div>
-          </div>
+        <div className={styles.quickLinksRow}>
+          <Link to="/docs/API/HTTP-Status-Codes/" className={styles.quickLink}>
+            📝 HTTP Status Codes Cheat Sheet
+          </Link>
+          <Link to="/blog/" className={styles.quickLink}>
+            📰 Latest Blog Posts
+          </Link>
+          <a href="https://www.youtube.com/@Udzial?sub_confirmation=1" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+            🎥 YouTube Channel
+          </a>
+          <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
+            🚀 Automation Basics Series
+          </Link>
         </div>
       </div>
     </section>
@@ -131,23 +109,14 @@ export default function Home(): ReactNode {
     <Layout
       title="Testing & Automation Practitioner - Gaurav Khurana"
       description="Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools that actually work in enterprise environments.">
-      <HomepageHeader />
+      <CompactHero />
       <main>
-        <USPSection />
-        <HomepageFeatures />
-        <FeaturedContent />
-        <div className="container">
+        <CategoryGrid />
+        <QuickLinks />
+        <div className="container" style={{ maxWidth: 700, paddingBottom: '2rem' }}>
           <Suspense fallback={<div style={{textAlign:'center',padding:'2rem'}}>Loading...</div>}>
             <SubscriptionForm />
           </Suspense>
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-            <Link 
-              to="/newsletter" 
-              className="button button--primary button--lg"
-            >
-              🗞️ Visit Complete Newsletter Page
-            </Link>
-          </div>
         </div>
       </main>
     </Layout>
