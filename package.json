@@ -13,7 +13,10 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "test:feeds": "node scripts/validate-feeds.js"
+    "test:feeds": "node scripts/validate-feeds.js",
+    "generate:og": "node scripts/generate-og-images.mjs",
+    "generate:og:force": "node scripts/generate-og-images.mjs --force",
+    "generate:og:preview": "node scripts/generate-og-images.mjs --dry-run"
   },
   "dependencies": {
     "@docusaurus/core": "^3.9.2",
