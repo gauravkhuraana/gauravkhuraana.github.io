@@ -55,6 +55,19 @@
   color: var(--ifm-color-content);
 }
 
+.categoryGroup {
+  margin-bottom: 1.5rem;
+}
+
+.groupHeading {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  margin: 0 0 0.6rem 0.2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+}
+
 .categoryGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

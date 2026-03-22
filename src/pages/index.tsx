@@ -10,18 +10,36 @@ const SubscriptionForm = lazy(() => import('@site/src/components/SubscriptionFor
 
 import styles from './index.module.css';
 
-const categories = [
-  { icon: '🧪', title: 'Testing', desc: 'Strategies, best practices & methodologies', link: '/docs/category/testing/' },
-  { icon: '🤖', title: 'Automation', desc: 'Frameworks, tools & real-world implementation', link: '/docs/category/automation/' },
-  { icon: '🧠', title: 'AI', desc: 'AI-powered testing tools & techniques', link: '/docs/category/ai/' },
-  { icon: '🔗', title: 'API Testing', desc: 'REST, Postman assertions & HTTP codes', link: '/docs/category/api-testing/' },
-  { icon: '☁️', title: 'Azure DevOps', desc: 'CI/CD pipelines & cloud DevOps', link: '/docs/category/azure-devops/' },
-  { icon: '🛠️', title: 'Tools', desc: 'Tool guides, comparisons & recommendations', link: '/docs/category/tools/' },
-  { icon: '🎯', title: 'Self Mastery', desc: 'Career growth & professional development', link: '/docs/category/self-mastery/' },
-  { icon: '📰', title: 'Industry Insights', desc: 'Trends, news & expert analysis', link: '/docs/category/industry-insights/' },
-  { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/category/free-courses/' },
-  { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/category/need-11-guidance/' },
-  { icon: '🐙', title: 'Git', desc: 'Version control tips & workflows', link: '/docs/Git/git-commands/' },
+const sections = [
+  {
+    heading: 'Testing & Automation',
+    items: [
+      { icon: '🧪', title: 'Testing', desc: 'Strategies, best practices & methodologies', link: '/docs/category/testing/' },
+      { icon: '🤖', title: 'Automation', desc: 'Frameworks, tools & real-world implementation', link: '/docs/category/automation/' },
+      { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/category/need-11-guidance/' },
+    ],
+  },
+  {
+    heading: 'AI & Emerging Tech',
+    items: [
+      { icon: '☁️', title: 'Azure AI-900', desc: 'AI Fundamentals certification prep', link: '/docs/AI/azure-ai-900/' },
+      { icon: '📋', title: 'Prompt Library', desc: 'AI prompts for testing & automation', link: '/docs/AI/prompt-library/' },
+      { icon: '🌐', title: 'AI Browser Automation', desc: 'Automate browsers with AI tools', link: '/docs/AI/ai-browser-automation/' },
+      { icon: '🛠️', title: 'GitHub Copilot Series', desc: 'AI-powered coding assistant tutorials', link: '/docs/AI/github-copilot/' },
+      { icon: '🤝', title: 'Agentic AI', desc: 'Autonomous AI agents for testing', link: '/docs/AI/agentic-ai/' },
+    ],
+  },
+  {
+    heading: 'Grow & Explore',
+    items: [
+      { icon: '☁️', title: 'Azure DevOps', desc: 'CI/CD pipelines & cloud DevOps', link: '/docs/category/azure-devops/' },
+      { icon: '🛠️', title: 'Tools', desc: 'Tool guides, comparisons & recommendations', link: '/docs/category/tools/' },
+      { icon: '🎯', title: 'Self Mastery', desc: 'Career growth & professional development', link: '/docs/category/self-mastery/' },
+      { icon: '📰', title: 'Industry Insights', desc: 'Trends, news & expert analysis', link: '/docs/category/industry-insights/' },
+      { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/category/free-courses/' },
+      { icon: '⭐', title: 'Recommendations', desc: 'Personally tested products & books', link: '/docs/category/recommendations/' },
+    ],
+  },
 ];
 
 function CompactHero() {
@@ -61,17 +79,22 @@ function CategoryGrid() {
         <Heading as="h2" className={styles.sectionTitle}>
           Explore Topics
         </Heading>
-        <div className={styles.categoryGrid}>
-          {categories.map((cat) => (
-            <Link key={cat.title} to={cat.link} className={styles.categoryCard}>
-              <span className={styles.categoryIcon}>{cat.icon}</span>
-              <div>
-                <strong className={styles.categoryTitle}>{cat.title}</strong>
-                <p className={styles.categoryDesc}>{cat.desc}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {sections.map((section) => (
+          <div key={section.heading} className={styles.categoryGroup}>
+            <h3 className={styles.groupHeading}>{section.heading}</h3>
+            <div className={styles.categoryGrid}>
+              {section.items.map((cat) => (
+                <Link key={cat.title} to={cat.link} className={styles.categoryCard}>
+                  <span className={styles.categoryIcon}>{cat.icon}</span>
+                  <div>
+                    <strong className={styles.categoryTitle}>{cat.title}</strong>
+                    <p className={styles.categoryDesc}>{cat.desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -97,6 +120,9 @@ function QuickLinks() {
           <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
             🚀 Automation Basics Series
           </Link>
+          <a href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=F26DFF0277F899141ED0" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+            🎓 API Testing Course (Udemy)
+          </a>
         </div>
       </div>
     </section>
