@@ -2,9 +2,7 @@
   "label": "Recommendations",
   "position": 7,
   "link": {
-    "type": "generated-index",
-    "title": "Product Recommendations",
-    "description": "Personally tested and recommended products for software testers, work-from-home professionals, book lovers, and more.",
-    "keywords": ["recommendations", "products", "work from home", "books", "testing books", "gifts", "productivity"]
+    "type": "doc",
+    "id": "Recommendations/recommendations"
   }
 }

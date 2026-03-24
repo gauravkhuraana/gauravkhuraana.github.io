@@ -32,12 +32,12 @@ const sections = [
   {
     heading: 'Grow & Explore',
     items: [
-      { icon: '☁️', title: 'Azure DevOps', desc: 'CI/CD pipelines & cloud DevOps', link: '/docs/category/azure-devops/' },
+      { icon: '☁️', title: 'Azure DevOps', desc: 'CI/CD pipelines & cloud DevOps', link: '/docs/AzureDevOps/azure-devops-complete-series/' },
       { icon: '🛠️', title: 'Tools', desc: 'Tool guides, comparisons & recommendations', link: '/docs/category/tools/' },
       { icon: '🎯', title: 'Self Mastery', desc: 'Career growth & professional development', link: '/docs/category/self-mastery/' },
       { icon: '📰', title: 'Industry Insights', desc: 'Trends, news & expert analysis', link: '/docs/category/industry-insights/' },
-      { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/category/free-courses/' },
-      { icon: '⭐', title: 'Recommendations', desc: 'Personally tested products & books', link: '/docs/category/recommendations/' },
+      { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/FreeCourses/' },
+      { icon: '⭐', title: 'Recommendations', desc: 'Personally tested products & books', link: '/docs/Recommendations/' },
     ],
   },
 ];
