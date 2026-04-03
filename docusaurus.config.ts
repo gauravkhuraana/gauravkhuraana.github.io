@@ -1,6 +1,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as Mermaid from '@docusaurus/theme-mermaid';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -34,6 +35,7 @@ const config: Config = {
     hooks: {
       onBrokenMarkdownLinks: 'throw',
     },
+    mermaid: true,
   },
 
   // Even if you don't use internationalization, you can use this field to set
@@ -199,9 +201,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
+          editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -234,9 +234,7 @@ const config: Config = {
               });
             },
           },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana/edit/main/',
+          editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io/edit/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -255,10 +253,26 @@ const config: Config = {
     ],
   ],
 
+  themes: ['@docusaurus/theme-mermaid'],
+
   plugins: [
-    // Google Analytics or any other analytics plugin can be added here
-    // '@docusaurus/plugin-google-analytics',
-    // '@docusaurus/plugin-google-gtag',
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-XXXXXXXXXX',
+        anonymizeIP: true,
+      },
+    ],
+    [
+      '@docusaurus/plugin-ideal-image',
+      {
+        quality: 70,
+        max: 1030,
+        min: 640,
+        steps: 2,
+        disableInDev: false,
+      },
+    ],
     './plugins/feed-enhancer',
     './plugins/auto-webp',
     'docusaurus-lunr-search',
@@ -269,6 +283,16 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'subscribe_youtube',
+      content: 'New videos every week! <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Udzial?sub_confirmation=1">Subscribe on YouTube</a>',
+      backgroundColor: '#25c2a0',
+      textColor: '#fff',
+      isCloseable: true,
+    },
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     // Replace with your project's social card
     image: 'img/gauravkhurana.png',
     metadata: [
@@ -411,6 +435,14 @@ const config: Config = {
           label: 'Practice',
           position: 'left',
           items: [
+            {
+              to: '/practice',
+              label: 'All Practice Sites',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
             {
               label: 'UI Automation Practice Site',
               href: 'https://gauravkhurana.com/test-automation-play',
@@ -555,7 +587,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,
+  } satisfies Preset.ThemeConfig & Mermaid.ThemeConfig,
 };
 
 export default config;

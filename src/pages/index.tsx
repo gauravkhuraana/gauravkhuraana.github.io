@@ -72,6 +72,76 @@ function CompactHero() {
   );
 }
 
+const highlights = [
+  {
+    icon: '🎓',
+    title: 'Free Courses',
+    desc: 'Video courses on Automation, Azure DevOps, GitHub Copilot & more — completely free.',
+    link: '/docs/FreeCourses/',
+    cta: 'Start Learning',
+    accent: 'green',
+  },
+  {
+    icon: '📞',
+    title: 'Need 1:1 Guidance?',
+    desc: 'Book a personalized mentoring session — career advice, resume review, or technical deep-dives.',
+    link: '/docs/Topmate/testimonials/',
+    cta: 'Book a Session',
+    accent: 'blue',
+  },
+  {
+    icon: '🚀',
+    title: 'API Testing Course',
+    desc: 'Learn API testing concepts with interview Q&A — structured Udemy course with lifetime access.',
+    link: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=F26DFF0277F899141ED0',
+    cta: 'View on Udemy',
+    accent: 'purple',
+    external: true,
+  },
+];
+
+function Highlights() {
+  return (
+    <section className={styles.highlightsSection}>
+      <div className="container">
+        <div className={styles.highlightsGrid}>
+          {highlights.map((item) => {
+            const inner = (
+              <>
+                <span className={styles.highlightIcon}>{item.icon}</span>
+                <strong className={styles.highlightTitle}>{item.title}</strong>
+                <p className={styles.highlightDesc}>{item.desc}</p>
+                <span className={clsx(styles.highlightCta, styles[`cta_${item.accent}`])}>
+                  {item.cta} →
+                </span>
+              </>
+            );
+            return item.external ? (
+              <a
+                key={item.title}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={clsx(styles.highlightCard, styles[`border_${item.accent}`])}
+              >
+                {inner}
+              </a>
+            ) : (
+              <Link
+                key={item.title}
+                to={item.link}
+                className={clsx(styles.highlightCard, styles[`border_${item.accent}`])}
+              >
+                {inner}
+              </Link>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function CategoryGrid() {
   return (
     <section className={styles.categorySection}>
@@ -137,6 +207,7 @@ export default function Home(): ReactNode {
       description="Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools that actually work in enterprise environments.">
       <CompactHero />
       <main>
+        <Highlights />
         <CategoryGrid />
         <QuickLinks />
         <div className="container" style={{ maxWidth: 700, paddingBottom: '2rem' }}>

@@ -1,0 +1,132 @@
+.practiceHero {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.practiceHero p {
+  font-size: 1.15rem;
+  color: var(--ifm-color-emphasis-700);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  margin-bottom: 0.75rem;
+}
+
+.badgeUI {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.badgeBug {
+  background-color: #fce7f3;
+  color: #9d174d;
+}
+
+.badgeAPI {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+[data-theme='dark'] .badgeUI {
+  background-color: #1e3a5f;
+  color: #93c5fd;
+}
+
+[data-theme='dark'] .badgeBug {
+  background-color: #4a1942;
+  color: #f9a8d4;
+}
+
+[data-theme='dark'] .badgeAPI {
+  background-color: #064e3b;
+  color: #6ee7b7;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.cardDescription {
+  color: var(--ifm-color-emphasis-700);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.featureList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1rem;
+}
+
+.featureList li::before {
+  content: '✓ ';
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+.toolsList {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1.5rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.communityNote {
+  text-align: center;
+  max-width: 700px;
+  margin: 3rem auto 2rem;
+  padding: 1.5rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+}
+
+.communityNote p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+}
+
+@media (max-width: 600px) {
+  .featureList {
+    grid-template-columns: 1fr;
+  }
+}

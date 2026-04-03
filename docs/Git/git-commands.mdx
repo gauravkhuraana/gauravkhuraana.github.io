@@ -16,6 +16,7 @@ import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
 Jump to any video:
 - [Save Time with Each Commit](#untrack-files-locally)
 - [Delete All Local Branches](#delete-all-local-branches)
+- [Copy a Repo Fast with Git Archive](#copy-a-repo-fast-with-git-archive)
 
 ## Untrack Files Locally
 
@@ -80,3 +81,34 @@ git branch | Where-Object { $_.Trim() -ne "main" } | ForEach-Object { git branch
 :::warning
 Be careful when deleting branches. Make sure you don't need any of the branches before running this command.
 :::
+
+## Copy a Repo Fast with Git Archive
+
+```bash title="Export tracked files as a zip"
+git archive --format=zip HEAD > project.zip
+```
+
+**Why this works:**
+- Copies **only tracked files**
+- Automatically respects `.gitignore`
+- No build artifacts or dependencies
+
+**Works for:** Java | TypeScript | Python
+
+**Skips automatically:** `node_modules/`, `target/`, `dist/`, `venv/`, `__pycache__/`
+
+:::tip Golden Rule
+If Git can regenerate it, don't copy it.
+:::
+
+## Extract Directly Into a Folder
+
+Extract files without leaving a zip behind.
+
+```bash title="Linux / macOS / Git Bash (Windows)"
+# Extract a specific folder from the repo
+git archive HEAD tests/AIEvaluation | tar -x
+
+# Extract into a specific location
+git archive HEAD tests/AIEvaluation | tar -x -C /path/to/destination
+```

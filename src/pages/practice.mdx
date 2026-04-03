@@ -1,0 +1,106 @@
+---
+title: Practice Sites
+description: Free practice platforms for UI automation, bug hunting, and API testing — built for the testing community by Gaurav Khurana.
+keywords: [practice automation, test automation practice, API testing practice, bug hunting, selenium practice, playwright practice, cypress practice, free testing tools]
+---
+
+import styles from './practice.module.css';
+
+# Practice Sites
+
+<div className={styles.practiceHero}>
+  <p>
+    Free, open-source practice platforms I built for the testing and automation community.
+    No sign-ups, no paywalls — just start practicing.
+  </p>
+</div>
+
+<div className={styles.cardsContainer}>
+
+<div className={styles.card}>
+  <span className={`${styles.cardBadge} ${styles.badgeUI}`}>UI Automation</span>
+  <h2 className={styles.cardTitle}>Test Automation Practice Hub</h2>
+  <p className={styles.cardDescription}>
+    A comprehensive training ground covering every common scenario you will encounter in real-world test automation projects — from basic form controls to complex business workflows and buggy pages.
+  </p>
+  <ul className={styles.featureList}>
+    <li>Text inputs, dropdowns, checkboxes</li>
+    <li>Drag and drop, file uploads, sliders</li>
+    <li>iFrames, Shadow DOM, multiple windows</li>
+    <li>Dynamic IDs, stale elements</li>
+    <li>E-commerce checkout flows</li>
+    <li>Geolocation, notifications, storage</li>
+    <li>WebSocket updates, retry logic</li>
+    <li>Buggy page with 10+ hidden issues</li>
+  </ul>
+  <p className={styles.toolsList}>
+    <strong>Works with:</strong> Selenium, Playwright, Cypress, TestCafe and others
+  </p>
+  <div className={styles.cardActions}>
+    <a href="https://gauravkhurana.com/test-automation-play" target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      Launch Practice Hub
+    </a>
+  </div>
+</div>
+
+<div className={styles.card}>
+  <span className={`${styles.cardBadge} ${styles.badgeBug}`}>Bug Hunting</span>
+  <h2 className={styles.cardTitle}>Bug Hunt Challenge</h2>
+  <p className={styles.cardDescription}>
+    A task manager application with 10 functional bugs hidden inside it. Your mission is to explore the app, use it like a real user, and find every single bug. Great for sharpening your exploratory testing skills.
+  </p>
+  <ul className={styles.featureList}>
+    <li>10 hidden functional bugs</li>
+    <li>Real task manager interface</li>
+    <li>Add, complete, and filter tasks</li>
+    <li>Bug counter to track progress</li>
+    <li>Exploratory testing practice</li>
+    <li>No hints — find them yourself</li>
+  </ul>
+  <p className={styles.toolsList}>
+    <strong>Best for:</strong> Exploratory testing, attention to detail, bug reporting skills
+  </p>
+  <div className={styles.cardActions}>
+    <a href="https://gauravkhurana.com/bug-hunt-challenge/" target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      Start Bug Hunting
+    </a>
+  </div>
+</div>
+
+<div className={styles.card}>
+  <span className={`${styles.cardBadge} ${styles.badgeAPI}`}>API Testing</span>
+  <h2 className={styles.cardTitle}>Bill Payment Practice API</h2>
+  <p className={styles.cardDescription}>
+    A full-featured RESTful API for bill payment operations with realistic business logic, multiple authentication methods, and Swagger documentation. Practice with any tool or language you prefer.
+  </p>
+  <ul className={styles.featureList}>
+    <li>CRUD operations across 6 resources</li>
+    <li>API Key, Bearer, Basic Auth and OAuth2</li>
+    <li>JSON and XML content types</li>
+    <li>File upload (multipart/form-data)</li>
+    <li>Rate limiting and request tracing</li>
+    <li>OpenAPI spec and JSON schemas</li>
+    <li>Pagination, filtering, sorting</li>
+    <li>Weekly data reset</li>
+  </ul>
+  <p className={styles.toolsList}>
+    <strong>Works with:</strong> Postman, RestAssured (Java), requests/httpx (Python), RestSharp (C#), Hoppscotch and more
+  </p>
+  <div className={styles.cardActions}>
+    <a href="https://gauravkhurana.com/practise-api" target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      Open API Docs
+    </a>
+    <a href="https://gauravkhurana.com/practise-api/ui/index.html" target="_blank" rel="noopener noreferrer" className="button button--outline button--primary button--lg">
+      Launch Practice UI
+    </a>
+  </div>
+</div>
+
+</div>
+
+<div className={styles.communityNote}>
+  <p>
+    <strong>Built for the community.</strong> These are free, open-source tools anyone can use.
+    If they help you, consider <a href="https://www.youtube.com/@Udzial?sub_confirmation=1">subscribing on YouTube</a> or <a href="https://ko-fi.com/gauravkhurana">buying me a coffee</a>.
+  </p>
+</div>
