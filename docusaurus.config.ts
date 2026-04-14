@@ -455,6 +455,10 @@ const config: Config = {
               label: 'API Testing/Automation',
               href: 'https://gauravkhurana.com/practise-api',
             },
+            {
+              label: 'Migrate Laptop',
+              href: 'https://github.com/gauravkhuraana/new-laptop-setup',
+            },
           ],
         },
         {

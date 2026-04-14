@@ -96,6 +96,35 @@ import styles from './practice.module.css';
   </div>
 </div>
 
+<div className={styles.card}>
+  <span className={`${styles.cardBadge} ${styles.badgeMigrate}`}>Migration</span>
+  <h2 className={styles.cardTitle}>Migrate Laptop</h2>
+  <p className={styles.cardDescription}>
+    Migrating to a new Windows laptop? This free, open-source PowerShell script scans your old laptop, generates ready-to-run install + transfer scripts, and gets your new machine ready in minutes — not days.
+  </p>
+  <ul className={styles.featureList}>
+    <li>Scan old laptop and generate interactive HTML report</li>
+    <li>Auto-install all software on new laptop via winget</li>
+    <li>Transfer data between laptops over WiFi</li>
+    <li>Smart exclusions — skips node_modules, .git, build files</li>
+    <li>Resume support — re-run and it picks up where it left off</li>
+    <li>100% read-only scan — nothing deleted or modified</li>
+    <li>Generates AI-review file for ChatGPT/Copilot advice</li>
+    <li>GitHub Actions security checks built in</li>
+  </ul>
+  <p className={styles.toolsList}>
+    <strong>Works on:</strong> Windows 10/11 with PowerShell 5.1+ — zero dependencies
+  </p>
+  <div className={styles.cardActions}>
+    <a href="https://github.com/gauravkhuraana/new-laptop-setup" target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      GitHub Repo
+    </a>
+    <a href="https://github.com/gauravkhuraana/new-laptop-setup/blob/main/Migrate-Laptop.ps1" target="_blank" rel="noopener noreferrer" className="button button--outline button--primary button--lg">
+      Download Script
+    </a>
+  </div>
+</div>
+
 </div>
 
 <div className={styles.communityNote}>

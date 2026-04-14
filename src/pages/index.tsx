@@ -93,7 +93,7 @@ const highlights = [
     icon: '🚀',
     title: 'API Testing Course',
     desc: 'Learn API testing concepts with interview Q&A — structured Udemy course with lifetime access.',
-    link: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=F26DFF0277F899141ED0',
+    link: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639',
     cta: 'View on Udemy',
     accent: 'purple',
     external: true,
@@ -190,7 +190,7 @@ function QuickLinks() {
           <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
             🚀 Automation Basics Series
           </Link>
-          <a href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=F26DFF0277F899141ED0" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+          <a href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🎓 API Testing Course (Udemy)
           </a>
         </div>

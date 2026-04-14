@@ -57,6 +57,11 @@
   color: #065f46;
 }
 
+.badgeMigrate {
+  background-color: #ede9fe;
+  color: #5b21b6;
+}
+
 [data-theme='dark'] .badgeUI {
   background-color: #1e3a5f;
   color: #93c5fd;
@@ -70,6 +75,11 @@
 [data-theme='dark'] .badgeAPI {
   background-color: #064e3b;
   color: #6ee7b7;
+}
+
+[data-theme='dark'] .badgeMigrate {
+  background-color: #3b1f6e;
+  color: #c4b5fd;
 }
 
 .cardTitle {
