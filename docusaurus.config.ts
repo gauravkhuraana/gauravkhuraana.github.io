@@ -275,6 +275,7 @@ const config: Config = {
     ],
     './plugins/feed-enhancer',
     './plugins/auto-webp',
+    './plugins/webpack-warning-filter',
     'docusaurus-lunr-search',
   ],
 
@@ -285,7 +286,7 @@ const config: Config = {
   themeConfig: {
     announcementBar: {
       id: 'subscribe_youtube',
-      content: 'New videos every week! <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/@Udzial?sub_confirmation=1">Subscribe on YouTube</a>',
+      content: 'Get quick tips and fresh updates! <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s">Join the WhatsApp Channel</a>',
       backgroundColor: '#25c2a0',
       textColor: '#fff',
       isCloseable: true,

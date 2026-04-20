@@ -187,6 +187,9 @@ function QuickLinks() {
           <a href="https://www.youtube.com/@Udzial?sub_confirmation=1" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🎥 YouTube Channel
           </a>
+          <a href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+            💬 WhatsApp Channel
+          </a>
           <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
             🚀 Automation Basics Series
           </Link>
