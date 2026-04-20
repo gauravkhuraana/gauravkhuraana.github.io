@@ -433,6 +433,41 @@ const config: Config = {
         },
         {
           type: 'dropdown',
+          label: 'Courses',
+          position: 'left',
+          items: [
+            {
+              type: 'doc',
+              docId: 'Automation/automation-basics-series',
+              label: 'Automation Basics Series',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/github-copilot',
+              label: 'GitHub Copilot / GH-300',
+            },
+            {
+              type: 'doc',
+              docId: 'AI/azure-ai-900',
+              label: 'Azure AI-900 Fundamentals',
+            },
+            {
+              type: 'doc',
+              docId: 'AzureDevOps/azure-devops-complete-series',
+              label: 'Azure DevOps',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              label: 'API Testing (Udemy)',
+              href: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
           label: 'Practice',
           position: 'left',
           items: [
