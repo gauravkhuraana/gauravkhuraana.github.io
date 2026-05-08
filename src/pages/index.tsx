@@ -83,8 +83,8 @@ const highlights = [
     external: true,
   },
   {
-    icon: '�',
-    title: 'Build Your Personal Website — FREE',
+    icon: '🌐',
+    title: 'Build Your Personal Website',
     desc: 'Launch your own yourname.com site step-by-step — free hosting, custom domain, and a portfolio you can show recruiters.',
     link: 'https://topmate.io/gauravkhurana/2070971',
     cta: 'Get the Course',
@@ -92,7 +92,7 @@ const highlights = [
     external: true,
   },
   {
-    icon: '�🎓',
+    icon: '🎓',
     title: 'Free Courses',
     desc: 'Free video courses on Automation, Azure DevOps, GitHub Copilot & more — plus a few hand-picked premium picks.',
     link: '/docs/FreeCourses/',
@@ -215,7 +215,7 @@ function QuickLinks() {
             🐍 Python + AI for Beginners (Local AI)
           </a>
           <a href="https://topmate.io/gauravkhurana/2070971" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
-            🌐 Build Your Personal Website — FREE
+            🌐 Build Your Personal Website (yourname.com)
           </a>
         </div>
       </div>

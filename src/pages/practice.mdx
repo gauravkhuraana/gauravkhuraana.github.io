@@ -97,6 +97,30 @@ import styles from './practice.module.css';
 </div>
 
 <div className={styles.card}>
+  <span className={`${styles.cardBadge} ${styles.badgeSecurity}`}>Security</span>
+  <h2 className={styles.cardTitle}>SQL Injection Practice</h2>
+  <p className={styles.cardDescription}>
+    A hands-on playground to learn and practice SQL Injection techniques in a safe, browser-based environment. Explore common vulnerabilities, test payloads, and understand how attackers exploit insecure queries — and how to defend against them.
+  </p>
+  <ul className={styles.featureList}>
+    <li>Login bypass and authentication flaws</li>
+    <li>UNION-based and error-based injection</li>
+    <li>Boolean and time-based blind SQLi</li>
+    <li>Realistic vulnerable endpoints</li>
+    <li>Safe sandbox — runs in your browser</li>
+    <li>Great for security testing learners and QA engineers</li>
+  </ul>
+  <p className={styles.toolsList}>
+    <strong>Best for:</strong> Security testing fundamentals, OWASP Top 10 practice, ethical hacking basics
+  </p>
+  <div className={styles.cardActions}>
+    <a href="https://gauravkhurana.com/SQLInjection/" target="_blank" rel="noopener noreferrer" className="button button--primary button--lg">
+      Launch SQL Injection Lab
+    </a>
+  </div>
+</div>
+
+<div className={styles.card}>
   <span className={`${styles.cardBadge} ${styles.badgeMigrate}`}>Migration</span>
   <h2 className={styles.cardTitle}>Migrate Laptop</h2>
   <p className={styles.cardDescription}>

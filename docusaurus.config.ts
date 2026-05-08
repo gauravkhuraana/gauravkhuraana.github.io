@@ -436,7 +436,7 @@ const config: Config = {
               href: 'https://topmate.io/gauravkhurana/2073657',
             },
             {
-              label: 'Build Your Personal Website - FREE (yourname.com)',
+              label: 'Build Your Personal Website (yourname.com)',
               href: 'https://topmate.io/gauravkhurana/2070971',
             },
             {
@@ -497,6 +497,10 @@ const config: Config = {
             {
               label: 'API Testing/Automation',
               href: 'https://gauravkhurana.com/practise-api',
+            },
+            {
+              label: 'SQL Injection Practice',
+              href: 'https://gauravkhurana.com/SQLInjection/',
             },
             {
               label: 'Migrate Laptop',

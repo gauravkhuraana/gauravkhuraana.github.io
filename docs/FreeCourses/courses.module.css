@@ -60,6 +60,11 @@
   color: #fff;
 }
 
+.badgeTopmate {
+  background: #6366f1;
+  color: #fff;
+}
+
 .courseBody {
   padding: 1.25rem;
   flex: 1;

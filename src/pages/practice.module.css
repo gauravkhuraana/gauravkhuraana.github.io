@@ -62,6 +62,11 @@
   color: #5b21b6;
 }
 
+.badgeSecurity {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
 [data-theme='dark'] .badgeUI {
   background-color: #1e3a5f;
   color: #93c5fd;
@@ -80,6 +85,11 @@
 [data-theme='dark'] .badgeMigrate {
   background-color: #3b1f6e;
   color: #c4b5fd;
+}
+
+[data-theme='dark'] .badgeSecurity {
+  background-color: #5c1a1a;
+  color: #fca5a5;
 }
 
 .cardTitle {
