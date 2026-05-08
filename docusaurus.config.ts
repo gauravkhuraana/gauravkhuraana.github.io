@@ -432,6 +432,18 @@ const config: Config = {
           position: 'left',
           items: [
             {
+              label: 'Python + AI for Beginners (Build Local AI)',
+              href: 'https://topmate.io/gauravkhurana/2073657',
+            },
+            {
+              label: 'Build Your Personal Website - FREE (yourname.com)',
+              href: 'https://topmate.io/gauravkhurana/2070971',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
               type: 'doc',
               docId: 'Automation/automation-basics-series',
               label: 'Automation Basics Series',

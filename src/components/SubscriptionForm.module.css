@@ -70,7 +70,8 @@
   }
   
   .formWrapper iframe {
-    height: 180px !important;
+    height: 560px !important;
+    min-height: 560px !important;
   }
 }
 
@@ -85,7 +86,8 @@
   }
   
   .formWrapper iframe {
-    height: 160px !important;
+    height: 600px !important;
+    min-height: 600px !important;
   }
 }
 

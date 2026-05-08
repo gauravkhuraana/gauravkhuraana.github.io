@@ -1,0 +1,99 @@
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3rem;
+}
+
+.courseCard {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none !important;
+  color: inherit;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ifm-card-background-color, var(--ifm-background-surface-color));
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.courseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.courseBanner {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.badgeFree {
+  background: #10b981;
+  color: #fff;
+}
+
+.badgeBest {
+  background: #fbbf24;
+  color: #000;
+}
+
+.badgeUdemy {
+  background: #a435f0;
+  color: #fff;
+}
+
+.courseBody {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.courseBody h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.courseBody p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.tags span {
+  font-size: 0.7rem;
+  background: var(--ifm-color-emphasis-200);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.cta {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}

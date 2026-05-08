@@ -36,7 +36,7 @@ const sections = [
       { icon: '🛠️', title: 'Tools', desc: 'Tool guides, comparisons & recommendations', link: '/docs/category/tools/' },
       { icon: '🎯', title: 'Self Mastery', desc: 'Career growth & professional development', link: '/docs/category/self-mastery/' },
       { icon: '📰', title: 'Industry Insights', desc: 'Trends, news & expert analysis', link: '/docs/category/industry-insights/' },
-      { icon: '🎓', title: 'Free Courses', desc: 'Curated free learning resources', link: '/docs/FreeCourses/' },
+      { icon: '🎓', title: 'Free Courses', desc: 'Free video courses + premium picks on Python+AI, automation & more', link: '/docs/FreeCourses/' },
       { icon: '⭐', title: 'Recommendations', desc: 'Personally tested products & books', link: '/docs/Recommendations/' },
     ],
   },
@@ -74,12 +74,30 @@ function CompactHero() {
 
 const highlights = [
   {
-    icon: '🎓',
-    title: 'Free Courses',
-    desc: 'Video courses on Automation, Azure DevOps, GitHub Copilot & more — completely free.',
-    link: '/docs/FreeCourses/',
-    cta: 'Start Learning',
+    icon: '🐍',
+    title: 'Python + AI for Beginners',
+    desc: 'Build your own Local AI assistant with LM Studio — 11 hands-on videos, 3 assignments + capstone. No prior coding or paid APIs required.',
+    link: 'https://topmate.io/gauravkhurana/2073657',
+    cta: 'Enroll on Topmate',
     accent: 'green',
+    external: true,
+  },
+  {
+    icon: '�',
+    title: 'Build Your Personal Website — FREE',
+    desc: 'Launch your own yourname.com site step-by-step — free hosting, custom domain, and a portfolio you can show recruiters.',
+    link: 'https://topmate.io/gauravkhurana/2070971',
+    cta: 'Get the Course',
+    accent: 'green',
+    external: true,
+  },
+  {
+    icon: '�🎓',
+    title: 'Free Courses',
+    desc: 'Free video courses on Automation, Azure DevOps, GitHub Copilot & more — plus a few hand-picked premium picks.',
+    link: '/docs/FreeCourses/',
+    cta: 'Browse Courses',
+    accent: 'blue',
   },
   {
     icon: '📞',
@@ -87,7 +105,7 @@ const highlights = [
     desc: 'Book a personalized mentoring session — career advice, resume review, or technical deep-dives.',
     link: '/docs/Topmate/testimonials/',
     cta: 'Book a Session',
-    accent: 'blue',
+    accent: 'purple',
   },
   {
     icon: '🚀',
@@ -187,14 +205,17 @@ function QuickLinks() {
           <a href="https://www.youtube.com/@Udzial?sub_confirmation=1" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🎥 YouTube Channel
           </a>
-          <a href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
-            💬 WhatsApp Channel
-          </a>
           <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
             🚀 Automation Basics Series
           </Link>
           <a href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🎓 API Testing Course (Udemy)
+          </a>
+          <a href="https://topmate.io/gauravkhurana/2073657" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+            🐍 Python + AI for Beginners (Local AI)
+          </a>
+          <a href="https://topmate.io/gauravkhurana/2070971" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+            🌐 Build Your Personal Website — FREE
           </a>
         </div>
       </div>
