@@ -280,11 +280,11 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'subscribe_youtube',
-      content: 'Get quick tips and fresh updates! <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s">Join the WhatsApp Channel</a>',
-      backgroundColor: '#25c2a0',
-      textColor: '#fff',
-      isCloseable: true,
+      id: 'whatsapp_channel_v2',
+      content: '📢 Get quick tips & fresh updates on WhatsApp — <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s"><strong>Join the WhatsApp Channel →</strong></a>',
+      backgroundColor: '#25D366',
+      textColor: '#ffffff',
+      isCloseable: false,
     },
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
