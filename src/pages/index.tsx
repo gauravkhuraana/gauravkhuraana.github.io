@@ -1,7 +1,6 @@
 import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -16,7 +15,7 @@ const sections = [
     items: [
       { icon: '🧪', title: 'Testing', desc: 'Strategies, best practices & methodologies', link: '/docs/category/testing/' },
       { icon: '🤖', title: 'Automation', desc: 'Frameworks, tools & real-world implementation', link: '/docs/category/automation/' },
-      { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/category/need-11-guidance/' },
+      { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/Topmate/testimonials/' },
     ],
   },
   {
@@ -224,7 +223,6 @@ function QuickLinks() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title="Testing & Automation Practitioner - Gaurav Khurana"

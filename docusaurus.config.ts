@@ -224,7 +224,7 @@ const config: Config = {
 
               return defaultCreateFeedItems({
                 // keep only the 10 most recent blog posts in the feed
-                blogPosts: processedPosts.filter((item, index) => index < 10),
+                blogPosts: processedPosts.filter((_item, index) => index < 10),
                 ...rest,
               });
             },
@@ -254,7 +254,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-XXXXXXXXXX',
+        trackingID: 'G-03C1M9S2P9',
         anonymizeIP: true,
       },
     ],
@@ -288,6 +288,7 @@ const config: Config = {
     },
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
+      options: {},
     },
     // Replace with your project's social card
     image: 'img/gauravkhurana.png',
@@ -304,7 +305,7 @@ const config: Config = {
     navbar: {
       title: 'gauravkhurana.com',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Gaurav Khurana',
         src: 'img/logo.svg',
         width: 32,
         height: 32,

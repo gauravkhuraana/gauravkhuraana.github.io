@@ -221,6 +221,13 @@
   transform: translateY(-1px);
 }
 
+/* Tablet — highlights go to 2 columns */
+@media screen and (max-width: 768px) {
+  .highlightsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* Mobile */
 @media screen and (max-width: 480px) {
   .heroBanner {
