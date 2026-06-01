@@ -1,0 +1,10 @@
+{
+  "label": "Testers Toolkit",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "title": "Testers Toolkit",
+    "description": "Practical tools and utilities that help testers work faster: testing news, page load checks, test data generation, and broken-link validation.",
+    "keywords": ["testers toolkit", "testing tools", "QA tools", "test data generator", "broken link checker", "page load timer"]
+  }
+}
