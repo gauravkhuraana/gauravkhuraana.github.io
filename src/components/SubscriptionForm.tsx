@@ -27,16 +27,15 @@ function LazyIframe({ src, title, height }: { src: string; title: string; height
           frameBorder="0"
           scrolling="no"
           allowFullScreen
+          className={styles.iframe}
           style={{
             display: 'block',
             marginLeft: 'auto',
             marginRight: 'auto',
             maxWidth: '100%',
             minHeight: `${height}px`,
-            maxHeight: `${height}px`,
             border: 'none',
             borderRadius: '8px',
-            overflow: 'hidden',
           }}
           title={title}
         />
@@ -69,7 +68,7 @@ const SubscriptionForm: React.FC<SubscriptionFormProps> = ({
         <LazyIframe
           src="https://2daf0ef4.sibforms.com/serve/MUIFAPwOqMKfs4g6YMNkM4TROCaQJWPpM3m_meM7DPzmPrwffSbjh5hUP2k1H3bPQKZUtYUzKx--yH7KqZ0hWcAdo1XwL-4FSlQqUfynSE2MU46VaQnqnJEbDARiZ3H0YF1ssZl8maKfXymbVWkHAdzLtJzfM-ioJ1HHTe82sQwuRHRu-dwV9MFxUJ893S4yemAnN1PtOzWtpuAl"
           title="Subscribe to Testing & Automation Updates"
-          height={320}
+          height={420}
         />
       </div>
     </div>

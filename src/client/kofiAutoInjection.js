@@ -229,18 +229,22 @@ function showShareMenu(container, shareData) {
 
   const menu = document.createElement('div');
   menu.className = 'share-menu';
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const menuBg = isDark ? '#1b1b1d' : 'white';
+  const menuBorder = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)';
+
   menu.style.cssText = `
     position: absolute;
     bottom: 100%;
     right: 0;
     margin-bottom: 10px;
-    background: white;
+    background: ${menuBg};
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     z-index: 1001;
     min-width: 180px;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid ${menuBorder};
     animation: slideUp 0.2s ease-out;
   `;
 
@@ -250,14 +254,15 @@ function showShareMenu(container, shareData) {
     justify-content: space-between;
     align-items: center;
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid ${menuBorder};
     font-weight: 600;
     font-size: 14px;
     font-family: inherit;
+    color: ${isDark ? '#e3e3e3' : '#333'};
   `;
   header.innerHTML = `
     <span>Share this page</span>
-    <button style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 4px; border-radius: 4px;" class="close-share">✕</button>
+    <button style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 4px; border-radius: 4px; color: inherit;" class="close-share">✕</button>
   `;
 
   const options = document.createElement('div');
@@ -268,13 +273,14 @@ function showShareMenu(container, shareData) {
     option.href = platform.url;
     option.target = '_blank';
     option.rel = 'noopener noreferrer';
+    const textColor = isDark ? '#e3e3e3' : '#333';
     option.style.cssText = `
       display: flex;
       align-items: center;
       gap: 12px;
       padding: 10px 16px;
       text-decoration: none;
-      color: #333;
+      color: ${textColor};
       transition: background 0.2s ease;
       font-family: inherit;
       font-size: 14px;
@@ -311,7 +317,7 @@ function showShareMenu(container, shareData) {
     cursor: pointer;
     font-family: inherit;
     font-size: 14px;
-    color: #333;
+    color: ${isDark ? '#e3e3e3' : '#333'};
     transition: background 0.2s ease;
   `;
   copyOption.innerHTML = `

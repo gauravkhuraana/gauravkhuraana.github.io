@@ -1,44 +1,145 @@
 ---
 sidebar_position: 1
-title: "Free Courses Overview"
-description: "Comprehensive collection of free video courses on automation testing, Azure DevOps, GitHub Copilot, and modern development practices."
-keywords: [free courses, video tutorials, automation learning, devops training, github copilot certification, azure devops, online learning]
+title: "Free Courses"
+description: "Free video courses on automation testing, Azure DevOps, GitHub Copilot, Azure AI-900, plus a few hand-picked premium courses on Python+AI and personal websites."
+keywords: [free courses, python ai course, local ai course, video tutorials, automation learning, devops training, github copilot certification, azure devops, personal website course, api testing]
 image: /img/og/freecourses-index-og.png
 ---
 
+import styles from './courses.module.css';
+
 # Free Courses
 
-Access comprehensive free video courses on automation testing, DevOps, and AI-powered development.
+Hands-on video courses to level up your career — start free, then optionally go deeper with a few hand-picked premium courses.
 
-## Available Courses
+## Free Courses
 
-### Automation Basics Series
+Completely free. No signup. Just open and start learning.
 
-Learn automation testing fundamentals from scratch - perfect for beginners starting their automation journey.
+<div className={styles.courseGrid}>
 
-[**Start Learning →**](/docs/Automation/automation-basics-series)
+<a className={styles.courseCard} href="/docs/Automation/automation-basics-series">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)'}}>
+    <span aria-hidden="true">🤖</span>
+    <span className={`${styles.badge} ${styles.badgeFree}`}>FREE</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>Automation Basics Series</h3>
+    <p>Automation testing fundamentals from scratch — perfect for beginners starting their automation journey.</p>
+    <div className={styles.tags}>
+      <span>Automation</span><span>Beginner</span>
+    </div>
+    <span className={styles.cta}>Start Learning →</span>
+  </div>
+</a>
 
----
+<a className={styles.courseCard} href="/docs/AI/github-copilot">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #1f2937 0%, #4b5563 100%)'}}>
+    <span aria-hidden="true">🛠️</span>
+    <span className={`${styles.badge} ${styles.badgeFree}`}>FREE</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>GitHub Copilot / GH-300</h3>
+    <p>Master GitHub Copilot from basics to advanced features — including GH-300 certification preparation.</p>
+    <div className={styles.tags}>
+      <span>AI</span><span>Certification</span>
+    </div>
+    <span className={styles.cta}>Start Learning →</span>
+  </div>
+</a>
 
-### GitHub Copilot / GH-300 Certification
+<a className={styles.courseCard} href="/docs/AI/azure-ai-900">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #0078d4 0%, #00bcf2 100%)'}}>
+    <span aria-hidden="true">☁️</span>
+    <span className={`${styles.badge} ${styles.badgeFree}`}>FREE</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>Azure AI-900 Fundamentals</h3>
+    <p>Microsoft Azure AI Fundamentals certification prep — Machine Learning, Computer Vision, NLP, and Generative AI.</p>
+    <div className={styles.tags}>
+      <span>Azure</span><span>AI</span><span>Certification</span>
+    </div>
+    <span className={styles.cta}>Start Learning →</span>
+  </div>
+</a>
 
-Master GitHub Copilot from basics to advanced features, including GH-300 certification preparation.
+<a className={styles.courseCard} href="/docs/AzureDevOps/azure-devops-complete-series">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #0078d4 0%, #5c2d91 100%)'}}>
+    <span aria-hidden="true">⚙️</span>
+    <span className={`${styles.badge} ${styles.badgeFree}`}>FREE</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>Azure DevOps Complete Series</h3>
+    <p>Complete guide to Azure DevOps — CI/CD pipelines, work management, and DevOps best practices.</p>
+    <div className={styles.tags}>
+      <span>DevOps</span><span>CI/CD</span>
+    </div>
+    <span className={styles.cta}>Start Learning →</span>
+  </div>
+</a>
 
-[**Start Learning →**](/docs/AI/github-copilot)
+</div>
 
----
+## Premium Courses
 
-### Azure AI-900 Fundamentals
+A few hand-picked paid courses for when you want to go deeper with structured projects, assignments, and real outcomes.
 
-Comprehensive preparation for Microsoft Azure AI Fundamentals certification covering Machine Learning, Computer Vision, NLP, and Generative AI.
+<div className={styles.courseGrid}>
 
-[**Start Learning →**](/docs/AI/azure-ai-900)
+<a className={styles.courseCard} href="https://topmate.io/gauravkhurana/2073657" target="_blank" rel="noopener noreferrer">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)'}}>
+    <span aria-hidden="true">🐍🤖</span>
+    <span className={`${styles.badge} ${styles.badgeBest}`}>BESTSELLER</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>Python + AI for Beginners — Build your own Local AI</h3>
+    <p>Build a real AI assistant on your laptop with LM Studio — 11 videos, 3 assignments + capstone. No paid APIs, no GPU required.</p>
+    <div className={styles.tags}>
+      <span>11 Videos</span><span>~4–6 hrs</span><span>Beginner</span>
+    </div>
+    <span className={styles.cta}>Enroll on Topmate →</span>
+  </div>
+</a>
 
----
+<a className={styles.courseCard} href="https://topmate.io/gauravkhurana/2070971" target="_blank" rel="noopener noreferrer">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)'}}>
+    <span aria-hidden="true">🌐</span>
+    <span className={`${styles.badge} ${styles.badgeTopmate}`}>TOPMATE</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>Build Your Personal Website (yourname.com)</h3>
+    <p>Launch your own portfolio site at yourname.com — step-by-step guide using free hosting and a custom domain. Portfolio-ready output.</p>
+    <div className={styles.tags}>
+      <span>Portfolio</span><span>Custom Domain</span><span>Beginner</span>
+    </div>
+    <span className={styles.cta}>Get the Course →</span>
+  </div>
+</a>
 
-### Azure DevOps
+<a className={styles.courseCard} href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639" target="_blank" rel="noopener noreferrer">
+  <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #a435f0 0%, #6d28d9 100%)'}}>
+    <span aria-hidden="true">🔌</span>
+    <span className={`${styles.badge} ${styles.badgeUdemy}`}>UDEMY</span>
+  </div>
+  <div className={styles.courseBody}>
+    <h3>API Testing Concepts with Interview Q&amp;A</h3>
+    <p>Structured course covering API testing concepts with interview questions &amp; answers — lifetime access on Udemy.</p>
+    <div className={styles.tags}>
+      <span>API</span><span>Interview Prep</span><span>Lifetime Access</span>
+    </div>
+    <span className={styles.cta}>View on Udemy →</span>
+  </div>
+</a>
 
-Complete guide to Azure DevOps covering CI/CD pipelines, work management, and DevOps best practices.
+</div>
 
-[**Start Learning →**](/docs/AzureDevOps/azure-devops-complete-series)
+## Why these courses
 
+- **Practical, hands-on** — every course is built around real, runnable examples.
+- **No fluff** — concise lessons that respect your time.
+- **Industry-relevant** — drawn from 15+ years of QA, automation, and consulting experience at Microsoft.
+- **Career-ready outcomes** — portfolio-grade projects you can show to recruiters.
+
+## Need help choosing
+
+Not sure where to start? [Book a 1:1 session](/docs/Topmate/testimonials/) and I'll help you pick the right path based on your background and goals.

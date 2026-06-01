@@ -4,6 +4,15 @@
  * work well for content-centric websites.
  */
 
+/* Announcement bar — keep link readable on WhatsApp green */
+div[class*='announcementBar'] a {
+  color: #ffffff !important;
+  text-decoration: underline;
+}
+div[class*='announcementBar'] a:hover {
+  color: #fff8c5 !important;
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;

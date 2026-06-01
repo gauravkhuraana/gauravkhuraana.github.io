@@ -224,7 +224,7 @@ const config: Config = {
 
               return defaultCreateFeedItems({
                 // keep only the 10 most recent blog posts in the feed
-                blogPosts: processedPosts.filter((item, index) => index < 10),
+                blogPosts: processedPosts.filter((_item, index) => index < 10),
                 ...rest,
               });
             },
@@ -254,7 +254,7 @@ const config: Config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-XXXXXXXXXX',
+        trackingID: 'G-03C1M9S2P9',
         anonymizeIP: true,
       },
     ],
@@ -280,14 +280,15 @@ const config: Config = {
 
   themeConfig: {
     announcementBar: {
-      id: 'subscribe_youtube',
-      content: 'Get quick tips and fresh updates! <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s">Join the WhatsApp Channel</a>',
-      backgroundColor: '#25c2a0',
-      textColor: '#fff',
-      isCloseable: true,
+      id: 'whatsapp_channel_v2',
+      content: '📢 Get quick tips & fresh updates on WhatsApp — <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s"><strong>Join the WhatsApp Channel →</strong></a>',
+      backgroundColor: '#25D366',
+      textColor: '#ffffff',
+      isCloseable: false,
     },
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
+      options: {},
     },
     // Replace with your project's social card
     image: 'img/gauravkhurana.png',
@@ -304,7 +305,7 @@ const config: Config = {
     navbar: {
       title: 'gauravkhurana.com',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Gaurav Khurana',
         src: 'img/logo.svg',
         width: 32,
         height: 32,
@@ -432,6 +433,18 @@ const config: Config = {
           position: 'left',
           items: [
             {
+              label: 'Python + AI for Beginners (Build Local AI)',
+              href: 'https://topmate.io/gauravkhurana/2073657',
+            },
+            {
+              label: 'Build Your Personal Website (yourname.com)',
+              href: 'https://topmate.io/gauravkhurana/2070971',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
               type: 'doc',
               docId: 'Automation/automation-basics-series',
               label: 'Automation Basics Series',
@@ -485,6 +498,10 @@ const config: Config = {
             {
               label: 'API Testing/Automation',
               href: 'https://gauravkhurana.com/practise-api',
+            },
+            {
+              label: 'SQL Injection Practice',
+              href: 'https://gauravkhurana.com/SQLInjection/',
             },
             {
               label: 'Migrate Laptop',
