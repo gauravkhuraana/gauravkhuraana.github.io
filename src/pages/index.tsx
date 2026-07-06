@@ -8,6 +8,7 @@ import React, {lazy, Suspense} from 'react';
 const SubscriptionForm = lazy(() => import('@site/src/components/SubscriptionForm'));
 
 import styles from './index.module.css';
+import {UDEMY_API_TESTING_URL, TOPMATE_PYTHON_AI_URL, TOPMATE_PERSONAL_WEBSITE_URL} from '@site/src/data/links';
 
 const sections = [
   {
@@ -15,7 +16,7 @@ const sections = [
     items: [
       { icon: '🧪', title: 'Testing', desc: 'Strategies, best practices & methodologies', link: '/docs/category/testing/' },
       { icon: '🤖', title: 'Automation', desc: 'Frameworks, tools & real-world implementation', link: '/docs/category/automation/' },
-      { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/Topmate/testimonials/' },
+      { icon: '📞', title: 'Need 1:1 Guidance?', desc: 'Book a personalized session', link: '/docs/Mentorship/testimonials/' },
     ],
   },
   {
@@ -76,7 +77,7 @@ const highlights = [
     icon: '🐍',
     title: 'Python + AI for Beginners',
     desc: 'Build your own Local AI assistant with LM Studio — 11 hands-on videos, 3 assignments + capstone. No prior coding or paid APIs required.',
-    link: 'https://topmate.io/gauravkhurana/2073657',
+    link: TOPMATE_PYTHON_AI_URL,
     cta: 'Enroll on Topmate',
     accent: 'green',
     external: true,
@@ -85,7 +86,7 @@ const highlights = [
     icon: '🌐',
     title: 'Build Your Personal Website',
     desc: 'Launch your own yourname.com site step-by-step — free hosting, custom domain, and a portfolio you can show recruiters.',
-    link: 'https://topmate.io/gauravkhurana/2070971',
+    link: TOPMATE_PERSONAL_WEBSITE_URL,
     cta: 'Get the Course',
     accent: 'green',
     external: true,
@@ -102,7 +103,7 @@ const highlights = [
     icon: '📞',
     title: 'Need 1:1 Guidance?',
     desc: 'Book a personalized mentoring session — career advice, resume review, or technical deep-dives.',
-    link: '/docs/Topmate/testimonials/',
+    link: '/docs/Mentorship/testimonials/',
     cta: 'Book a Session',
     accent: 'purple',
   },
@@ -110,7 +111,7 @@ const highlights = [
     icon: '🚀',
     title: 'API Testing Course',
     desc: 'Learn API testing concepts with interview Q&A — structured Udemy course with lifetime access.',
-    link: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639',
+    link: UDEMY_API_TESTING_URL,
     cta: 'View on Udemy',
     accent: 'purple',
     external: true,
@@ -207,13 +208,13 @@ function QuickLinks() {
           <Link to="/docs/Automation/automation-basics-series/" className={styles.quickLink}>
             🚀 Automation Basics Series
           </Link>
-          <a href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+          <a href={UDEMY_API_TESTING_URL} className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🎓 API Testing Course (Udemy)
           </a>
-          <a href="https://topmate.io/gauravkhurana/2073657" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+          <a href={TOPMATE_PYTHON_AI_URL} className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🐍 Python + AI for Beginners (Local AI)
           </a>
-          <a href="https://topmate.io/gauravkhurana/2070971" className={styles.quickLink} target="_blank" rel="noopener noreferrer">
+          <a href={TOPMATE_PERSONAL_WEBSITE_URL} className={styles.quickLink} target="_blank" rel="noopener noreferrer">
             🌐 Build Your Personal Website (yourname.com)
           </a>
         </div>

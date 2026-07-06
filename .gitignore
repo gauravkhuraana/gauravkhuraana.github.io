@@ -27,3 +27,8 @@ yarn-error.log*
 # Custom
 copilot-instructions.md
 .playwright-mcp/
+
+# Local build/audit artifacts
+build-log.txt
+build-output.txt
+lighthousereport*.json

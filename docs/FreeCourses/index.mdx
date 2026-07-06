@@ -7,6 +7,7 @@ image: /img/og/freecourses-index-og.png
 ---
 
 import styles from './courses.module.css';
+import {UDEMY_API_TESTING_URL, TOPMATE_PYTHON_AI_URL, TOPMATE_PERSONAL_WEBSITE_URL} from '@site/src/data/links';
 
 # Free Courses
 
@@ -86,7 +87,7 @@ A few hand-picked paid courses for when you want to go deeper with structured pr
 
 <div className={styles.courseGrid}>
 
-<a className={styles.courseCard} href="https://topmate.io/gauravkhurana/2073657" target="_blank" rel="noopener noreferrer">
+<a className={styles.courseCard} href={TOPMATE_PYTHON_AI_URL} target="_blank" rel="noopener noreferrer">
   <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)'}}>
     <span aria-hidden="true">🐍🤖</span>
     <span className={`${styles.badge} ${styles.badgeBest}`}>BESTSELLER</span>
@@ -101,7 +102,7 @@ A few hand-picked paid courses for when you want to go deeper with structured pr
   </div>
 </a>
 
-<a className={styles.courseCard} href="https://topmate.io/gauravkhurana/2070971" target="_blank" rel="noopener noreferrer">
+<a className={styles.courseCard} href={TOPMATE_PERSONAL_WEBSITE_URL} target="_blank" rel="noopener noreferrer">
   <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)'}}>
     <span aria-hidden="true">🌐</span>
     <span className={`${styles.badge} ${styles.badgeTopmate}`}>TOPMATE</span>
@@ -116,7 +117,7 @@ A few hand-picked paid courses for when you want to go deeper with structured pr
   </div>
 </a>
 
-<a className={styles.courseCard} href="https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639" target="_blank" rel="noopener noreferrer">
+<a className={styles.courseCard} href={UDEMY_API_TESTING_URL} target="_blank" rel="noopener noreferrer">
   <div className={styles.courseBanner} style={{background: 'linear-gradient(135deg, #a435f0 0%, #6d28d9 100%)'}}>
     <span aria-hidden="true">🔌</span>
     <span className={`${styles.badge} ${styles.badgeUdemy}`}>UDEMY</span>
@@ -142,4 +143,4 @@ A few hand-picked paid courses for when you want to go deeper with structured pr
 
 ## Need help choosing
 
-Not sure where to start? [Book a 1:1 session](/docs/Topmate/testimonials/) and I'll help you pick the right path based on your background and goals.
+Not sure where to start? [Book a 1:1 session](/docs/Mentorship/testimonials/) and I'll help you pick the right path based on your background and goals.

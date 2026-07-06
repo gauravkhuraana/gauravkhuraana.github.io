@@ -197,6 +197,7 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io/edit/main/',
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,
@@ -268,6 +269,15 @@ const config: Config = {
         disableInDev: false,
       },
     ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {from: '/docs/Topmate/testimonials', to: '/docs/Mentorship/testimonials/'},
+          {from: '/docs/Topmate/resume', to: '/docs/Mentorship/resume/'},
+        ],
+      },
+    ],
     './plugins/feed-enhancer',
     './plugins/auto-webp',
     './plugins/webpack-warning-filter',
@@ -284,17 +294,16 @@ const config: Config = {
       content: '📢 Get quick tips & fresh updates on WhatsApp — <a target="_blank" rel="noopener noreferrer" href="https://whatsapp.com/channel/0029Vb6pKpPElagzl4OTqG2s"><strong>Join the WhatsApp Channel →</strong></a>',
       backgroundColor: '#25D366',
       textColor: '#ffffff',
-      isCloseable: false,
+      isCloseable: true,
     },
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
       options: {},
     },
-    // Replace with your project's social card
-    image: 'img/gauravkhurana.png',
+    // Branded 1200x630 default social card (regenerate: node scripts/generate-default-og.mjs)
+    image: 'img/og/default-og.png',
     metadata: [
       {name: 'description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
-      {name: 'keywords', content: 'software testing, test automation, DevOps, QA, quality assurance, automation frameworks, testing tools, career guidance, AI tools, selenium, cypress, API testing, performance testing, Microsoft test consultant, Gaurav Khurana'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
       {name: 'theme-color', content: '#25c2a0'},
       {property: 'og:url', content: 'https://gauravkhurana.com'},
@@ -428,51 +437,9 @@ const config: Config = {
           ],
         },
         {
-          type: 'dropdown',
+          to: '/courses',
           label: 'Courses',
           position: 'left',
-          items: [
-            {
-              label: 'Python + AI for Beginners (Build Local AI)',
-              href: 'https://topmate.io/gauravkhurana/2073657',
-            },
-            {
-              label: 'Build Your Personal Website (yourname.com)',
-              href: 'https://topmate.io/gauravkhurana/2070971',
-            },
-            {
-              type: 'html',
-              value: '<hr style="margin: 0.5rem 0;">',
-            },
-            {
-              type: 'doc',
-              docId: 'Automation/automation-basics-series',
-              label: 'Automation Basics Series',
-            },
-            {
-              type: 'doc',
-              docId: 'AI/github-copilot',
-              label: 'GitHub Copilot / GH-300',
-            },
-            {
-              type: 'doc',
-              docId: 'AI/azure-ai-900',
-              label: 'Azure AI-900 Fundamentals',
-            },
-            {
-              type: 'doc',
-              docId: 'AzureDevOps/azure-devops-complete-series',
-              label: 'Azure DevOps',
-            },
-            {
-              type: 'html',
-              value: '<hr style="margin: 0.5rem 0;">',
-            },
-            {
-              label: 'API Testing (Udemy)',
-              href: 'https://www.udemy.com/course/learn-api-testing-concepts-with-interview-question-answers/?couponCode=6B648114581356DBE639',
-            },
-          ],
         },
         {
           type: 'dropdown',
@@ -510,8 +477,8 @@ const config: Config = {
           ],
         },
         {
-          to: 'docs/Topmate/testimonials',
-          label: 'Need 1:1?',
+          to: '/docs/Mentorship/testimonials/',
+          label: 'Mentorship',
           position: 'right',
         },
         {

@@ -3,14 +3,20 @@ import React, { useState, useRef, useEffect } from 'react';
 interface YouTubeEmbedProps {
   videoId: string;
   title: string;
+  /** Optional video length shown as a badge, e.g. "12:34" */
+  duration?: string;
 }
 
-const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
+const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title, duration }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  // maxresdefault is sharper but returns 404 for some videos — fall back to hqdefault
+  const [useFallbackThumb, setUseFallbackThumb] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-  const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  const thumbnailUrl = useFallbackThumb
+    ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+    : `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
   
   // Use IntersectionObserver to detect when component is visible
   useEffect(() => {
@@ -63,6 +69,7 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
                 src={thumbnailUrl}
                 alt={title}
                 loading="lazy"
+                onError={() => setUseFallbackThumb(true)}
                 style={{
                   width: '100%',
                   height: '100%',
@@ -103,14 +110,31 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title }) => {
                 fontSize: '14px',
                 fontWeight: 500,
                 textShadow: '0 1px 2px rgba(0,0,0,0.6)',
-                maxWidth: 'calc(100% - 24px)',
+                maxWidth: duration ? 'calc(100% - 90px)' : 'calc(100% - 24px)',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap',
               }}
             >
-              {title}
+              ▶ {title}
             </span>
+            {duration && (
+              <span
+                style={{
+                  position: 'absolute',
+                  bottom: '12px',
+                  right: '12px',
+                  color: 'white',
+                  fontSize: '12px',
+                  fontWeight: 600,
+                  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                }}
+              >
+                {duration}
+              </span>
+            )}
           </button>
         ) : (
           <iframe

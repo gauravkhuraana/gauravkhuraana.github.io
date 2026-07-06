@@ -42,6 +42,7 @@ const categoryColors = {
   'self-mastery':     ['#C6426E', '#642B73'],
   'FreeCourses':      ['#00b09b', '#96c93d'],
   'Topmate':          ['#fc5c7d', '#6a82fb'],
+  'Mentorship':       ['#fc5c7d', '#6a82fb'],
   'blog':             ['#25c2a0', '#43e97b'],
   'default':          ['#4facfe', '#00f2fe'],
 };
@@ -59,6 +60,7 @@ const categoryLabels = {
   'self-mastery':     'Self Mastery',
   'FreeCourses':      'Free Courses',
   'Topmate':          'Mentoring',
+  'Mentorship':       'Mentoring',
   'blog':             'Blog',
 };
 
