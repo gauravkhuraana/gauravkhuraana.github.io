@@ -1,0 +1,257 @@
+---
+title: AI Roadmap for SDETs
+description: A phase-by-phase AI learning roadmap for SDETs and automation testers — from LLM foundations to agents, MCP, and AI testing — with a 13-week fast-track plan.
+sidebar_position: 1
+image: /img/og/ai-sdet-ai-roadmap-og.png
+keywords: [ai roadmap for sdet, ai for testers, llm testing, ai testing roadmap, sdet skills, prompt engineering, rag, agents, mcp, promptfoo, deepeval]
+tags: [ai, sdet, roadmap, llm, ai-testing, agents, mcp, rag]
+---
+
+# 🗺️ AI Roadmap for SDETs
+
+A phase-by-phase path from "I use ChatGPT sometimes" to **testing AI systems professionally** — the single biggest differentiator for a test engineer today.
+
+The roadmap has 20 phases. Phases marked **★ Core** are the ones that set an SDET apart; phases marked *Optional* are good to know but safe to skim. The [13-week fast-track plan](#13-week-fast-track-plan) below shows how to cover it all in about 3 months alongside a full-time job.
+
+## 📊 Roadmap at a Glance
+
+| Phase | Focus Area | Track | Week | Key Tools |
+|-------|-----------|-------|------|-----------|
+| [🟢 1 — Foundations](#phase-1) | How LLMs actually work | | 1 | Azure AI-900, AI-102 |
+| [🟡 2 — AI-assisted Coding](#phase-2) | Prompt engineering + test generation | | 2 | GitHub Copilot, Cursor, Claude Code |
+| [🟡 2.1 — Multi-LLM Usage](#phase-2-1) | Know each model's edges | | 2 | Claude, ChatGPT, Gemini |
+| [🟠 3 — LLM APIs](#phase-3) | From user to builder | | 3 | OpenAI, Azure OpenAI, Anthropic API |
+| [🔵 4 — Local Models](#phase-4) | Cost + privacy track | Optional | 5* | Ollama, LM Studio, Gemma |
+| [🟣 5 — RAG](#phase-5) | Grounding AI in your data | | 4 | LangChain, LlamaIndex |
+| [🟣 5.1 — Vector DB](#phase-5-1) | Similarity search | | 5 | FAISS, Pinecone, Chroma |
+| [🔴 6 — Agents](#phase-6) | Tool calling + planning loops | | 6 | LangGraph |
+| [🔴 6.1 — Agent Frameworks](#phase-6-1) | Multi-agent systems | | 7 | Microsoft Agent Framework, CrewAI |
+| [⚫ 6.2 — Agent Testing](#phase-6-2) | Evaluating agentic systems | ★ Core | 7 | DeepEval, Power CAT Copilot Studio Kit |
+| [⚫ 7 — MCP + A2A](#phase-7) | The integration standard | ★ Core | 8 | MCP, A2A |
+| [🟤 8 — AI IDE Ecosystem](#phase-8) | AI-native dev workflow | | 9 | Cursor, Windsurf, Claude Code |
+| [⚫ 9 — AI Testing](#phase-9) | Your biggest differentiator | ★ Core | 10 | Promptfoo, DeepEval, RAGAS |
+| [⚫ 9.1 — Adversarial / Red-Team](#phase-9-1) | Break it before they do | ★ Core | 11 | Promptfoo red-team, Garak, PyRIT |
+| [⚫ 9.2 — Non-Determinism in Test Design](#phase-9-2) | Stable tests for fuzzy outputs | ★ Core | 11 | DeepEval, Promptfoo assertions |
+| [⚫ 9.3 — Observability](#phase-9-3) | See what the AI actually did | | 12 | Langfuse, LangSmith, Braintrust, Arize Phoenix |
+| [⚫ 9.4 — Guardrails](#phase-9-4) | Production readiness | | 12 | Guardrails AI, JSON Schema |
+| [🔵 10 — Performance & Cost](#phase-10) | Token economics | | 13 | Usage dashboards, Prompt caching |
+| [🟢 11 — Deployment](#phase-11) | Make it usable | Optional | 13* | Docker, Azure, Serverless |
+| [🟤 12 — Advanced](#phase-12) | Awareness only | Optional | 13* | OpenAI fine-tuning, LoRA |
+
+\* Optional phases: fit them in as a weekend detour or skim them in Week 13 — don't let them block the core path.
+
+## 📅 13-Week Fast-Track Plan {#13-week-fast-track-plan}
+
+A realistic pace if you can invest focused evening/weekend hours alongside a job. Every week ends with something built, not just something read.
+
+| Week | Phases | Goal for the Week |
+|------|--------|-------------------|
+| 1 | 🟢 1 Foundations | Understand tokens, embeddings, context windows, and why hallucination happens. Play with prompts and settings; meet non-determinism early. |
+| 2 | 🟡 2 + 2.1 AI-assisted Coding & Multi-LLM | Generate Playwright tests with Copilot/Cursor/Claude Code. Run the same prompt across Claude, ChatGPT, and Gemini and diff the answers. |
+| 3 | 🟠 3 LLM APIs | Make raw API calls with structured output / JSON mode. Build a small test-data or test-case generator behind your own API. |
+| 4 | 🟣 5 RAG | Learn embeddings, chunking, and retrieval. Build a test-knowledge bot over your docs or past defects. |
+| 5 | 🟣 5.1 Vector DB (+ 🔵 4 Local Models detour) | Store log/test-case embeddings in FAISS or Chroma and retrieve similar past failures. If curious, run a local model with Ollama on the weekend. |
+| 6 | 🔴 6 Agents | Understand tool calling and planning loops. Build a bug-triage agent that reads a failure and proposes a root cause. |
+| 7 | 🔴 6.1 + ⚫ 6.2 Agent Frameworks & Agent Testing ★ | Build a QA-agent + Dev-agent crew, then learn to *test* agents: trajectory evaluation, tool-call correctness, multi-turn flows. |
+| 8 | ⚫ 7 MCP + A2A ★ | Expose one of your own test tools (browser, DB, API harness) as an MCP server an agent can call. |
+| 9 | 🟤 8 AI IDE Ecosystem | Build a complete framework feature end-to-end with AI pair-programming in Cursor/Windsurf/Claude Code. |
+| 10 | ⚫ 9 AI Testing ★ | Build an LLM test suite that gates a PR — golden datasets offline plus online sampling, with Promptfoo or DeepEval. |
+| 11 | ⚫ 9.1 + 9.2 Adversarial & Non-Determinism ★ | Red-team a chatbot (prompt injection, jailbreaks) and wire adversarial cases into CI. Convert brittle string-match checks into semantic assertions. |
+| 12 | ⚫ 9.3 + 9.4 Observability & Guardrails | Trace a RAG/agent run in Langfuse or LangSmith. Add input/output validation so malformed or unsafe outputs never reach a user. |
+| 13 | 🔵 10 Performance & Cost (+ skim 🟢 11, 🟤 12) | Cut a workflow's token cost with caching and tighter prompts, and measure the delta. Skim deployment and fine-tuning — know when they're the wrong answer. |
+
+---
+
+## 🟢 Phase 1 — Foundations {#phase-1}
+
+**Focus:** How LLMs actually work
+
+- **What to learn:** AI vs ML vs LLMs, tokens, embeddings, context windows, temperature, and why hallucination happens.
+- **Tools:** Azure AI-900, AI-102
+- **Hands-on (SDET project):** Explore prompts, change settings, and watch outputs vary — meet non-determinism early.
+- **Why it matters:** A solid mental model so you never use AI blindly. The prerequisite for testing it well.
+
+## 🟡 Phase 2 — AI-assisted Coding {#phase-2}
+
+**Focus:** Prompt engineering + test generation
+
+- **What to learn:** Prompt engineering patterns, providing context, generating and refactoring test code.
+- **Tools:** GitHub Copilot, Cursor, Claude Code
+- **Hands-on (SDET project):** Generate Playwright tests, refactor a C#/SpecFlow framework, scaffold page objects.
+- **Why it matters:** The 5–10x productivity unlock, and the most natural on-ramp for any tester.
+
+## 🟡 Phase 2.1 — Multi-LLM Usage {#phase-2-1}
+
+**Focus:** Know each model's edges
+
+- **What to learn:** Comparing model behaviour, strengths, failure modes, and cost vs latency trade-offs.
+- **Tools:** Claude, ChatGPT, Gemini
+- **Hands-on (SDET project):** Run the same prompt across models, diff the answers, build intuition for routing.
+- **Why it matters:** No single model wins everywhere. Picking the right one is itself a testable decision.
+
+## 🟠 Phase 3 — LLM APIs {#phase-3}
+
+**Focus:** From user to builder
+
+- **What to learn:** API calls, structured output, JSON mode, tool/function calling, retries.
+- **Tools:** OpenAI, Azure OpenAI, Anthropic API
+- **Hands-on (SDET project):** Build a test-data or test-case generator service behind your own API.
+- **Why it matters:** The shift from consuming AI to building automation around it.
+
+## 🔵 Phase 4 — Local Models (Optional) {#phase-4}
+
+**Focus:** Cost + privacy track
+
+- **What to learn:** Quantization, local inference, and when on-prem beats the cloud.
+- **Tools:** Ollama, LM Studio, Gemma
+- **Hands-on (SDET project):** Run a local model, wrap it in an API, and point Claude Code at it via a local base URL.
+- **Why it matters:** Valuable when data can't leave the building. Optional for most SDET work, and watch your RAM ceiling.
+
+## 🟣 Phase 5 — RAG {#phase-5}
+
+**Focus:** Grounding AI in your data
+
+- **What to learn:** Embeddings, chunking strategies, retrieval, re-ranking, and grounding answers.
+- **Tools:** LangChain, LlamaIndex
+- **Hands-on (SDET project):** Build a test-knowledge bot over your docs, past defects, or framework wiki.
+- **Why it matters:** Turns a generic model into something that actually knows your system.
+
+## 🟣 Phase 5.1 — Vector DB {#phase-5-1}
+
+**Focus:** Similarity search
+
+- **What to learn:** Vector indexes, similarity search, metadata filtering.
+- **Tools:** FAISS, Pinecone, Chroma
+- **Hands-on (SDET project):** Store log and test-case embeddings, then retrieve similar past failures.
+- **Why it matters:** Retrieval quality is the ceiling on RAG quality, and it is measurable.
+
+## 🔴 Phase 6 — Agents {#phase-6}
+
+**Focus:** Tool calling + planning loops
+
+- **What to learn:** Tool calling, ReAct-style loops, planning, memory, and when an agent is overkill.
+- **Tools:** LangGraph
+- **Hands-on (SDET project):** Build a bug-triage agent that reads a failure and proposes a root cause.
+- **Why it matters:** Autonomous workflows are the next layer of automation, and a brand-new testing surface.
+
+## 🔴 Phase 6.1 — Agent Frameworks {#phase-6-1}
+
+**Focus:** Multi-agent systems
+
+- **What to learn:** Multi-agent orchestration, roles, handoffs, durability and checkpointing.
+- **Tools:** Microsoft Agent Framework, CrewAI
+- **Hands-on (SDET project):** A QA-agent + Dev-agent crew that triages a failure and drafts a fix together.
+- **Why it matters:** Simulates real team dynamics for tasks too complex for one agent.
+
+## ⚫ Phase 6.2 — Agent Testing ★ Core {#phase-6-2}
+
+**Focus:** Evaluating agentic systems
+
+- **What to learn:** Trajectory evaluation, tool-call correctness, multi-step assertions, loop detection.
+- **Tools:** DeepEval, Power CAT Copilot Studio Kit
+- **Hands-on (SDET project):** Test a Copilot Studio agent end-to-end via Direct Line API — auth, tools, multi-turn flows.
+- **Why it matters:** Agents fail differently than single-turn LLMs. This is the gap most testers haven't closed yet.
+
+## ⚫ Phase 7 — MCP + A2A ★ Core {#phase-7}
+
+**Focus:** The integration standard
+
+- **What to learn:** Model Context Protocol (model ↔ tools) and Agent-to-Agent protocol (agent ↔ agent) — the open standards every major platform now speaks.
+- **Tools:** MCP, A2A
+- **Hands-on (SDET project):** Expose your own test tools — browser, DB, API harness — as MCP servers an agent can call.
+- **Why it matters:** The standard way AI connects to tools. Knowing it is now table stakes, not a nice-to-have.
+
+## 🟤 Phase 8 — AI IDE Ecosystem {#phase-8}
+
+**Focus:** AI-native dev workflow
+
+- **What to learn:** AI pair-programming, agentic editors, and when to drop down to the terminal.
+- **Tools:** Cursor, Windsurf, Claude Code
+- **Hands-on (SDET project):** Build a complete framework feature using AI pair-programming, start to finish.
+- **Why it matters:** The real day-to-day productivity shift, well beyond autocomplete.
+
+## ⚫ Phase 9 — AI Testing ★ Core {#phase-9}
+
+**Focus:** Your biggest differentiator
+
+- **What to learn:** Eval metrics, prompt and regression testing, golden datasets, LLM-as-judge.
+- **Tools:** Promptfoo, DeepEval, RAGAS
+- **Hands-on (SDET project):** Build an LLM test suite that gates a PR — offline goldens plus online sampling.
+- **Why it matters:** The single skill that separates a test engineer from a prompt tinkerer.
+
+## ⚫ Phase 9.1 — Adversarial / Red-Team ★ Core {#phase-9-1}
+
+**Focus:** Break it before they do
+
+- **What to learn:** Prompt injection, jailbreaks, data exfiltration, and automatic adversarial test generation.
+- **Tools:** Promptfoo red-team, Garak, PyRIT
+- **Hands-on (SDET project):** Red-team a chatbot or Copilot agent, then wire adversarial cases into a CI gate.
+- **Why it matters:** Prompt injection is the new SQL injection. For an SDET, this is a headline skill.
+
+## ⚫ Phase 9.2 — Non-Determinism in Test Design ★ Core {#phase-9-2}
+
+**Focus:** Stable tests for fuzzy outputs
+
+- **What to learn:** Semantic vs exact-match assertions, LLM-as-judge with pinned judges, re-baselining over time.
+- **Tools:** DeepEval, Promptfoo assertions
+- **Hands-on (SDET project):** Convert brittle string-match checks into stable, meaning-based assertions.
+- **Why it matters:** The bridge from classic flaky-test expertise straight into AI testing.
+
+## ⚫ Phase 9.3 — Observability {#phase-9-3}
+
+**Focus:** See what the AI actually did
+
+- **What to learn:** Traces, spans, token usage, and tracking failures and hallucinations in production.
+- **Tools:** Langfuse, LangSmith, Braintrust, Arize Phoenix
+- **Hands-on (SDET project):** Trace a RAG or agent run, then sample live traffic and score it automatically.
+- **Why it matters:** You cannot debug, or improve, what you cannot see.
+
+## ⚫ Phase 9.4 — Guardrails {#phase-9-4}
+
+**Focus:** Production readiness
+
+- **What to learn:** Input and output validation, schema enforcement, safety filters, fallbacks.
+- **Tools:** Guardrails AI, JSON Schema
+- **Hands-on (SDET project):** Block malformed or unsafe outputs before they ever reach a user.
+- **Why it matters:** The difference between a demo and a feature you can actually ship.
+
+## 🔵 Phase 10 — Performance & Cost {#phase-10}
+
+**Focus:** Token economics
+
+- **What to learn:** Token optimization, prompt caching, batching, and model routing.
+- **Tools:** Usage dashboards, Prompt caching
+- **Hands-on (SDET project):** Cut a workflow's token cost with caching and tighter prompts, and measure the delta.
+- **Why it matters:** Cost is a non-functional requirement, and a testable one.
+
+## 🟢 Phase 11 — Deployment (Optional) {#phase-11}
+
+**Focus:** Make it usable
+
+- **What to learn:** Hosting models and APIs, packaging, serverless basics.
+- **Tools:** Docker, Azure, Serverless
+- **Hands-on (SDET project):** Deploy an AI microservice that others can call.
+- **Why it matters:** Good to understand, but leans MLE/DevOps — a nice-to-have for a tester.
+
+## 🟤 Phase 12 — Advanced (Optional) {#phase-12}
+
+**Focus:** Awareness only
+
+- **What to learn:** Fine-tuning, distillation, LoRA, custom domain models.
+- **Tools:** OpenAI fine-tuning, LoRA
+- **Hands-on (SDET project):** Skim a fine-tuning walkthrough and learn to recognise when it is the wrong answer.
+- **Why it matters:** Out of scope for most SDETs — RAG plus good prompts cover the need. Know it exists; don't grind it.
+
+---
+
+## 🚀 Where to Go Next
+
+Pair this roadmap with the hands-on content already on this site:
+
+- [GitHub Copilot](./github-copilot.mdx) — the natural starting point for Phase 2
+- [Agentic AI](./agentic-ai.mdx) — videos and walkthroughs for Phases 6–6.1
+- [Prompt Library](./prompt-library.mdx) — ready-to-use prompts for testers
+- [Azure AI-900: AI Fundamentals](./azure-ai-900.mdx) — a structured way to cover Phase 1
+- [AI Coding Failures & Pitfalls](./ai-coding-failures.mdx) — what to watch out for while using AI-assisted coding
+
+#SharingIsCaring
