@@ -403,6 +403,11 @@ const config: Config = {
           items: [
             {
               type: 'doc',
+              docId: 'AI/sdet-ai-roadmap',
+              label: 'AI Roadmap for SDET',
+            },
+            {
+              type: 'doc',
               docId: 'AI/github-copilot',
               label: 'GitHub Copilot',
             },
