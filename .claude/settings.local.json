@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Remove-Item \"c:\\\\migration\\\\E\\\\Automation\\\\website\\\\gauravkhurana\\\\src\\\\pages\\\\my-react-page.js\" -Force)",
-      "Bash(Remove-Item \"c:\\\\migration\\\\E\\\\Automation\\\\website\\\\gauravkhurana\\\\src\\\\pages\\\\my-markdown-page.mdx\" -Force)"
-    ]
-  }
-}
