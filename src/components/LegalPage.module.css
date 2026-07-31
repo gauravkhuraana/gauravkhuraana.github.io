@@ -1,0 +1,127 @@
+.header {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  background: linear-gradient(135deg, #e8f6ef 0%, #f7faf9 58%, #eef3f8 100%);
+}
+
+[data-theme='dark'] .header {
+  background: linear-gradient(135deg, #173c30 0%, #1b2522 58%, #202a34 100%);
+}
+
+.title {
+  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+}
+
+.description {
+  max-width: 760px;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.updated {
+  margin-bottom: 1.25rem;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.85rem;
+}
+
+.policyNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.policyNav a {
+  font-weight: 700;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(180px, 230px) minmax(0, 760px);
+  gap: 3rem;
+  justify-content: center;
+  padding-top: 2.5rem;
+  padding-bottom: 4rem;
+}
+
+.contents {
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 1.5rem);
+  align-self: start;
+  padding-left: 1rem;
+  border-left: 3px solid var(--ifm-color-primary);
+}
+
+.contents ul {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contents li + li {
+  margin-top: 0.45rem;
+}
+
+.contents a {
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.85rem;
+}
+
+.article {
+  min-width: 0;
+}
+
+.section {
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem);
+}
+
+.section + .section {
+  margin-top: 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.section h2 {
+  margin-bottom: 0.9rem;
+  font-size: 1.55rem;
+}
+
+.section p,
+.section li {
+  line-height: 1.75;
+}
+
+.policyNav a:focus-visible,
+.contents a:focus-visible,
+.section a:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .policyNav a:focus-visible,
+[data-theme='dark'] .contents a:focus-visible,
+[data-theme='dark'] .section a:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+
+  .contents {
+    position: static;
+  }
+}

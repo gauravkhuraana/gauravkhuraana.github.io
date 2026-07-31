@@ -79,6 +79,19 @@
   color: var(--ifm-color-content);
 }
 
+.highlightCard:focus-visible,
+.categoryCard:focus-visible,
+.quickLink:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .highlightCard:focus-visible,
+[data-theme='dark'] .categoryCard:focus-visible,
+[data-theme='dark'] .quickLink:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
 .border_green { border-color: #25c2a0; }
 .border_blue { border-color: #3b82f6; }
 .border_purple { border-color: #8b5cf6; }

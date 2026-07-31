@@ -236,6 +236,15 @@
   color: inherit;
 }
 
+.socialCard:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .socialCard:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
 .socialIcon {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;

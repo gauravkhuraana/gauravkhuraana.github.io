@@ -130,11 +130,25 @@ function CourseCard({course}: {course: Course}): ReactNode {
   );
 
   return course.external ? (
-    <a className={styles.courseCard} href={course.link} target="_blank" rel="noopener noreferrer">
+    <a
+      className={styles.courseCard}
+      href={course.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-analytics-event="course_cta_click"
+      data-analytics-label={course.title}
+      data-analytics-location="courses_page"
+    >
       {body}
     </a>
   ) : (
-    <Link className={styles.courseCard} to={course.link}>
+    <Link
+      className={styles.courseCard}
+      to={course.link}
+      data-analytics-event="course_cta_click"
+      data-analytics-label={course.title}
+      data-analytics-location="courses_page"
+    >
       {body}
     </Link>
   );

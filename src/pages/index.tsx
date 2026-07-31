@@ -81,6 +81,7 @@ const highlights = [
     cta: 'Enroll on Topmate',
     accent: 'green',
     external: true,
+    analyticsEvent: 'course_cta_click',
   },
   {
     icon: '🌐',
@@ -90,6 +91,7 @@ const highlights = [
     cta: 'Get the Course',
     accent: 'green',
     external: true,
+    analyticsEvent: 'course_cta_click',
   },
   {
     icon: '🎓',
@@ -98,6 +100,7 @@ const highlights = [
     link: '/docs/FreeCourses/',
     cta: 'Browse Courses',
     accent: 'blue',
+    analyticsEvent: 'course_cta_click',
   },
   {
     icon: '📞',
@@ -106,6 +109,7 @@ const highlights = [
     link: '/docs/Mentorship/testimonials/',
     cta: 'Book a Session',
     accent: 'purple',
+    analyticsEvent: 'mentorship_cta_click',
   },
   {
     icon: '🚀',
@@ -115,6 +119,7 @@ const highlights = [
     cta: 'View on Udemy',
     accent: 'purple',
     external: true,
+    analyticsEvent: 'course_cta_click',
   },
 ];
 
@@ -141,6 +146,9 @@ function Highlights() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={clsx(styles.highlightCard, styles[`border_${item.accent}`])}
+                data-analytics-event={item.analyticsEvent}
+                data-analytics-label={item.title}
+                data-analytics-location="homepage_highlights"
               >
                 {inner}
               </a>
@@ -149,6 +157,9 @@ function Highlights() {
                 key={item.title}
                 to={item.link}
                 className={clsx(styles.highlightCard, styles[`border_${item.accent}`])}
+                data-analytics-event={item.analyticsEvent}
+                data-analytics-label={item.title}
+                data-analytics-location="homepage_highlights"
               >
                 {inner}
               </Link>

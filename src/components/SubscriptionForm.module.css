@@ -140,6 +140,15 @@
   outline-offset: 2px;
 }
 
+.iframe:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .iframe:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
 /* High contrast mode support */
 @media (forced-colors: active) {
   .subscriptionContainer {

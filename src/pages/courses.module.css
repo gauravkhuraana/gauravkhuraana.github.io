@@ -12,6 +12,7 @@
 
 .hero p {
   font-size: 1.1rem;
+  color: #fff;
   opacity: 0.95;
   max-width: 640px;
   margin: 0 auto;
@@ -59,6 +60,17 @@
   border-color: var(--ifm-color-primary);
   text-decoration: none;
   color: inherit;
+}
+
+.courseCard:focus-visible,
+.proofButton:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .courseCard:focus-visible,
+[data-theme='dark'] .proofButton:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
 }
 
 .courseBanner {

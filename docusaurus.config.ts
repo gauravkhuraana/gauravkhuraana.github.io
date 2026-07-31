@@ -5,6 +5,13 @@ import type * as Mermaid from '@docusaurus/theme-mermaid';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// Umami analytics is cookieless, so no consent banner is required.
+// Paste the website ID from your Umami dashboard, or set UMAMI_WEBSITE_ID at build time.
+// Leaving it empty disables analytics without breaking the build.
+const umamiWebsiteId = process.env.UMAMI_WEBSITE_ID ?? '';
+const umamiScriptUrl = process.env.UMAMI_SCRIPT_URL ?? 'https://cloud.umami.is/script.js';
+const umamiOrigin = new URL(umamiScriptUrl).origin;
+
 const config: Config = {
   title: 'gauravkhurana.com',
   tagline: 'Sharing is Caring',
@@ -47,17 +54,21 @@ const config: Config = {
       tagName: 'meta',
       attributes: {
         'http-equiv': 'Content-Security-Policy',
-        content: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://ko-fi.com https://storage.ko-fi.com https://www.instagram.com https://platform.twitter.com; style-src 'self' 'unsafe-inline' https://cdn.brevo.com https://2daf0ef4.sibforms.com; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://*.algolia.net https://*.algolianet.com; frame-src https://2daf0ef4.sibforms.com https://ko-fi.com https://www.youtube.com https://www.instagram.com https://platform.twitter.com; frame-ancestors 'self';",
+        content: `default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://ko-fi.com https://storage.ko-fi.com ${umamiOrigin} https://www.instagram.com https://platform.twitter.com; style-src 'self' 'unsafe-inline' https://cdn.brevo.com https://2daf0ef4.sibforms.com; img-src 'self' data: https: blob:; font-src 'self' data: https:; connect-src 'self' https://cdn.brevo.com https://2daf0ef4.sibforms.com https://*.algolia.net https://*.algolianet.com ${umamiOrigin} https://www.google.com; frame-src https://2daf0ef4.sibforms.com https://ko-fi.com https://www.youtube.com https://www.youtube-nocookie.com https://www.instagram.com https://platform.twitter.com;`,
       },
     },
-    // X-Frame-Options equivalent via meta (clickjacking protection)
-    {
-      tagName: 'meta',
-      attributes: {
-        'http-equiv': 'X-Content-Type-Options',
-        content: 'nosniff',
-      },
-    },
+    ...(umamiWebsiteId
+      ? [
+          {
+            tagName: 'script',
+            attributes: {
+              defer: 'true',
+              src: umamiScriptUrl,
+              'data-website-id': umamiWebsiteId,
+            },
+          },
+        ]
+      : []),
     // Algolia site verification
     {
       tagName: 'meta',
@@ -253,13 +264,6 @@ const config: Config = {
 
   plugins: [
     [
-      '@docusaurus/plugin-google-gtag',
-      {
-        trackingID: 'G-03C1M9S2P9',
-        anonymizeIP: true,
-      },
-    ],
-    [
       '@docusaurus/plugin-ideal-image',
       {
         quality: 70,
@@ -284,10 +288,6 @@ const config: Config = {
     'docusaurus-lunr-search',
   ],
 
-  clientModules: [
-    require.resolve('./src/client/kofiAutoInjection.js'),
-  ],
-
   themeConfig: {
     announcementBar: {
       id: 'whatsapp_channel_v2',
@@ -306,7 +306,6 @@ const config: Config = {
       {name: 'description', content: 'Expert insights on software testing, test automation, DevOps, and AI tools. Learn automation frameworks, testing strategies, and career guidance from an experienced QA professional.'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1.0'},
       {name: 'theme-color', content: '#25c2a0'},
-      {property: 'og:url', content: 'https://gauravkhurana.com'},
       {name: 'apple-mobile-web-app-capable', content: 'yes'},
       {name: 'apple-mobile-web-app-status-bar-style', content: 'default'},
       {name: 'msapplication-TileColor', content: '#25c2a0'},
@@ -596,6 +595,27 @@ const config: Config = {
             {
               label: '📝 Follow on Medium',
               href: 'https://www.medium.com/@gauravkhuraana',
+            },
+          ],
+        },
+        {
+          title: 'Legal',
+          items: [
+            {
+              label: 'Privacy Policy',
+              to: '/privacy',
+            },
+            {
+              label: 'Cookie Policy',
+              to: '/cookies',
+            },
+            {
+              label: 'Terms of Use',
+              to: '/terms',
+            },
+            {
+              label: 'Affiliate Disclosure',
+              to: '/affiliate-disclosure',
             },
           ],
         },

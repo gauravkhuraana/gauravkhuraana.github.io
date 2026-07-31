@@ -32,3 +32,12 @@ copilot-instructions.md
 build-log.txt
 build-output.txt
 lighthousereport*.json
+
+# Local agent/tooling state
+.claude/
+.playwright-cli/
+
+# Working notes and scratch patches
+BLOGIMPROVEMENTANALYSIS.md
+improvementbykimi.md
+*.patch

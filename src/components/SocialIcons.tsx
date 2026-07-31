@@ -35,7 +35,7 @@ interface SocialIconsProps {
   showLabels?: boolean;
 }
 
-export default function SocialIcons({ showLabels = true }: SocialIconsProps): JSX.Element {
+export default function SocialIcons({ showLabels = true }: SocialIconsProps): React.JSX.Element {
   const socialLinks = [
     {
       name: 'YouTube',

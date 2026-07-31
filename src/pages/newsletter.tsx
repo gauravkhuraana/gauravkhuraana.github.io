@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import SubscriptionForm from '@site/src/components/SubscriptionForm';
 import styles from './newsletter.module.css';
 
 // Inline SVG Icons
@@ -28,17 +29,7 @@ const TopmateIcon = () => (
   </svg>
 );
 
-export default function Newsletter(): JSX.Element {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Form will be handled by FormSubmit
-    setIsSubmitted(true);
-  };
-
+export default function Newsletter(): React.JSX.Element {
   return (
     <Layout
       title="Newsletter Subscription"
@@ -119,71 +110,10 @@ export default function Newsletter(): JSX.Element {
               </div>
 
               <div className={styles.subscriptionSection}>
-                <div className={styles.subscriptionCard}>
-                  <Heading as="h2" className={styles.cardTitle}>
-                    🚀 Subscribe to My Newsletter
-                  </Heading>
-                  <p className={styles.cardDescription}>
-                    Now that you've seen the value I provide across platforms, get weekly insights on test automation, AI in testing, DevOps practices, and career growth tips delivered directly to your inbox!
-                  </p>
-
-                  {!isSubmitted ? (
-                    <form 
-                      action="https://formsubmit.co/936d8782d82b2344cb64dec256c6aa49" 
-                      method="POST" 
-                      className={styles.subscriptionForm}
-                      onSubmit={handleSubmit}
-                    >
-                      <input type="hidden" name="_subject" value="New Newsletter Subscription!" />
-                      <input type="hidden" name="_next" value="https://gauravkhurana.com/newsletter" />
-                      <input type="hidden" name="_template" value="table" />
-                      
-                      <div className={styles.formGroup}>
-                        <label htmlFor="name">Name</label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          placeholder="Your name"
-                          required
-                        />
-                      </div>
-
-                      <div className={styles.formGroup}>
-                        <label htmlFor="email">Email Address</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          placeholder="your.email@example.com"
-                          required
-                        />
-                      </div>
-
-
-
-                      <button type="submit" className={styles.subscribeButton}>
-                        📧 Subscribe Now
-                      </button>
-                    </form>
-                  ) : (
-                    <div className={styles.successMessage}>
-                      <h3>🎉 Thank You for Subscribing!</h3>
-                      <p>You'll receive valuable testing and automation insights soon. Check your email for confirmation.</p>
-                    </div>
-                  )}
-
-                  <div className={styles.privacyNote}>
-                    <p>
-                      🔒 Your privacy matters. No spam, unsubscribe anytime. 
-                      I respect your inbox and only send valuable content.
-                    </p>
-                  </div>
-                </div>
+                <SubscriptionForm
+                  title="Subscribe to My Newsletter"
+                  description="Get weekly insights on test automation, AI in testing, DevOps practices, and career growth delivered directly to your inbox."
+                />
 
                 <div className={styles.benefitsCard}>
                   <Heading as="h3" className={styles.benefitsTitle}>

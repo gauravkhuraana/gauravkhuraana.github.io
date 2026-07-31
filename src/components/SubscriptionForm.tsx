@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { trackEvent } from '@site/src/utils/analytics';
 import styles from './SubscriptionForm.module.css';
 
 /** Lazy-loads an iframe only when it scrolls into view */
 function LazyIframe({ src, title, height }: { src: string; title: string; height: number }) {
   const ref = useRef<HTMLDivElement>(null);
+  const hasTrackedEngagement = useRef(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -28,6 +30,19 @@ function LazyIframe({ src, title, height }: { src: string; title: string; height
           scrolling="no"
           allowFullScreen
           className={styles.iframe}
+          onLoad={() => trackEvent('newsletter_form_view', {
+            event_label: title,
+            cta_location: window.location.pathname,
+          })}
+          onFocus={() => {
+            if (!hasTrackedEngagement.current) {
+              hasTrackedEngagement.current = true;
+              trackEvent('newsletter_form_engaged', {
+                event_label: title,
+                cta_location: window.location.pathname,
+              });
+            }
+          }}
           style={{
             display: 'block',
             marginLeft: 'auto',

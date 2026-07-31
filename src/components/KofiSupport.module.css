@@ -150,11 +150,6 @@
   text-decoration: none;
 }
 
-.widgetButton::before {
-  content: 'Coffee';
-  font-size: 0.9em;
-}
-
 /* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   .kofiButton,
@@ -170,10 +165,10 @@
 }
 
 /* Focus indicators for accessibility */
-.kofiButton:focus,
-.kofiMinimal:focus,
-.widgetButton:focus {
-  outline: 2px solid var(--ifm-color-primary);
+.kofiButton:focus-visible,
+.kofiMinimal:focus-visible,
+.widgetButton:focus-visible {
+  outline: 3px solid var(--ifm-color-primary);
   outline-offset: 2px;
 }
 
