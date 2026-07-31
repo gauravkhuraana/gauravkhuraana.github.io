@@ -30,7 +30,7 @@ div[class*='announcementBar'] a:hover {
   --ifm-font-size-base: 16px;
   --ifm-line-height-base: 1.6;
   --ifm-color-content: #1c1e21;
-  --ifm-color-content-secondary: #525860;
+  --ifm-color-content-secondary: #4a4f57;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -46,7 +46,7 @@ div[class*='announcementBar'] a:hover {
   
   /* Enhanced dark mode typography */
   --ifm-color-content: #e3e3e3;
-  --ifm-color-content-secondary: #a0a4a8;
+  --ifm-color-content-secondary: #b8bcc0;
 }
 
 /* Improved typography and spacing */
@@ -438,6 +438,249 @@ body {
 /* YouTubeEmbed component */
 .youtube-embed-container {
   margin-bottom: 2rem;
+}
+
+/* Accessibility: Skip to main content link (WCAG 2.4.1) */
+.skip-to-main-content {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 99999; /* Very high z-index to be above everything */
+}
+
+.skip-to-main-content:focus,
+.skip-to-main-content:focus-visible {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: auto;
+  height: auto;
+  padding: 16px 24px;
+  background: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 99999;
+}
+
+/* Accessibility: Focus visibility for interactive elements (WCAG 2.4.7) */
+/* navbar-kofi-link focus is defined in Ko-fi section above */
+
+iframe:focus,
+iframe:focus-visible {
+  outline: 4px solid #000000 !important; /* Black outline for strong contrast */
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme='dark'] iframe:focus,
+[data-theme='dark'] iframe:focus-visible {
+  outline: 4px solid #ffffff !important;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Accessibility: Improved focus indicators for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Accessibility: Hero title color contrast fix (WCAG 1.4.3) */
+.hero__title {
+  color: #ffffff !important;
+  text-shadow: 
+    0 0 10px rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 4px 8px rgba(0, 0, 0, 0.7) !important;
+  /* Multiple shadows create darker backdrop for 3:1 contrast on gradient */
+}
+
+/* Accessibility: Ko-fi link color contrast fix (WCAG 1.4.3) */
+.navbar-kofi-link {
+  color: #1a1a1a !important; /* Dark text for 4.5:1 contrast on light navbar */
+  font-weight: 600 !important;
+}
+
+.navbar-kofi-link:focus,
+.navbar-kofi-link:focus-visible {
+  outline: 3px solid #000000 !important; /* Black outline for 3:1 contrast */
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme='dark'] .navbar-kofi-link {
+  color: #ffffff !important; /* White text for dark mode */
+}
+
+[data-theme='dark'] .navbar-kofi-link:focus,
+[data-theme='dark'] .navbar-kofi-link:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Accessibility: Toggle button focus visibility (WCAG 2.4.7) */
+.toggleButton_gllP:focus,
+.toggleButton_gllP:focus-visible,
+.clean-btn.toggleButton_gllP:focus,
+.clean-btn.toggleButton_gllP:focus-visible {
+  outline: 3px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(37, 194, 160, 0.3) !important;
+}
+
+/* Accessibility: Secondary button focus visibility (WCAG 2.4.7) */
+.button--secondary:focus,
+.button--secondary:focus-visible {
+  outline: 3px solid #ffffff !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Accessibility: Card links focus visibility (WCAG 2.4.7) */
+[class*='cardLink']:focus,
+[class*='cardLink']:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Accessibility: Resource links focus visibility (WCAG 2.4.7) */
+[class*='resourceLink']:focus,
+[class*='resourceLink']:focus-visible {
+  outline: 3px solid #000000 !important; /* Black outline for 3:1 contrast */
+  outline-offset: 3px !important;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme='dark'] [class*='resourceLink']:focus,
+[data-theme='dark'] [class*='resourceLink']:focus-visible {
+  outline: 3px solid #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Accessibility: Search input contrast fix (WCAG 1.4.11) */
+.navbar__search-input,
+.search-bar {
+  border: 2px solid #666666 !important; /* 3:1 contrast ratio */
+  background-color: #ffffff !important;
+}
+
+[data-theme='dark'] .navbar__search-input,
+[data-theme='dark'] .search-bar {
+  border: 2px solid #888888 !important;
+  background-color: #2e2e2e !important;
+}
+
+.navbar__search-input:focus,
+.search-bar:focus {
+  border-color: var(--ifm-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(37, 194, 160, 0.3) !important;
+}
+
+/* Accessibility: Enhanced focus indicators for all interactive elements (SC 2.4.7) */
+/* Two-color focus indicator for visibility on both light and dark backgrounds */
+
+/* Navbar links */
+.navbar__link:focus,
+.navbar__link:focus-visible,
+.navbar__brand:focus,
+.navbar__brand:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 4px;
+}
+
+[data-theme='dark'] .navbar__link:focus,
+[data-theme='dark'] .navbar__link:focus-visible,
+[data-theme='dark'] .navbar__brand:focus,
+[data-theme='dark'] .navbar__brand:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Sidebar menu links */
+.menu__link:focus,
+.menu__link:focus-visible,
+.menu__caret:focus,
+.menu__caret:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(37, 194, 160, 0.2) !important;
+}
+
+/* Dropdown menu items */
+.dropdown__link:focus,
+.dropdown__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 1px !important;
+  background-color: var(--ifm-dropdown-hover-background-color) !important;
+}
+
+/* Footer links */
+.footer__link-item:focus,
+.footer__link-item:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Pagination navigation */
+.pagination-nav__link:focus,
+.pagination-nav__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+  border-color: var(--ifm-color-primary) !important;
+}
+
+/* Table of contents links */
+.table-of-contents__link:focus,
+.table-of-contents__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 1px !important;
+}
+
+/* Breadcrumb links */
+.breadcrumbs__link:focus,
+.breadcrumbs__link:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Tabs */
+.tabs__item:focus,
+.tabs__item:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Clean buttons (used throughout Docusaurus) */
+.clean-btn:focus,
+.clean-btn:focus-visible {
+  outline: 2px solid var(--ifm-color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Ensure focus is never completely hidden */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
 .youtube-embed-wrapper {

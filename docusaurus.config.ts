@@ -286,6 +286,7 @@ const config: Config = {
 
   clientModules: [
     require.resolve('./src/client/kofiAutoInjection.js'),
+    require.resolve('./src/client/searchLandmark.ts'),
   ],
 
   themeConfig: {
