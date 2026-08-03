@@ -7,14 +7,25 @@
 
 const https = require('https');
 const fs = require('fs');
+const path = require('path');
 
-const FEEDS = {
+const REMOTE_FEEDS = {
   rss: 'https://gauravkhurana.com/blog/rss.xml',
   atom: 'https://gauravkhurana.com/blog/atom.xml'
 };
 
+const LOCAL_FEEDS = {
+  rss: path.join(__dirname, '..', 'build', 'blog', 'rss.xml'),
+  atom: path.join(__dirname, '..', 'build', 'blog', 'atom.xml')
+};
+
+function hasValidStructure(name, data) {
+  const rootElement = name === 'rss' ? '<rss' : '<feed';
+  return data.includes('<?xml') && data.includes(rootElement);
+}
+
 async function testFeed(name, url) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     console.log(`Testing ${name.toUpperCase()} feed: ${url}`);
     
     https.get(url, (res) => {
@@ -31,11 +42,13 @@ async function testFeed(name, url) {
           console.log(`   Content-Type: ${res.headers['content-type']}`);
           console.log(`   Content-Length: ${data.length} bytes`);
           
-          // Basic XML validation
-          if (data.includes('<?xml') && (data.includes('<rss') || data.includes('<feed'))) {
+          if (hasValidStructure(name, data)) {
             console.log(`   Structure: Valid XML`);
           } else {
-            console.log(`   ⚠️  Structure: Invalid XML`);
+            console.log(`   ❌ Structure: Invalid XML`);
+            console.log('');
+            resolve({ name, url, status: 'error', error: 'Invalid XML structure' });
+            return;
           }
           
           console.log('');
@@ -52,13 +65,35 @@ async function testFeed(name, url) {
   });
 }
 
-async function validateFeeds() {
-  console.log('🔍 Validating Blog Feeds for gauravkhurana.com\n');
+async function testLocalFeed(name, filePath) {
+  console.log(`Testing ${name.toUpperCase()} feed: ${filePath}`);
+
+  try {
+    const data = await fs.promises.readFile(filePath, 'utf8');
+    if (!hasValidStructure(name, data)) {
+      console.log('   ❌ Structure: Invalid XML\n');
+      return { name, filePath, status: 'error', error: 'Invalid XML structure' };
+    }
+
+    console.log(`   Content-Length: ${data.length} bytes`);
+    console.log('   Structure: Valid XML\n');
+    return { name, filePath, status: 'success', size: data.length };
+  } catch (error) {
+    console.log(`   ❌ Feed error: ${error.message}\n`);
+    return { name, filePath, status: 'error', error: error.message };
+  }
+}
+
+async function validateFeeds({ local = false } = {}) {
+  console.log(`🔍 Validating ${local ? 'local build' : 'production'} blog feeds\n`);
   
   const results = [];
+  const feeds = local ? LOCAL_FEEDS : REMOTE_FEEDS;
   
-  for (const [name, url] of Object.entries(FEEDS)) {
-    const result = await testFeed(name, url);
+  for (const [name, location] of Object.entries(feeds)) {
+    const result = local
+      ? await testLocalFeed(name, location)
+      : await testFeed(name, location);
     results.push(result);
   }
   
@@ -67,20 +102,25 @@ async function validateFeeds() {
     const status = result.status === 'success' ? '✅' : '❌';
     console.log(`   ${status} ${result.name.toUpperCase()}: ${result.status}`);
   });
+
+  if (results.some((result) => result.status === 'error')) {
+    throw new Error('One or more feed validations failed.');
+  }
   
-  console.log('\n📝 Integration URLs:');
-  console.log('   RSS:  https://gauravkhurana.com/blog/rss.xml');
-  console.log('   Atom: https://gauravkhurana.com/blog/atom.xml');
-  console.log('   Info: https://gauravkhurana.com/feeds');
-  
-  console.log('\n🔗 Quick Test Commands:');
-  console.log('   curl -I https://gauravkhurana.com/blog/rss.xml');
-  console.log('   curl -I https://gauravkhurana.com/blog/atom.xml');
+  if (!local) {
+    console.log('\n📝 Integration URLs:');
+    console.log('   RSS:  https://gauravkhurana.com/blog/rss.xml');
+    console.log('   Atom: https://gauravkhurana.com/blog/atom.xml');
+    console.log('   Info: https://gauravkhurana.com/feeds');
+  }
 }
 
 // Run if called directly
 if (require.main === module) {
-  validateFeeds().catch(console.error);
+  validateFeeds({ local: process.argv.includes('--local') }).catch((error) => {
+    console.error(error.message);
+    process.exitCode = 1;
+  });
 }
 
-module.exports = { validateFeeds, testFeed };
+module.exports = { validateFeeds, testFeed, testLocalFeed };

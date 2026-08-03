@@ -21,6 +21,11 @@ type Course = {
   badge: 'FREE' | 'BESTSELLER' | 'TOPMATE' | 'UDEMY';
   tags: string[];
   cta: string;
+  priceLabel: string;
+  audience: string;
+  format: string;
+  support: string;
+  outcome: string;
 };
 
 const freeCourses: Course[] = [
@@ -33,6 +38,11 @@ const freeCourses: Course[] = [
     badge: 'FREE',
     tags: ['Automation', 'Beginner'],
     cta: 'Start Learning →',
+    priceLabel: 'Free',
+    audience: 'New automation testers',
+    format: 'Video series and guides',
+    support: 'Self-paced resources',
+    outcome: 'Build strong automation foundations',
   },
   {
     icon: '🛠️',
@@ -43,6 +53,11 @@ const freeCourses: Course[] = [
     badge: 'FREE',
     tags: ['AI', 'Certification'],
     cta: 'Start Learning →',
+    priceLabel: 'Free',
+    audience: 'Developers and testers using AI',
+    format: 'Guides and certification prep',
+    support: 'Self-paced resources',
+    outcome: 'Use GitHub Copilot effectively',
   },
   {
     icon: '☁️',
@@ -53,6 +68,11 @@ const freeCourses: Course[] = [
     badge: 'FREE',
     tags: ['Azure', 'AI', 'Certification'],
     cta: 'Start Learning →',
+    priceLabel: 'Free',
+    audience: 'AI beginners and certification candidates',
+    format: 'Certification guide and videos',
+    support: 'Self-paced resources',
+    outcome: 'Prepare for the AI-900 exam',
   },
   {
     icon: '⚙️',
@@ -63,6 +83,11 @@ const freeCourses: Course[] = [
     badge: 'FREE',
     tags: ['DevOps', 'CI/CD'],
     cta: 'Start Learning →',
+    priceLabel: 'Free',
+    audience: 'Testers learning CI/CD',
+    format: 'Video series and practical guides',
+    support: 'Self-paced resources',
+    outcome: 'Build Azure DevOps foundations',
   },
 ];
 
@@ -77,6 +102,11 @@ const premiumCourses: Course[] = [
     badge: 'BESTSELLER',
     tags: ['11 Videos', '~4–6 hrs', '3 Assignments + Capstone'],
     cta: 'Enroll on Topmate →',
+    priceLabel: 'See current Topmate price',
+    audience: 'Beginners building with local AI',
+    format: '11 videos, assignments, and capstone',
+    support: 'Platform course access',
+    outcome: 'Build a local AI assistant',
   },
   {
     icon: '🌐',
@@ -88,6 +118,11 @@ const premiumCourses: Course[] = [
     badge: 'TOPMATE',
     tags: ['Portfolio', 'Custom Domain', 'Beginner'],
     cta: 'Get the Course →',
+    priceLabel: 'See current Topmate price',
+    audience: 'Beginners and job seekers',
+    format: 'Step-by-step project course',
+    support: 'Platform course access',
+    outcome: 'Launch a personal portfolio site',
   },
   {
     icon: '🔌',
@@ -99,8 +134,15 @@ const premiumCourses: Course[] = [
     badge: 'UDEMY',
     tags: ['API', 'Interview Prep', 'Lifetime Access'],
     cta: 'View on Udemy →',
+    priceLabel: 'See current Udemy price',
+    audience: 'API testers and interview candidates',
+    format: 'Structured on-demand course',
+    support: 'Lifetime course access',
+    outcome: 'Strengthen API and interview skills',
   },
 ];
+
+const allCourses = [...freeCourses, ...premiumCourses];
 
 const badgeClass: Record<Course['badge'], string> = {
   FREE: styles.badgeFree,
@@ -124,6 +166,7 @@ function CourseCard({course}: {course: Course}): ReactNode {
             <span key={tag}>{tag}</span>
           ))}
         </div>
+        <span className={styles.price}>{course.priceLabel}</span>
         <span className={styles.cta}>{course.cta}</span>
       </div>
     </>
@@ -188,6 +231,45 @@ export default function Courses(): ReactNode {
             {premiumCourses.map((course) => (
               <CourseCard key={course.title} course={course} />
             ))}
+          </div>
+        </section>
+
+        <section className={styles.section}>
+          <Heading as="h2">Compare Course Options</Heading>
+          <p id="course-comparison-description" className={styles.sectionSub}>
+            Choose by experience level, learning format, and the outcome you want to achieve.
+            External platforms show their latest price before checkout.
+          </p>
+          <div
+            className={styles.comparisonTableWrapper}
+            role="region"
+            aria-label="Course comparison"
+            tabIndex={0}
+          >
+            <table className={styles.comparisonTable} aria-describedby="course-comparison-description">
+              <thead>
+                <tr>
+                  <th scope="col">Course</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Best for</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Support</th>
+                  <th scope="col">Outcome</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allCourses.map((course) => (
+                  <tr key={course.title}>
+                    <th scope="row">{course.title}</th>
+                    <td>{course.priceLabel}</td>
+                    <td>{course.audience}</td>
+                    <td>{course.format}</td>
+                    <td>{course.support}</td>
+                    <td>{course.outcome}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
 

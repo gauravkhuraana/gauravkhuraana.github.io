@@ -65,6 +65,15 @@ function CompactHero() {
             <p className={styles.heroTagline}>
               Testing, Automation & AI — by a Microsoft Consultant
             </p>
+            <Link
+              to="/docs/Automation/automation-basics-series/"
+              className={styles.heroCta}
+              data-analytics-event="hero_cta_click"
+              data-analytics-label="Start with Automation Basics"
+              data-analytics-location="homepage_hero"
+            >
+              Start with Automation Basics
+            </Link>
           </div>
         </div>
       </div>
@@ -171,6 +180,33 @@ function Highlights() {
   );
 }
 
+function TrustBand() {
+  return (
+    <section className={styles.trustSection} aria-labelledby="homepage-trust-title">
+      <div className={clsx('container', styles.trustInner)}>
+        <div>
+          <Heading as="h2" id="homepage-trust-title" className={styles.trustTitle}>
+            Trusted by 25+ testers and SDETs
+          </Heading>
+          <p className={styles.trustDescription}>
+            Practical guidance shaped by 15+ years in testing and automation, including
+            consulting experience at Microsoft.
+          </p>
+        </div>
+        <Link
+          to="/docs/Mentorship/testimonials/"
+          className={styles.trustLink}
+          data-analytics-event="testimonial_cta_click"
+          data-analytics-label="Read learner success stories"
+          data-analytics-location="homepage_trust"
+        >
+          Read learner success stories
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 function CategoryGrid() {
   return (
     <section className={styles.categorySection}>
@@ -242,6 +278,7 @@ export default function Home(): ReactNode {
       <CompactHero />
       <main>
         <Highlights />
+        <TrustBand />
         <CategoryGrid />
         <QuickLinks />
         <div className="container" style={{ maxWidth: 700, paddingBottom: '2rem' }}>

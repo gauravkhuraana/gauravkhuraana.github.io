@@ -25,8 +25,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Type-check site
+        run: npm run typecheck
+
+      - name: Validate SEO metadata
+        run: npm run test:seo
+
       - name: Build Docusaurus site
         run: npm run build
+
+      - name: Validate generated feeds
+        run: npm run test:feeds:local
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

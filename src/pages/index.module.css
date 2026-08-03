@@ -42,6 +42,33 @@
   line-height: 1.4;
 }
 
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 0.9rem;
+  padding: 0.55rem 1rem;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  background: #fff;
+  color: #205d3b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.heroCta:hover {
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+}
+
+.heroCta:focus-visible {
+  outline: 3px solid #fff8c5;
+  outline-offset: 3px;
+}
+
 /* Category Grid */
 .categorySection {
   padding: 2rem 0;
@@ -130,6 +157,64 @@
 .cta_green { background: #25c2a0; }
 .cta_blue { background: #3b82f6; }
 .cta_purple { background: #8b5cf6; }
+
+/* Trust proof */
+.trustSection {
+  margin-top: 1.5rem;
+  padding: 1.5rem 0;
+  border-block: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.trustInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.trustTitle {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.trustDescription {
+  max-width: 680px;
+  margin: 0;
+  color: var(--ifm-color-content-secondary);
+  font-size: 0.9rem;
+}
+
+.trustLink {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--ifm-color-primary);
+  border-radius: 6px;
+  color: var(--ifm-color-primary-darkest);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.trustLink:hover {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  text-decoration: none;
+}
+
+.trustLink:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .trustLink {
+  color: var(--ifm-color-primary-lightest);
+}
+
+[data-theme='dark'] .trustLink:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
 
 .sectionTitle {
   text-align: center;
@@ -239,6 +324,12 @@
   .highlightsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .trustInner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
 /* Mobile */
@@ -262,6 +353,11 @@
 
   .heroTagline {
     font-size: 0.85rem;
+  }
+
+  .heroCta {
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
   }
 
   .categoryGrid {

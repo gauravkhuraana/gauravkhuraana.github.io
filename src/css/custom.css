@@ -149,6 +149,12 @@ body {
   }
 }
 
+@media screen and (max-width: 374px) {
+  .navbar__title {
+    display: none;
+  }
+}
+
 /* Ensure no content creates overflow that allows scrolling past footer */
 .theme-doc-root,
 .theme-blog-wrapper,

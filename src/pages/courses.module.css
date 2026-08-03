@@ -146,9 +146,72 @@
   border-radius: 4px;
 }
 
+.price {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-content);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
 .cta {
   font-weight: 600;
   color: var(--ifm-color-primary);
+}
+
+.comparisonTableWrapper {
+  overflow-x: auto;
+  margin: 1.5rem 0 2rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.comparisonTableWrapper:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] .comparisonTableWrapper:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
+.comparisonTable {
+  width: 100%;
+  min-width: 960px;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.comparisonTable th,
+.comparisonTable td {
+  padding: 0.75rem;
+  border: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparisonTable thead th {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.comparisonTable tbody th {
+  min-width: 190px;
+  color: var(--ifm-color-primary-darkest);
+  font-weight: 700;
+}
+
+[data-theme='dark'] .comparisonTable tbody th {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.comparisonTable tbody tr:last-child th,
+.comparisonTable tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .proofBand {
