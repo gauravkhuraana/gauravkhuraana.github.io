@@ -288,6 +288,10 @@ const config: Config = {
     'docusaurus-lunr-search',
   ],
 
+  clientModules: [
+    require.resolve('./src/client/searchLandmark.ts'),
+  ],
+
   themeConfig: {
     announcementBar: {
       id: 'whatsapp_channel_v2',
