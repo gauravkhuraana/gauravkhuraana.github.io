@@ -42,20 +42,35 @@
   line-height: 1.4;
 }
 
-.heroCta {
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.heroCta,
+.heroCtaSecondary {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  margin-top: 0.9rem;
   padding: 0.55rem 1rem;
   border: 2px solid #fff;
   border-radius: 6px;
-  background: #fff;
-  color: #205d3b;
   font-size: 0.9rem;
   font-weight: 700;
   text-decoration: none;
   transition: background 0.2s ease, color 0.2s ease;
+}
+
+.heroCta {
+  background: #fff;
+  color: #205d3b;
+}
+
+.heroCtaSecondary {
+  background: transparent;
+  color: #fff;
 }
 
 .heroCta:hover {
@@ -64,7 +79,14 @@
   text-decoration: none;
 }
 
-.heroCta:focus-visible {
+.heroCtaSecondary:hover {
+  background: #fff;
+  color: #205d3b;
+  text-decoration: none;
+}
+
+.heroCta:focus-visible,
+.heroCtaSecondary:focus-visible {
   outline: 3px solid #fff8c5;
   outline-offset: 3px;
 }
@@ -157,6 +179,54 @@
 .cta_green { background: #25c2a0; }
 .cta_blue { background: #3b82f6; }
 .cta_purple { background: #8b5cf6; }
+
+/* Cards offering the same course on two platforms */
+.highlightActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+a.highlightCta,
+.highlightCtaAlt {
+  text-decoration: none;
+}
+
+a.highlightCta:hover,
+a.highlightCta:focus-visible {
+  color: #fff;
+  text-decoration: none;
+  filter: brightness(0.92);
+}
+
+.highlightCtaAlt {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-content);
+}
+
+.highlightCtaAlt:hover,
+.highlightCtaAlt:focus-visible {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+a.highlightCta:focus-visible,
+.highlightCtaAlt:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 3px;
+}
+
+[data-theme='dark'] a.highlightCta:focus-visible,
+[data-theme='dark'] .highlightCtaAlt:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
 
 /* Trust proof */
 .trustSection {
@@ -355,8 +425,12 @@
     font-size: 0.85rem;
   }
 
-  .heroCta {
+  .heroActions {
     margin-top: 0.75rem;
+  }
+
+  .heroCta,
+  .heroCtaSecondary {
     font-size: 0.82rem;
   }
 

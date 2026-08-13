@@ -8,7 +8,14 @@ import React, {lazy, Suspense} from 'react';
 const SubscriptionForm = lazy(() => import('@site/src/components/SubscriptionForm'));
 
 import styles from './index.module.css';
-import {UDEMY_API_TESTING_URL, TOPMATE_PYTHON_AI_URL, TOPMATE_PERSONAL_WEBSITE_URL} from '@site/src/data/links';
+import {
+  UDEMY_API_TESTING_URL,
+  UDEMY_PYTHON_AI_URL,
+  UDEMY_PERSONAL_WEBSITE_URL,
+  TOPMATE_API_TESTING_URL,
+  TOPMATE_PYTHON_AI_URL,
+  TOPMATE_PERSONAL_WEBSITE_URL,
+} from '@site/src/data/links';
 
 const sections = [
   {
@@ -65,15 +72,26 @@ function CompactHero() {
             <p className={styles.heroTagline}>
               Testing, Automation & AI — by a Microsoft Consultant
             </p>
-            <Link
-              to="/docs/Automation/automation-basics-series/"
-              className={styles.heroCta}
-              data-analytics-event="hero_cta_click"
-              data-analytics-label="Start with Automation Basics"
-              data-analytics-location="homepage_hero"
-            >
-              Start with Automation Basics
-            </Link>
+            <div className={styles.heroActions}>
+              <Link
+                to="/courses"
+                className={styles.heroCta}
+                data-analytics-event="hero_cta_click"
+                data-analytics-label="Explore Free Courses"
+                data-analytics-location="homepage_hero"
+              >
+                Explore Free Courses
+              </Link>
+              <Link
+                to="/docs/Mentorship/testimonials/"
+                className={styles.heroCtaSecondary}
+                data-analytics-event="hero_cta_click"
+                data-analytics-label="Book 1:1 Mentorship"
+                data-analytics-location="homepage_hero"
+              >
+                Book 1:1 Mentorship
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -81,13 +99,29 @@ function CompactHero() {
   );
 }
 
-const highlights = [
+type Highlight = {
+  icon: string;
+  title: string;
+  desc: string;
+  link: string;
+  cta: string;
+  accent: string;
+  analyticsEvent: string;
+  external?: boolean;
+  /* Same course on the other platform — learners pick where they prefer to buy. */
+  altLink?: string;
+  altCta?: string;
+};
+
+const highlights: Highlight[] = [
   {
     icon: '🐍',
     title: 'Python + AI for Beginners',
     desc: 'Build your own Local AI assistant with LM Studio — 11 hands-on videos, 3 assignments + capstone. No prior coding or paid APIs required.',
     link: TOPMATE_PYTHON_AI_URL,
     cta: 'Enroll on Topmate',
+    altLink: UDEMY_PYTHON_AI_URL,
+    altCta: 'Also on Udemy',
     accent: 'green',
     external: true,
     analyticsEvent: 'course_cta_click',
@@ -97,7 +131,9 @@ const highlights = [
     title: 'Build Your Personal Website',
     desc: 'Launch your own yourname.com site step-by-step — free hosting, custom domain, and a portfolio you can show recruiters.',
     link: TOPMATE_PERSONAL_WEBSITE_URL,
-    cta: 'Get the Course',
+    cta: 'Get it on Topmate',
+    altLink: UDEMY_PERSONAL_WEBSITE_URL,
+    altCta: 'Also on Udemy',
     accent: 'green',
     external: true,
     analyticsEvent: 'course_cta_click',
@@ -123,9 +159,11 @@ const highlights = [
   {
     icon: '🚀',
     title: 'API Testing Course',
-    desc: 'Learn API testing concepts with interview Q&A — structured Udemy course with lifetime access.',
+    desc: 'Learn API testing concepts with interview Q&A — 34 lectures with 30+ interview questions and lifetime access.',
     link: UDEMY_API_TESTING_URL,
     cta: 'View on Udemy',
+    altLink: TOPMATE_API_TESTING_URL,
+    altCta: 'Also on Topmate',
     accent: 'purple',
     external: true,
     analyticsEvent: 'course_cta_click',
@@ -148,6 +186,48 @@ function Highlights() {
                 </span>
               </>
             );
+
+            // Available on two platforms: the card can't be one big link, so it
+            // holds a primary and a secondary CTA instead.
+            if (item.altLink) {
+              return (
+                <div
+                  key={item.title}
+                  className={clsx(styles.highlightCard, styles[`border_${item.accent}`])}
+                >
+                  <span className={styles.highlightIcon}>{item.icon}</span>
+                  <strong className={styles.highlightTitle}>{item.title}</strong>
+                  <p className={styles.highlightDesc}>{item.desc}</p>
+                  <div className={styles.highlightActions}>
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={clsx(styles.highlightCta, styles[`cta_${item.accent}`])}
+                      aria-label={`${item.title} — ${item.cta}`}
+                      data-analytics-event={item.analyticsEvent}
+                      data-analytics-label={`${item.title} (${item.cta})`}
+                      data-analytics-location="homepage_highlights"
+                    >
+                      {item.cta} →
+                    </a>
+                    <a
+                      href={item.altLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.highlightCtaAlt}
+                      aria-label={`${item.title} — ${item.altCta}`}
+                      data-analytics-event={item.analyticsEvent}
+                      data-analytics-label={`${item.title} (${item.altCta})`}
+                      data-analytics-location="homepage_highlights"
+                    >
+                      {item.altCta}
+                    </a>
+                  </div>
+                </div>
+              );
+            }
+
             return item.external ? (
               <a
                 key={item.title}
@@ -259,10 +339,10 @@ function QuickLinks() {
             🎓 API Testing Course (Udemy)
           </a>
           <a href={TOPMATE_PYTHON_AI_URL} className={styles.quickLink} target="_blank" rel="noopener noreferrer">
-            🐍 Python + AI for Beginners (Local AI)
+            🐍 Python + AI for Beginners (Topmate)
           </a>
           <a href={TOPMATE_PERSONAL_WEBSITE_URL} className={styles.quickLink} target="_blank" rel="noopener noreferrer">
-            🌐 Build Your Personal Website (yourname.com)
+            🌐 Build Your Personal Website (Topmate)
           </a>
         </div>
       </div>
