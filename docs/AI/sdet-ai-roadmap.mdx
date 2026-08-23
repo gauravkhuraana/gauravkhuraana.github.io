@@ -17,7 +17,7 @@ The roadmap has 20 phases. Phases marked **★ Core** are the ones that set an S
 
 | Phase | Focus Area | Track | Week | Key Tools |
 |-------|-----------|-------|------|-----------|
-| [🟢 1 — Foundations](#phase-1) | How LLMs actually work | | 1 | Azure AI-900, AI-102 |
+| [🟢 1 — Foundations](#phase-1) | How LLMs actually work | | 1 | Model playground, tokenizer viewer |
 | [🟡 2 — AI-assisted Coding](#phase-2) | Prompt engineering + test generation | | 2 | GitHub Copilot, Cursor, Claude Code |
 | [🟡 2.1 — Multi-LLM Usage](#phase-2-1) | Know each model's edges | | 2 | Claude, ChatGPT, Gemini |
 | [🟠 3 — LLM APIs](#phase-3) | From user to builder | | 3 | OpenAI, Azure OpenAI, Anthropic API |
@@ -34,9 +34,9 @@ The roadmap has 20 phases. Phases marked **★ Core** are the ones that set an S
 | [⚫ 9.2 — Non-Determinism in Test Design](#phase-9-2) | Stable tests for fuzzy outputs | ★ Core | 11 | DeepEval, Promptfoo assertions |
 | [⚫ 9.3 — Observability](#phase-9-3) | See what the AI actually did | | 12 | Langfuse, LangSmith, Braintrust, Arize Phoenix |
 | [⚫ 9.4 — Guardrails](#phase-9-4) | Production readiness | | 12 | Guardrails AI, JSON Schema |
-| [🔵 10 — Performance & Cost](#phase-10) | Token economics | | 13 | Usage dashboards, Prompt caching |
+| [🔵 10 — Performance & Cost](#phase-10) | Token economics | | 13 | Provider usage dashboards, tiktoken |
 | [🟢 11 — Deployment](#phase-11) | Make it usable | Optional | 13* | Docker, Azure, Serverless |
-| [🟤 12 — Advanced](#phase-12) | Awareness only | Optional | 13* | OpenAI fine-tuning, LoRA |
+| [🟤 12 — Advanced](#phase-12) | Awareness only | Optional | 13* | OpenAI fine-tuning API, Hugging Face PEFT |
 
 \* Optional phases: fit them in as a weekend detour or skim them in Week 13 — don't let them block the core path.
 
@@ -67,7 +67,8 @@ A realistic pace if you can invest focused evening/weekend hours alongside a job
 **Focus:** How LLMs actually work
 
 - **What to learn:** AI vs ML vs LLMs, tokens, embeddings, context windows, temperature, and why hallucination happens.
-- **Tools:** Azure AI-900, AI-102
+- **Tools:** A playground where the settings are visible and adjustable (Azure AI Foundry, OpenAI Playground) plus a tokenizer viewer, so you can literally watch text become tokens.
+- **Structured path (optional):** **Azure AI-900** gives you the vocabulary and a certificate to show for it; **AI-102** goes deeper into building. Certifications, not tools — treat them as one way to cover this phase, not a requirement. There are [AI-900 notes on this site](./azure-ai-900.mdx) if you want a head start.
 - **Hands-on (SDET project):** Explore prompts, change settings, and watch outputs vary — meet non-determinism early.
 - **Why it matters:** A solid mental model so you never use AI blindly. The prerequisite for testing it well.
 
@@ -220,7 +221,7 @@ A realistic pace if you can invest focused evening/weekend hours alongside a job
 **Focus:** Token economics
 
 - **What to learn:** Token optimization, prompt caching, batching, and model routing.
-- **Tools:** Usage dashboards, Prompt caching
+- **Tools:** Provider usage dashboards (OpenAI, Azure), tiktoken for counting tokens before you spend them
 - **Hands-on (SDET project):** Cut a workflow's token cost with caching and tighter prompts, and measure the delta.
 - **Why it matters:** Cost is a non-functional requirement, and a testable one.
 
@@ -238,7 +239,7 @@ A realistic pace if you can invest focused evening/weekend hours alongside a job
 **Focus:** Awareness only
 
 - **What to learn:** Fine-tuning, distillation, LoRA, custom domain models.
-- **Tools:** OpenAI fine-tuning, LoRA
+- **Tools:** OpenAI fine-tuning API, Hugging Face PEFT (the usual way LoRA actually gets run)
 - **Hands-on (SDET project):** Skim a fine-tuning walkthrough and learn to recognise when it is the wrong answer.
 - **Why it matters:** Out of scope for most SDETs — RAG plus good prompts cover the need. Know it exists; don't grind it.
 
