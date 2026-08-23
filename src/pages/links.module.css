@@ -1,4 +1,4 @@
-/* /links — the full site index. Card and pill patterns follow index.module.css. */
+/* /links — the full site index, laid out as a compact 3-column directory. */
 
 .hero {
   padding: 2rem 0 1.75rem;
@@ -138,9 +138,21 @@
   color: #1b1b1d;
 }
 
-/* Groups */
+/* Three-column directory.
+   CSS columns rather than grid: groups vary a lot in length (4 links vs 13), and
+   columns pack them by height instead of leaving ragged holes in a row-based grid. */
+.columns {
+  column-count: 3;
+  column-gap: 2rem;
+}
+
 .group {
-  margin-bottom: 2rem;
+  /* Keep a category intact rather than splitting it across a column boundary. */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1.6rem;
   /* Sticky navbar would otherwise cover the heading on an anchor jump. */
   scroll-margin-top: 5rem;
 }
@@ -148,90 +160,67 @@
 .groupTitle {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
+  gap: 0.45rem;
+  font-size: 1rem;
   font-weight: 700;
-  margin: 0 0 0.35rem;
-  padding-bottom: 0.4rem;
+  margin: 0 0 0.5rem;
+  padding-bottom: 0.35rem;
   border-bottom: 2px solid var(--ifm-color-emphasis-200);
   color: var(--ifm-color-content);
 }
 
 .groupIcon {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .groupCount {
   margin-left: auto;
-  padding: 0.1rem 0.5rem;
+  padding: 0.05rem 0.45rem;
   border-radius: 12px;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   background: var(--ifm-color-emphasis-200);
   color: var(--ifm-color-content-secondary);
 }
 
-.groupBlurb {
-  margin: 0 0 0.75rem;
-  font-size: 0.85rem;
-  color: var(--ifm-color-content-secondary);
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+.item {
+  margin: 0;
 }
 
 /* The 'cardLink' name is deliberate — custom.css already ships a
    [class*='cardLink']:focus-visible rule that gives these accessible focus rings. */
 .cardLink {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  padding: 0.6rem 0.85rem;
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  background: var(--ifm-card-background-color);
+  display: block;
+  padding: 0.28rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  line-height: 1.35;
   text-decoration: none;
   color: var(--ifm-color-content);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  border-left: 2px solid transparent;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
 }
 
 .cardLink:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
   text-decoration: none;
-  color: var(--ifm-color-content);
 }
 
 [data-theme='dark'] .cardLink:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.cardText {
-  min-width: 0;
-}
-
-.cardTitle {
-  display: block;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-200);
 }
 
 .externalMark {
   margin-left: 0.25rem;
-  font-size: 0.72rem;
-  color: var(--ifm-color-content-secondary);
-}
-
-.cardDesc {
-  margin: 0.15rem 0 0;
-  font-size: 0.78rem;
-  line-height: 1.35;
+  font-size: 0.68rem;
   color: var(--ifm-color-content-secondary);
 }
 
@@ -241,7 +230,20 @@
   color: var(--ifm-color-content-secondary);
 }
 
-@media screen and (max-width: 480px) {
+/* Tablet — two columns */
+@media screen and (max-width: 996px) {
+  .columns {
+    column-count: 2;
+    column-gap: 1.5rem;
+  }
+}
+
+/* Mobile — single column */
+@media screen and (max-width: 640px) {
+  .columns {
+    column-count: 1;
+  }
+
   .hero {
     padding: 1.5rem 0 1.25rem;
   }
@@ -254,7 +256,8 @@
     font-size: 0.88rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .cardLink {
+    /* Roomier tap target on touch screens. */
+    padding: 0.42rem 0.5rem;
   }
 }

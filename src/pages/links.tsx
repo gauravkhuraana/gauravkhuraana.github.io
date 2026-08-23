@@ -1,6 +1,5 @@
 import type {ReactNode} from 'react';
 import {useMemo, useState} from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import Layout from '@theme/Layout';
@@ -14,25 +13,22 @@ const PAGE_DESCRIPTION =
   'test automation, software testing, API testing, tools, career guidance, free courses, ' +
   'practice sites and social profiles.';
 
+// desc and tags are never rendered — they exist purely so the filter can match on more
+// than the visible title (searching "playwright" finds AI Browser Automation, etc.).
 function matches(link: SiteLink, query: string): boolean {
   const haystack = `${link.title} ${link.desc} ${(link.tags ?? []).join(' ')}`.toLowerCase();
   return haystack.includes(query);
 }
 
-function LinkCard({link, groupId}: {link: SiteLink; groupId: string}): ReactNode {
-  const inner = (
+function LinkRow({link, groupId}: {link: SiteLink; groupId: string}): ReactNode {
+  const label = (
     <>
-      <div className={styles.cardText}>
-        <strong className={styles.cardTitle}>
-          {link.title}
-          {link.external && (
-            <span className={styles.externalMark} aria-hidden="true">
-              ↗
-            </span>
-          )}
-        </strong>
-        <p className={styles.cardDesc}>{link.desc}</p>
-      </div>
+      {link.title}
+      {link.external && (
+        <span className={styles.externalMark} aria-hidden="true">
+          ↗
+        </span>
+      )}
     </>
   );
 
@@ -42,20 +38,24 @@ function LinkCard({link, groupId}: {link: SiteLink; groupId: string}): ReactNode
     'data-analytics-location': groupId,
   };
 
-  return link.external ? (
-    <a
-      href={link.href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.cardLink}
-      aria-label={`${link.title} (opens in a new tab)`}
-      {...analytics}>
-      {inner}
-    </a>
-  ) : (
-    <Link to={link.href} className={styles.cardLink} {...analytics}>
-      {inner}
-    </Link>
+  return (
+    <li className={styles.item}>
+      {link.external ? (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.cardLink}
+          aria-label={`${link.title} (opens in a new tab)`}
+          {...analytics}>
+          {label}
+        </a>
+      ) : (
+        <Link to={link.href} className={styles.cardLink} {...analytics}>
+          {label}
+        </Link>
+      )}
+    </li>
   );
 }
 
@@ -167,25 +167,24 @@ export default function Links(): ReactNode {
             </p>
           )}
 
-          {visibleGroups.map((group) => (
-            <section key={group.id} id={group.id} className={styles.group}>
-              <Heading as="h2" className={styles.groupTitle}>
-                <span className={styles.groupIcon} aria-hidden="true">
-                  {group.icon}
-                </span>
-                {group.title}
-                <span className={styles.groupCount}>{group.links.length}</span>
-              </Heading>
-              {group.blurb && !isFiltering && (
-                <p className={styles.groupBlurb}>{group.blurb}</p>
-              )}
-              <div className={clsx(styles.grid)}>
-                {group.links.map((link) => (
-                  <LinkCard key={`${group.id}-${link.href}`} link={link} groupId={group.id} />
-                ))}
-              </div>
-            </section>
-          ))}
+          <div className={styles.columns}>
+            {visibleGroups.map((group) => (
+              <section key={group.id} id={group.id} className={styles.group}>
+                <Heading as="h2" className={styles.groupTitle}>
+                  <span className={styles.groupIcon} aria-hidden="true">
+                    {group.icon}
+                  </span>
+                  {group.title}
+                  <span className={styles.groupCount}>{group.links.length}</span>
+                </Heading>
+                <ul className={styles.list}>
+                  {group.links.map((link) => (
+                    <LinkRow key={`${group.id}-${link.href}`} link={link} groupId={group.id} />
+                  ))}
+                </ul>
+              </section>
+            ))}
+          </div>
         </div>
       </main>
     </Layout>
