@@ -279,6 +279,8 @@ const config: Config = {
         redirects: [
           {from: '/docs/Topmate/testimonials', to: '/docs/Mentorship/testimonials/'},
           {from: '/docs/Topmate/resume', to: '/docs/Mentorship/resume/'},
+          // The old "Learning Resources Hub" is superseded by the full index at /links.
+          {from: '/markdown-page', to: '/links/'},
         ],
       },
     ],
@@ -494,6 +496,7 @@ const config: Config = {
           label: 'YouTube',
           position: 'right',
         },
+        {to: '/links', label: 'Links', position: 'right'},
         {to: '/feedback', label: 'Contact', position: 'right'},
         {
           href: 'https://ko-fi.com/gauravkhurana',
