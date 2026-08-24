@@ -487,17 +487,32 @@ const config: Config = {
           ],
         },
         {
-          to: '/docs/Mentorship/testimonials/',
-          label: 'Mentorship',
+          type: 'dropdown',
+          label: 'Connect',
           position: 'right',
+          items: [
+            {
+              to: '/docs/Mentorship/testimonials/',
+              label: 'Mentorship',
+            },
+            {
+              href: 'https://www.youtube.com/@Udzial?sub_confirmation=1',
+              label: 'YouTube',
+            },
+            {
+              to: '/links',
+              label: 'All Links',
+            },
+            {
+              type: 'html',
+              value: '<hr style="margin: 0.5rem 0;">',
+            },
+            {
+              to: '/feedback',
+              label: 'Contact',
+            },
+          ],
         },
-        {
-          href: 'https://www.youtube.com/@Udzial?sub_confirmation=1',
-          label: 'YouTube',
-          position: 'right',
-        },
-        {to: '/links', label: 'Links', position: 'right'},
-        {to: '/feedback', label: 'Contact', position: 'right'},
         {
           href: 'https://ko-fi.com/gauravkhurana',
           label: '☕ Buy Me a Coffee',

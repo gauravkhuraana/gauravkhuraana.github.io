@@ -155,6 +155,36 @@ body {
   }
 }
 
+/* 13" laptops (MacBook 13"/Air, Surface Pro 13", 1366x768).
+   Docusaurus swaps to the hamburger only below 997px, but the full desktop
+   item row needs ~1308px. Across that band the left and right item groups
+   collided and the site title collapsed, so tighten spacing rather than hide links. */
+@media screen and (min-width: 997px) and (max-width: 1320px) {
+  .navbar__item,
+  .navbar__link {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .navbar-kofi-link {
+    margin-left: 4px;
+    padding: 6px 10px !important;
+  }
+
+  /* Reclaim ~35px of row width for the nav items. */
+  .navbar__search-input {
+    width: 165px;
+  }
+}
+
+/* Below ~1150px even the tightened row cannot fit the wordmark: the brand box
+   collapses while the 32px logo spills out of it. Drop to logo-only. */
+@media screen and (min-width: 997px) and (max-width: 1150px) {
+  .navbar__title {
+    display: none;
+  }
+}
+
 /* Ensure no content creates overflow that allows scrolling past footer */
 .theme-doc-root,
 .theme-blog-wrapper,
