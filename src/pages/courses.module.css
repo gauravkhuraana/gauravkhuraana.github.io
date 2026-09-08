@@ -1,17 +1,17 @@
 .hero {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 1.5rem 1rem 1.25rem;
   background: linear-gradient(135deg, var(--ifm-color-primary) 0%, #1a2a6c 100%);
   color: #fff;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.9rem;
+  margin-bottom: 0.35rem;
 }
 
 .hero p {
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   color: #fff;
   opacity: 0.95;
   max-width: 640px;
@@ -21,24 +21,24 @@
 .section {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 2rem 1rem 0;
+  padding: 1.25rem 1rem 0;
 }
 
 .section h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-bottom: 0.25rem;
 }
 
 .sectionSub {
   opacity: 0.75;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .courseGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin: 0.75rem 0 1.25rem;
 }
 
 .courseCard {
@@ -74,11 +74,11 @@
 }
 
 .courseBanner {
-  height: 140px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
+  font-size: 2.3rem;
   position: relative;
 }
 
@@ -114,22 +114,28 @@
 }
 
 .courseBody {
-  padding: 1.25rem;
+  padding: 1rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .courseBody h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.1rem;
+  margin: 0 0 0.4rem;
+  font-size: 1.02rem;
+  line-height: 1.35;
 }
 
 .courseBody p {
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   opacity: 0.8;
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tags {
@@ -156,6 +162,48 @@
 .cta {
   font-weight: 600;
   color: var(--ifm-color-primary);
+}
+
+/* Cards offered on two platforms show a primary and a secondary CTA. */
+.courseActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.9rem;
+}
+
+.courseActions .cta {
+  text-decoration: none;
+}
+
+.courseActions .cta:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ctaAlt {
+  font-size: 0.78rem;
+  font-weight: 600;
+  /* Muted via opacity: --ifm-color-content-secondary is pure white in dark
+     mode, which would outshine the primary CTA. */
+  color: var(--ifm-color-content);
+  opacity: 0.7;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ctaAlt:hover {
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
+.courseActions a:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] .courseActions a:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
 }
 
 .comparisonTableWrapper {
@@ -209,6 +257,44 @@
   color: var(--ifm-color-primary-lightest);
 }
 
+.tableLink {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.tableLink:hover,
+.tableLink:focus-visible {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tableLink:focus-visible {
+  outline: 3px solid var(--ifm-color-primary-darkest);
+  outline-offset: 2px;
+}
+
+[data-theme='dark'] .tableLink:focus-visible {
+  outline-color: var(--ifm-color-primary-lightest);
+}
+
+.tableAltLink {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-color-content);
+  opacity: 0.7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tableAltLink:hover {
+  color: var(--ifm-color-primary);
+  opacity: 1;
+}
+
 .comparisonTable tbody tr:last-child th,
 .comparisonTable tbody tr:last-child td {
   border-bottom: 0;
@@ -246,6 +332,51 @@
 
 .proofButton:hover {
   opacity: 0.85;
+}
+
+.proofStats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2.5rem;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.proofStats dt {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .proofStats dt {
+  color: var(--ifm-color-primary-lightest);
+}
+
+.proofStats dd {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  opacity: 0.75;
+  max-width: 15ch;
+}
+
+.proofButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.proofButtonSecondary {
+  background: transparent;
+  color: var(--ifm-color-primary) !important;
+  border: 1px solid var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .proofButtonSecondary {
+  color: var(--ifm-color-primary-lightest) !important;
+  border-color: var(--ifm-color-primary-lightest);
 }
 
 @media (max-width: 480px) {
