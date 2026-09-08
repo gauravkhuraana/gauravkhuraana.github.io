@@ -289,6 +289,47 @@ function CourseCard({course}: {course: Course}): ReactNode {
   );
 }
 
+/* Proof before the ask: this sits directly under the hero, above the courses. */
+function ProofBand(): ReactNode {
+  return (
+    <section className={styles.section} aria-labelledby="courses-proof-title">
+      <div className={styles.proofBand}>
+        <Heading as="h2" id="courses-proof-title">
+          {TOPMATE_BOOKINGS}+ bookings, rated {TOPMATE_RATING} on Topmate
+        </Heading>
+        <p>
+          Testers and SDETs keep coming back — {TOPMATE_TESTIMONIALS} of them wrote about it. Real
+          success stories from professionals who transformed their careers through these courses
+          and 1:1 mentorship.
+        </p>
+        <dl className={styles.proofStats}>
+          {topmateStats.map((stat) => (
+            <div key={stat.label}>
+              <dt>{stat.value}</dt>
+              <dd>{stat.label}</dd>
+            </div>
+          ))}
+        </dl>
+        <div className={styles.proofButtons}>
+          <Link className={styles.proofButton} to="/docs/Mentorship/testimonials/">
+            Read the Testimonials
+          </Link>
+          <a
+            className={`${styles.proofButton} ${styles.proofButtonSecondary}`}
+            href={TOPMATE_PROFILE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="topmate_profile_click"
+            data-analytics-location="courses_page"
+          >
+            See Reviews on Topmate →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Courses(): ReactNode {
   return (
     <Layout
@@ -303,6 +344,8 @@ export default function Courses(): ReactNode {
       </header>
 
       <main>
+        <ProofBand />
+
         <section className={styles.section}>
           <Heading as="h2">Free Courses</Heading>
           <p className={styles.sectionSub}>Completely free. No signup. Just open and start learning.</p>
@@ -380,41 +423,6 @@ export default function Courses(): ReactNode {
           </div>
         </section>
 
-        <section className={styles.section}>
-          <div className={styles.proofBand}>
-            <Heading as="h2">
-              {TOPMATE_BOOKINGS}+ bookings, rated {TOPMATE_RATING} on Topmate
-            </Heading>
-            <p>
-              Testers and SDETs keep coming back — {TOPMATE_TESTIMONIALS} of them wrote about it.
-              Real success stories from professionals who transformed their careers through these
-              courses and 1:1 mentorship.
-            </p>
-            <dl className={styles.proofStats}>
-              {topmateStats.map((stat) => (
-                <div key={stat.label}>
-                  <dt>{stat.value}</dt>
-                  <dd>{stat.label}</dd>
-                </div>
-              ))}
-            </dl>
-            <div className={styles.proofButtons}>
-              <Link className={styles.proofButton} to="/docs/Mentorship/testimonials/">
-                Read the Testimonials
-              </Link>
-              <a
-                className={`${styles.proofButton} ${styles.proofButtonSecondary}`}
-                href={TOPMATE_PROFILE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-analytics-event="topmate_profile_click"
-                data-analytics-location="courses_page"
-              >
-                See Reviews on Topmate →
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
     </Layout>
   );
