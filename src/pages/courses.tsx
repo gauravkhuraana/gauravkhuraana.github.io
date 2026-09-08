@@ -7,9 +7,19 @@ import Heading from '@theme/Heading';
 import styles from './courses.module.css';
 import {
   UDEMY_API_TESTING_URL,
+  UDEMY_PYTHON_AI_URL,
+  UDEMY_PERSONAL_WEBSITE_URL,
+  TOPMATE_API_TESTING_URL,
   TOPMATE_PYTHON_AI_URL,
   TOPMATE_PERSONAL_WEBSITE_URL,
+  TOPMATE_PROFILE_URL,
 } from '@site/src/data/links';
+import {
+  TOPMATE_BOOKINGS,
+  TOPMATE_RATING,
+  TOPMATE_TESTIMONIALS,
+  topmateStats,
+} from '@site/src/data/socialProof';
 
 type Course = {
   icon: string;
@@ -21,6 +31,9 @@ type Course = {
   badge: 'FREE' | 'BESTSELLER' | 'TOPMATE' | 'UDEMY';
   tags: string[];
   cta: string;
+  /* Same course on the other platform — learners pick where they prefer to buy. */
+  altLink?: string;
+  altCta?: string;
   priceLabel: string;
   audience: string;
   format: string;
@@ -32,7 +45,7 @@ const freeCourses: Course[] = [
   {
     icon: '🤖',
     title: 'Automation Basics Series',
-    desc: 'Automation testing fundamentals from scratch — perfect for beginners starting their automation journey.',
+    desc: 'Automation testing fundamentals from scratch — ideal for beginners.',
     link: '/docs/Automation/automation-basics-series',
     gradient: 'linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)',
     badge: 'FREE',
@@ -47,7 +60,7 @@ const freeCourses: Course[] = [
   {
     icon: '🛠️',
     title: 'GitHub Copilot / GH-300',
-    desc: 'Master GitHub Copilot from basics to advanced features — including GH-300 certification preparation.',
+    desc: 'Master GitHub Copilot from basics to advanced — plus GH-300 certification prep.',
     link: '/docs/AI/github-copilot',
     gradient: 'linear-gradient(135deg, #1f2937 0%, #4b5563 100%)',
     badge: 'FREE',
@@ -62,7 +75,7 @@ const freeCourses: Course[] = [
   {
     icon: '☁️',
     title: 'Azure AI-900 Fundamentals',
-    desc: 'Microsoft Azure AI Fundamentals certification prep — Machine Learning, Computer Vision, NLP, and Generative AI.',
+    desc: 'Azure AI Fundamentals prep — machine learning, computer vision, NLP, and generative AI.',
     link: '/docs/AI/azure-ai-900',
     gradient: 'linear-gradient(135deg, #0078d4 0%, #00bcf2 100%)',
     badge: 'FREE',
@@ -77,7 +90,7 @@ const freeCourses: Course[] = [
   {
     icon: '⚙️',
     title: 'Azure DevOps Complete Series',
-    desc: 'Complete guide to Azure DevOps — CI/CD pipelines, work management, and DevOps best practices.',
+    desc: 'Complete Azure DevOps guide — CI/CD pipelines, work items, and best practices.',
     link: '/docs/AzureDevOps/azure-devops-complete-series',
     gradient: 'linear-gradient(135deg, #0078d4 0%, #5c2d91 100%)',
     badge: 'FREE',
@@ -102,7 +115,9 @@ const premiumCourses: Course[] = [
     badge: 'BESTSELLER',
     tags: ['11 Videos', '~4–6 hrs', '3 Assignments + Capstone'],
     cta: 'Enroll on Topmate →',
-    priceLabel: 'See current Topmate price',
+    altLink: UDEMY_PYTHON_AI_URL,
+    altCta: 'Also on Udemy',
+    priceLabel: 'See current price',
     audience: 'Beginners building with local AI',
     format: '11 videos, assignments, and capstone',
     support: 'Platform course access',
@@ -111,14 +126,16 @@ const premiumCourses: Course[] = [
   {
     icon: '🌐',
     title: 'Build Your Personal Website (yourname.com)',
-    desc: 'Launch your own portfolio site at yourname.com — step-by-step guide using free hosting and a custom domain.',
+    desc: 'Launch your portfolio at yourname.com — free hosting and your own custom domain.',
     link: TOPMATE_PERSONAL_WEBSITE_URL,
     external: true,
     gradient: 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)',
     badge: 'TOPMATE',
     tags: ['Portfolio', 'Custom Domain', 'Beginner'],
-    cta: 'Get the Course →',
-    priceLabel: 'See current Topmate price',
+    cta: 'Get it on Topmate →',
+    altLink: UDEMY_PERSONAL_WEBSITE_URL,
+    altCta: 'Also on Udemy',
+    priceLabel: 'See current price',
     audience: 'Beginners and job seekers',
     format: 'Step-by-step project course',
     support: 'Platform course access',
@@ -127,14 +144,16 @@ const premiumCourses: Course[] = [
   {
     icon: '🔌',
     title: 'API Testing Concepts with Interview Q&A',
-    desc: 'Structured course covering API testing concepts with interview questions & answers — lifetime access on Udemy.',
+    desc: 'API testing concepts with interview questions & answers — lifetime access on Udemy.',
     link: UDEMY_API_TESTING_URL,
     external: true,
     gradient: 'linear-gradient(135deg, #a435f0 0%, #6d28d9 100%)',
     badge: 'UDEMY',
     tags: ['API', 'Interview Prep', 'Lifetime Access'],
     cta: 'View on Udemy →',
-    priceLabel: 'See current Udemy price',
+    altLink: TOPMATE_API_TESTING_URL,
+    altCta: 'Also on Topmate',
+    priceLabel: 'See current price',
     audience: 'API testers and interview candidates',
     format: 'Structured on-demand course',
     support: 'Lifetime course access',
@@ -151,22 +170,95 @@ const badgeClass: Record<Course['badge'], string> = {
   UDEMY: styles.badgeUdemy,
 };
 
+function CourseTitleLink({course}: {course: Course}): ReactNode {
+  const analytics = {
+    'data-analytics-event': 'course_cta_click',
+    'data-analytics-label': course.title,
+    'data-analytics-location': 'courses_comparison_table',
+  };
+
+  return course.external ? (
+    <a
+      className={styles.tableLink}
+      href={course.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...analytics}
+    >
+      {course.title}
+    </a>
+  ) : (
+    <Link className={styles.tableLink} to={course.link} {...analytics}>
+      {course.title}
+    </Link>
+  );
+}
+
 function CourseCard({course}: {course: Course}): ReactNode {
+  const banner = (
+    <div className={styles.courseBanner} style={{background: course.gradient}}>
+      <span aria-hidden="true">{course.icon}</span>
+      <span className={`${styles.badge} ${badgeClass[course.badge]}`}>{course.badge}</span>
+    </div>
+  );
+
+  const details = (
+    <>
+      <h3>{course.title}</h3>
+      <p>{course.desc}</p>
+      <div className={styles.tags}>
+        {course.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+      </div>
+      <span className={styles.price}>{course.priceLabel}</span>
+    </>
+  );
+
+  // Available on two platforms: the card can't be one big link, so it holds a
+  // primary and a secondary CTA instead.
+  if (course.altLink && course.altCta) {
+    return (
+      <div className={styles.courseCard}>
+        {banner}
+        <div className={styles.courseBody}>
+          {details}
+          <div className={styles.courseActions}>
+            <a
+              className={styles.cta}
+              href={course.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${course.title} — ${course.cta.replace(' →', '')}`}
+              data-analytics-event="course_cta_click"
+              data-analytics-label={`${course.title} (${course.cta.replace(' →', '')})`}
+              data-analytics-location="courses_page"
+            >
+              {course.cta}
+            </a>
+            <a
+              className={styles.ctaAlt}
+              href={course.altLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${course.title} — ${course.altCta}`}
+              data-analytics-event="course_cta_click"
+              data-analytics-label={`${course.title} (${course.altCta})`}
+              data-analytics-location="courses_page"
+            >
+              {course.altCta}
+            </a>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const body = (
     <>
-      <div className={styles.courseBanner} style={{background: course.gradient}}>
-        <span aria-hidden="true">{course.icon}</span>
-        <span className={`${styles.badge} ${badgeClass[course.badge]}`}>{course.badge}</span>
-      </div>
+      {banner}
       <div className={styles.courseBody}>
-        <h3>{course.title}</h3>
-        <p>{course.desc}</p>
-        <div className={styles.tags}>
-          {course.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
-        <span className={styles.price}>{course.priceLabel}</span>
+        {details}
         <span className={styles.cta}>{course.cta}</span>
       </div>
     </>
@@ -224,8 +316,7 @@ export default function Courses(): ReactNode {
         <section className={styles.section}>
           <Heading as="h2">Premium Courses</Heading>
           <p className={styles.sectionSub}>
-            Hand-picked paid courses for when you want to go deeper — structured lessons,
-            assignments, and real outcomes.
+            Structured lessons, assignments, and real outcomes — on Topmate or Udemy, your pick.
           </p>
           <div className={styles.courseGrid}>
             {premiumCourses.map((course) => (
@@ -260,7 +351,23 @@ export default function Courses(): ReactNode {
               <tbody>
                 {allCourses.map((course) => (
                   <tr key={course.title}>
-                    <th scope="row">{course.title}</th>
+                    <th scope="row">
+                      <CourseTitleLink course={course} />
+                      {course.altLink && course.altCta && (
+                        <a
+                          className={styles.tableAltLink}
+                          href={course.altLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${course.title} — ${course.altCta}`}
+                          data-analytics-event="course_cta_click"
+                          data-analytics-label={`${course.title} (${course.altCta})`}
+                          data-analytics-location="courses_comparison_table"
+                        >
+                          {course.altCta}
+                        </a>
+                      )}
+                    </th>
                     <td>{course.priceLabel}</td>
                     <td>{course.audience}</td>
                     <td>{course.format}</td>
@@ -275,14 +382,37 @@ export default function Courses(): ReactNode {
 
         <section className={styles.section}>
           <div className={styles.proofBand}>
-            <Heading as="h2">Trusted by 25+ testers & SDETs</Heading>
+            <Heading as="h2">
+              {TOPMATE_BOOKINGS}+ bookings, rated {TOPMATE_RATING} on Topmate
+            </Heading>
             <p>
+              Testers and SDETs keep coming back — {TOPMATE_TESTIMONIALS} of them wrote about it.
               Real success stories from professionals who transformed their careers through these
               courses and 1:1 mentorship.
             </p>
-            <Link className={styles.proofButton} to="/docs/Mentorship/testimonials/">
-              Read the Testimonials
-            </Link>
+            <dl className={styles.proofStats}>
+              {topmateStats.map((stat) => (
+                <div key={stat.label}>
+                  <dt>{stat.value}</dt>
+                  <dd>{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+            <div className={styles.proofButtons}>
+              <Link className={styles.proofButton} to="/docs/Mentorship/testimonials/">
+                Read the Testimonials
+              </Link>
+              <a
+                className={`${styles.proofButton} ${styles.proofButtonSecondary}`}
+                href={TOPMATE_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-analytics-event="topmate_profile_click"
+                data-analytics-location="courses_page"
+              >
+                See Reviews on Topmate →
+              </a>
+            </div>
           </div>
         </section>
       </main>

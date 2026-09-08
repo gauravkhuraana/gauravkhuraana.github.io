@@ -16,6 +16,11 @@ import {
   TOPMATE_PYTHON_AI_URL,
   TOPMATE_PERSONAL_WEBSITE_URL,
 } from '@site/src/data/links';
+import {
+  TOPMATE_BOOKINGS,
+  TOPMATE_RATING,
+  TOPMATE_TESTIMONIALS,
+} from '@site/src/data/socialProof';
 
 const sections = [
   {
@@ -266,11 +271,12 @@ function TrustBand() {
       <div className={clsx('container', styles.trustInner)}>
         <div>
           <Heading as="h2" id="homepage-trust-title" className={styles.trustTitle}>
-            Trusted by 25+ testers and SDETs
+            {TOPMATE_BOOKINGS}+ bookings, rated {TOPMATE_RATING} on Topmate
           </Heading>
           <p className={styles.trustDescription}>
-            Practical guidance shaped by 15+ years in testing and automation, including
-            consulting experience at Microsoft.
+            {TOPMATE_TESTIMONIALS} testers and SDETs have written about how these sessions changed
+            their careers. Practical guidance shaped by 15+ years in testing and automation,
+            including consulting experience at Microsoft.
           </p>
         </div>
         <Link
