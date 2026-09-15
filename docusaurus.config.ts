@@ -418,6 +418,11 @@ const config: Config = {
             },
             {
               type: 'doc',
+              docId: 'AI/gh-600-agentic-ai',
+              label: 'GH-600 Agentic AI',
+            },
+            {
+              type: 'doc',
               docId: 'AI/prompt-library',
               label: 'Prompt Library',
             },

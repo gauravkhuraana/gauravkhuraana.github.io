@@ -38,6 +38,7 @@ const sections = [
       { icon: '📋', title: 'Prompt Library', desc: 'AI prompts for testing & automation', link: '/docs/AI/prompt-library/' },
       { icon: '🌐', title: 'AI Browser Automation', desc: 'Automate browsers with AI tools', link: '/docs/AI/ai-browser-automation/' },
       { icon: '🛠️', title: 'GitHub Copilot Series', desc: 'AI-powered coding assistant tutorials', link: '/docs/AI/github-copilot/' },
+      { icon: '🧠', title: 'GH-600 Agentic AI', desc: 'Agentic AI series and certification prep', link: '/docs/AI/gh-600-agentic-ai/' },
       { icon: '🤝', title: 'Agentic AI', desc: 'Autonomous AI agents for testing', link: '/docs/AI/agentic-ai/' },
     ],
   },
