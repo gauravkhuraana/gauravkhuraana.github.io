@@ -363,8 +363,8 @@ export default function Home(): ReactNode {
       description="Get battle-tested tips from 15+ years in automation, directly from a Microsoft Test Consultant. Learn testing fundamentals, automation mastery, and AI tools that actually work in enterprise environments.">
       <CompactHero />
       <main>
-        <Highlights />
         <TrustBand />
+        <Highlights />
         <CategoryGrid />
         <QuickLinks />
         <div className="container" style={{ maxWidth: 700, paddingBottom: '2rem' }}>

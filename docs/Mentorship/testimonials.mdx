@@ -18,7 +18,14 @@ import {
   TOPMATE_API_TESTING_URL,
   TOPMATE_RESUME_BUILDER_URL,
   TOPMATE_BUNDLE_4_URL,
+  TOPMATE_PROFILE_URL,
 } from '@site/src/data/links';
+import {
+  TOPMATE_BOOKINGS,
+  TOPMATE_RATING,
+  TOPMATE_TESTIMONIALS,
+  topmateStats,
+} from '@site/src/data/socialProof';
 
 export const courseBtn = (bg) => ({
   display: 'inline-block',
@@ -35,6 +42,29 @@ export const courseBtn = (bg) => ({
 # Testers/SDETs Testimonials
 
 Read genuine testimonials from testers and SDETs who have transformed their careers through personalized coaching and mentoring sessions. These success stories showcase real career growth and skill development.
+
+{/* Same social-proof numbers as the home and courses pages — all read from src/data/socialProof.ts. */}
+<div style={{margin: '20px 0', padding: '18px', textAlign: 'center', backgroundColor: 'var(--ifm-color-emphasis-100)', border: '1px solid var(--ifm-color-emphasis-300)', borderRadius: '10px'}}>
+  <h2 style={{marginTop: 0, marginBottom: '6px', fontSize: '1.25em'}}>
+    {TOPMATE_BOOKINGS}+ bookings, rated {TOPMATE_RATING} on Topmate
+  </h2>
+  <div style={{marginBottom: '16px', opacity: 0.8, fontSize: '0.92em'}}>
+    {TOPMATE_TESTIMONIALS} testers and SDETs wrote about how these sessions changed their careers.
+  </div>
+
+  <dl style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', margin: '0 0 16px'}}>
+    {topmateStats.map((stat) => (
+      <div key={stat.label}>
+        <dt style={{fontSize: '1.5em', fontWeight: '700', color: 'var(--ifm-color-primary)'}}>{stat.value}</dt>
+        <dd style={{margin: 0, fontSize: '0.82em', opacity: 0.8}}>{stat.label}</dd>
+      </div>
+    ))}
+  </dl>
+
+  <a href={TOPMATE_PROFILE_URL} target="_blank" rel="noopener noreferrer" style={courseBtn('#007BFF')} data-analytics-event="topmate_profile_click" data-analytics-location="mentorship_testimonials">
+    See Reviews on Topmate →
+  </a>
+</div>
 
 <div style={{margin: '20px 0', padding: '18px', backgroundColor: '#f7fbff', border: '1px solid #d6e8ff', borderRadius: '10px'}}>
   <h2 style={{marginTop: 0, marginBottom: '8px', color: '#0f2d4a', fontSize: '1.25em'}}>Courses</h2>

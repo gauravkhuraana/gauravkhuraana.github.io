@@ -1,0 +1,141 @@
+---
+title: GH-600 Agentic AI Developer
+description: Video series preparing you for GH-600, the GitHub Certified Agentic AI Developer exam - covering agent architecture, MCP and tool use, memory and state, evaluation, multi-agent orchestration, and guardrails.
+sidebar_position: 2.5
+keywords: [GH-600, github certified agentic ai developer, agentic ai certification, github copilot agents, MCP servers, ai agents sdlc, agentic ai exam prep]
+tags: [GH-600, certification, agentic-ai, github-copilot, ai-assistant, developer-tools]
+image: /img/og/ai-gh-600-agentic-ai-og.png
+---
+
+import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
+
+# 🧠 GH-600 - GitHub Certified: Agentic AI Developer
+
+**GH-600** is GitHub's certification for engineers who don't just *chat* with AI, but actually run agents inside a real software development lifecycle - wiring up tools, managing state, evaluating output, orchestrating multiple agents, and putting guardrails around all of it, with GitHub as the control plane.
+
+If GH-300 was about *using* GitHub Copilot, GH-600 is about *operating and governing* the agents that come after it.
+
+This page is the home for a **new video series** on agentic AI, built on Microsoft Learn's GH-600 material and shown through real work on a real repository rather than slides. Episodes are added here as they're published - bookmark it and check back.
+
+:::tip Coming from GH-300?
+Start with the [GitHub Copilot series (GH-300)](/docs/AI/github-copilot/) for the fundamentals, then come back here for the agentic layer.
+:::
+
+---
+
+## 📋 Exam at a Glance
+
+| | |
+|---|---|
+| **Exam code** | GH-600 |
+| **Certification** | GitHub Certified: Agentic AI Developer |
+| **Level** | Intermediate |
+| **Duration** | 120 minutes |
+| **Passing score** | 700 / 1000 |
+| **Delivery** | Proctored, via Pearson VUE |
+| **Prerequisites** | None formally required |
+
+Assumed experience: the SDLC, GitHub workflows and repository controls, code quality/security/review practices, and real hands-on time with coding agents - GitHub Copilot, MCP servers, and agent customisation such as custom instructions.
+
+:::note
+Exam details can change, especially while a certification is new. Always confirm against the [official Microsoft Learn certification page](https://learn.microsoft.com/en-us/credentials/certifications/agentic-ai-developer/) and its study guide before you book.
+:::
+
+---
+
+## 🎯 Skills Measured
+
+The exam is organised into six domains:
+
+| # | Domain | Weight |
+|---|--------|--------|
+| 1 | Prepare agent architecture and SDLC processes | 15-20% |
+| 2 | Implement tool use and environment interaction | 20-25% |
+| 3 | Manage memory, state and execution | 10-15% |
+| 4 | Perform evaluation, error analysis and tuning | 15-20% |
+| 5 | Orchestrate multi-agent coordination | 15-20% |
+| 6 | Implement guardrails and accountability | 10-15% |
+
+Domain 2 - tool use, MCP servers and environment interaction - carries the heaviest weighting, so that's where the deepest hands-on practice pays off.
+
+---
+
+## 🎬 Video Series
+
+### 1. Chatbots vs Agentic Systems
+
+What changes when AI can *act* on a task instead of just explaining it? This opener contrasts text-only chatbot responses with goal-directed agent workflows, using a **recipe book vs chef** analogy that makes the distinction stick: a recipe book hands you instructions, a chef goes and cooks - checking, tasting and adjusting along the way.
+
+From there it gets practical - prompts, tasks, tools, permissions and retries - and ends with a real demo rather than a diagram. I ask a GitHub agent to add a video to this website, correct the title while it's still working, then review the pull request it produced, merge it myself, and check the change live.
+
+<YouTubeEmbed
+  videoId="aP6BI48Yaac"
+  title="5 Differences Between AI Chatbots and Agentic Systems | GH600"
+/>
+
+**Chapters**
+
+| Time | Topic |
+|---|---|
+| 00:00 | Series introduction and GH-600 learning resources |
+| 01:08 | Three topics in the series |
+| 02:03 | Chatbots vs agentic systems |
+| 04:45 | Text-only chatbot demonstration |
+| 05:38 | Comparing the ChatGPT response |
+| 06:26 | Recipe book vs chef analogy |
+| 07:43 | Prompts, tasks, tools, and retries |
+| 10:05 | Dependency-update example |
+| 10:51 | GitHub demo: asking an agent to update my website |
+| 12:36 | Goals, tool calls, permissions, and iteration |
+| 13:34 | Why human review still matters |
+| 15:06 | Reviewing the PR and correcting the video title |
+| 16:27 | Human merge and deployment |
+| 17:39 | Checking the live website update |
+
+:::tip Worth sitting with
+The most important stretch is 13:34 onwards - why human review still matters. The agent did the work, but a person read the diff, caught a wrong title, and made the call to merge. That review gate is exactly what Domain 6 (guardrails and accountability) is asking about.
+:::
+
+---
+
+:::info More episodes on the way
+This series is in progress - **agent loops** and **guardrails** are up next.
+
+[Subscribe on YouTube](https://www.youtube.com/@Udzial?sub_confirmation=1) to get each episode as it drops.
+
+**A question to sit with while you wait:** what task would you hand to an AI agent, and what would *you* personally review before approving it? That second half is the one people skip.
+:::
+
+---
+
+## 🧭 How to Prepare
+
+1. **Get the distinction straight** - chatbot vs agent, as covered in episode 1 above. Most exam scenarios hinge on it.
+2. **Use agents for real work.** Run GitHub Copilot's agent mode on an actual repository, not a toy project. The exam is scenario-based and rewards people who've hit the real failure modes.
+3. **Go deep on MCP.** It's the highest-weighted domain. Connect a server, give an agent tools, then watch what happens when a tool call fails.
+4. **Practise custom instructions** and other agent customisation in a repository you control.
+5. **Think about governance, not just capability** - permissions, audit trails, review gates, and what an agent should *not* be allowed to do.
+6. **Read the official study guide** on Microsoft Learn and map each bullet to something you've actually done.
+
+---
+
+## 🔗 Related Reading
+
+- [GitHub Copilot & GH-300 Certification](/docs/AI/github-copilot/) - the foundation series
+- [Agentic AI](/docs/AI/agentic-ai/) - autonomous agents and what they mean for testing
+- [AI Roadmap for SDETs](/docs/AI/sdet-ai-roadmap/) - where agents fit into a tester's skill path
+- [Prompt Library](/docs/AI/prompt-library/) - ready-to-use prompts for testing and automation work
+
+---
+
+## 🤝 Connect & Learn More
+
+- 📺 **YouTube**: [Subscribe for the full GH-600 series](https://www.youtube.com/@Udzial?sub_confirmation=1)
+- 💼 **LinkedIn**: [Follow for AI testing insights](https://www.linkedin.com/in/gauravkhuraana/)
+- 📝 **Medium**: [Read in-depth articles](https://medium.com/@gauravkhuraana)
+- 💬 **Topmate**: [1:1 mentoring sessions](https://topmate.io/gauravkhurana)
+- 🐙 **GitHub**: [Explore automation projects](https://github.com/gauravkhurana)
+
+---
+
+*GH-600 is where AI stops being an autocomplete and starts being a teammate you're accountable for. This series works through what that actually takes.*

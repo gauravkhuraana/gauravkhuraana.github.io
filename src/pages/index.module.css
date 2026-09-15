@@ -229,8 +229,8 @@ a.highlightCta:focus-visible,
 }
 
 /* Trust proof */
+/* Sits directly under the hero, so it stays flush with it. */
 .trustSection {
-  margin-top: 1.5rem;
   padding: 1.5rem 0;
   border-block: 1px solid var(--ifm-color-emphasis-200);
   background: var(--ifm-color-emphasis-100);
