@@ -108,6 +108,12 @@ export const linkGroups: LinkGroup[] = [
         tags: ['copilot', 'gh-300', 'certification'],
       },
       {
+        title: 'GH-600 Agentic AI Developer',
+        desc: 'Video series for the GitHub Certified: Agentic AI Developer exam',
+        href: '/docs/AI/gh-600-agentic-ai/',
+        tags: ['gh-600', 'certification', 'agents', 'mcp'],
+      },
+      {
         title: 'Agentic AI',
         desc: 'Autonomous AI agents and what they mean for testing',
         href: '/docs/AI/agentic-ai/',
