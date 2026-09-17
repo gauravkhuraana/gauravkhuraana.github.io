@@ -281,6 +281,8 @@ const config: Config = {
           {from: '/docs/Topmate/resume', to: '/docs/Mentorship/resume/'},
           // The old "Learning Resources Hub" is superseded by the full index at /links.
           {from: '/markdown-page', to: '/links/'},
+          // /docs/FreeCourses duplicated /courses (same cards, no comparison table).
+          {from: '/docs/FreeCourses', to: '/courses/'},
         ],
       },
     ],
