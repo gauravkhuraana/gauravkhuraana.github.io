@@ -577,15 +577,9 @@ export const linkGroups: LinkGroup[] = [
     links: [
       {
         title: 'All Courses',
-        desc: 'Every course in one comparison view',
+        desc: 'Free video series plus premium courses, in one comparison view',
         href: '/courses/',
-        tags: ['courses', 'compare'],
-      },
-      {
-        title: 'Free Courses',
-        desc: 'Free video series on automation, Azure DevOps, Copilot and more',
-        href: '/docs/FreeCourses/',
-        tags: ['free', 'video', 'youtube'],
+        tags: ['courses', 'compare', 'free', 'video', 'youtube'],
       },
       {
         title: 'Python + AI for Beginners (Topmate)',

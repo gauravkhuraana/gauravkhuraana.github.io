@@ -98,6 +98,40 @@ The most important stretch is 13:34 onwards - why human review still matters. Th
 
 ---
 
+### 2. The Agentic AI Lifecycle - Plan to Pull Request
+
+An agent makes a plan. Then what? This episode follows the agentic lifecycle end to end - how an agent forms a plan, why that plan changes mid-flight, and how it checks whether it actually hit the result you asked for. The **Google Maps rerouting** analogy carries the idea: the destination stays fixed, the route gets recalculated every time the road conditions change, and the system keeps evaluating rather than committing blindly to step one.
+
+The second half turns the concept into something you can put in a repository today. Instead of letting an agent's plan evaporate the moment the work is done, it gets captured in a `.github/pull_request_template.md` so the reasoning lands in the pull request alongside the diff - goal and plan, scope, success criteria, rollback plan, agent context, validation results, and the human review.
+
+<YouTubeEmbed
+  videoId="wlrLMAemiOY"
+  title="Agentic AI Lifecycle | Plan to Pull Request | GH600"
+/>
+
+**What the PR template captures**
+
+| Section | Why it's there |
+|---|---|
+| Goal / Plan | The intent behind the change, in writing, before the diff |
+| Scope | What the agent was and wasn't allowed to touch |
+| Success criteria | How anyone reviewing can tell it worked |
+| Rollback plan | The way out when it didn't |
+| Agent context | Which agent, which instructions, which tools |
+| Validation / Results | Evidence, not assertion |
+| Human review | The named person who accepted it |
+
+**Files from the video**
+
+- [`.github/copilot-instructions.md`](https://github.com/gauravkhuraana/GH600/blob/main/.github/copilot-instructions.md) - the custom instructions steering the agent
+- [`.github/pull_request_template.md`](https://github.com/gauravkhuraana/GH600/blob/main/.github/pull_request_template.md) - the template that makes the plan reviewable
+
+:::tip The one idea to take away
+Don't just let an agent make changes - make the plan behind those changes visible and reviewable. That single habit covers a surprising amount of Domain 1 (agent architecture and SDLC) and Domain 6 (guardrails and accountability) at once.
+:::
+
+---
+
 :::info More episodes on the way
 This series is in progress - **agent loops** and **guardrails** are up next.
 

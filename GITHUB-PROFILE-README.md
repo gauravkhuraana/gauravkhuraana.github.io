@@ -46,25 +46,25 @@
 <table align="center">
   <tr>
     <td align="center" width="25%">
-      <a href="https://gauravkhurana.com/docs/FreeCourses#automation-basics-series">
+      <a href="https://gauravkhurana.com/docs/Automation/automation-basics-series/">
         <img src="https://img.shields.io/badge/🤖_Automation-Basics_Series-2EAD33?style=for-the-badge" /><br>
         <sub>Automation testing fundamentals from scratch</sub>
       </a>
     </td>
     <td align="center" width="25%">
-      <a href="https://gauravkhurana.com/docs/FreeCourses#github-copilot--gh-300-certification">
+      <a href="https://gauravkhurana.com/docs/AI/github-copilot/">
         <img src="https://img.shields.io/badge/🧠_GitHub_Copilot-GH--300_Cert-000000?style=for-the-badge" /><br>
         <sub>Master Copilot from basics to certification</sub>
       </a>
     </td>
     <td align="center" width="25%">
-      <a href="https://gauravkhurana.com/docs/FreeCourses#azure-ai-900-fundamentals">
+      <a href="https://gauravkhurana.com/docs/AI/azure-ai-900/">
         <img src="https://img.shields.io/badge/☁️_Azure_AI--900-Certification-0089D6?style=for-the-badge" /><br>
         <sub>Azure AI Fundamentals exam prep</sub>
       </a>
     </td>
     <td align="center" width="25%">
-      <a href="https://gauravkhurana.com/docs/FreeCourses#azure-devops">
+      <a href="https://gauravkhurana.com/docs/AzureDevOps/azure-devops-complete-series/">
         <img src="https://img.shields.io/badge/⚙️_Azure_DevOps-CI%2FCD_Pipelines-0078D7?style=for-the-badge" /><br>
         <sub>Complete guide to Azure DevOps</sub>
       </a>
@@ -73,7 +73,7 @@
 </table>
 
 <p align="center">
-  <a href="https://gauravkhurana.com/docs/FreeCourses">
+  <a href="https://gauravkhurana.com/courses/">
     <img src="https://img.shields.io/badge/📚_View_All_Free_Courses-gauravkhurana.com-FF5722?style=for-the-badge" />
   </a>
 </p>
