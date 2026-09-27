@@ -1,0 +1,188 @@
+---
+title: "Microsoft Foundry: Enterprise AI Platform"
+description: "Free Microsoft Foundry video series: model catalog, AI agents, multi-agent workflows, OpenAPI tools, groundedness, evaluation, guardrails, and how Foundry compares to AWS and Google Cloud."
+sidebar_position: 11
+keywords: [microsoft-foundry, azure-ai-foundry, ai-agents, multi-agent, model-catalog, groundedness, rag, ai-evaluation, guardrails, enterprise-ai]
+tags: [azure, microsoft-foundry, ai-agents, evaluation, enterprise-ai]
+image: /img/og/ai-microsoft-foundry-og.png
+---
+
+import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
+
+# 🏭 Microsoft Foundry: From AI Demo to Enterprise AI
+
+Anyone can build an AI demo. Taking it to an enterprise-ready application needs model choice, agents, tools, grounding in your own data, evaluation and production guardrails. This series walks through each of those in Microsoft Foundry, with a focus on the concepts so you can apply them on any cloud platform.
+
+📺 **Watch the full playlist:** [Microsoft Foundry - AI Platform](https://www.youtube.com/watch?v=BUiTlyGgQJk&list=PLeGiFBPpRC04)
+
+## 📋 Table of Contents
+
+1. [Foundry Overview](#foundry-overview)
+2. [Model Catalog & Deployment](#model-catalog--deployment)
+3. [AI Agents](#ai-agents)
+4. [Multi-Agent Workflows](#multi-agent-workflows)
+5. [Tools: REST APIs as Agent Tools](#tools-rest-apis-as-agent-tools)
+6. [Groundedness & Foundry IQ](#groundedness--foundry-iq)
+7. [Testing AI: Evaluation](#testing-ai-evaluation)
+8. [Guardrails & Observability](#guardrails--observability)
+9. [Foundry vs AWS vs Google](#foundry-vs-aws-vs-google)
+
+---
+
+## Foundry Overview
+
+### What is Microsoft Foundry?
+
+Why a platform like Foundry exists, and what separates an AI demo from an enterprise AI project. Not a sales pitch: the goal is to understand the concepts behind enterprise AI platforms.
+
+<YouTubeEmbed 
+  videoId="BUiTlyGgQJk" 
+  title="What is Microsoft Foundry? | From AI Demo to Enterprise AI" 
+/>
+
+---
+
+## Model Catalog & Deployment
+
+### 10,000+ AI Models and 2 Ways to Deploy Them
+
+Explore the Foundry Model Catalog: filter models by provider, task and region, compare them on quality, safety, throughput and cost, and understand the two deployment options: Serverless API vs Managed Compute.
+
+<YouTubeEmbed 
+  videoId="1NCp3iDOhmg" 
+  title="10,000+ AI Models in Microsoft Foundry?! | 2 Ways to Deploy AI Models" 
+/>
+
+---
+
+## AI Agents
+
+### What Are AI Agents? Build Your First Agent
+
+The building blocks of an agent (Model + Instructions + Tools), how an agent differs from ChatGPT, and a hands-on build: create, instruct, publish, call and trace an agent in Foundry.
+
+<YouTubeEmbed 
+  videoId="pY2y9G7a_mE" 
+  title="What Are AI Agents? Build Your First Agent with Microsoft Foundry" 
+/>
+
+---
+
+## Multi-Agent Workflows
+
+### Multi-Agent Workflows Explained
+
+One agent can't do everything, just like one person can't run a whole kitchen. Learn the patterns agentic systems use (sequential, group chat and more) and how Foundry Workflows wires multiple agents together with an orchestrator.
+
+<YouTubeEmbed 
+  videoId="LM5O96TKvEc" 
+  title="Microsoft Foundry Multi-Agent Workflows Explained" 
+/>
+
+---
+
+## Tools: REST APIs as Agent Tools
+
+### Turn Any REST API Into an AI Agent Tool
+
+An agent without tools can advise but can't act. Connect your own REST API to an agent through an OpenAPI tool, ask questions in plain English, and use traces to see exactly which API calls the agent made.
+
+<YouTubeEmbed 
+  videoId="_WuwsqJ6704" 
+  title="Turn Any REST API Into an AI Agent Tool" 
+/>
+
+---
+
+## Groundedness & Foundry IQ
+
+### What Is Groundedness in AI? (Citations Explained)
+
+Enterprises want ChatGPT-level intelligence answering from *their* data, with sources. See how Foundry IQ handles chunking, embeddings and retrieval, where to add a knowledge base, and why wrong retrieval leads to wrong answers.
+
+<YouTubeEmbed 
+  videoId="7AZjoejVLbQ" 
+  title="What Is Groundedness in AI? (Citations Explained)" 
+/>
+
+---
+
+## Testing AI: Evaluation
+
+### How to Test AI Agents with Foundry Evaluation
+
+The part made for testers. When the same question gets a different answer every time, `actual == expected` stops working. Learn what evaluation means instead, why groundedness is the #1 metric, and run a real evaluation on an agent.
+
+<YouTubeEmbed 
+  videoId="QsPH8eqYzYs" 
+  title="Microsoft Foundry Evaluation: How to Test AI Agents" 
+/>
+
+---
+
+## Guardrails & Observability
+
+### Evaluation vs Guardrails: Testing AI in Production
+
+Evaluation tests your agent while you build it; guardrails and monitoring protect it once it's live. See what Foundry gives you by default, what you can tune, and where testers should look when an agent suddenly starts failing.
+
+<YouTubeEmbed 
+  videoId="F7SZD2jIDzo" 
+  title="Evaluation vs Guardrails: Testing AI in Production" 
+/>
+
+---
+
+## Foundry vs AWS vs Google
+
+### Which AI Platform Should You Learn?
+
+The concepts are the same everywhere. Compare Microsoft Foundry, Google Cloud Model Garden and AWS, see ways to work beyond the portal (SDK, CLI, VS Code extension, Foundry MCP server), and why RAG, evaluation and guardrails exist on every platform.
+
+<YouTubeEmbed 
+  videoId="kjPykob7Q5s" 
+  title="Microsoft Foundry vs AWS vs Google: Which AI Platform?" 
+/>
+
+---
+
+## 🎯 Key Takeaways
+
+- **Enterprise AI** needs more than a demo: model choice, agents, grounding, evaluation and guardrails
+- **Model Catalog** lets you compare models on quality, safety, throughput and cost before deploying
+- **AI Agents** = Model + Instructions + Tools
+- **Multi-agent workflows** split work across specialised agents coordinated by an orchestrator
+- **Tools** let agents act, and any REST API can become one through OpenAPI
+- **Groundedness** keeps answers tied to your own data, with citations
+- **Evaluation** replaces exact assertions when testing non-deterministic AI
+- **Guardrails & observability** protect agents in production
+- **The concepts transfer** across Microsoft, AWS and Google
+
+---
+
+## 🚀 Next Steps
+
+- **[Azure AI-900](./azure-ai-900.mdx)** - AI fundamentals certification
+- **[GH-600 Agentic AI](./gh-600-agentic-ai.mdx)** - Agentic AI developer course
+- **[Agentic AI](./agentic-ai.mdx)** - Autonomous AI systems
+- **[Prompt Library](./prompt-library.mdx)** - Effective prompting techniques
+
+---
+
+## 📚 Additional Resources
+
+- **Microsoft Learn**: [Microsoft Foundry documentation](https://learn.microsoft.com/en-us/azure/ai-foundry/)
+- **Azure Free Account**: Try Foundry with free credits
+
+---
+
+## Connect and Learn More
+
+- **[LinkedIn](https://www.linkedin.com/in/gauravkhurana/)** - Professional updates
+- **[YouTube (@Udzial)](https://www.youtube.com/@Udzial?sub_confirmation=1)** - Video tutorials
+- **[Medium](https://www.medium.com/@gauravkhuraana)** - In-depth articles
+- **[Topmate](https://www.topmate.io/gauravkhurana)** - 1:1 mentoring
+
+---
+
+*Build the demo, then make it enterprise-ready. The concepts carry across every AI platform.*
