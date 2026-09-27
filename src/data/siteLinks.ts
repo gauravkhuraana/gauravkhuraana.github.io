@@ -144,6 +144,18 @@ export const linkGroups: LinkGroup[] = [
         tags: ['azure', 'certification', 'exam'],
       },
       {
+        title: 'Microsoft Foundry',
+        desc: 'Video series on enterprise AI: agents, grounding, evaluation and guardrails',
+        href: '/docs/AI/microsoft-foundry/',
+        tags: ['azure', 'foundry', 'agents', 'evaluation'],
+      },
+      {
+        title: 'AI Models & Concepts',
+        desc: 'New AI models and ideas explained, with QA use cases',
+        href: '/docs/AI/ai-models-concepts/',
+        tags: ['models', 'concepts', 'llm'],
+      },
+      {
         title: 'AI Q&A Sessions',
         desc: 'Questions from the community, answered',
         href: '/docs/AI/qa-sessions/',
