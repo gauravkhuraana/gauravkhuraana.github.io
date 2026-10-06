@@ -207,7 +207,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io/edit/main/',
           showLastUpdateTime: true,
         },
         blog: {
@@ -241,7 +240,6 @@ const config: Config = {
               });
             },
           },
-          editUrl: 'https://github.com/gauravkhuraana/gauravkhuraana.github.io/edit/main/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
