@@ -132,8 +132,57 @@ Don't just let an agent make changes - make the plan behind those changes visibl
 
 ---
 
+### 3. How to Control AI Agents in GitHub
+
+An agent that writes the plan, does the work, then quietly updates the plan to match is grading its own homework. This episode is about the guardrails that stop that - letting agents move fast while you stay accountable for what they ship.
+
+It starts with the three plan types and how much confidence each deserves, contrasts human-in-the-loop with fully agentic mode, and shows how to **pre-commit the plan** so you can prove it wasn't changed afterwards. Then it moves into the GitHub controls themselves - rulesets, CODEOWNERS, read-only token permissions, and environments with required reviewers - tied together with a **CCTV analogy**: recording what an agent did is not the same as controlling what it's allowed to do.
+
+<YouTubeEmbed
+  videoId="zaW9B6sS61U"
+  title="How to Control AI Agents in GitHub | GH-600"
+/>
+
+**Chapters**
+
+| Time | Topic |
+|---|---|
+| 00:00 | Agents as your team: who is accountable? |
+| 00:39 | GH-600 series and where this fits |
+| 01:16 | Recap: plan template and Copilot instructions |
+| 01:46 | 3 plan types and their confidence levels |
+| 02:43 | Problem: the agent rewrites its own plan |
+| 03:16 | Human-in-the-loop vs agentic mode |
+| 04:28 | When you actually need a plan |
+| 04:49 | Issue template: scope and out-of-scope |
+| 05:23 | Pre-commit the plan (tamper check) |
+| 06:46 | 6 controls to keep agents in line |
+| 07:49 | Demo: GitHub rulesets |
+| 09:00 | CODEOWNERS file for protected paths |
+| 09:44 | Read-only token permissions in YAML |
+| 10:04 | Environments, reviewers and secrets |
+| 10:52 | Record vs control: the CCTV analogy |
+| 12:14 | Summary: how the controls work together |
+
+**Controls covered**
+
+| Control | What it stops |
+|---|---|
+| Rulesets | Direct pushes and force pushes - changes must go through a PR, and new pushes need re-review |
+| CODEOWNERS | Changes to protected paths without the right owner's approval |
+| Token permissions (`contents: read`) | Workflows doing more than they need to |
+| Environments | Deployments and secrets used without a required reviewer |
+
+**Demo repo:** [gauravkhuraana/gh600](https://github.com/gauravkhuraana/gh600) - clone it and follow along.
+
+:::tip The one idea to take away
+Logs and PR history *record* what an agent did - rulesets, CODEOWNERS, scoped tokens and environments *control* what it can do. You need both, and this is the heart of Domain 6 (guardrails and accountability).
+:::
+
+---
+
 :::info More episodes on the way
-This series is in progress - **agent loops** and **guardrails** are up next.
+This series is in progress - more episodes, including **agent loops**, are up next.
 
 [Subscribe on YouTube](https://www.youtube.com/@Udzial?sub_confirmation=1) to get each episode as it drops.
 
