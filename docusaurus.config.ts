@@ -281,6 +281,8 @@ const config: Config = {
           {from: '/markdown-page', to: '/links/'},
           // /docs/FreeCourses duplicated /courses (same cards, no comparison table).
           {from: '/docs/FreeCourses', to: '/courses/'},
+          // Testers Toolkit was a one-page category with a duplicate generated index.
+          {from: '/docs/category/testers-toolkit', to: '/docs/Tools/testers-toolkit/'},
         ],
       },
     ],

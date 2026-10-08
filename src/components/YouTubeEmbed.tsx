@@ -151,32 +151,23 @@ const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({ videoId, title, duration })
       
       {/* Call to Action */}
       <div className="youtube-embed-cta">
-        <p className="youtube-embed-cta-text">
-          Enjoyed this video?
-        </p>
-        <div className="youtube-embed-links">
-          <a 
-            href={videoUrl}
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="youtube-embed-link"
-          >
-            Watch on YouTube
-          </a>
-          <span className="youtube-embed-separator">•</span>
-          <a 
-            href="https://www.youtube.com/@Udzial?sub_confirmation=1"
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="youtube-embed-link"
-          >
-            Subscribe for More
-          </a>
-          <span className="youtube-embed-separator">•</span>
-          <span className="youtube-embed-encouragement">
-            Like and Comment if this helped you!
-          </span>
-        </div>
+        <a
+          href={videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="youtube-embed-link"
+        >
+          Watch on YouTube
+        </a>
+        <span className="youtube-embed-separator">•</span>
+        <a
+          href="https://www.youtube.com/@Udzial?sub_confirmation=1"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="youtube-embed-link"
+        >
+          Subscribe
+        </a>
       </div>
     </div>
   );
