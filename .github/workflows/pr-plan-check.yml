@@ -1,0 +1,44 @@
+name: PR Plan Check
+
+# Every PR into main must carry an approved plan, stay inside its Scope,
+# and get the guardrails-change label if it touches guardrail files.
+# Re-runs when the description or labels change, so fixes are picked up without a new push.
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, edited, labeled, unlabeled, ready_for_review]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-plan-check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  plan-and-scope:
+    name: Plan & scope
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Untrusted PR text is passed through env, never interpolated into the script.
+      - name: Check plan, scope, size and labels
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: node .claude/guardrails/check-pr.mjs

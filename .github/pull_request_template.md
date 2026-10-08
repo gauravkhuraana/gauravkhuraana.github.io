@@ -1,3 +1,10 @@
+Plan: .claude/plans/<branch-with-slashes-as-dashes>.md
+
+<!-- Required. CI fails if the plan is missing, not approved, or if this PR touches files outside its Scope. -->
+
+- [ ] Opened by an AI agent (name the agent and who it worked for)
+- [ ] The plan was approved by a code owner **before** work started
+
 ## Plan
 
 <!-- What approach are you taking, and why this one? -->
