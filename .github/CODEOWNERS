@@ -1,0 +1,19 @@
+# Code owners must approve every pull request (enforced by the main-protection ruleset:
+# require_code_owner_review). The last matching rule wins.
+# The owner needs Write access to the repo, otherwise GitHub ignores this file.
+
+# Default: everything
+*                         @udzialMeansShare
+
+# Guardrail infrastructure: changes also need the "guardrails-change" label (pr-plan-check.yml)
+/.github/                 @udzialMeansShare
+/.claude/                 @udzialMeansShare
+/CLAUDE.md                @udzialMeansShare
+
+# Build, dependencies and site configuration
+/package.json             @udzialMeansShare
+/package-lock.json        @udzialMeansShare
+/docusaurus.config.ts     @udzialMeansShare
+/sidebars.ts              @udzialMeansShare
+/plugins/                 @udzialMeansShare
+/scripts/                 @udzialMeansShare
