@@ -5,7 +5,7 @@
 // This is defence in depth: branch rulesets and CI are the final gate.
 
 import { readFileSync } from 'node:fs';
-import { DEFAULT_BRANCHES, currentBranch, repoRoot } from '../guardrails/lib.mjs';
+import { DEFAULT_BRANCHES, PLAN_APPROVED_LABEL, currentBranch, repoRoot } from '../guardrails/lib.mjs';
 
 const block = (msg) => {
   process.stderr.write(`[guardrails] BLOCKED: ${msg}\n`);
@@ -18,13 +18,21 @@ try {
 } catch {
   block('could not parse hook input; refusing to run an unverified command');
 }
-const cmd = String(input.tool_input?.command ?? '');
-if (!cmd.trim()) process.exit(0);
+const raw = String(input.tool_input?.command ?? '');
+if (!raw.trim()) process.exit(0);
+
+// Drop redirects that never write a real file (2>&1, >/dev/null, 2>$null, >nul) so
+// read-only commands that mention guardrail paths are not mistaken for writes.
+const cmd = raw.replace(/\d?>&\d|\d?>>?\s*(?:\/dev\/null|\$null|nul)(?=\s|$|[;&|)])/gi, ' ');
 
 const root = repoRoot(input.cwd || process.env.CLAUDE_PROJECT_DIR || process.cwd());
 const branch = currentBranch(root);
 const onDefault = DEFAULT_BRANCHES.includes(branch);
 const defaults = DEFAULT_BRANCHES.join('|');
+
+const GUARD = String.raw`(?:\.claude[\\/](?:settings\.json|hooks|guardrails|plans[\\/]TEMPLATE\.md)|\.github[\\/](?:CODEOWNERS|workflows|rulesets)|CLAUDE\.md)`;
+// Operations that change or remove the path wherever it appears in the command.
+const MUTATE = String.raw`(?:>|\bsed\s+-i|\btee\b|Set-Content|Add-Content|Out-File|Remove-Item|Move-Item|Rename-Item|\bmv\b|\brm\b|\bchmod\b|\btruncate\b)`;
 
 // [pattern, reason]
 const RULES = [
@@ -35,11 +43,13 @@ const RULES = [
   [/--no-verify\b|commit\.gpgsign\s*=\s*false|--no-gpg-sign\b/i, 'skipping hooks or signing is not allowed'],
   [/\bgh\s+pr\s+merge\b/i, 'agents never merge PRs; a code owner merges after approval'],
   [/\bgh\s+pr\s+review\b[^;&|]*--approve\b/i, 'agents cannot approve PRs'],
-  [/\bgh\s+pr\s+(?:edit|create)\b[^;&|]*--(?:add-label|label)\b[^;&|]*\b(?:guardrails-change|large-change)\b/i, 'only humans apply the guardrails-change / large-change labels'],
-  [/\bgh\s+(?:repo\s+(?:edit|delete|rename|archive)|secret|variable|ruleset|auth\s+(?:login|token|refresh))\b/i, 'changing repository settings, secrets or auth is not allowed'],
-  [/\bgh\s+api\b[^;&|]*(?:-X\s*|--method\s+)(?:POST|PUT|PATCH|DELETE)\b/i, 'mutating GitHub API calls are not allowed; ask a human'],
-  [/\bgh\s+api\b[^;&|]*\b(?:rulesets|protection|collaborators|hooks|actions\/secrets)\b/i, 'repository protection and secrets are managed by humans'],
-  [/\bgh\s+workflow\s+(?:run|enable|disable)\b|\bgh\s+release\s+(?:create|delete|edit)\b/i, 'running workflows or cutting releases is not allowed'],
+  [new RegExp(`\\bgh\\s+(?:pr|issue)\\s+(?:edit|create)\\b[^;&|]*--(?:add-label|label)\\b[^;&|]*\\b(?:guardrails-change|large-change|${PLAN_APPROVED_LABEL})\\b`, 'i'), 'only humans apply the guardrails-change, large-change and plan-approved labels'],
+  [/\bgh\s+(?:label|repo\s+(?:edit|delete|rename|archive)|secret|variable|auth\s+(?:login|token|refresh))\b/i, 'changing labels, repository settings, secrets or auth is not allowed'],
+  // gh api is read-only unless it sets a method or sends fields/input (which defaults to POST).
+  [/\bgh\s+api\b[^;&|]*(?:-X\s*|--method[\s=]+)(?:POST|PUT|PATCH|DELETE)\b/i, 'mutating GitHub API calls are not allowed; ask a human'],
+  [/\bgh\s+api\b[^;&|]*\s(?:-f|-F|--field|--raw-field|--input)(?:\s|=)/i, 'gh api with fields or input sends a write request; ask a human'],
+  [/\bgh\s+api\b[^;&|]*actions\/secrets/i, 'secrets are managed by humans'],
+  [/\bgh\s+workflow\s+(?:run|enable|disable)\b|\bgh\s+run\s+(?:rerun|cancel|delete)\b|\bgh\s+release\s+(?:create|delete|edit)\b/i, 'running workflows or cutting releases is not allowed'],
   // --- deploys bypass the PR entirely ---
   [/\b(?:npm|pnpm|yarn)\s+(?:run\s+)?deploy\b|\bdocusaurus\s+deploy\b|\bgh-pages\b|\bnpm\s+publish\b/i, 'deploys happen only from main via GitHub Actions'],
   // --- destructive history / working-tree operations ---
@@ -51,7 +61,10 @@ const RULES = [
   [/\brm\s+-[a-z]*r[a-z]*f?\s+(?:\/|~|\.|\*|"?\$CLAUDE_PROJECT_DIR"?)(?:\s|$)|\bRemove-Item\b[^;&|]*-Recurse[^;&|]*\s(?:\.|\*|\\|\/)(?:\s|$)/i, 'recursive delete of the repo root is not allowed'],
   // --- plan approval and guardrail files via the shell ---
   [/status\s*:\s*["']?approved|approved_by[ \t]*:[ \t]*[^\s#'"]/i, 'agents cannot approve plans'],
-  [/(?:\.claude[\\/](?:settings\.json|hooks|guardrails)|\.github[\\/](?:CODEOWNERS|workflows|rulesets)|CLAUDE\.md)[^;&|]*?(?:>|\bsed\s+-i|Set-Content|Add-Content|Out-File|Remove-Item|\bmv\b|\bcp\b|\brm\b|Move-Item|Copy-Item)|(?:>|\bsed\s+-i|Set-Content|Add-Content|Out-File|Remove-Item|\bmv\b|\bcp\b|\brm\b|Move-Item|Copy-Item)[^;&|]*?(?:\.claude[\\/](?:settings\.json|hooks|guardrails)|\.github[\\/](?:CODEOWNERS|workflows|rulesets)|CLAUDE\.md)/i, 'guardrail files may only be changed by a human'],
+  [new RegExp(`${GUARD}[^;&|]*?${MUTATE}|${MUTATE}[^;&|]*?${GUARD}`, 'i'), 'guardrail files may only be changed by a human'],
+  // Copying FROM a guardrail file is fine; copying ONTO one (last argument) is not.
+  [new RegExp(`\\b(?:cp|Copy-Item)\\b[^;&|]*\\s["']?[^\\s;&|]*${GUARD}[^\\s;&|"']*["']?\\s*(?:$|[;&|])`, 'i'), 'guardrail files may only be changed by a human'],
+  [/\bgit\s+(?:checkout|restore)\b[^;&|]*\s--\s[^;&|]*(?:\.claude|\.github|CLAUDE\.md)/i, 'restoring guardrail files from another revision is a human action'],
   // --- secrets ---
   [/(?:^|[\s"'\/\\])\.env(?:\.[\w.-]+)?(?:["'\s]|$)/i, 'reading or writing .env files is not allowed'],
 ];

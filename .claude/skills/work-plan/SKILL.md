@@ -28,6 +28,8 @@ hook blocks all other edits until then, and CI checks the PR against the plan.
 4. **Self-review.** Run the `plan-reviewer` subagent on the plan and fix what it finds.
 5. **Stop and hand off.** Tell the user the plan path, give a 3–5 line summary (goal, files, risk),
    and ask the code owner to review and set `status: approved` and `approved_by: <handle>`.
+   Mention that CI also needs them to add the `plan-approved` label on the PR, after the
+   plan's final version is pushed (re-add it if the plan changes).
    End your turn. Do not start the work in the same turn.
 
 ## After approval

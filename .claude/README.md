@@ -15,7 +15,7 @@ The layers are independent, so if one fails the next still holds.
 | Shell hook | `.claude/hooks/guard-shell.mjs` | The same through Bash/PowerShell, plus history rewrites, mutating `gh api` calls, repo settings, releases, deploys |
 | Session context | `.claude/hooks/session-context.mjs` | The agent "forgetting" the state: it is told the branch, plan and approval status at start |
 | Plan | `.claude/plans/<branch>.md` | Unreviewed intent. Nine required sections and a machine-readable Scope |
-| PR plan check | `.github/workflows/pr-plan-check.yml` | PRs without an approved plan, scope creep, guardrail changes without the `guardrails-change` label, more than 60 files or 1,500 lines without `large-change`, PR body not linking the plan |
+| PR plan check | `.github/workflows/pr-plan-check.yml` (runs the **base** branch's checker via `pull_request_target`, so a PR cannot weaken it) | PRs whose plan was not approved by an approver adding the `plan-approved` label (verified via the GitHub API, and re-required if the plan changes), scope creep, guardrail changes without the `guardrails-change` label, more than 60 files or 1,500 lines without `large-change`, PR body not linking the plan |
 | PR CI | `.github/workflows/pr-ci.yml` | Broken typecheck, SEO, build or feeds; leaked secrets (gitleaks); vulnerable dependencies |
 | Code owners | `.github/CODEOWNERS` | Merging without @udzialMeansShare's review |
 | Ruleset | `.github/rulesets/main-protection.json` | Direct pushes, force-pushes and deletion of `main`; merging without approval, without resolved threads, or with stale approvals; no bypass for anyone |
@@ -30,6 +30,7 @@ The hooks and CI share one rules file, `.claude/guardrails/lib.mjs`, so local be
    status: approved
    approved_by: udzialMeansShare
    ```
+   On the PR, @udzialMeansShare also adds the `plan-approved` label. That is the approval CI trusts, because GitHub records who added it. If the plan changes later, remove and re-add the label.
 3. The agent does the work, verifies it and opens a draft PR (`open-pr` skill).
 4. CI runs. @udzialMeansShare reviews the diff against the plan and approves. Squash-merge.
 
@@ -40,7 +41,7 @@ To change scope mid-way: set `status: draft`, let the agent amend the plan, then
 | | Agent | Human |
 |---|---|---|
 | `.claude/plans/<branch>.md` while `draft` | yes | yes |
-| `status: approved`, `approved_by` | **no** | yes |
+| `status: approved`, `approved_by`, `plan-approved` label | **no** | yes (approvers in `lib.mjs` → `PLAN_APPROVERS`) |
 | Files in an approved plan's Scope | yes | yes |
 | Guardrail files: `.claude/settings.json`, `hooks/`, `guardrails/`, `plans/TEMPLATE.md`, `.github/CODEOWNERS`, `workflows/`, `rulesets/`, `CLAUDE.md` | **no** | yes, in a PR with the `guardrails-change` label and a `risk: high` plan |
 | Merge, approve, labels, repo settings, deploy | **no** | yes |
@@ -51,6 +52,9 @@ These are repository settings, so files alone can't apply them.
 
 1. Give @udzialMeansShare **Write** access (Settings → Collaborators). GitHub ignores CODEOWNERS entries for accounts without write access.
 2. Create the labels:
+   ```bash
+   gh label create plan-approved --color 0E8A16 --description "Plan reviewed and approved by a code owner"
+   ```
    ```bash
    gh label create guardrails-change --color B60205 --description "Human-confirmed change to guardrail files"
    ```
@@ -69,5 +73,7 @@ These are repository settings, so files alone can't apply them.
 ## Known limits
 
 - Hooks only apply to Claude Code sessions in this repo. Other tools, such as Copilot agent, are held by CI, CODEOWNERS and the ruleset only.
+- The check that a plan didn't change after approval relies on commit dates, which can be faked. The label time itself comes from GitHub and can't be.
+- A PR that changes `pr-plan-check.yml` is judged by the base branch's version. Changes to the checker take effect only after they merge.
 - Shell checks use pattern matching. A determined agent could write files with `node -e`. The CI scope check and human review catch this before `main`.
 - `settings.local.json` is personal and untracked. Its `allow` rules can't override the `deny` rules here.

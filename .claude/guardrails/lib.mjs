@@ -12,12 +12,18 @@ export const PLANS_DIR = '.claude/plans';
 export const PLAN_TEMPLATE = `${PLANS_DIR}/TEMPLATE.md`;
 export const DEFAULT_BRANCHES = ['main', 'master'];
 
+// Who may approve plans. CI trusts approval only when one of these accounts applies the
+// PLAN_APPROVED_LABEL on GitHub (an authenticated action), not because the plan says so.
+export const PLAN_APPROVERS = ['udzialMeansShare'];
+export const PLAN_APPROVED_LABEL = 'plan-approved';
+
 // Guardrail infrastructure. Agents may never edit these; a human changes them
 // in a PR that carries the `guardrails-change` label and a risk: high plan.
 export const PROTECTED_HARD = [
   '.claude/settings.json',
   '.claude/hooks/**',
   '.claude/guardrails/**',
+  '.claude/plans/TEMPLATE.md',
   '.github/CODEOWNERS',
   '.github/workflows/**',
   '.github/rulesets/**',
@@ -158,6 +164,9 @@ export function parsePlan(text) {
   return { frontmatter, sections, scope };
 }
 
+export const isApprover = (login) =>
+  PLAN_APPROVERS.some((a) => a.toLowerCase() === String(login).replace(/^@/, '').toLowerCase());
+
 export function validatePlan(plan) {
   const errors = [];
   const fm = plan.frontmatter;
@@ -167,6 +176,9 @@ export function validatePlan(plan) {
   if (fm.risk && !RISK_LEVELS.includes(fm.risk)) errors.push(`frontmatter: risk must be one of ${RISK_LEVELS.join(', ')}`);
   if (fm.status && !STATUSES.includes(fm.status)) errors.push(`frontmatter: status must be one of ${STATUSES.join(', ')}`);
   if (fm.status === 'approved' && !fm.approved_by) errors.push('frontmatter: approved plans need "approved_by"');
+  if (fm.approved_by && !isApprover(fm.approved_by)) {
+    errors.push(`frontmatter: approved_by must be one of ${PLAN_APPROVERS.join(', ')}`);
+  }
 
   for (const name of REQUIRED_SECTIONS) {
     const content = stripComments(plan.sections[name] ?? '').trim();

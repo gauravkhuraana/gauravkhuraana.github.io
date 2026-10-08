@@ -25,9 +25,10 @@ description: Verify, commit, push a work branch and open a pull request that pas
    - First line: `Plan: .claude/plans/<file>.md`. CI fails without it.
    - Fill Plan, Scope, Success criteria and Rollback from the plan; paste the verification output.
    - Tick "Opened by an AI agent".
-5. Report the PR URL and remind the user that @udzialMeansShare must review. If guardrail files
-   changed, a maintainer must add the `guardrails-change` label.
+5. Report the PR URL and remind the user that @udzialMeansShare must add the `plan-approved`
+   label (CI verifies who added it) and review. If guardrail files changed, a maintainer must
+   also add the `guardrails-change` label.
 
 ## Never
 
-Merge, approve, add `guardrails-change` / `large-change` labels, re-run or edit workflows, or push to `main`.
+Merge, approve, add `guardrails-change` / `large-change` / `plan-approved` labels, re-run or edit workflows, or push to `main`.
