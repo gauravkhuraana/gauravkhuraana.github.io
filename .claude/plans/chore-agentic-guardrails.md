@@ -3,8 +3,8 @@ title: Guardrails for agentic work — plan-first, PR-only, code-owner approval
 branch: chore/agentic-guardrails
 author: claude-opus-5-5 for Gaurav Khurana
 risk: high
-status: draft
-approved_by:
+status: approved
+approved_by: udzialmeansshare
 ---
 
 ## Goal
