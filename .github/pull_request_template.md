@@ -3,7 +3,7 @@ Plan: .claude/plans/<branch-with-slashes-as-dashes>.md
 <!-- Required. CI fails if the plan is missing, not approved, or if this PR touches files outside its Scope. -->
 
 - [ ] Opened by an AI agent (name the agent and who it worked for)
-- [ ] The plan was approved by a code owner **before** work started
+- [ ] The plan was approved by a code owner **before** work started (`status: approved` in the file, and the `plan-approved` label added by the approver, which CI verifies)
 
 ## Plan
 

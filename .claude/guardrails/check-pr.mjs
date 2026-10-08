@@ -1,21 +1,26 @@
 #!/usr/bin/env node
-// CI gate for every pull request (human or agent). Run by .github/workflows/pr-plan-check.yml.
+// CI gate for every pull request (human or agent). Run by .github/workflows/pr-plan-check.yml
+// from the BASE branch's copy of this file, so a PR cannot weaken the checker it is judged by.
 //
 // Fails the PR when:
 //   - there is no plan for the branch, or the plan is incomplete or not approved
+//   - plan approval is not authenticated: an approver (PLAN_APPROVERS) must have applied the
+//     `plan-approved` label on GitHub, after the plan's last change
 //   - any changed file is outside the plan's Scope (scope creep)
 //   - a sensitive path changes without a risk: high plan
 //   - guardrail infrastructure changes without the human-applied "guardrails-change" label
 //   - the diff is larger than the limits without the "large-change" label
 //   - the PR description does not link the plan
 //
-// Env: BASE_SHA, HEAD_SHA, HEAD_REF, PR_BODY, PR_LABELS (JSON array of names), GITHUB_STEP_SUMMARY
-// Local dry run: BASE_SHA=origin/main HEAD_SHA=HEAD node .claude/guardrails/check-pr.mjs
+// Env: BASE_SHA, HEAD_SHA, HEAD_REF, PR_BODY, PR_LABELS (JSON array of names), PR_NUMBER,
+//      GITHUB_REPOSITORY, GITHUB_TOKEN, GITHUB_STEP_SUMMARY
+// Local dry run (approval label not verified): BASE_SHA=origin/main HEAD_SHA=HEAD node .claude/guardrails/check-pr.mjs
 
 import { appendFileSync } from 'node:fs';
 import {
-  PLANS_DIR, PLAN_TEMPLATE, PROTECTED_HARD, checkFileAgainstPlan, currentBranch, git,
-  loadPlan, matchesAny, planPathForBranch, repoRoot,
+  PLANS_DIR, PLAN_APPROVED_LABEL, PLAN_APPROVERS, PLAN_TEMPLATE, PROTECTED_HARD,
+  checkFileAgainstPlan, currentBranch, git, isApprover, loadPlan, matchesAny,
+  planPathForBranch, repoRoot,
 } from './lib.mjs';
 
 const MAX_FILES = 60;
@@ -52,12 +57,55 @@ if (!plan) {
   }
 }
 
+/** Latest still-standing `plan-approved` label event by an approver, from the GitHub API. */
+async function approvalEvent() {
+  const { GITHUB_TOKEN, GITHUB_REPOSITORY, PR_NUMBER } = process.env;
+  if (!GITHUB_TOKEN || !GITHUB_REPOSITORY || !PR_NUMBER) return { skipped: true };
+  const events = [];
+  for (let page = 1; page <= 10; page++) {
+    const res = await fetch(
+      `https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/events?per_page=100&page=${page}`,
+      { headers: { Authorization: `Bearer ${GITHUB_TOKEN}`, Accept: 'application/vnd.github+json' } },
+    );
+    if (!res.ok) throw new Error(`GitHub API ${res.status} reading PR events`);
+    const batch = await res.json();
+    events.push(...batch);
+    if (batch.length < 100) break;
+  }
+  let approved = null;
+  for (const e of events) {
+    if (e.label?.name !== PLAN_APPROVED_LABEL) continue;
+    if (e.event === 'labeled') approved = isApprover(e.actor?.login) ? e : approved;
+    if (e.event === 'unlabeled') approved = null;
+  }
+  return { event: approved };
+}
+
 if (!plan) {
   errors.push(`No plan found. Expected \`${planPath}\` (copy \`${PLAN_TEMPLATE}\`).`);
 } else {
   notes.push(`Plan: \`${planPath}\` — status **${plan.frontmatter.status}**, risk **${plan.frontmatter.risk}**, approved by ${plan.frontmatter.approved_by || '—'}.`);
   for (const e of plan.errors) errors.push(`Plan: ${e}`);
   if (plan.frontmatter.status !== 'approved') errors.push('Plan is not approved. A code owner must set `status: approved` and `approved_by`.');
+
+  // ---- authenticated approval ----
+  try {
+    const { skipped, event } = await approvalEvent();
+    if (skipped) {
+      notes.push('Approval label not verified (no GitHub token; local run).');
+    } else if (!event) {
+      errors.push(`Plan approval is not authenticated. ${PLAN_APPROVERS.map((a) => `@${a}`).join(' or ')} must add the \`${PLAN_APPROVED_LABEL}\` label to this PR.`);
+    } else {
+      const approvedAt = new Date(event.created_at);
+      const planChangedAt = new Date(git(['log', '-1', '--format=%cI', head, '--', planPath], root) || 0);
+      notes.push(`\`${PLAN_APPROVED_LABEL}\` added by @${event.actor.login} at ${event.created_at}; plan last changed ${planChangedAt.toISOString()}.`);
+      if (planChangedAt > approvedAt) {
+        errors.push(`The plan changed after @${event.actor.login} approved it. Remove and re-add \`${PLAN_APPROVED_LABEL}\` after reviewing the new version.`);
+      }
+    }
+  } catch (err) {
+    errors.push(`Could not verify plan approval: ${err.message}`);
+  }
 
   for (const f of changed) {
     const reason = checkFileAgainstPlan(f, plan);

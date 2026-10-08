@@ -3,14 +3,21 @@ name: PR Plan Check
 # Every PR into main must carry an approved plan, stay inside its Scope,
 # and get the guardrails-change label if it touches guardrail files.
 # Re-runs when the description or labels change, so fixes are picked up without a new push.
+#
+# pull_request_target: GitHub runs THIS workflow file from the base branch, and the checker
+# script is also taken from the base commit, so a PR cannot replace or weaken the rules it is
+# judged by. The PR head is checked out only as data (git diff/log, reading the plan); no PR
+# code is ever executed, and the token is read-only.
 
 on:
-  pull_request:
+  pull_request_target:
     branches: [main]
     types: [opened, synchronize, reopened, edited, labeled, unlabeled, ready_for_review]
 
 permissions:
   contents: read
+  pull-requests: read
+  issues: read
 
 concurrency:
   group: pr-plan-check-${{ github.event.pull_request.number }}
@@ -22,9 +29,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: Checkout
+      - name: Checkout trusted checker (base commit)
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          sparse-checkout: .claude/guardrails
+          persist-credentials: false
+
+      - name: Checkout PR head (data only, never executed)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: pr
           fetch-depth: 0
           persist-credentials: false
 
@@ -34,11 +51,14 @@ jobs:
           node-version: 22
 
       # Untrusted PR text is passed through env, never interpolated into the script.
-      - name: Check plan, scope, size and labels
+      - name: Check plan, approval, scope, size and labels
+        working-directory: pr
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           PR_BODY: ${{ github.event.pull_request.body }}
           PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
-        run: node .claude/guardrails/check-pr.mjs
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node "$GITHUB_WORKSPACE/trusted/.claude/guardrails/check-pr.mjs"
