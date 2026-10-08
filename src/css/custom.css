@@ -380,7 +380,7 @@ body {
 
 /* YouTubeEmbed component */
 .youtube-embed-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 /* Accessibility: Skip to main content link (WCAG 2.4.1) */
@@ -643,45 +643,25 @@ textarea:focus-visible {
 }
 
 .youtube-embed-cta {
-  margin-top: 1rem;
-  padding: 1rem;
-  background-color: var(--ifm-card-background-color);
-  border-radius: 8px;
-  border: 1px solid var(--ifm-color-emphasis-200);
-}
-
-.youtube-embed-cta-text {
-  margin: 0 0 0.5rem 0;
-  font-weight: bold;
-}
-
-.youtube-embed-links {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
 }
 
 .youtube-embed-link {
-  color: #ff0000;
+  color: var(--ifm-color-emphasis-700);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .youtube-embed-link:hover {
+  color: #ff0000;
   text-decoration: underline;
 }
 
 .youtube-embed-separator {
-  color: var(--ifm-color-emphasis-600);
-}
-
-.youtube-embed-encouragement {
-  color: var(--ifm-color-emphasis-600);
-}
-
-@media (max-width: 768px) {
-  .youtube-embed-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+  color: var(--ifm-color-emphasis-500);
 }
