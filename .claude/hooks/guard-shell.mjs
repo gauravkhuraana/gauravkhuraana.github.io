@@ -33,6 +33,7 @@ const defaults = DEFAULT_BRANCHES.join('|');
 const GUARD = String.raw`(?:\.claude[\\/](?:settings\.json|hooks|guardrails|plans[\\/]TEMPLATE\.md)|\.github[\\/](?:CODEOWNERS|workflows|rulesets)|CLAUDE\.md)`;
 // Operations that change or remove the path wherever it appears in the command.
 const MUTATE = String.raw`(?:>|\bsed\s+-i|\btee\b|Set-Content|Add-Content|Out-File|Remove-Item|Move-Item|Rename-Item|\bmv\b|\brm\b|\bchmod\b|\btruncate\b)`;
+const GUARD_RE = new RegExp(GUARD, 'i');
 
 // [pattern, reason]
 const RULES = [
@@ -62,9 +63,8 @@ const RULES = [
   // --- plan approval and guardrail files via the shell ---
   [/status\s*:\s*["']?approved|approved_by[ \t]*:[ \t]*[^\s#'"]/i, 'agents cannot approve plans'],
   [new RegExp(`${GUARD}[^;&|]*?${MUTATE}|${MUTATE}[^;&|]*?${GUARD}`, 'i'), 'guardrail files may only be changed by a human'],
-  // Copying FROM a guardrail file is fine; copying ONTO one (last argument) is not.
-  [new RegExp(`\\b(?:cp|Copy-Item)\\b[^;&|]*\\s["']?[^\\s;&|]*${GUARD}[^\\s;&|"']*["']?\\s*(?:$|[;&|])`, 'i'), 'guardrail files may only be changed by a human'],
-  [/\bgit\s+(?:checkout|restore)\b[^;&|]*\s--\s[^;&|]*(?:\.claude|\.github|CLAUDE\.md)/i, 'restoring guardrail files from another revision is a human action'],
+  // Any checkout/restore that names a guardrail path writes it, with or without a "--".
+  [/\bgit\s+(?:checkout|restore)\b[^;&|]*(?:\.claude|\.github|CLAUDE\.md)/i, 'restoring guardrail files from another revision is a human action'],
   // --- secrets ---
   [/(?:^|[\s"'\/\\])\.env(?:\.[\w.-]+)?(?:["'\s]|$)/i, 'reading or writing .env files is not allowed'],
 ];
@@ -72,7 +72,27 @@ const RULES = [
 for (const [re, reason] of RULES) {
   if (re.test(cmd)) block(reason);
 }
-
+// Copying FROM a guardrail file is fine; copying ONTO one is not. Options may appear
+// anywhere (`cp a b -f`, `cp -t dir a`), so the destination cannot be found positionally
+// by a regex. Compare operands instead: every operand after the first is a destination,
+// and -t/--target-directory makes all of them destinations.
+function copiesOntoGuardFile(text) {
+  for (const seg of text.split(/[;&|]+/)) {
+    const m = /\b(?:cp|Copy-Item)\b(.*)/is.exec(seg);
+    if (!m) continue;
+    const tokens = m[1].trim().split(/\s+/).filter(Boolean)
+      .map((t) => t.replace(/^["']+|["']+$/g, ''));
+    const inlineTargets = tokens
+      .filter((t) => /^--(?:target-directory|Destination)=/i.test(t))
+      .map((t) => t.slice(t.indexOf('=') + 1));
+    const dirFlag = tokens.some((t) => /^(?:-t|--target-directory|-Destination)$/i.test(t));
+    const operands = tokens.filter((t) => !t.startsWith('-'));
+    const dests = dirFlag ? operands : operands.slice(1);
+    if ([...dests, ...inlineTargets].some((t) => GUARD_RE.test(t))) return true;
+  }
+  return false;
+}
+if (copiesOntoGuardFile(cmd)) block('guardrail files may only be changed by a human');
 // Commits and bare pushes on the default branch.
 if (onDefault && /\bgit\s+(?:commit|merge|rebase|cherry-pick|revert|am)\b/i.test(cmd)) {
   block(`you are on "${branch}". Create a branch first: git switch -c <type>/<topic>`);
