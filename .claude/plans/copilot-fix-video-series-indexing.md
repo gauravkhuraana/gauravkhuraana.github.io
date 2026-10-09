@@ -3,8 +3,8 @@ title: Flatten AI video series and add GH-600 episode 4
 branch: copilot/fix-video-series-indexing
 author: Copilot for Gaurav
 risk: medium
-status: draft
-approved_by:
+status: approved
+approved_by: udzialmeansshare
 ---
 
 ## Goal
