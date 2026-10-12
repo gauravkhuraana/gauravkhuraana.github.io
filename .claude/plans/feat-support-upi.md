@@ -3,8 +3,8 @@ title: Add UPI support (reusable SupportBox) and show it on /support, docs, blog
 branch: feat/support-upi
 author: claude-opus-5-5 for Gaurav
 risk: high
-status: draft
-approved_by:
+status: approved
+approved_by: udzialmeansshare
 ---
 
 ## Goal
