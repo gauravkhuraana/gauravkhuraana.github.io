@@ -42,7 +42,7 @@ export const linkGroups: LinkGroup[] = [
     id: 'start',
     title: 'Start Here',
     icon: '🧭',
-    blurb: 'New around here? These five cover most of what people come looking for.',
+    blurb: 'New around here? These six cover most of what people come looking for.',
     links: [
       {
         title: 'Welcome to Sharing is Caring',
@@ -55,6 +55,12 @@ export const linkGroups: LinkGroup[] = [
         desc: 'Featured courses, topic grid and popular resources',
         href: '/',
         tags: ['home'],
+      },
+      {
+        title: 'About Gaurav',
+        desc: 'Talks, hackathon wins, recognition and certifications',
+        href: '/about/',
+        tags: ['about', 'speaker', 'awards', 'hackathons', 'talks'],
       },
       {
         title: 'Blog',
