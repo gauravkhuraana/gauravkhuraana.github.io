@@ -350,3 +350,68 @@ a.card:hover {
     margin-right: 1rem;
   }
 }
+
+.badgeIntl {
+  align-self: flex-start;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: #1a2a6c;
+  color: #fff;
+}
+
+.badgeFree {
+  align-self: flex-start;
+  padding: 0.1rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  background: var(--ifm-color-success);
+  color: #fff;
+}
+
+.highlight {
+  max-width: 1000px;
+  margin: 1.5rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(135deg, #f5b301 0%, #f08c00 100%);
+  color: #1f1a00;
+}
+
+.highlight p {
+  margin: 0;
+  color: #1f1a00;
+}
+
+.highlightKicker {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.highlightTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.highlightText {
+  font-size: 0.98rem;
+}
+
+.featuredLabel {
+  margin: 1.5rem 0 0.75rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 1032px) {
+  .highlight {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}

@@ -11,6 +11,8 @@ import {TOPMATE_PROFILE_URL} from '@site/src/data/links';
 import {
   appearances,
   certifications,
+  courses,
+  featuredRecognition,
   recognition,
   talks,
   wins,
@@ -23,7 +25,7 @@ import styles from './about.module.css';
 
 const TITLE = 'About Gaurav Khurana: talks, wins and recognition';
 const DESCRIPTION =
-  'Gaurav Khurana is a Senior Test Consultant at Microsoft with 15+ years in testing. See his conference talks, hackathon and contest wins, community recognition and certifications.';
+  'Gaurav Khurana is a Senior Test Consultant at Microsoft with 16+ years in testing and automation, Tester of the Year 2022 and a multiple-hackathon winner. See his talks, wins, recognition, courses and certifications.';
 const FEATURED_VIDEO = {
   id: 'suYhl_8N_8Y',
   title: 'Navigating the Future: Principles of Responsible AI (TestFlix 2024)',
@@ -64,7 +66,10 @@ function TalkCard({talk}: {talk: Talk}): ReactNode {
         </div>
       )}
       <div className={styles.cardBody}>
-        <span className={styles.badge}>{talk.format}</span>
+        <div className={styles.badgeRow}>
+          {talk.international && <span className={styles.badgeIntl}>International</span>}
+          <span className={styles.badge}>{talk.format}</span>
+        </div>
         <p className={styles.cardTitle}>{talk.title}</p>
         <p className={styles.cardMeta}>{talk.event}</p>
         {meta && <p className={styles.cardMeta}>{meta}</p>}
@@ -96,7 +101,7 @@ function WinCard({win}: {win: Win}): ReactNode {
 
 export default function About(): ReactNode {
   const stats = [
-    {value: '15+', label: 'years in testing'},
+    {value: '16+', label: 'years in testing and automation'},
     {value: String(wins.length), label: 'hackathon and contest wins'},
     {value: String(talks.length), label: 'conference talks and tutorials'},
     {value: String(appearances.length), label: 'podcast and channel guest spots'},
@@ -133,11 +138,11 @@ export default function About(): ReactNode {
               <Heading as="h1" className={styles.heroTitle}>
                 Gaurav Khurana
               </Heading>
-              <p className={styles.heroRole}>Senior Test Consultant at Microsoft · Tester of the Year 2022</p>
+              <p className={styles.heroRole}>Senior Test Consultant at Microsoft · AI enthusiast · Tester of the Year 2022</p>
               <p className={styles.heroBio}>
-                15+ years in software testing and automation, from telecom billing to insurance to Azure data
-                platforms. I share what I learn through talks, hackathons, videos and this site, because
-                sharing is caring.
+                16+ years in testing and automation, a multiple-hackathon winner, and an active mentor and
+                community builder. I create Udemy courses and YouTube series on GitHub Copilot, AI with Python,
+                Azure DevOps and API testing, all available here on gauravkhurana.com.
               </p>
               <div className={styles.heroCtas}>
                 <Link className="button button--secondary" to="/connect/">
@@ -160,17 +165,30 @@ export default function About(): ReactNode {
           ))}
         </section>
 
+        <section className={styles.highlight} aria-label="Highlight">
+          <span className={styles.highlightKicker}>Award</span>
+          <p className={styles.highlightTitle}>{featuredRecognition.title}</p>
+          <p className={styles.highlightText}>{featuredRecognition.desc}</p>
+        </section>
+
         <nav className={styles.jump} aria-label="Sections">
           <a href="#speaking">Speaking</a>
           <a href="#wins">Wins</a>
           <a href="#recognition">Recognition</a>
+          <a href="#courses">Courses</a>
           <a href="#videos">Videos</a>
           <a href="#certifications">Certifications</a>
         </nav>
 
         <section className={styles.section} id="speaking">
           <Heading as="h2">Speaking</Heading>
-          <p className={styles.sectionSub}>Conference talks, tutorials and training sessions, newest first.</p>
+          <p className={styles.sectionSub}>International conferences first, then community events.</p>
+          <div className={styles.grid}>
+            {talks.filter((t) => t.videoId !== FEATURED_VIDEO.id).map((t) => (
+              <TalkCard key={`${t.event}-${t.title}`} talk={t} />
+            ))}
+          </div>
+          <p className={styles.featuredLabel}>Watch a recorded talk</p>
           <div className={styles.featured}>
             <YouTubeEmbed videoId={FEATURED_VIDEO.id} title={FEATURED_VIDEO.title} />
             <a
@@ -180,11 +198,6 @@ export default function About(): ReactNode {
             >
               Watch on YouTube
             </a>
-          </div>
-          <div className={styles.grid}>
-            {talks.filter((t) => t.videoId !== FEATURED_VIDEO.id).map((t) => (
-              <TalkCard key={`${t.event}-${t.title}`} talk={t} />
-            ))}
           </div>
         </section>
 
@@ -220,6 +233,35 @@ export default function About(): ReactNode {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className={styles.section} id="courses">
+          <Heading as="h2">Courses</Heading>
+          <p className={styles.sectionSub}>Learn with me: free video series and in-depth paid courses.</p>
+          <div className={styles.grid}>
+            {courses.map((c) => {
+              const body = (
+                <div className={styles.cardBody}>
+                  <span className={c.price === 'Free' ? styles.badgeFree : styles.badgeWin}>{c.price}</span>
+                  <p className={styles.cardTitle}>{c.title}</p>
+                  <p className={styles.cardText}>{c.desc}</p>
+                  <span className={styles.cardLink}>{c.price === 'Free' ? 'Start learning' : 'View course'}</span>
+                </div>
+              );
+              return c.external ? (
+                <a key={c.title} className={styles.card} href={c.href} {...external}>
+                  {body}
+                </a>
+              ) : (
+                <Link key={c.title} className={styles.card} to={c.href}>
+                  {body}
+                </Link>
+              );
+            })}
+          </div>
+          <p className={styles.more}>
+            <Link to="/courses/">Compare all courses, prices and formats</Link>
+          </p>
         </section>
 
         <section className={styles.section} id="videos">

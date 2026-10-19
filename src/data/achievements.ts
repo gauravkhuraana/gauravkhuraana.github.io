@@ -1,8 +1,14 @@
-// Everything shown on /about/. Adding a talk, win or video means adding one object here;
+// Everything shown on /about/. Adding a talk, win, course or video means adding one object here;
 // the stats row on the page counts these arrays, so it never drifts.
 //
 // Every entry is backed by a certificate, the LinkedIn profile, the event's own page or
 // Gaurav's confirmation. Co-winners are not named: team results show the team name only.
+
+import {
+  TOPMATE_PERSONAL_WEBSITE_URL,
+  TOPMATE_PYTHON_AI_URL,
+  UDEMY_API_TESTING_URL,
+} from './links';
 
 export const YOUTUBE_PLAYLIST_URL =
   'https://www.youtube.com/playlist?list=PLUlzmYT8n_5uW9rA866zOjYi8Ibn2AQHc';
@@ -13,6 +19,8 @@ export type Talk = {
   /** Shown as written, e.g. "4 Nov 2026". Omitted when the event never published one. */
   date?: string;
   format: 'Talk' | 'Tutorial' | 'Training session';
+  /** International conferences are listed first and get a badge. */
+  international?: boolean;
   location?: string;
   href: string;
   /** Path under /static, e.g. /img/achievements/x.webp */
@@ -46,26 +54,27 @@ export type Appearance = {
   videoId: string;
 };
 
+export type Course = {
+  title: string;
+  desc: string;
+  href: string;
+  external?: boolean;
+  price: 'Free' | 'Paid';
+};
+
 export type Certification = {
   title: string;
   issuer: string;
 };
 
-// Newest first.
+// International conferences first, then community events; newest first within each.
 export const talks: Talk[] = [
-  {
-    event: 'AutomationSTAR 2026',
-    title: 'Poison Kills Poison: AI Tests AI',
-    date: '4 Nov 2026',
-    format: 'Tutorial',
-    location: 'Antwerp, Belgium',
-    href: 'https://automation.eurostarsoftwaretesting.com/event/2026/poison-kills-poison-ai-tests-ai/',
-  },
   {
     event: 'TestMu Conf 2026',
     title: "You Can't assertEquals an Agent: A Tester's Guide to Agentic Quality",
     date: '20 Aug 2026',
     format: 'Talk',
+    international: true,
     location: 'Online',
     href: 'https://www.testmuai.com/testmuconf-2026/testers-guide-to-agentic-quality/',
     image: '/img/achievements/testmu-conf-2026.webp',
@@ -75,6 +84,7 @@ export const talks: Talk[] = [
     title: 'Prompt Injection is the new SQL injection',
     date: 'May 2026',
     format: 'Talk',
+    international: true,
     location: 'Online',
     href: 'https://www.browserstack.com/events/breakpoint-2026',
   },
@@ -83,7 +93,17 @@ export const talks: Talk[] = [
     title: 'A Playwright Visual Regression Runner: 39 lines of TypeScript',
     date: '13 Feb 2026',
     format: 'Training session',
+    international: true,
     href: 'https://testguild.com/automation-guild-2026/',
+  },
+  {
+    event: 'AutomationSTAR 2026',
+    title: 'Poison Kills Poison: AI Tests AI',
+    date: '4 Nov 2026',
+    format: 'Tutorial',
+    international: true,
+    location: 'Antwerp, Belgium',
+    href: 'https://automation.eurostarsoftwaretesting.com/event/2026/poison-kills-poison-ai-tests-ai/',
   },
   {
     event: 'ATA AI Test Fest',
@@ -194,12 +214,14 @@ export const wins: Win[] = [
   },
 ];
 
+// Shown as the lead highlight at the top of the page.
+export const featuredRecognition: Recognition = {
+  title: 'Tester of the Year 2022',
+  from: 'The Test Chat',
+  desc: 'Named Tester of the Year 2022 by The Test Chat testing community.',
+};
+
 export const recognition: Recognition[] = [
-  {
-    title: 'Tester of the Year 2022',
-    from: 'The Test Chat',
-    desc: 'Named Tester of the Year 2022 by The Test Chat testing community.',
-  },
   {
     title: 'AI Odyssey: top 11',
     from: 'Microsoft',
@@ -273,8 +295,70 @@ export const appearances: Appearance[] = [
 ];
 
 export const certifications: Certification[] = [
+  {title: 'GitHub Copilot (GH-300)', issuer: 'GitHub'},
   {title: 'ISTQB Certified Tester', issuer: 'ISTQB'},
   {title: 'Azure AI Fundamentals (AI-900)', issuer: 'Microsoft'},
   {title: 'Azure Developer Associate', issuer: 'Microsoft'},
   {title: 'Microsoft Global Hackathon 2023', issuer: 'Microsoft'},
+];
+
+// Same nine courses as /courses/, which stays the full catalogue with prices and details.
+export const courses: Course[] = [
+  {
+    title: 'Python + AI for Beginners: Build your own Local AI',
+    desc: 'Build a real AI assistant on your laptop with LM Studio. No paid APIs, no GPU.',
+    href: TOPMATE_PYTHON_AI_URL,
+    external: true,
+    price: 'Paid',
+  },
+  {
+    title: 'API Testing Concepts with Interview Q&A',
+    desc: 'API testing concepts with interview questions and answers, with lifetime access.',
+    href: UDEMY_API_TESTING_URL,
+    external: true,
+    price: 'Paid',
+  },
+  {
+    title: 'Build Your Personal Website (yourname.com)',
+    desc: 'Launch your portfolio at yourname.com with free hosting and your own domain.',
+    href: TOPMATE_PERSONAL_WEBSITE_URL,
+    external: true,
+    price: 'Paid',
+  },
+  {
+    title: 'GitHub Copilot / GH-300',
+    desc: 'GitHub Copilot from basics to advanced, plus GH-300 certification prep.',
+    href: '/docs/AI/github-copilot/',
+    price: 'Free',
+  },
+  {
+    title: 'GH-600 Agentic AI Developer',
+    desc: 'Agents, tools and guardrails, built on the GH-600 certification material.',
+    href: '/docs/AI/gh-600-agentic-ai/',
+    price: 'Free',
+  },
+  {
+    title: 'Azure AI-900 Fundamentals',
+    desc: 'Machine learning, computer vision, NLP and generative AI for the AI-900 exam.',
+    href: '/docs/AI/azure-ai-900/',
+    price: 'Free',
+  },
+  {
+    title: 'Microsoft Foundry: Enterprise AI',
+    desc: 'From AI demo to enterprise AI: models, agents, evaluation and guardrails.',
+    href: '/docs/AI/microsoft-foundry/',
+    price: 'Free',
+  },
+  {
+    title: 'Automation Basics Series',
+    desc: 'Automation testing fundamentals from scratch, ideal for beginners.',
+    href: '/docs/Automation/automation-basics-series/',
+    price: 'Free',
+  },
+  {
+    title: 'Azure DevOps Complete Series',
+    desc: 'CI/CD pipelines, work items and best practices in Azure DevOps.',
+    href: '/docs/AzureDevOps/azure-devops-complete-series/',
+    price: 'Free',
+  },
 ];
