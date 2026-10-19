@@ -23,6 +23,8 @@ const REPO_URL = 'https://github.com/gauravkhuraana/shopkart-ai-tutorial-v2';
 const PRE_CONFERENCE_URL = `${REPO_URL}/blob/main/PRE_CONFERENCE.md`;
 const TROUBLESHOOTING_URL = `${REPO_URL}/blob/main/TROUBLESHOOTING.md`;
 const LINKEDIN_URL = 'https://www.linkedin.com/in/gauravkhuraana/';
+const EVENT_URL =
+  'https://automation.eurostarsoftwaretesting.com/event/2026/poison-kills-poison-ai-tests-ai/';
 
 function ExternalLink({href, children}: {href: string; children: ReactNode}) {
   return (
@@ -126,15 +128,23 @@ export default function AiTestsAi(): ReactNode {
             online shop, then <strong>test</strong> them, using AI as the tester. Everything is
             hands-on, so a ready laptop means more time building and less time installing.
           </p>
+          <p>
+            Read the full session details on the{' '}
+            <ExternalLink href={EVENT_URL}>AutomationSTAR website</ExternalLink>.
+          </p>
         </section>
 
         <section className={styles.section}>
-          <Heading as="h2">Pick one path</Heading>
+          <Heading as="h2">Set up both paths</Heading>
+          <p>
+            Set up both before the day. On the day you use one, and the other is your backup if
+            something goes wrong.
+          </p>
           <div className={styles.pathGrid}>
             <div className={clsx(styles.pathCard, styles.pathCardRecommended)}>
-              <p className={styles.pathLabel}>Card A</p>
+              <p className={styles.pathLabel}>Path A</p>
               <p className={styles.pathTitle}>
-                On your laptop<span className={styles.badge}>Recommended</span>
+                On your laptop<span className={styles.badge}>Main</span>
               </p>
               <ul>
                 <li>
@@ -147,8 +157,11 @@ export default function AiTestsAi(): ReactNode {
               </ul>
             </div>
             <div className={styles.pathCard}>
-              <p className={styles.pathLabel}>Card B</p>
-              <p className={styles.pathTitle}>In your browser (GitHub Codespaces)</p>
+              <p className={styles.pathLabel}>Path B</p>
+              <p className={styles.pathTitle}>
+                In your browser (GitHub Codespaces)
+                <span className={clsx(styles.badge, styles.badgeBackup)}>Backup</span>
+              </p>
               <ul>
                 <li>Nothing to install: VS Code opens in your browser and sets itself up</li>
                 <li>About 10 minutes, and it saves you most of the setup</li>
@@ -157,7 +170,9 @@ export default function AiTestsAi(): ReactNode {
               </ul>
             </div>
           </div>
-          <p className={styles.note}>Not sure? Start with A. You can switch to B any time.</p>
+          <p className={styles.note}>
+            If your work laptop blocks installs, make B your main path. It only needs a browser.
+          </p>
           <div className={styles.buttonRow}>
             <a
               className="button button--primary button--lg"
@@ -171,10 +186,11 @@ export default function AiTestsAi(): ReactNode {
 
         <section className={styles.section}>
           <div className={styles.cta}>
-            <Heading as="h2">All OK? Let me know</Heading>
+            <Heading as="h2">All OK, or not OK? Let me know</Heading>
             <p>
-              Take a screenshot of your setup check and send it to me as a LinkedIn message. It
-              tells me you're ready, and if something looks off, I can help you before the day.
+              Take a screenshot of your setup check and send it to me as a LinkedIn message,
+              whether every line says OK or not. If it is all OK, I know you're ready. If something
+              is not OK, I can help you fix it before the day.
             </p>
             <div className={styles.buttonRow}>
               <a
@@ -182,12 +198,11 @@ export default function AiTestsAi(): ReactNode {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer">
-                Send it on LinkedIn →
+                Let's connect on LinkedIn →
               </a>
             </div>
             <p>
-              Stuck on a step? Message me on LinkedIn the same way. The check prints a number for
-              every problem; look it up in the{' '}
+              The check prints a number for every problem; look it up in the{' '}
               <ExternalLink href={TROUBLESHOOTING_URL}>troubleshooting guide</ExternalLink> first.
               Nobody gets left behind.
             </p>
@@ -197,7 +212,7 @@ export default function AiTestsAi(): ReactNode {
         <section className={styles.section}>
           <Heading as="h2">Your week</Heading>
           <ul className={styles.checklist}>
-            <li>Any evening this week: Path A or B until every line says OK</li>
+            <li>Any evening this week: Path A and Path B until every line says OK</li>
             <li>3 days before: run the check again (it confirms your Groq key still works)</li>
             <li>
               The day before: run the check once more, and charge your laptop and pack the charger
