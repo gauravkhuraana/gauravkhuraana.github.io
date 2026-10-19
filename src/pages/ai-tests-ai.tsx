@@ -3,6 +3,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Head from '@docusaurus/Head';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 
@@ -182,6 +183,18 @@ export default function AiTestsAi(): ReactNode {
               Full step-by-step guide with every command →
             </a>
           </div>
+          <figure className={styles.figure}>
+            <img
+              src={useBaseUrl('/img/ai-tests-ai/setup-check-ok.png')}
+              alt="Setup check output: every line says OK, ending with All green: you're ready!"
+              width={655}
+              height={445}
+              loading="lazy"
+            />
+            <figcaption>
+              This is what a passing check looks like. Send me a screenshot like this one.
+            </figcaption>
+          </figure>
         </section>
 
         <section className={styles.section}>
