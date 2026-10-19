@@ -3,8 +3,8 @@ title: Add unlisted /ai-tests-ai setup page for the AutomationSTAR 2026 tutorial
 branch: content/ai-tests-ai
 author: claude-opus-5-5 for Gaurav
 risk: low
-status: draft
-approved_by:
+status: approved
+approved_by: udzialmeansshare
 ---
 
 ## Goal
