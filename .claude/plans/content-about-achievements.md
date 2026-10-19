@@ -3,8 +3,8 @@ title: Add /about/ page with talks, hackathon and contest wins, recognition and 
 branch: content/about-achievements
 author: claude-opus-5-5 for Gaurav
 risk: low
-status: draft
-approved_by:
+status: approved
+approved_by: udzialmeansshare
 ---
 
 ## Goal
