@@ -22,7 +22,6 @@ const PAGE_DESCRIPTION =
 const REPO_URL = 'https://github.com/gauravkhuraana/shopkart-ai-tutorial-v2';
 const PRE_CONFERENCE_URL = `${REPO_URL}/blob/main/PRE_CONFERENCE.md`;
 const TROUBLESHOOTING_URL = `${REPO_URL}/blob/main/TROUBLESHOOTING.md`;
-const GROQ_KEYS_URL = 'https://console.groq.com/keys';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/gauravkhuraana/';
 
 function ExternalLink({href, children}: {href: string; children: ReactNode}) {
@@ -109,7 +108,7 @@ export default function AiTestsAi(): ReactNode {
 
       <header className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.kicker}>AutomationSTAR 2026 · Antwerp · 4 November, 09:00 CET</p>
+          <p className={styles.kicker}>AutomationSTAR 2026 · Tutorial C · Antwerp · 4 November, 09:00 CET</p>
           <Heading as="h1">Poison Kills Poison: AI Tests AI</Heading>
           <p className={styles.heroSub}>Get ready before the tutorial</p>
           <p className={styles.heroText}>
@@ -159,44 +158,6 @@ export default function AiTestsAi(): ReactNode {
             </div>
           </div>
           <p className={styles.note}>Not sure? Start with A. You can switch to B any time.</p>
-        </section>
-
-        <section className={styles.section}>
-          <Heading as="h2">Path A in five steps</Heading>
-          <ol className={styles.steps}>
-            <li>
-              <strong>Install Python 3.12</strong> (3.12.10). Keep any other Python versions you
-              have; 3.12 sits alongside them. The tutorial is built and tested on 3.12, so it avoids
-              surprises on the day.
-            </li>
-            <li>
-              <strong>Get the project:</strong> clone or download{' '}
-              <ExternalLink href={REPO_URL}>shopkart-ai-tutorial-v2 on GitHub</ExternalLink> and
-              open the folder in VS Code.
-            </li>
-            <li>
-              <strong>Run the setup script.</strong> One command installs everything into a private
-              environment for this project.
-            </li>
-            <li>
-              <strong>Create your free Groq key</strong> at{' '}
-              <ExternalLink href={GROQ_KEYS_URL}>console.groq.com/keys</ExternalLink> (no credit
-              card) and paste it into the <code>.env</code> file.
-            </li>
-            <li>
-              <strong>Run the check:</strong> <code>python check_setup.py</code>. Every line should
-              say <strong>OK</strong>.
-            </li>
-          </ol>
-          <p>
-            <strong>Path B</strong> is even shorter: open the repo on GitHub, click{' '}
-            <strong>Code → Codespaces → Create codespace</strong>, paste your Groq key when it asks,
-            wait a few minutes, then run the same check.
-          </p>
-          <p className={styles.note}>
-            Optional for Path A: install Ollama to run a small AI model on your own laptop. We may
-            demo it if time allows.
-          </p>
           <div className={styles.buttonRow}>
             <a
               className="button button--primary button--lg"
@@ -212,25 +173,21 @@ export default function AiTestsAi(): ReactNode {
           <div className={styles.cta}>
             <Heading as="h2">All OK? Let me know</Heading>
             <p>
-              Take a screenshot of your setup check and send it to me. It tells me you're ready,
-              and if something looks off, I can help you before the day.
+              Take a screenshot of your setup check and send it to me as a LinkedIn message. It
+              tells me you're ready, and if something looks off, I can help you before the day.
             </p>
-            <ul>
-              <li>
-                <strong>LinkedIn message:</strong>{' '}
-                <ExternalLink href={LINKEDIN_URL}>linkedin.com/in/gauravkhuraana</ExternalLink>
-              </li>
-              <li>
-                <strong>Or use the form on</strong>{' '}
-                <Link to="/connect/">gauravkhurana.com/connect</Link>
-              </li>
-              <li>
-                <strong>Or email:</strong> gaurav [dot] khuraana [at] gmail [dot] com
-              </li>
-            </ul>
+            <div className={styles.buttonRow}>
+              <a
+                className="button button--primary button--lg"
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer">
+                Send it on LinkedIn →
+              </a>
+            </div>
             <p>
-              Stuck on a step? Same three ways. The check prints a number for every problem; look
-              it up in the{' '}
+              Stuck on a step? Message me on LinkedIn the same way. The check prints a number for
+              every problem; look it up in the{' '}
               <ExternalLink href={TROUBLESHOOTING_URL}>troubleshooting guide</ExternalLink> first.
               Nobody gets left behind.
             </p>
@@ -251,7 +208,7 @@ export default function AiTestsAi(): ReactNode {
         <section className={styles.section}>
           <Heading as="h2">While you wait: explore more</Heading>
           <p className={styles.intro}>
-            Want a head start, or something to explore after the tutorial? Everything here is free.
+            While the downloads run, please explore. Want a head start, or something to explore after the tutorial? Everything here is free.
           </p>
           <div className={styles.cardGrid}>
             {exploreCards.map((card) => (

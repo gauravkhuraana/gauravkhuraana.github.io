@@ -108,36 +108,6 @@
   opacity: 0.85;
 }
 
-.steps {
-  list-style: none;
-  counter-reset: step;
-  padding: 0;
-  margin: 0 0 1.25rem;
-}
-
-.steps li {
-  counter-increment: step;
-  position: relative;
-  padding: 0 0 1rem 2.75rem;
-  min-height: 2rem;
-}
-
-.steps li::before {
-  content: counter(step);
-  position: absolute;
-  left: 0;
-  top: -0.1rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  background: var(--ifm-color-primary);
-  color: #fff;
-}
-
 .buttonRow {
   margin: 1.25rem 0 0.5rem;
 }
@@ -151,10 +121,6 @@
 
 .cta h2 {
   margin-top: 0;
-}
-
-.cta ul {
-  padding-left: 1.1rem;
 }
 
 .checklist {
