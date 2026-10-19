@@ -3,7 +3,7 @@ title: Add unlisted /ai-tests-ai setup page for the AutomationSTAR 2026 tutorial
 branch: content/ai-tests-ai
 author: claude-opus-5-5 for Gaurav
 risk: low
-status: approved
+status: draft
 approved_by: udzialmeansshare
 ---
 
@@ -73,6 +73,8 @@ the sitemap or site search, and not linked from navigation, footer, blog or feed
 - `src/pages/ai-tests-ai.tsx` — new unlisted page
 - `src/pages/ai-tests-ai.module.css` — styles for the new page (path cards, steps, CTA box, checklist, card grid)
 - `.claude/plans/content-ai-tests-ai.md` — this plan
+- `static/img/ai-tests-ai/setup-check-ok.png` — new: Gaurav's screenshot of a passing `check_setup.py`
+  run, shown as the example people send him (amendment 1)
 
 ## Out of scope
 
@@ -95,6 +97,19 @@ the sitemap or site search, and not linked from navigation, footer, blog or feed
    widths, in light and dark mode.
 6. Open the PR with the `open-pr` skill.
 
+### Amendment 1 (2026-10-19): example setup-check screenshot
+
+Gaurav asked to show his own passing setup-check screenshot just below the "Full step-by-step guide"
+button, so attendees know what to send him.
+
+7. Save the screenshot he shared in chat as `static/img/ai-tests-ai/setup-check-ok.png`. Crop off the
+   final terminal prompt line, which shows a local folder path. No other edits to the image.
+8. In `src/pages/ai-tests-ai.tsx`, add a `<figure>` right below the guide button: the image (via
+   `useBaseUrl`, with descriptive `alt` text, `loading="lazy"`, width and height set) and a short
+   caption saying this is what a passing check looks like and is the screenshot to send. Add a small
+   figure style (max width, border, rounded corners, scales down on phones) to the CSS module.
+9. Rebuild and re-run the Verification checks, then push to PR 22.
+
 ## Risks
 
 - **Duplicate robots meta.** `docusaurus.config.ts` injects a site-wide raw `<meta name="robots"
@@ -107,6 +122,9 @@ the sitemap or site search, and not linked from navigation, footer, blog or feed
   links are checked by hand in Verification.
 - **Layout on phones.** Path cards and link grid must stack; checked at 375px.
 - **Exact title.** Helmet's last `<title>` wins; checked in built HTML.
+- **Screenshot (amendment 1).** It shows only the check's output, with no keys or secrets; the local
+  path in the last prompt line is cropped off. A plain static PNG, about 50 KB, has no build impact.
+  Static files are not listed in the sitemap.
 
 ## Verification
 
@@ -127,6 +145,8 @@ Shell commands below are POSIX; run them in Git Bash on Windows.
   desktop and stacked at 375px; light and dark modes readable; external links open in a new tab.
 - Each external link returns a page (GitHub repo, PRE_CONFERENCE.md, TROUBLESHOOTING.md,
   console.groq.com/keys, LinkedIn, YouTube) and each internal link resolves.
+- Amendment 1: `build/img/ai-tests-ai/setup-check-ok.png` exists; on the served page the image loads
+  (HTTP 200) directly below the guide button, has alt text, and fits within the screen at 375px.
 
 ## Rollback
 
