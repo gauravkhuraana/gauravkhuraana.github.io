@@ -1,3 +1,6 @@
+/* Also used by src/pages/ai-tests-ai/day.tsx (hero, section, path cards, badges, cta,
+   intro, closing). A change here changes both pages. */
+
 .hero {
   padding: 2.5rem 1rem 2rem;
   background: var(--ifm-color-emphasis-100);
@@ -37,6 +40,23 @@
   font-size: 1.05rem;
   margin: 0;
   max-width: 640px;
+}
+
+.dayBanner {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  background: var(--ifm-color-primary-contrast-background);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.video {
+  margin: 1.25rem 0 0.5rem;
+}
+
+.video p {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .section {

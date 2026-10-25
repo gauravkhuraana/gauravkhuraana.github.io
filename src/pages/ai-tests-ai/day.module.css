@@ -1,0 +1,124 @@
+/* Only what /ai-tests-ai/day/ adds. Hero, sections, path cards and badges come from
+   ../ai-tests-ai.module.css so both pages look the same. */
+
+.heroLink {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+}
+
+.jumpMenu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.jumpMenu a {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: var(--ifm-background-surface-color);
+}
+
+.jumpMenu a:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+.wayGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.wayCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.wayCard ul {
+  flex: 1;
+}
+
+.wayButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.25rem 0 1rem;
+}
+
+.wayButtons :global(.button) {
+  white-space: normal;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.tableWrap table {
+  display: table;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.tableWrap th,
+.tableWrap td {
+  vertical-align: top;
+}
+
+.groupRow td {
+  font-weight: 700;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.callout {
+  border-left: 4px solid var(--ifm-color-warning);
+  border-radius: 8px;
+  padding: 1rem 1.25rem 0.25rem;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.calloutTitle {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.steps li {
+  margin-bottom: 0.5rem;
+}
+
+.cmdBlock {
+  margin-top: 1.5rem;
+}
+
+.cmdTitle {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.cmdLabel {
+  font-size: 0.92rem;
+  margin-bottom: 0.4rem;
+}
+
+.cmdBlock :global(.theme-code-block) {
+  margin-bottom: 0.75rem;
+}
+
+.tip {
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+@media (max-width: 996px) {
+  .wayGrid {
+    grid-template-columns: 1fr;
+  }
+}

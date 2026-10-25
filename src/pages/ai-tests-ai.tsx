@@ -6,12 +6,14 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
+import YouTubeEmbed from '@site/src/components/YouTubeEmbed';
 
 import styles from './ai-tests-ai.module.css';
 
 /*
  * Unlisted setup page for the AutomationSTAR 2026 tutorial.
- * Keep it unlinked from the rest of the site. The robots noindex tag below also keeps it
+ * Keep it unlinked from the rest of the site; it links only to its on-the-day page
+ * /ai-tests-ai/day/ (src/pages/ai-tests-ai/day.tsx). The robots noindex tag below also keeps it
  * out of sitemap.xml. Do not wrap content in <article> with a `markdown` class, or lunr
  * search will index it.
  */
@@ -121,6 +123,10 @@ export default function AiTestsAi(): ReactNode {
         </div>
       </header>
 
+      <div className={styles.dayBanner}>
+        <Link to="/ai-tests-ai/day/">It's tutorial day? Go to the on-the-day page →</Link>
+      </div>
+
       <main>
         <section className={styles.section}>
           <Heading as="h2">What we'll do together</Heading>
@@ -138,14 +144,14 @@ export default function AiTestsAi(): ReactNode {
         <section className={styles.section}>
           <Heading as="h2">Set up both paths</Heading>
           <p>
-            Set up both before the day. On the day you use one, and the other is your backup if
-            something goes wrong.
+            Set up both before the day. On the day we will mostly use Path B (Codespaces), and Path
+            A on your laptop is your backup.
           </p>
           <div className={styles.pathGrid}>
-            <div className={clsx(styles.pathCard, styles.pathCardRecommended)}>
+            <div className={styles.pathCard}>
               <p className={styles.pathLabel}>Path A</p>
               <p className={styles.pathTitle}>
-                On your laptop<span className={styles.badge}>Main</span>
+                On your laptop<span className={clsx(styles.badge, styles.badgeBackup)}>Backup</span>
               </p>
               <ul>
                 <li>
@@ -157,11 +163,11 @@ export default function AiTestsAi(): ReactNode {
                 </li>
               </ul>
             </div>
-            <div className={styles.pathCard}>
+            <div className={clsx(styles.pathCard, styles.pathCardRecommended)}>
               <p className={styles.pathLabel}>Path B</p>
               <p className={styles.pathTitle}>
                 In your browser (GitHub Codespaces)
-                <span className={clsx(styles.badge, styles.badgeBackup)}>Backup</span>
+                <span className={styles.badge}>On the day</span>
               </p>
               <ul>
                 <li>Nothing to install: VS Code opens in your browser and sets itself up</li>
@@ -172,8 +178,12 @@ export default function AiTestsAi(): ReactNode {
             </div>
           </div>
           <p className={styles.note}>
-            If your work laptop blocks installs, make B your main path. It only needs a browser.
+            If your work laptop blocks installs, Path B alone is enough. It only needs a browser.
           </p>
+          <div className={styles.video}>
+            <p>Watch: setting up Path B in Codespaces, step by step.</p>
+            <YouTubeEmbed videoId="02J7Apgxek0" title="Setup For Conference Via CodeSpaces - Option B" />
+          </div>
           <div className={styles.buttonRow}>
             <a
               className="button button--primary button--lg"
