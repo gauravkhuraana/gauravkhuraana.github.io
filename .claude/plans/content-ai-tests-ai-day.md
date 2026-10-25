@@ -3,8 +3,8 @@ title: Add unlisted /ai-tests-ai/day/ on-the-day page for the AutomationSTAR 202
 branch: content/ai-tests-ai-day
 author: claude-opus-5-5 for Gaurav
 risk: low
-status: draft
-approved_by:
+status: approved
+approved_by: udzialMeansShare
 ---
 
 ## Goal
