@@ -29,6 +29,7 @@ const COMMANDS_WINDOWS_URL = `${BLOB}/COMMANDS_WINDOWS.md`;
 const COMMANDS_MAC_URL = `${BLOB}/COMMANDS_MAC.md`;
 const TROUBLESHOOTING_URL = `${BLOB}/TROUBLESHOOTING.md`;
 const GROQ_KEYS_URL = 'https://console.groq.com/keys';
+const CODESPACES_SETTINGS_URL = 'https://github.com/settings/codespaces';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/gauravkhuraana/';
 
 // Attendees copy these exactly. String.raw keeps every backslash; none contains ${ or a backtick.
@@ -382,6 +383,13 @@ export default function AiTestsAiDay(): ReactNode {
               </li>
               <li>
                 Fell behind? <code>python checkpoint.py step3</code> gets you going again.
+              </li>
+              <li>
+                Key in <code>.env</code> but the check still says it is missing or wrong? You may have
+                saved an <code>LLM_API_KEY</code> or <code>JUDGE_API_KEY</code> secret before, and it
+                wins over <code>.env</code>. Delete or fix it at{' '}
+                <ExternalLink href={CODESPACES_SETTINGS_URL}>github.com/settings/codespaces</ExternalLink>,
+                then stop and restart the Codespace.
               </li>
               <li>Raise your hand, or ask your neighbour. Nobody gets left behind.</li>
             </ol>
