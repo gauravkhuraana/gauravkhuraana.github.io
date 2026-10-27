@@ -123,10 +123,6 @@ export default function AiTestsAi(): ReactNode {
         </div>
       </header>
 
-      <div className={styles.dayBanner}>
-        <Link to="/ai-tests-ai/day/">It's tutorial day? Go to the on-the-day page →</Link>
-      </div>
-
       <main>
         <section className={styles.section}>
           <Heading as="h2">What we'll do together</Heading>
